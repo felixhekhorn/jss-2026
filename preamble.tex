@@ -1,0 +1,51 @@
+\usepackage{xspace}
+\usepackage{tikz}
+\usepackage{morefloats,subfig,afterpage}
+\usepackage{mathrsfs} % script font
+\usepackage{verbatim}
+
+%% Using Babel allows other languages to be used and mixed-in easily
+%\usepackage[ngerman,english]{babel}
+\usepackage[english]{babel}
+\selectlanguage{english}
+
+%% Citation system tweaks
+\RequirePackage{cite}
+% \let\@OldCite\cite
+% \renewcommand{\cite}[1]{\mbox{\!\!\!\@OldCite{#1}}}
+
+%%% TODO: there is some magic with another loading of hyperrref going round
+% \RequirePackage{hyperref}
+\RequirePackage[colorlinks=true,bookmarks=true,plainpages=false
+%   ,urlcolor=blue
+%   ,anchorcolor=blue
+%   ,citecolor=blue
+%   ,filecolor=blue
+%   ,linkcolor=blue
+%   ,menucolor=blue
+%   ,linktocpage=true
+%   ,pdfproducer=medialab
+%   ,pdfa=true
+]{hyperref}
+\RequirePackage[capitalise]{cleveref}
+
+
+\RequirePackage[status=draft,inline,nomargin,marginclue]{fixme}
+%\usepackage[status=final]{fixme}
+\fxusetheme{color}
+%\definecolor{fxerror}{rgb}{0,0,1}
+\FXRegisterAuthor{fh}{afh}{FH}
+
+
+%% Maths
+
+%% High-energy physics stuff
+\RequirePackage{hepnames}
+\RequirePackage{hepunits}
+
+\RequirePackage{siunitx}
+\RequirePackage{physics}
+\sisetup{
+    retain-unity-mantissa = false
+}
+% \DeclareRobustCommand{\arXivCode}[1]{arXiv:#1}
