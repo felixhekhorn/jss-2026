@@ -1,3 +1,26 @@
+\section{Distributions}
 
-
-\section{RSL}
+As we have seen the coefficient functions may contain distributions.
+For example the quark coefficient function at LO is just a Dirac delta distribution:
+\begin{equation}
+    C_q^{(0)}(z) = \delta(1-z) \,.
+\end{equation}
+To better compare with our next step, let's repeat the definition of the Dirac delta distribution:
+\begin{equation}
+    \int\limits_0^1 \! \dd z\, \delta(1-z) f(z) = f(1).
+    \label{eq:DiracDelta}
+\end{equation}
+However, this is only the simplest case, which appears at LO, and at higher order we get more complicated distributions.
+For example the quark coefficient function at NLO is given by
+\begin{align}
+    C_q^{(1)}(z) &= C_F \left[ 4 \qty(\frac{\ln(1-z)}{1-z})_+ - 3 \qty(\frac{1}{1-z})_+ - \qty(9+4\zeta_2)\delta(1-z)\right. \nonumber\\
+    & \hspace{40pt} \left. - 2(1+z)\ln\left(\frac{1-z}{z}\right) - 4 \frac{\ln(z)}{1-z} + 6 +4z\right]
+\end{align}
+where the first line only contains distributions. \fherror{Where to define NLOq?}
+Here, we have introduced the usual +-distributions, which are defined via
+\begin{equation}
+    \int\limits_0^1 \! \dd z\, a(z)_+ f(z) = \int\limits_0^1 \! \dd z\, a(z) \left(f(z) - f(1)\right) \,.
+    \label{eq:PlusDistr}
+\end{equation}
+We review in a moment again on how these distributions appear, but for the moment we turn to more practical matters as the goal of our course is to get an actual comparison to experimental data.
+The problem is: distributions are (complicate) math objects, defined only via integral relations, \cref{eq:DiracDelta,eq:PlusDistr}, which are unsuitable for numeric evaluation.
