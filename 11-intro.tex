@@ -1,0 +1,67 @@
+\section{Introduction}
+
+% \subsection{Personal introduction}
+% \begin{itemize}
+%     \item Ich + paper + yad
+% \end{itemize}
+
+\subsection{Motivation and non-goals}
+We aim in this course to make a meaningful comparison between the theoretical predictions and the experimental measurement of a fully inclusive Deeply Inelastic Scattering (DIS) cross-section.
+Instead of an abstract, theoretical discussion about DIS, which can be found in a standard lecture on particle physics, we're looking here to make a connection with real-life physics solving current research questions.
+The main focus is be naturally on PDF, for which DIS plays a major role.
+In fact, DIS was, is, and will be a very important constrain in determining Parton Distribution Functions (PDFs) - only recently, e.g.\ starting from NNPDF4.0\cite{NNPDF:2021njg}, LHC data starts to dominate in PDF fits.
+Stressing the importance and relevance of PDFs for any kind of perturbative QCD (pQCD) application and to understand the inner structure of hadrons is left to the literature~\cite{Gao:2017yyd,Heinrich:2020ybq,Amoroso:2022eow}.
+In turn, DIS itself can be used to answer unresolved questions about PDFs, e.g.\ whether the proton has an intrinsic charm component~\cite{NNPDF:2023tyk}.
+
+In order to obtain a more realistic DIS treatment, we review general pQCD features and exemplify them using DIS.
+In fact, fully inclusive DIS comes in very handy, since here the effects mostly appear in their simplest form and when considering hadronic collisions, e.g.\ at the LHC, the strategies are mostly the same just more involved.
+We also keep a specific focus on the numerical implementation as, eventually, we want to compare to the experimental measurements.
+We refrain from giving detailed proofs in this course and instead consider different features as given and focus instead on their implications.
+
+Since DIS is a very wide field, it is worth spelling out explicitly some non-goals:
+\begin{itemize}
+    \item We only consider pQCD in the collinear framework here.
+        However, because DIS is such a powerful experiment, which offers a clean access to the inner structure of the protons it can be studied using other frameworks as well, such as Color Glass Condensates~\cite{Bertilsson:2026vtu,Casuga:2026xxt} \textrightarrow{} ask H.~Mäntysaari or T.~Lappi
+    \item We only consider fully inclusive cross-sections here (to be defined in \cref{sec:xs} and with a tiny exception to be discussed in \cref{sec:hq}).
+        In particular, we do not consider any more complicated final states, such as, e.g., single jet or di-jet production~\cite{H1:2014cbm}.
+    \item We only consider pQCD in the collinear framework here.
+        While, Monte Carlo Event generators, such as, e.g., Pythia~\cite{Bierlich:2022pfr}, are rooted in collinear pQCD they eventually go much beyond and we do not consider their details here~\cite{Helenius:2026odp} \textrightarrow{} ask I.~Helenius.
+    \item We only consider DIS here.
+        In particular, we do not consider photo-production or elastic or diffractive cross sections.
+        We define the necessary kinematics for the distinction below in \cref{sec:basics}.
+\end{itemize}
+
+\subsection{Requirements}
+
+We need some basic knowledge from particle physics and, in particular, you need to be familiar with the Standard Model overview shown in \cref{fig:SM}.
+\begin{figure}
+    \includegraphics[width=.8\textwidth]{figures/Standard_Model_of_Elementary_Particles.svg.png}
+    \caption{The Standard Model of Elementary Particles - taken from \cite{wikiSM}}
+    \label{fig:SM}
+\end{figure}
+We discuss in this course each and everyone of these particles, with the exception of the three heaviest in each category:
+the heavies quark, the top, the heaviest lepton, the tau, and the heaviest boson, the Higgs.
+They work, in principle, mostly like their lighter brothers and sisters, but in practice are basically always neglected.
+We give a more thorough justification to discard them when we get to the actual numbers.
+All other particles explicitly appear in this course and you need to know their charges - see also \cref{fig:SM}.
+
+\begin{tcolorbox}[title={Summary forces, particles, and charges}]
+    \begin{itemize}
+        \item The carrier of the strong force is the gluon
+        \item Quarks have a strong charge, leptons don't
+        \item The carriers of the electro-weak force are the photon, the Z boson, and the W boson
+        \item Quarks and charged leptons have electro-magnetic charges
+        \item Quarks and leptons have weak charges
+    \end{itemize}
+\end{tcolorbox}
+
+We also need some basic knowledge from Quantum Field Theory.
+
+\subsection{The very basics}
+\label{sec:basics}
+\begin{itemize}
+    \item D I S
+    \item factorization theorem
+    \item LO (+ NLOq + NLOg)
+    \item IC
+\end{itemize}
