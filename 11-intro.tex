@@ -29,7 +29,7 @@ The online documentation, which is available at
     \url{https://yadism.readthedocs.io/} \,,
 \end{center}
 may serve as additional, more technical introduction into the topic.
-Note that Yadism is an open-source project to which everybody can contribute.
+Note that Yadism is an open-source project to which everybody can contribute\footnote{e.g.\ if some documentation can be improved}.
 
 Since DIS is a very wide field, it is worth spelling out explicitly some non-goals:
 \begin{itemize}
@@ -83,20 +83,41 @@ What does that actually mean? We begin from the back:
     \item \enquote{scattering} means, of course, we are scattering two particles with each other.
         In this particular case, we are scattering a lepton off a hadron and to make things simple in the beginning we consider an electron is scattered off a proton.
     \item \enquote{inelastic} means we are breaking the target, the proton, apart; it shatters into many pieces.
-    \item \enquote{deeply} is an adjective to inelastic and it means we are looking \enquote{deep} into the inside of the proton.
+    \item \enquote{deeply} is an adjective\footnote{thus it is \enquote{deeply inelastic} or \enquote{deep-inelastic}, but not a list of adjectives \enquote{deep inelastic}} to inelastic and it means we are looking \enquote{deep} into the inside of the proton.
         And in order to resolve small things, as usual, we need an highly energetic probe.
     \item \enquote{fully inclusive} means we are observing a single particle in the final state, which is the electron, but nothing else.
 \end{itemize}
 Thus, we can write the same information again with a formula
-\begin{tcolorbox}[title={DIS in formular}]
-    fully inclusive DIS = $e^-(k) + p(P) \to e^-(k') + X $ with $-(k^2 - k'^2) \gg \Lambda_\text{QCD}^2$
+\begin{tcolorbox}[title={DIS in a formula}]
+    fully inclusive DIS = $e^-(k) + p(P) \to e^-(k') + X $ with $-(k - k')^2 \gg \LQCD^2$
 \end{tcolorbox}
-where we have assigned the four-momenta $k,P,k'$ to the incoming electron, the incoming proton and the outgoing electron respectively.
+\noindent{}where we have assigned the four-momenta $k,P,k'$ to the incoming electron, the incoming proton and the outgoing electron respectively.
+As usual $X$ marks the inclusiveness, i.e.\ we don't observe anything else apart from the electron.
+By requiring a large momentum-transfer between the incoming and the outgoing electron, i.e.\ their difference four-momentum vector has a large magnitude, we probe the proton with highly energetic parton (which we can think of as photon).
 
+Next, we need a way to actually compute theory predictions for the cross-sections, which you can measure in an experiment.
+We use the factorization theorem~\cite{Collins:1989gx},
+\begin{tcolorbox}[title={Factorization Theorem}]
+    \begin{align}
+        \sigma(x,Q^2) &= \sum_{j} \int\limits_x^1 \frac{\dd z}{z} C_j(z,Q^2) f_j(x/z,Q^2) + \order{\frac{\LQCD^2}{Q^2}} \label{eq:fact1} \\
+         &= \sum_{j} \qty(C_j(Q^2)\otimes f_j(Q^2))(x) + \order{\frac{\LQCD^2}{Q^2}} \label{eq:fact2} \\
+         &= \qty(\vb C(Q^2) \otimes \vb f(Q^2))(x) + \order{\frac{\LQCD^2}{Q^2}}\,, \label{eq:fact3}
+    \end{align}
+\end{tcolorbox}
+\noindent{}which states how to compute a cross-section $\sigma(x,Q^2)$ from coefficient function $\vb C(z,Q^2)$, computable in pQCD, and a universal PDF $\vb f(y,Q^2)$.
+In the remaining part of the course we discuss, enhance and correct this formula in many different ways and basically challenge every aspect.
+We define each and every variable and function in \cref{sec:xs}, so we can focus for the moment on two important aspects: universality and notation.
 
+The crucial, physical aspect about \cref{eq:fact1} is universality: for any cross-section $\sigma$ measured at any $x$ and $Q^2$ there is exactly one PDF $\vb f(y,Q^2)$.
+Instead, the coefficient functions $\vb C(z,Q^2)$ may depend on the definition of the cross-section, but they are computable from first principles.
+This implies the predictive powers of our framework: if $\vb C$ is fixed and $\vb f$ is universal, we can measure $\sigma$ in one set of experiments and then predict the outcome of another set of measurements $\sigma'$.
 
+The other, more practical aspect of \cref{eq:fact1,eq:fact2,eq:fact3} is the short-hand notation we introduce there.
+While \cref{eq:fact1} is the most canonical form of the factorization theorem, which can be found like this in most textbooks, we introduce in \cref{eq:fact2} the multiplicative convolution symbol $\otimes$.
+Note that we have suppressed the variable over which the convolution is performed and recall that convolution is associative, i.e.\ $\qty(g\otimes h)(x) = \qty(h\otimes g)(x)$.
+Finally, in \cref{eq:fact3} we introduce the vector notation, where we denote object, which have a non-trivial dependence on the parton flavor $j$, with bold font.
+\Cref{eq:fact3} looks nice and compact, but it worth recalling that it already hides a lot of details: specifically, $C_j(z,Q^2)$ is an object which depends on three different variables.
 
 \begin{itemize}
-    \item factorization theorem
     \item LO
 \end{itemize}
