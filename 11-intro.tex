@@ -104,11 +104,11 @@ We use the factorization theorem~\cite{Collins:1989gx},
          &= \qty(\vb C(Q^2) \otimes \vb f(Q^2))(x) + \order{\frac{\LQCD^2}{Q^2}}\,, \label{eq:fact3}
     \end{align}
 \end{tcolorbox}
-\noindent{}which states how to compute a cross-section $\sigma(x,Q^2)$ from coefficient function $\vb C(z,Q^2)$, computable in pQCD, and a universal PDF $\vb f(y,Q^2)$.
+\noindent{}which states how to compute a cross-section $\sigma(x,Q^2)$ from coefficient function $\vb C(z,Q^2)$, computable in pQCD, and a universal PDF $\vb f(\xi,Q^2)$.
 In the remaining part of the course we discuss, enhance and correct this formula in many different ways and basically challenge every aspect.
-We define each and every variable and function in \cref{sec:xs}, so we can focus for the moment on two important aspects: universality and notation.
+We define each and every variable and function in \cref{sec:xs}, so we can focus for the moment on two other important aspects: universality and notation.
 
-The crucial, physical aspect about \cref{eq:fact1} is universality: for any cross-section $\sigma$ measured at any $x$ and $Q^2$ there is exactly one PDF $\vb f(y,Q^2)$.
+The crucial, physical aspect about \cref{eq:fact1} is universality: for any cross-section $\sigma$ measured at any $x$ and $Q^2$ there is exactly one PDF $\vb f(\xi,Q^2)$.
 Instead, the coefficient functions $\vb C(z,Q^2)$ may depend on the definition of the cross-section, but they are computable from first principles.
 This implies the predictive powers of our framework: if $\vb C$ is fixed and $\vb f$ is universal, we can measure $\sigma$ in one set of experiments and then predict the outcome of another set of measurements $\sigma'$.
 
@@ -118,6 +118,11 @@ Note that we have suppressed the variable over which the convolution is performe
 Finally, in \cref{eq:fact3} we introduce the vector notation, where we denote object, which have a non-trivial dependence on the parton flavor $j$, with bold font.
 \Cref{eq:fact3} looks nice and compact, but it worth recalling that it already hides a lot of details: specifically, $C_j(z,Q^2)$ is an object which depends on three different variables.
 
-\begin{itemize}
-    \item LO
-\end{itemize}
+To Leading Order (LO) accuracy, the coefficient functions $\vb C$ greatly simplify and we find
+\begin{equation}
+    \sigma(x,Q^2) = \sum_j e_{q_j}^2 f_j(x,Q^2)\,,
+\end{equation}
+i.e. the cross-section is given by the sum of the quark PDFs weighted by their electrical charges squared.
+Note that here the variables, which are used for the experimentally measured cross-section on the left-hand-side, are also used as arguments of the PDFs on the right-hand-side.
+This is a pure coincidence only valid in the simplest case at LO.
+When studying older literature this can, however, lead to confusion as, e.g., PDFs may be called \enquote{structure functions}, or what we talk about when we denote a general variable \enquote{$x$}.
