@@ -1,12 +1,13 @@
 \section{Setting the stage}
 \label{sec:xs}
-We repeat, DIS is given by
+In the following section we collect and define all ingredients needed for \cref{eq:fact1}.
+As already said, DIS is given by
 \begin{equation}
     e^-(k) + p(P) \to e^-(k') + X
 \end{equation}
 \fherror{copy DIS diagram from PDG}
 where the four-momenta $k,P,k'$ belong to the incoming electron, the incoming proton and the outgoing electron respectively.
-This allows us, first, to define four momentum of the exchanged vector boson
+This allows us, first, to define four momentum of the exchanged photon
 \begin{equation}
     q = k - k'
 \end{equation}
@@ -45,5 +46,17 @@ It is convenient to also define a third, linearly dependent structure function v
 \begin{equation}
     2xF_1 (x,Q^2) = F_2(x,Q^2) - F_L(x,Q^2)\,.
 \end{equation}
+Keep in mind that the discussion so far is a major simplification of DIS and in \cref{sec:diverse} we reintroduce the main complexity.
 
-The discussion so far is a major simplification of DIS and in \cref{sec:diverse} we reintroduce the main complexity.
+Let us continue to collect the remaining ingredient for \cref{eq:fact1}:
+\begin{itemize}
+    \item The sum over partons $j$ includes quarks and gluons and we refine in \cref{sec:hq} how large the sum actually is.
+    \item The parton momentum fraction $\xi = x/z$ is the fraction of the four momentum the parton carries with respect to its parent proton.
+    \item The probability of such a configuration to occur is given by the PDF, i.e. $f_j(\xi,Q^2)\dd \xi$ is the probability to find a parton $j$ with momentum $\xi P$ inside a proton with momentum $P$ at an experiment performed at the scale $Q^2$.
+    \item The integration over $z$ sums all configuration to generate the final state configuration.
+\end{itemize}
+Finally, the coefficient functions $\vb C(x,Q^2)$ are computable order-by-order in pQCD and thus can be decomposed as
+\begin{equation}
+    \vb C(x,Q^2) = \sum_{k=0} \alpha_s^k(Q^2) \vb C^{(k)}(x)\,.
+\end{equation}
+Note that the $Q^2$ dependency of $\vb C(x,Q^2)$ is fully captured by the strong coupling $\alpha_s(Q^2)$.
