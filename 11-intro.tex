@@ -60,7 +60,7 @@ They work, in principle, mostly like their lighter brothers and sisters, but in 
 We give a more thorough justification to discard them when we get to the actual numbers.
 All other particles explicitly appear in this course and you need to know their charges - see also \cref{fig:SM}.
 
-\begin{tcolorbox}[title={Summary forces, particles, and charges}]
+\begin{conclusionbox}[label={box:particles}]{{Summary forces, particles, and charges}}
     \begin{itemize}
         \item The carrier of the strong force is the gluon
         \item Quarks have a strong charge, leptons don't
@@ -68,16 +68,16 @@ All other particles explicitly appear in this course and you need to know their 
         \item Quarks and charged leptons have electro-magnetic charges
         \item Quarks and leptons have weak charges
     \end{itemize}
-\end{tcolorbox}
+\end{conclusionbox}
 
 We also need some basic knowledge from Quantum Field Theory (QFT).
 
 \subsection{The very basics}
 \label{sec:basics}
 Let's start from the top:
-\begin{tcolorbox}[title={DIS in words}]
+\begin{conclusionbox}{DIS in words}
     fully inclusive DIS = fully inclusive deeply inelastic scattering
-\end{tcolorbox}
+\end{conclusionbox}
 What does that actually mean? We begin from the back:
 \begin{itemize}
     \item \enquote{scattering} means, of course, we are scattering two particles with each other.
@@ -88,22 +88,22 @@ What does that actually mean? We begin from the back:
     \item \enquote{fully inclusive} means we are observing a single particle in the final state, which is the electron, but nothing else.
 \end{itemize}
 Thus, we can write the same information again with a formula
-\begin{tcolorbox}[title={DIS in a formula}]
+\begin{conclusionbox}{DIS in a formula}
     fully inclusive DIS = $e^-(k) + p(P) \to e^-(k') + X $ with $-(k - k')^2 \gg \LQCD^2$
-\end{tcolorbox}
+\end{conclusionbox}
 \noindent{}where we have assigned the four-momenta $k,P,k'$ to the incoming electron, the incoming proton and the outgoing electron respectively.
 As usual $X$ marks the inclusiveness, i.e.\ we don't observe anything else apart from the electron.
 By requiring a large momentum-transfer between the incoming and the outgoing electron, i.e.\ their difference four-momentum vector has a large magnitude, we probe the proton with highly energetic parton (which we can think of as photon).
 
 Next, we need a way to actually compute theory predictions for the cross-sections, which you can measure in an experiment.
 We use the factorization theorem~\cite{Collins:1989gx},
-\begin{tcolorbox}[title={Factorization Theorem}]
+\begin{conclusionbox}{Factorization Theorem}
     \begin{align}
         \sigma(x,Q^2) &= \sum_{j} \int\limits_x^1 \frac{\dd z}{z} C_j(z,Q^2) f_j(x/z,Q^2) + \order{\frac{\LQCD^2}{Q^2}} \label{eq:fact1} \\
          &= \sum_{j} \qty(C_j(Q^2)\otimes f_j(Q^2))(x) + \order{\frac{\LQCD^2}{Q^2}} \label{eq:fact2} \\
          &= \qty(\vb C(Q^2) \otimes \vb f(Q^2))(x) + \order{\frac{\LQCD^2}{Q^2}}\,, \label{eq:fact3}
     \end{align}
-\end{tcolorbox}
+\end{conclusionbox}
 \noindent{}which states how to compute a cross-section $\sigma(x,Q^2)$ from coefficient function $\vb C(z,Q^2)$, computable in pQCD, and a universal PDF $\vb f(\xi,Q^2)$.
 In the remaining part of the course we discuss, enhance and correct this formula in many different ways and basically challenge every aspect.
 We define each and every variable and function in \cref{sec:xs}, so we can focus for the moment on two other important aspects: universality and notation.

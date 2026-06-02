@@ -36,6 +36,9 @@
 %\definecolor{fxerror}{rgb}{0,0,1}
 \FXRegisterAuthor{fh}{afh}{FH}
 \RequirePackage{tcolorbox}
+\newtcolorbox[auto counter,number within=chapter,crefname={conclusion}{conclusions}]{conclusionbox}[2][]{%
+%colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,
+title=Conclusion~\thetcbcounter: #2,#1}
 
 %% Maths
 
