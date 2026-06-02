@@ -1,0 +1,72 @@
+\section{DIS is diverse}
+\label{sec:diverse}
+% \begin{itemize}
+%     \item $\gamma/Z$
+%     \item leptons
+%     \item hadrons: p+d+A; nucl. PDF
+%     \item experimental overview
+% \end{itemize}
+
+In this section we give an overview many different DIS datasets commonly used in PDF fits.
+By doing so, we quickly realize that the picture in \cref{chap:intro} is far too simplistic.
+
+\subsection{HERA}
+We start with the Hadron-Elektron-Ringanlage (HERA),  which was in operation between 1992 and 2007.
+It was hosted by DESY in Hamburg, Germany.
+\fherror{add HERA image}
+While the promoted physics discovery, leptoquarks, eventually did not happen, HERA has become one of the most influential DIS machines so far.
+In fact, it is until this day the only lepton-proton collider in the world.
+It recorded a huge amount of data, which is still analyzed nowadays, 20 years after the shutdown.
+HERA had four experiments (H1, ZEUS, HERA-B and HERMES), but we focus here on the combined analysis of H1 and ZEUS~\cite{H1:2015ubc}.
+In \cref{tab:HERA} we given an overview of the most important fully-inclusive DIS measurements from HERA.
+
+\begin{table}
+    \caption{HERA measurement~\cite{H1:2015ubc} used in NNPDF4.0~\cite{NNPDF:2021njg}}
+    \label{tab:HERA}
+    \begin{tabular}{ll ll ll}
+        projectile & $\sqrt s$ [GeV] & x & $Q^2$ & $N_\text{dat}^\text{fit}/N_\text{dat}$ & obs.\\
+        \hline
+        $e^-$ & 318 & ? & ? & ?/201-43 & $\sigma_r^\text{NC}$ \\
+        $e^+$ & 318 & ? & ? & ? & $\sigma_r^\text{NC}$ \\
+        $e^+$ & 300 & ? & ? & ? & $\sigma_r^\text{NC}$ \\
+        $e^+$ & 251 & ? & ? & ? & $\sigma_r^\text{NC}$ \\
+        $e^+$ & 225 & ? & ? & ? & $\sigma_r^\text{NC}$ \\
+        $e^-$ & 318 & ? & ? & ? & $\sigma_r^\text{CC}$ \\
+        $e^+$ & 318 & ? & ? & ? & $\sigma_r^\text{CC}$ 
+    \end{tabular}
+\end{table}
+\fherror{complete HERA table}
+
+We start by looking at the projectile column and immediately we realize that HERA was most of the time not colliding electrons, but positrons.
+This is to remind us that DIS is lepton-hadron scattering and, indeed, we have to consider all leptons.
+We expand our selection further below in \cref{sec:neutrino}, but remain for the moment with the electron and the positron, which are exact copies of each other, but with opposite charge.
+
+Next, we turn to the energy column $\sqrt s$, which spreads across four different energies.
+In practice the lepton beam was operated with a fixed beam energy ($E_e = \SI{27.5}{\GeV}$) and varying energies for the protons ($E_p=\SIlist{920;820;575;460}{\GeV}$).
+If we then look to the $x$ and $Q^2$ columns an recall \cref{eq:defshad}, we see that the table only indicates the maximal available range of those variables.
+Specifically, HERA was able to measure activity in the detector for $0.005 < y < 0.95$.
+
+However, not only the accessible kinematical phase space limits our kinematic coverage, but also our requirement to study DIS, \cref{box:DISreq}.
+In practice, e.g.\ NNPDF4.0~\cite{NNPDF:2021njg} applies a cut of $Q^2 \geq \SI{8}{\GeV^2}$ and $W^2 \geq \SI{12.5}{\GeV^2}$.
+Mathematically, the $Q^2$ cut ensures we are in a perturbative regime, \cref{eq:CpQCD}, while the $W^2$ cut has multiple motivations.
+First, it ensures we are in an inelastic regime, i.e.\ we are not finding resonances or excitations of the proton.
+Second and related to the former, we know it suppresses the correction term $\order{\frac{\LQCD^2}{Q^2}}$ in \cref{eq:fact1}.
+Studying and trying to estimate the correction term is a topic in current research~\cite{Ball:2025xtj,Harland-Lang:2025wvm,Cerutti:2025yji}.
+Looking to the column with the number of data points, we note that even after the kinematic cuts we are left with a total of \fherror{$N_\text{data}^\text{HERA}$} measured cross sections.
+
+Finally, we turn to the observables column for which we see two different entries exist:
+the reduced neutral current (NC) cross section $\sigma_r^\text{NC}$ and the reduced charge current (CC) cross section $\sigma_r^\text{CC}$.
+The \enquote{current} here refers to the current between the leptonic part and the hadronic part, in particular the exchanged boson.
+The \enquote{reduced} cross section refers to a slight rescaling of the double differential cross section, \cref{eq:dsigmadxdy},
+\begin{equation}
+    \sigma_r = \frac{xy Q^2}{4\pi \aem^2}\frac{\dd[2] \sigma}{\dd x \dd y}
+\end{equation}
+such that it refers to a specific PDF combination at LO accuracy.
+
+Next, we examine the CC case by recalling two important facts from \cref{box:particles}:
+first, charged leptons, and thus also electrons and positrons, have weak charges and, second, $W$ bosons have an electric charge.
+Thus, by CC we consider the lepton interacts with the hadron via the exchange of a $W$ boson, which behaves quite different then a photon.
+First and foremost, due to the electric charge conservation the $W$ boson can only interact with specific leptons and quarks.
+
+\subsection{Neutrino DIS}
+\label{sec:neutrino}
