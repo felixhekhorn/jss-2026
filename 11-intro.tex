@@ -6,7 +6,7 @@
 % \end{itemize}
 
 \subsection{Motivation and non-goals}
-We aim in this course to make a meaningful comparison between the theoretical predictions and the experimental measurement of a fully inclusive Deeply Inelastic Scattering (DIS) cross-section.
+We aim in this course to make a meaningful comparison between the theoretical predictions and the experimental measurement of a fully inclusive Deeply Inelastic Scattering (DIS) cross section.
 Instead of an abstract, theoretical discussion about DIS, which can be found in a standard lecture on particle physics, we're looking here to make a connection with real-life physics solving current research questions.
 The main focus is be naturally on PDF, for which DIS plays a major role.
 In fact, DIS was, is, and will be a very important constrain in determining Parton Distribution Functions (PDFs) - only recently, e.g.\ starting from NNPDF4.0\cite{NNPDF:2021njg}, LHC data starts to dominate in PDF fits.
@@ -35,7 +35,7 @@ Since DIS is a very wide field, it is worth spelling out explicitly some non-goa
 \begin{itemize}
     \item We only consider pQCD in the collinear framework here.
         However, because DIS is such a powerful experiment, which offers a clean access to the inner structure of the protons it can be studied using other frameworks as well, such as Color Glass Condensates~\cite{Bertilsson:2026vtu,Casuga:2026xxt} \textrightarrow{} ask H.~Mäntysaari or T.~Lappi
-    \item We only consider fully inclusive cross-sections here (to be defined in \cref{sec:xs} and with a tiny exception to be discussed in \cref{sec:hq}).
+    \item We only consider fully inclusive cross sections here (to be defined in \cref{sec:xs} and with a tiny exception to be discussed in \cref{sec:hq}).
         In particular, we do not consider any more complicated final states, such as, e.g., single jet or di-jet production~\cite{H1:2014cbm}.
     \item We only consider pQCD in the collinear framework here.
         While, Monte Carlo Event generators, such as, e.g., Pythia~\cite{Bierlich:2022pfr}, are rooted in collinear pQCD they eventually go much beyond and we do not consider their details here~\cite{Helenius:2026odp} \textrightarrow{} ask I.~Helenius.
@@ -43,7 +43,7 @@ Since DIS is a very wide field, it is worth spelling out explicitly some non-goa
         In particular, we do not consider photo-production or elastic or diffractive cross sections.
         We define the necessary kinematics for the distinction below in \cref{sec:basics}.
     \item We compute the theoretical predictions here.
-        So while we try to keep the connection to the experimental side close, we do not discuss any specific details about how to measure cross-sections.
+        So while we try to keep the connection to the experimental side close, we do not discuss any specific details about how to measure cross sections.
 \end{itemize}
 
 \subsection{Requirements}
@@ -95,7 +95,7 @@ Thus, we can write the same information again with a formula
 As usual $X$ marks the inclusiveness, i.e.\ we don't observe anything else apart from the electron.
 By requiring a large momentum-transfer between the incoming and the outgoing electron, i.e.\ their difference four-momentum vector has a large magnitude, we probe the proton with highly energetic parton (which we can think of as photon).
 
-Next, we need a way to actually compute theory predictions for the cross-sections, which you can measure in an experiment.
+Next, we need a way to actually compute theory predictions for the cross sections, which you can measure in an experiment.
 We use the factorization theorem~\cite{Collins:1989gx},
 \begin{conclusionbox}{Factorization Theorem}
     \begin{align}
@@ -104,12 +104,12 @@ We use the factorization theorem~\cite{Collins:1989gx},
          &= \qty(\vb C(Q^2) \otimes \vb f(Q^2))(x) + \order{\frac{\LQCD^2}{Q^2}}\,, \label{eq:fact3}
     \end{align}
 \end{conclusionbox}
-\noindent{}which states how to compute a cross-section $\sigma(x,Q^2)$ from coefficient function $\vb C(z,Q^2)$, computable in pQCD, and a universal PDF $\vb f(\xi,Q^2)$.
+\noindent{}which states how to compute a cross section $\sigma(x,Q^2)$ from coefficient function $\vb C(z,Q^2)$, computable in pQCD, and a universal PDF $\vb f(\xi,Q^2)$.
 In the remaining part of the course we discuss, enhance and correct this formula in many different ways and basically challenge every aspect.
 We define each and every variable and function in \cref{sec:xs}, so we can focus for the moment on two other important aspects: universality and notation.
 
-The crucial, physical aspect about \cref{eq:fact1} is universality: for any cross-section $\sigma$ measured at any $x$ and $Q^2$ there is exactly one PDF $\vb f(\xi,Q^2)$.
-Instead, the coefficient functions $\vb C(z,Q^2)$ may depend on the definition of the cross-section, but they are computable from first principles.
+The crucial, physical aspect about \cref{eq:fact1} is universality: for any cross section $\sigma$ measured at any $x$ and $Q^2$ there is exactly one PDF $\vb f(\xi,Q^2)$.
+Instead, the coefficient functions $\vb C(z,Q^2)$ may depend on the definition of the cross section, but they are computable from first principles.
 This implies the predictive powers of our framework: if $\vb C$ is fixed and $\vb f$ is universal, we can measure $\sigma$ in one set of experiments and then predict the outcome of another set of measurements $\sigma'$.
 
 The other, more practical aspect of \cref{eq:fact1,eq:fact2,eq:fact3} is the short-hand notation we introduce there.
@@ -123,8 +123,8 @@ To Leading Order (LO) accuracy, the coefficient functions $\vb C$ greatly simpli
 \begin{equation}
     \sigma(x,Q^2) = \sum_j e_{q_j}^2 f_j(x,Q^2)\,, \label{eq:LOxs}
 \end{equation}
-i.e.\ the cross-section is given by the sum of the quark PDFs weighted by their electrical charges squared.
-Note that here the variables, which are used for the experimentally measured cross-section on the left-hand-side, are also used as arguments of the PDFs on the right-hand-side.
+i.e.\ the cross section is given by the sum of the quark PDFs weighted by their electrical charges squared.
+Note that here the variables, which are used for the experimentally measured cross section on the left-hand-side, are also used as arguments of the PDFs on the right-hand-side.
 This is a pure coincidence only valid in the simplest case at LO and two historical comments can be made here.
 First, when studying older literature this equivalence can lead to confusion as, e.g., PDFs have been also called \enquote{structure functions} at the time, or what exactly we mean when talking about a general variable \enquote{$x$}.
 Second, in the so-called \enquote{parton model}, which was popular before QCD was invented, the index $j$ just referred to a \enquote{parton} with some properties.
