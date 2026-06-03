@@ -11,9 +11,14 @@ In this section we give an overview many different DIS datasets commonly used in
 By doing so, we quickly realize that the picture in \cref{chap:intro} is far too simplistic.
 
 \subsection{HERA}
+\begin{figure}
+    \includegraphics[width=.7\textwidth]{figures/HERA-Tunnel.jpg}
+    \caption{\enquote{The view into the 6.3-kilometre-long HERA tunnel shows the superconducting magnets for guiding the protons on top and the electron ring beneath them.} - taken from~\cite{wikiHERA}}
+    \label{fig:HERA}
+\end{figure}
+
 We start with the Hadron-Elektron-Ringanlage (HERA),  which was in operation between 1992 and 2007.
-It was hosted by DESY in Hamburg, Germany.
-\fherror{add HERA image}
+HERA was hosted by DESY in Hamburg, Germany and \cref{fig:HERA} shows an image from the HERA tunnel.
 While the promoted physics discovery, leptoquarks, eventually did not happen, HERA has become one of the most influential DIS machines so far.
 In fact, it is until this day the only lepton-proton collider in the world.
 It recorded a huge amount of data, which is still analyzed nowadays, 20 years after the shutdown.
@@ -67,6 +72,36 @@ Next, we examine the CC case by recalling two important facts from \cref{box:par
 first, charged leptons, and thus also electrons and positrons, have weak charges and, second, $W$ bosons have an electric charge.
 Thus, by CC we consider the lepton interacts with the hadron via the exchange of a $W$ boson, which behaves quite different then a photon.
 First and foremost, due to the electric charge conservation the $W$ boson can only interact with specific leptons and quarks.
+On the leptonic side this implies that, first, e.g., the positron always emits a $W^+$ boson, and, second, the recoiling lepton is a neutrino, which in practice is impossible to track.
+Specifically, it is impossible to measure it's momentum four-vector $k'$, \cref{eq:DISreaction}, and thus measure the $W$ boson momentum $q$, \cref{eq:defq}, or any other derived variable ($x,Q^2,y$).
+Instead, the full reconstruction of the hadronic final state also allows to extract the relevant kinematic variables, which is used instead~\cite{H1:2015ubc}.
+Although the production of CC events is suppressed by the propagator of the $W$ boson, $\sim (Q^2 + m_W^2)^{-1}$, it is a LO effect and thus no further suppression.
+Moreover, since the $W$ are maximally parity violating this allows a third, independent structure function (typically referred to as $F_3$) to appear in the decomposition of the cross section, \cref{eq:dsigmadxdy}.
+We review the problems introduced by $\gamma_5$, which causes the parity violation, further in \cref{sec:g5}.
+
+We now consider the NC case, which is a generalization of the photon exchange discussed in \cref{chap:intro}.
+As we recall from \cref{box:particles} the $Z$ boson is practically a massive copy of the photon $\gamma$ and they share all other quantum numbers.
+This implies whenever a photon is exchanged, also a $Z$ boson can be exchanged, with the main difference that its contributions are suppressed by the respective propagator, $\sim (Q^2 + m_Z^2)^{-1}$.
+More specifically, we get three contributions to our final cross section: a pure photon contribution $\sigma^\gamma$ (where the superscript $\gamma$ is often suppressed), a pure $Z$ contribution $\sigma^Z$, and an interference contribution\footnote{the interference term typically contains the required factor of 2 from the binomial formula inside} $\sigma^{\gamma Z}$, which have to be summed together:
+\begin{equation}
+    \sigma^\text{NC} = \sigma^\gamma + \sigma^{\gamma Z} + \sigma^{Z}\,.
+\end{equation}
+While at low virtualities $Q^2 \ll m_Z^2$ the $Z$ contributions can be neglected, this does not apply to the largest HERA measurements.
+Similar to $W$ boson, also $Z$ bosons have an axial-vectorial coupling to fermions, $\sim \gamma^\mu\gamma^5$, which introduces a contribution from $F_3$ to \cref{eq:dsigmadxdy}.
+The interference contribution, $F_{1,2}^{\gamma Z}$, yields an electric charge (from the photon) and a vectorial coupling (from the $Z$ boson) both on the leptonic and the hadronic side, whereas the pure $Z$ contribution, $F_{1,2}^Z$, yields squares of both vectorial and axial-vectorial couplings.
+On the other side, as $F_3$ is per-se a parity-violating observable, there the interference contribution $F_3^{\gamma Z}$ yields an electric charge (from the photon) and an axial-vectorial coupling (from the $Z$) and the pure $Z$ contribution, $F_3^Z$ yields a product of the vectorial and axial-vectorial couplings.
+
+The fact that NC and CC couple completely different to fermion, i.e.\ quarks and leptons, and the definition of three independent structure functions allows one to fully determine PDFs from DIS~\cite{Lappi:2024dvv}.
+\fherror{Point to LO DIS exercise?}
+
+\subsection{Nuclear DIS}
+\label{sec:nuclear}
 
 \subsection{Neutrino DIS}
 \label{sec:neutrino}
+
+\begin{itemize}
+    \item CHORUS, Sami
+    \item FASER
+    \item astro
+\end{itemize}
