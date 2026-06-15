@@ -1,0 +1,51 @@
+Since PDFs are non-perturbative objects, encoding low-scale physics, they are not computable from first principles inside pQCD.
+Instead, PDFs are obtained from a fitting procedure, which can be summarized as follows:
+\begin{conclusionbox}{PDF fitting}
+    \begin{enumerate}
+        \item Guess a candidate PDF
+        \item Compute the theory predictions with this candidate PDF
+        \item Compare the theory predictions to the experimental measurement
+    \end{enumerate}
+    Repeat the above steps until the procedure converges, i.e.\ the comparison is \enquote{good enough}.
+\end{conclusionbox}
+The specific details on how to guess a candidate PDF, how to exactly compute the theory predictions, which experimental data to use, and what \enquote{good enough} exactly means is a choice.
+That is the reason why competing PDF fitting groups exist and why they do not necessarily obtain the same PDF, although we all assume the latter to be universal.
+
+The main point for us here is that we need to compute theory predictions very many times for slightly different PDFs.
+This is a serious problem for complicated hadronic observables, such as, e.g., jet cross sections~\cite{NNLOJET:2025rno}, where the computation can take many hours.
+The solution is to compute fast interpolation grids, using, e.g., PineAPPL~\cite{Carrazza:2020gss,christopher_schwan_2025_15635174}, APPLgrid~\cite{Carli:2010rw}, or fastNLO~\cite{Wobisch:2011ij}, which store the partonic matrix elements in an efficient way, such that any subsequent convolution with an arbitrary PDF is fast.
+
+In DIS this is not a very big problem, since typically coefficient functions, \cref{eq:fact1}, are known analytically and thus the convolution with PDFs is straightforward.
+However, PineAPPL allows also DIS cross sections to be stored thus we can use this simplified case to introduce the general concept here.
+Moreover, having all observables in a PDF fit sharing the same technology also simplifies their consistent treatment and inside the NNPDF collaboration this is realized in the pineline framework~\cite{Barontini:2023vmr}.
+
+Interpolation grids are only a discretized version of the coefficient functions which we can recombine in a suitable way a posteriori.
+Specifically, they are higher dimensional tensors on which we perform fast linear algebra operations.
+The first three major dimensions are:
+\begin{description}
+    \item[bin] This is the list of cross section that we need to compute simultaneously.
+        In DIS this typically corresponds to all $N_\text{dat}$ data point measured in a given configuration, e.g.\ in \cref{tab:HERA}.
+        Thus, in practice the actual list is given by the experimental measurement.
+    \item[order] This is the list of perturbative orders, i.e.\ we store each $\vb C^{(k)}(z)$, \cref{eq:CpQCD}, separately.
+        Having this list available allows to use a given grid also at lower orders and thus study, e.g., perturbative stability.
+        In practice, the actual list is given by the requested accuracy of the user (provided we can actual fulfill that request).
+        Recall that LO, \cref{eq:LOC}, and NLO, e.g.\ \cref{eq:NLOCq}, are quite different and this generates correlations with the momentum fraction dimension (see below).
+    \item[channel] This is the list of PDF flavor combinations, i.e.\ the sum over $j$ in \cref{eq:fact1}.
+        Having this list available allows to study the impact of different PDF combination and, e.g., determine which PDF the observable can potentially constrain most.
+        In DIS it is given by the coupling structure of the exchanged boson, i.e.\ $\gamma/Z$ vs.\ $W^\pm$.
+        In practice, the actual list is the easiest given directly in terms of individual parton flavors as the available combinations are too complex (see \cref{sec:sv} for additional complications).
+\end{description}
+
+These three dimensions are present in any interpolation grid and in DIS there are two additional dimensions:
+\begin{description}
+    \item[scale] This is the list of factorization and renormalization scales, discussed in \cref{sec:sv}.
+        In DIS this dimension turns out to be trivial, i.e.\ it has support by a single value, as in fully inclusive DIS there is only a single scale, $Q^2$, available and we set typically $\mu_F^2 = \mu_R^2 = Q^2$.
+        In practice, the actual list is given by the $Q^2$ specified in the bin configuration.
+    \item[momentum fraction] This is the list of momentum fractions $z$, \cref{eq:fact1}, over which the coefficient functions are convolved with the PDF.
+        In DIS we are facing the problem of distributions, see \cref{sec:rsl}, i.e.\ we can not directly tabulate the coefficient functions themselves.
+        In practice, the actual list is given by a convolution with a suitable set of interpolation functions, which form a basis for PDFs.
+\end{description}
+
+For fully inclusive DIS we end up with five dimensional tensors, where each inner dimension may depend on the outer.
+
+\fherror{explain interpolation?}
