@@ -1,0 +1,59 @@
+% \begin{itemize}
+%     \item alphas
+%     \item DGLAP
+%     \item Mellin
+% \end{itemize}
+
+In preparation to \cref{sec:sv} we need to quickly review two main ingredients into pQCD: the strong coupling $\alpha_s(Q^2)$, \cref{eq:CpQCD}, and the PDFs $\vb f(\xi,Q^2)$, \cref{eq:fact1}.
+Specifically, we need to remind ourselves on their scale dependency if we want to vary them in \cref{sec:sv}.
+While the two objects obey very similar equations, $\alpha_s(Q^2)$ is conceptually simpler.
+
+\subsection{The strong coupling}
+\label{eq:as}
+The strong coupling $\alpha_s$ is directly linked to the coupling of the gluons to quarks,
+\begin{equation}
+    \mathcal L_\text{QCD} \supset g T_a \bar{\psi} \gamma^\mu A^a_\mu \psi, \qquad \alpha_s = \frac{g^2}{4\pi}
+\end{equation}
+and is the central object in pQCD around which we organize our perturbative series.
+If one considers higher order corrections to the gluon-quark couplings, one encounters quickly divergencies of ultra-violet origin, i.e.\ for large loop momenta.
+This forces the introduction of a regularization procedure, typically dimensional regularization, which eventually leads to a scale dependent definition of the renormalized strong coupling $\alpha_s(\mu_R^2)$.
+The introduced scale, called renormalization scale $\mu_R$ henceforth, is an arbitrary scale, which is an artifact of our regularization procedure and which effectively represents a separation between perturbative and non-perturbative regimes.
+However, the scale dependence of $\alpha_s(\mu_R^2)$ is rigorously predicted in pQCD, organizing the terms in such a way that within the requested accuracy any dependence of $\mu_R$ is cancelled.
+Recall that the scale dependence can be computed once the Lagrangian $\mathcal L$ is defined and does not require any actual observable.
+
+Eventually, we obtain the renormalization group equation (RGE) of the strong coupling,
+\begin{equation}
+    \mu_R^2 \dv{\alpha_s(\mu_R^2)}{\mu_R^2} = \beta(\alpha_s) = - \sum_{j=0}\beta_j\qty(\alpha_s(\mu_R^2))^{2+j} \label{eq:beta}
+\end{equation}
+which is also the definition\footnote{Note that in the literature many conventions for the left- and/or right-hand-side exist.} of the beta function $\beta(\alpha_s)$.
+The upper limit of the sum in \cref{eq:beta} defines the perturbative accuracy, to which all other objects in pQCD refer to.
+
+At leading order accuracy we find
+\begin{equation}
+    \mu_R^2 \dv{\alpha_s(\mu_R^2)}{\mu_R^2} = - \beta_0 \alpha_s(\mu_R^2), \qquad \beta_0 = \frac{11 C_A - 4T_R n_f}{12\pi} \label{eq:LObeta}
+\end{equation}
+where we used the second Casimir constant of the adjoint representation $C_A = N_c = 3$, the normalization of the fundamental generators $T_R = 1/2$, and the number of active flavors $n_f$, discussed in \cref{sec:hq}.
+In this specific case we can solve \cref{eq:LObeta} and obtain
+\begin{equation}
+    \alpha_s^\text{LO}(\mu_R^2) = \frac{\alpha_s(\mu_0^2)}{1 + \alpha_s(\mu_0^2)\beta_0\ln(\mu_R^2/\mu_0^2)} \label{eq:LOalphas}
+\end{equation}
+for a given boundary condition $\alpha_s(\mu_0^2)$.
+Recall, that \cref{eq:LOalphas} has not two free parameters, $\mu_0$ and $\alpha_s(\mu_0)$ as one would naively think, but only one.
+\fherror{excercise: proof lambda in alphas}
+
+Now, coming back to the title of this section, note that \cref{eq:LOalphas} is a resummation:
+\begin{equation}
+    \alpha_s^\text{LO}(\mu_R^2) = \alpha_s(\mu_0^2) \sum_{k=0}^\infty \qty(-\alpha_s(\mu_0^2)\beta_0\ln(\mu_R^2/\mu_0^2))^k \label{eq:LOalphasresum}
+\end{equation}
+i.e.\ it collects an infinite tower of logarithms, here $\ln(\mu_0^2/\mu_R^2)$, into a compact expression, \cref{eq:LOalphas}.
+Since $\mu_0$ is an arbitrary scale, often chosen to coincide with the mass of the $Z$ boson $\mu_0=m_Z$, it is basically always required to perform the resummation and use \cref{eq:LOalphas}.
+However, in some situations, to be discussed in \cref{sec:sv}, we need \cref{eq:LOalphas} truncated to a finite order, i.e.\ unraveling \cref{eq:LOalphasresum}, and we get
+\begin{equation}
+    \alpha_s^\text{LO}(\mu_R^2) = \alpha_s(\mu_0^2) - \qty(\alpha_s(\mu_0^2))^2\beta_0\ln(\mu_R^2/\mu_0^2) + \ldots \label{eq:LOalphasexp}
+\end{equation}
+While for the special case $\mu_0 = \mu_R$ we need to be consistent of course and we thus find that $\alpha_s^\text{LO}(\mu_R^2)$ is $\alpha_s(\mu_0^2)$ at the LO expansion, we note that they differ by higher order terms.
+\Cref{eq:LOalphasexp} is the first, simplest case of a perturbative expansion of a resummed expression, \cref{eq:LOalphas}, and can also be obtained by using the Taylor expansion of $\alpha_s(\mu_R^2)$ around $\mu_0^2$ together with \cref{eq:LObeta}.
+In other words, \cref{eq:LOalphasexp} is a perturbative expansion of \cref{eq:LOalphas} in powers of $\alpha_s(\mu_0^2)$.
+Note that \cref{eq:LOalphasresum} has a finite radius of convergence (as all geometric series) and that is also reflected in \cref{eq:LOalphas}.
+
+\fherror{alphas NLO}
