@@ -4,9 +4,9 @@
 %     \item Mellin
 % \end{itemize}
 
-In preparation to \cref{sec:sv} we need to quickly review two main ingredients into pQCD: the strong coupling $\alpha_s(Q^2)$, \cref{eq:CpQCD}, and the PDFs $\vb f(\xi,Q^2)$, \cref{eq:fact1}.
+In preparation to \cref{sec:sv} we need to review two main ingredients into pQCD: the strong coupling $\alpha_s(Q^2)$, \cref{eq:CpQCD}, and the PDFs $\vb f(\xi,Q^2)$, \cref{eq:fact1}.
 Specifically, we need to remind ourselves on their scale dependency if we want to vary them in \cref{sec:sv}.
-While the two objects obey very similar equations, $\alpha_s(Q^2)$ is conceptually simpler.
+While the two objects obey very similar equations, $\alpha_s(Q^2)$ is conceptually simpler and we start with that.
 
 \subsection{The strong coupling}
 \label{eq:as}
@@ -28,9 +28,9 @@ Eventually, we obtain the renormalization group equation (RGE) of the strong cou
 which is also the definition\footnote{Note that in the literature many conventions for the left- and/or right-hand-side exist.} of the beta function $\beta(\alpha_s)$.
 The upper limit of the sum in \cref{eq:beta} defines the perturbative accuracy, to which all other objects in pQCD refer to.
 
-At leading order accuracy we find
+At LO accuracy we find
 \begin{equation}
-    \mu_R^2 \dv{\alpha_s(\mu_R^2)}{\mu_R^2} = - \beta_0 \alpha_s(\mu_R^2), \qquad \beta_0 = \frac{11 C_A - 4T_R n_f}{12\pi} \label{eq:LObeta}
+    \mu_R^2 \dv{\alpha_s(\mu_R^2)}{\mu_R^2} = - \beta_0 \qty(\alpha_s(\mu_R^2))^2, \qquad \beta_0 = \frac{11 C_A - 4T_R n_f}{12\pi} \label{eq:LObeta}
 \end{equation}
 where we used the second Casimir constant of the adjoint representation $C_A = N_c = 3$, the normalization of the fundamental generators $T_R = 1/2$, and the number of active flavors $n_f$, discussed in \cref{sec:hq}.
 In this specific case we can solve \cref{eq:LObeta} and obtain
@@ -39,7 +39,7 @@ In this specific case we can solve \cref{eq:LObeta} and obtain
 \end{equation}
 for a given boundary condition $\alpha_s(\mu_0^2)$.
 Recall, that \cref{eq:LOalphas} has not two free parameters, $\mu_0$ and $\alpha_s(\mu_0)$ as one would naively think, but only one.
-\fherror{excercise: proof lambda in alphas}
+\fherror{excercise: proof lambda in alphas?}
 
 Now, coming back to the title of this section, note that \cref{eq:LOalphas} is a resummation:
 \begin{equation}
@@ -51,9 +51,30 @@ However, in some situations, to be discussed in \cref{sec:sv}, we need \cref{eq:
 \begin{equation}
     \alpha_s^\text{LO}(\mu_R^2) = \alpha_s(\mu_0^2) - \qty(\alpha_s(\mu_0^2))^2\beta_0\ln(\mu_R^2/\mu_0^2) + \ldots \label{eq:LOalphasexp}
 \end{equation}
-While for the special case $\mu_0 = \mu_R$ we need to be consistent of course and we thus find that $\alpha_s^\text{LO}(\mu_R^2)$ is $\alpha_s(\mu_0^2)$ at the LO expansion, we note that they differ by higher order terms.
+While for the special case $\mu_0 = \mu_R$ we need to be consistent of course and we thus find that $\alpha_s^\text{LO}(\mu_R^2)$ is $\alpha_s(\mu_0^2)$ at the LO truncation, we note that they differ by higher order terms.
 \Cref{eq:LOalphasexp} is the first, simplest case of a perturbative expansion of a resummed expression, \cref{eq:LOalphas}, and can also be obtained by using the Taylor expansion of $\alpha_s(\mu_R^2)$ around $\mu_0^2$ together with \cref{eq:LObeta}.
 In other words, \cref{eq:LOalphasexp} is a perturbative expansion of \cref{eq:LOalphas} in powers of $\alpha_s(\mu_0^2)$.
 Note that \cref{eq:LOalphasresum} has a finite radius of convergence (as all geometric series) and that is also reflected in \cref{eq:LOalphas}.
 
-\fherror{alphas NLO}
+Starting from NLO accuracy the RGE,
+\begin{equation}
+    \mu_R^2 \dv{\alpha_s(\mu_R^2)}{\mu_R^2} = - \beta_0 \qty(\alpha_s(\mu_R^2))^2 - \beta_1 \qty(\alpha_s(\mu_R^2))^3\,, \label{eq:NLObeta}
+\end{equation}
+can no longer be solved exactly with elementary function, which is a problem.
+However, it is still possible to find an analytic solution which solves \cref{eq:NLObeta} at the requested accuracy, i.e.\ in this case NLO.
+\fherror{exercise: proof NLO alphas?}
+This solution still performs a resummation, as we have to, but it only collects the so-called leading logarithms
+\fherror{show exp alphas is LL}
+A completely different way to solve \cref{eq:NLObeta} is using numerical tools instead.
+We refer to the literature on how to implement a specific solution in practice and remain here just with the fact that it is a complicated problem, which has no unique solution and for which approximations are mandatory.
+\begin{conclusionbox}[label={RGE}]{Solution of RGE}
+    \begin{itemize}
+        \item The LO RGE of the strong coupling, \cref{eq:LObeta}, can be solved exactly, \cref{eq:LOalphas}
+        \item The NLO RGE of the strong coupling, \cref{eq:NLObeta}, can not be solved exactly and one needs to choose a solution method
+    \end{itemize}
+\end{conclusionbox}
+Any proper solution of the RGE must solve the RGE itself at the requested accuracy else it is not a solution, but they can and will differ by terms beyond - we refer to the uncertainty which is associated with this freedom as Missing Higher Order Uncertainty (MHOU).
+Truncating the perturbative series is a fundamental part of pQCD and thus we are always bound to the accuracy which we request at the beginning.
+While in many simple application MHOU are often neglected they are an important ingredient in modern PDF fits~\cite{NNPDF:2024dpb} and in \cref{sec:sv} we demonstrate one possible way to estimate them.
+
+\subsection{DGLAP}
