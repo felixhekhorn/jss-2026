@@ -35,42 +35,42 @@ At LO accuracy we find
 where we used the second Casimir constant of the adjoint representation $C_A = N_c = 3$, the normalization of the fundamental generators $T_R = 1/2$, and the number of active flavors $n_f$, discussed in \cref{sec:hq}.
 In this specific case we can solve \cref{eq:LObeta} and obtain
 \begin{equation}
-    \alpha_s^\text{LO}(\mu_R^2) = \frac{\alpha_s(\mu_0^2)}{1 + \alpha_s(\mu_0^2)\beta_0\ln(\mu_R^2/\mu_0^2)} \label{eq:LOalphas}
+    \alpha_s^\text{LO}(\mu_R^2) = \frac{\alpha_s(\mu_{R,0}^2)}{1 + \alpha_s(\mu_{R,0}^2)\beta_0\ln(\mu_R^2/\mu_{R,0}^2)} \label{eq:LOalphas}
 \end{equation}
-for a given boundary condition $\alpha_s(\mu_0^2)$.
-Recall, that \cref{eq:LOalphas} has not two free parameters, $\mu_0$ and $\alpha_s(\mu_0)$ as one would naively think, but only one.
+for a given boundary condition $\alpha_s(\mu_{R,0}^2)$ at the scale $\mu_{R,0}^2$.
+Recall, that \cref{eq:LOalphas} has not two free parameters, $\mu_{R,0}$ and $\alpha_s(\mu_{R,0})$ as one would naively think, but only one.
 \fherror{excercise: proof lambda in alphas?}
 
 Now, coming back to the title of this section, note that \cref{eq:LOalphas} is a resummation:
 \begin{equation}
-    \alpha_s^\text{LO}(\mu_R^2) = \alpha_s(\mu_0^2) \sum_{k=0}^\infty \qty(-\alpha_s(\mu_0^2)\beta_0\ln(\mu_R^2/\mu_0^2))^k \label{eq:LOalphasresum}
+    \alpha_s^\text{LO}(\mu_R^2) = \alpha_s(\mu_{R,0}^2) \sum_{k=0}^\infty \qty(-\alpha_s(\mu_{R,0}^2)\beta_0\ln(\mu_R^2/\mu_{R,0}^2))^k \label{eq:LOalphasresum}
 \end{equation}
-i.e.\ it collects an infinite tower of logarithms, here $\ln(\mu_0^2/\mu_R^2)$, into a compact expression, \cref{eq:LOalphas}.
-Since $\mu_0$ is an arbitrary scale, often chosen to coincide with the mass of the $Z$ boson $\mu_0=m_Z$, it is basically always required to perform the resummation and use \cref{eq:LOalphas}.
+i.e.\ it collects an infinite tower of logarithms, here $\ln(\mu_{R,0}^2/\mu_R^2)$, into a compact expression, \cref{eq:LOalphas}.
+Since $\mu_{R,0}$ is an arbitrary scale, often chosen to coincide with the mass of the $Z$ boson $\mu_{R,0}=m_Z$, it is basically always required to perform the resummation and use \cref{eq:LOalphas}.
 However, in some situations, to be discussed in \cref{sec:sv}, we need \cref{eq:LOalphas} truncated to a finite order, i.e.\ unraveling \cref{eq:LOalphasresum}, and we get
 \begin{equation}
-    \alpha_s^\text{LO}(\mu_R^2) = \alpha_s(\mu_0^2) - \qty(\alpha_s(\mu_0^2))^2\beta_0\ln(\mu_R^2/\mu_0^2) + \ldots \label{eq:LOalphasexp}
+    \alpha_s^\text{LO}(\mu_R^2) = \alpha_s(\mu_{R,0}^2) - \qty(\alpha_s(\mu_{R,0}^2))^2\beta_0\ln(\mu_R^2/\mu_{R,0}^2) + \ldots \label{eq:LOalphasexp}
 \end{equation}
-While for the special case $\mu_0 = \mu_R$ we need to be consistent of course and we thus find that $\alpha_s^\text{LO}(\mu_R^2)$ is $\alpha_s(\mu_0^2)$ at the LO truncation, we note that they differ by higher order terms.
-\Cref{eq:LOalphasexp} is the first, simplest case of a perturbative expansion of a resummed expression, \cref{eq:LOalphas}, and can also be obtained by using the Taylor expansion of $\alpha_s(\mu_R^2)$ around $\mu_0^2$ together with \cref{eq:LObeta}.
-In other words, \cref{eq:LOalphasexp} is a perturbative expansion of \cref{eq:LOalphas} in powers of $\alpha_s(\mu_0^2)$.
+While for the special case $\mu_{R,0} = \mu_R$ we need to be consistent of course and we thus find that $\alpha_s^\text{LO}(\mu_R^2)$ is $\alpha_s(\mu_{R,0}^2)$ at the LO truncation, we note that they differ by higher order terms.
+\Cref{eq:LOalphasexp} is the first, simplest case of a perturbative expansion of a resummed expression, \cref{eq:LOalphas}, and can also be obtained by using the Taylor expansion of $\alpha_s(\mu_R^2)$ around $\mu_{R,0}^2$ together with \cref{eq:LObeta}.
+In other words, \cref{eq:LOalphasexp} is a perturbative expansion of \cref{eq:LOalphas} in powers of $\alpha_s(\mu_{R,0}^2)$.
 Note that \cref{eq:LOalphasresum} has a finite radius of convergence (as all geometric series) and that is also reflected in \cref{eq:LOalphas}.
 
-Starting from NLO accuracy the RGE,
+Starting from NLO accuracy the RGE, e.g.\ in this specific case given by
 \begin{equation}
     \mu_R^2 \dv{\alpha_s(\mu_R^2)}{\mu_R^2} = - \beta_0 \qty(\alpha_s(\mu_R^2))^2 - \beta_1 \qty(\alpha_s(\mu_R^2))^3\,, \label{eq:NLObeta}
 \end{equation}
-can no longer be solved exactly with elementary function, which is a problem.
+can no longer be solved exactly with elementary functions.
 However, it is still possible to find an analytic solution which solves \cref{eq:NLObeta} at the requested accuracy, i.e.\ in this case NLO.
 \fherror{exercise: proof NLO alphas?}
 This solution still performs a resummation, as we have to, but it only collects the so-called leading logarithms
 \fherror{show exp alphas is LL}
 A completely different way to solve \cref{eq:NLObeta} is using numerical tools instead.
-We refer to the literature on how to implement a specific solution in practice and remain here just with the fact that it is a complicated problem, which has no unique solution and for which approximations are mandatory.
-\begin{conclusionbox}[label={RGE}]{Solution of RGE}
+We refer to the literature on how to implement a specific solution in practice and remain here just with the fact that it is a complicated problem on its own, which has no unique solution and for which approximations are mandatory.
+\begin{conclusionbox}[label={box:RGE}]{Solution of RGE}
     \begin{itemize}
         \item The LO RGE of the strong coupling, \cref{eq:LObeta}, can be solved exactly, \cref{eq:LOalphas}
-        \item The NLO RGE of the strong coupling, \cref{eq:NLObeta}, can not be solved exactly and one needs to choose a solution method
+        \item The RGE of the strong coupling at higher orders, e.g.\ \cref{eq:NLObeta}, can not be solved exactly and one needs to choose a solution method
     \end{itemize}
 \end{conclusionbox}
 Any proper solution of the RGE must solve the RGE itself at the requested accuracy else it is not a solution, but they can and will differ by terms beyond - we refer to the uncertainty which is associated with this freedom as Missing Higher Order Uncertainty (MHOU).
@@ -78,3 +78,36 @@ Truncating the perturbative series is a fundamental part of pQCD and thus we are
 While in many simple application MHOU are often neglected they are an important ingredient in modern PDF fits~\cite{NNPDF:2024dpb} and in \cref{sec:sv} we demonstrate one possible way to estimate them.
 
 \subsection{DGLAP}
+
+For PDFs $\vb f(\xi, \mu_F^2)$ the situation is essentially the same as for the strong coupling $\alpha_s(\mu_R^2)$, except the latter is just a number and the former are a set of functions.
+The scale dependence is a again predicted by pQCD, but now we need an arbitrary physical observable to do so.
+The specific observable does not matter since PDFs are universal, but due to the linear dependence on PDF and the \enquote{simplicity} of fully inclusive DIS it often serves as reference case.
+The arbitrary scale that is introduced in the regularization procedure, typically called collinear factorization, is referred to as factorization scale $\mu_F$ henceforth.
+
+Eventually, we obtain the RGE of PDFs, often referred to as DGLAP equation named after the researcher who established it~\cite{Altarelli:1977zs,Gribov:1972ri,Dokshitzer:1977sg},
+\begin{equation}
+    \mu_F^2 \dv{\vb f(\xi,\mu_F^2)}{\mu_F^2} = \qty(\vb P (\mu_F^2) \otimes \vb f(\mu_F^2))(\xi) = \sum_{j=0} \qty(\alpha_s(\mu_F^2))^{1+j} \qty(\vb P^{(j)} \otimes \vb f(\mu_F^2))(\xi) \label{eq:LODGLAP}
+\end{equation}
+where $\vb P (y, \mu_F^2)$ is the matrix of Altarelli-Parisi splitting functions.
+Note that the upper limit of the sum in \cref{eq:LODGLAP} must be set to the requested perturbative accuracy, i.e.\ consistent with \cref{eq:LObeta}.
+
+When attempting to solve \cref{eq:LODGLAP} we must worry about the two complications in PDFs with respect of the strong coupling.
+First, since PDFs are a vector and thus the Altarelli-Parisi splitting functions are combined in a matrix $\vb P$, we need to worry about non-commutativity.
+Indeed, while at LO accuracy we only have a single matrix $\vb P^{(0)}$, which trivially commutates with itself, starting from NLO we encounter a second matrix $\vb P^{(1)}$, which does not commutate with the former.
+Second, at any fixed scale PDFs are a function of the momentum fraction $\xi$ and, moreover, the right-hand-side of \cref{eq:LODGLAP} features an integral (with the definition of the convolution $\otimes$ in \cref{eq:fact1,eq:fact2}).
+
+To overcome the second problem, one possibility is to apply an integral transformation, the so-called Mellin transformation, defined by
+\begin{align}
+    \vb{\tilde f}(N,\mu_F^2) &= \int\limits_0^1 \dd \xi\,\xi^{N-1} \vb f(\xi,\mu_F^2) \label{eq:Mellinf} \\
+    \gamma(N,\mu_F^2) &= \int\limits_0^1 \dd y\,y^{N-1} \vb P(y,\mu_F^2) \label{eq:Mellinad}
+\end{align}
+where the Mellin-transformed splitting functions $\gamma$ are often referred to as anomalous dimensions.
+Inserting \cref{eq:Mellinf,eq:Mellinad} into \cref{eq:LODGLAP} yields a \enquote{simple} first order differential equation, which can be solved by a \enquote{simple} exponentiation.
+However, in practice PDFs are mostly needed in momentum fraction space, $\vb f(\xi,\mu_F^2)$, and not in Mellin space, $\vb{\tilde f}(N,\mu_F^2)$, thus if we use the Mellin transform, we must also use its inverse transformation.
+
+While we skip spelling out an explicit solution and refer to the literature instead~\cite{Candido:2022tld}, the important part here is that the exponential again captures a resummation, in this case of $\ln(\mu_F^2/\mu_{F,0}^2)$.
+Again, we can perform a perturbative expansion of the LO resummed solution to see the logarithms explicitly:
+\begin{equation}
+    \vb f^\text{LO}(\xi,\mu_F^2) = \vb f(\xi,\mu_{F,0}^2) + \alpha_s(\mu_{F,0}^2) \ln(\mu_F^2/\mu_{F,0}^2) \qty(\vb P^{(0)} \otimes \vb f(\mu_{F,0}^2))(\xi) + \ldots
+\end{equation}
+Also, starting from NLO accuracy, we face the same issues as for the strong coupling and \cref{box:RGE} applies in the same way.
