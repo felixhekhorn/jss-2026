@@ -1,0 +1,41 @@
+% \begin{itemize}
+%     \item scheme A/B/C
+%     \item MHOU
+%     \item covariance matrix
+% \end{itemize}
+We now attempt to address a problem we first see in \cref{sec:resum}: Missing Higher Order Uncertainty (MHOU).
+We repeat again, the truncation of the perturbative series is a fundamental part of our framework and we are bound to it.
+The naive solution of just computing the next higher correction is not a solution, as we would face the problem just again there.
+Thus the task is to get an estimate of the missing terms based on current knowledge, which by definition is an ill-posed problem.
+Several possible strategies have been suggested in the literature~\cite{NNPDF:2024dpb,Lim:2024nsk,Tackmann:2024kci,Kassabov:2022orn,Bonvini:2020xeo,Cacciari:2011ze,Duhr:2021mfd,Ghosh:2022lrf}, which are based on resummation of specific variables and/or statistical arguments.
+
+From the practical point of view as a PDF fitter, however, there is one big problem with many of the proposed algorithms: they only work for some specific set of observables and a detailed analysis of the kinematics.
+Thus, we review here the most common approach to estimate MHOU, which can be rigorously derived in pQCD and applied to any observable: scale variations.
+On the other side, especially in recent years, scale variations have been challenged as suitable tool, due to the inherent arbitrariness and the lack of statistical interpretation (to which we return in the end).
+For now we focus on their practical implementation in DIS.
+
+\subsection{Renormalization scale}
+We start again from the simpler case of the renormalization scale $\mu_R$ associated with the strong coupling $\alpha_s(\mu_R^2)$ via the RGE, \cref{eq:LObeta}.
+As we say above, the renormalization scale captures the ultra-violet divergencies, which arise, e.g., from self-energy diagrams and which are thus associated with the partonic diagram itself.
+Moreover, as we see from \cref{eq:CpQCD}, we expand the partonic coefficient functions in powers of the strong coupling.
+\begin{conclusionbox}{Renormalization scale dependence}
+    The renormalization scale dependence is captured by the partonic coefficient function $\vb C(z,Q^2,\mu_R^2)$.
+\end{conclusionbox}
+Since we have to choose something for the arbitrary scale $\mu_R$ and we only have a single scale available, the virtuality $Q^2$, we start by setting them equal to each other $\mu_R^2 = Q^2$, which is also the implicit choice in \cref{eq:fact1}.
+We then need to find a way to estimate the missing terms in $\vb C(z,Q^2,\mu_R^2=Q^2)$, i.e.\ something that is identical at the requested perturbative accuracy, but differs from it beyond.
+This can be achieved by using \cref{eq:LOalphasexp} together with a suitable redefinition of the perturbative coefficients of the partonic coefficient function $\vb C^{(j)}(z)$.
+Specifically, we require
+\begin{equation}
+    \vb C(z,Q^2,\mu_R^2) = \vb C(z,Q^2,\mu_R^2=Q^2)\qty(1 + \alpha_s(Q^2))
+\end{equation}
+with
+\begin{equation}
+    \vb C(z,Q^2,\mu_R^2) = \sum_{j=0} \qty(\alpha_s(\mu_R^2))^j \vb C^{(j)}(z,\ln(\mu_R^2/Q^2)) \,. \label{eq:CbarpQCD}
+\end{equation}
+Before we continue with deriving explicit expressions for $\vb C^{(j)}(z,\ln(\mu_R^2/Q^20))$ some comments are in order:
+\begin{itemize}
+    \item $\vb C(z,Q^2)$ in \cref{eq:fact1} is an abbreviation of $\vb C(z,Q^2,\mu_R^2=Q^2)$
+    \item in \cref{eq:CbarpQCD} $\mu_R$ has its intended meaning: it is the scale of the strong coupling
+    \item from \cref{sec:as} we know $\alpha_s(\mu_R^2)$ is a pure resummation of logarithms, thus $\vb C^{(j)}$ may only depend on $\ln(\mu_R^2/Q^2)$
+    \item we also know that it must be a polynomial dependence since it is a pure resummation
+\end{itemize}
