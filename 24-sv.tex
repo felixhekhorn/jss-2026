@@ -26,16 +26,91 @@ We then need to find a way to estimate the missing terms in $\vb C(z,Q^2,\mu_R^2
 This can be achieved by using \cref{eq:LOalphasexp} together with a suitable redefinition of the perturbative coefficients of the partonic coefficient function $\vb C^{(j)}(z)$.
 Specifically, we require
 \begin{equation}
-    \vb C(z,Q^2,\mu_R^2) = \vb C(z,Q^2,\mu_R^2=Q^2)\qty(1 + \alpha_s(Q^2))
+    \vb C(z,Q^2,\mu_R^2) = \vb C(z,Q^2,\mu_R^2=Q^2)\qty(1 + \order{\alpha_s(Q^2)})
 \end{equation}
 with
 \begin{equation}
-    \vb C(z,Q^2,\mu_R^2) = \sum_{j=0} \qty(\alpha_s(\mu_R^2))^j \vb C^{(j)}(z,\ln(\mu_R^2/Q^2)) \,. \label{eq:CbarpQCD}
+    \vb C(z,Q^2,\mu_R^2) = \sum_{j=0} \qty(\alpha_s(\mu_R^2))^j \vb C^{(j)}(z,\ln(\mu_R^2/Q^2)) \,. \label{eq:CbarRpQCD}
 \end{equation}
-Before we continue with deriving explicit expressions for $\vb C^{(j)}(z,\ln(\mu_R^2/Q^20))$ some comments are in order:
+Before we continue with deriving explicit expressions for $\vb C^{(j)}(z,\ln(\mu_R^2/Q^2))$ some comments are in order:
 \begin{itemize}
-    \item $\vb C(z,Q^2)$ in \cref{eq:fact1} is an abbreviation of $\vb C(z,Q^2,\mu_R^2=Q^2)$
-    \item in \cref{eq:CbarpQCD} $\mu_R$ has its intended meaning: it is the scale of the strong coupling
+    \item $\vb C(z,Q^2)$ in \cref{eq:fact1} is an abbreviation of $\vb C(z,Q^2,\mu_R^2=Q^2)$ and $\vb C^{(j)}(z)$ of $\vb C^{(j)}(z,0)$
+    \item in \cref{eq:CbarRpQCD} $\mu_R$ has its intended meaning: it is the scale of the strong coupling
     \item from \cref{sec:as} we know $\alpha_s(\mu_R^2)$ is a pure resummation of logarithms, thus $\vb C^{(j)}$ may only depend on $\ln(\mu_R^2/Q^2)$
-    \item we also know that it must be a polynomial dependence since it is a pure resummation
+    \item $\vb C^{(j)}(z,0)$ can be computed from diagrams by assuming explicitly $\mu_R = Q$ there
 \end{itemize}
+
+We now derive the explicit next-to-next-to-leading order (NNLO) expression for fully inclusive DIS.
+In particular, we recall that LO is given by $\vb C^{(0)}(z)$, i.e.\ proportional to $\qty(\alpha_s(Q^2))^0$ in \cref{eq:CpQCD}, NLO is given by $\vb C^{(1)}(z)$ proportional to $\qty(\alpha_s(Q^2))^1$, and NNLO by $\vb C^{(1)}(z)$ proportional to $\qty(\alpha_s(Q^2))^2$.
+Moreover, we assume that the coefficient functions at the central scale $\mu_R=Q$ are known and we can write \cref{eq:CpQCD} up to NNLO
+\begin{equation}
+    \vb C(z,Q^2) = \vb C^{(0)}(z) + \alpha_s(Q^2) \vb C^{(1)}(z) + \qty(\alpha_s(Q^2))^2 \vb C^{(2)}(z) \label{eq:CNNLO}
+\end{equation}
+Expanding \cref{eq:CbarRpQCD} up to the same accuracy we get
+\begin{align}
+    \vb C(z,Q^2,\mu_R^2) &= \vb C^{(0)}(z,\ln(\mu_R^2/Q^2)) + \alpha_s(\mu_R^2) \vb C^{(1)}(z,\ln(\mu_R^2/Q^2)) \nonumber\\
+    &\hspace{20pt} + \qty(\alpha_s(\mu_R^2))^2 \vb C^{(2)}(z,\ln(\mu_R^2/Q^2)) \label{eq:CbarRNNLO}
+\end{align}
+We are now left with the task to make \cref{eq:CNNLO} and \cref{eq:CbarRNNLO} perturbatively equivalent, and although we are considering NNLO the equivalence must hold at any lower order.
+Thus, we first can consider LO: since there is no dependency on the strong coupling in the first place, the scale varied coefficient function may not depend on the renormalization scale and we find
+\begin{equation}
+    \vb C^{(0)}(z,\ln(\mu_R^2/Q^2)) = \vb C^{(0)}(z)\,.
+\end{equation}
+Starting from NLO an explicit dependency on the strong coupling appears, however, from \cref{eq:LOalphasexp} we know that the two choices, $\alpha_s(Q^2)$ and $\alpha_s(\mu_R^2)$ differ by higher order terms.
+Specifically, we have
+\begin{equation}
+    \alpha_s(Q^2) = \alpha_s(\mu_R^2) + \order{\qty(\alpha_s(\mu_R^2))^2} \qq{and} \alpha_s(\mu_R^2) = \alpha_s(Q^2) + \order{\qty(\alpha_s(Q^2))^2}
+\end{equation}
+Thus, if \cref{eq:CNNLO} and \cref{eq:CbarRNNLO} are the same up to $\order{\qty(\alpha_s(Q^2))^2}$ we find
+\begin{equation}
+    \vb C^{(1)}(z,\ln(\mu_R^2/Q^2)) = \vb C^{(1)}(z)\,.
+\end{equation}
+
+Note that with this identification \cref{eq:CNNLO} and \cref{eq:CbarRNNLO} are not the same in practice, they are only perturbative equivalent.
+In any actual calculation with $\mu_R\neq Q$ also $\alpha_s(\mu_R^2)$ and $\alpha_s(Q^2)$ are different: they differ by an amount which is beyond our fixed-order framework and if that difference is \enquote{small} depends on the actual values of the strong coupling of the respective scales.
+However, with that we achieve the main purpose of this game: we generate some higher order terms, which we can use to estimate MHOUs.
+
+Starting from NNLO we see that the matching becomes non-trivial.
+In the case at hand we can insert \cref{eq:LOalphasexp} into \cref{eq:CNNLO} (with the choice $(\mu_R,\mu_{R,0})\to (Q,\mu_R)$) and re-expand in powers of $\alpha_s(\mu_R^2)$ as requested.
+We find
+\begin{equation}
+    \vb C^{(2)}(z,\ln(\mu_R^2/Q^2)) = \vb C^{(2)}(z) -  \beta_0 \ln(\mu_R^2/Q^2) \vb C^{(1)}(z)\,,
+\end{equation}
+so the scale-varied coefficient receives a correction from a lower-order coefficient function.
+
+Let's take a step back and review the general features.
+\begin{conclusionbox}{}
+    Scale-varied coefficient functions
+    \begin{itemize}
+        \item can always be computed a posteriori from their non-scale-varied counterparts
+        \item are a linear combination of their lower order non-scale-varied counterparts
+        \item are derived by re-expanding the strong coupling in the perturbative sum up to the required perturbative accuracy
+    \end{itemize}
+\end{conclusionbox}
+We also know that the dependency on the scale variation $\ln(\mu_R^2/Q^2)$ must be a polynomial dependence since the running of strong coupling is a pure resummation of this logarithm.
+By re-expanding we mean a Taylor expansion of the strong coupling at the default scale, here $\alpha_s(Q)$, in terms of the value at the renormalization scale, $\alpha_s(\mu_R^2)$.
+For computing the strong coupling at any scale $\alpha_s(\mu_R^2)$ we must use required perturbative accuracy, but for deriving the scale varied coefficient functions we only need one order less.
+In the special case of fully inclusive DIS, which has no dependence on the strong coupling at LO, we even need only two orders lower.
+
+For the sake of correcting \cref{eq:fact3}, we can improve it by writing
+\begin{equation}
+    \sigma(x,Q^2,\mu_R^2) = \qty(\vb C(Q^2,\mu_R^2) \otimes \vb f(Q^2))(x) \,.
+\end{equation}
+
+\subsection{Factorization scale}
+As in \cref{sec:DGLAP} the general algorithm repeats for the factorization scale $\mu_F$, which is the intrinsic scale of PDFs, except everything is more complicated.
+However, it is not only more complicated because PDFs are a set of function, but also because the PDF explicitly appears in \cref{eq:fact1}.
+This implies, that the factorization scale dependence may not only be captured by the coefficient function, in contrast to the renormalization scale.
+In particular, the factorization scale captures collinear divergencies, which arise in diagrams, and re-attributes them to the PDF, thus there is a direct connection between the two.
+Recall our main goal here: we want to estimate MHOU by generating higher order terms and we simply have more freedom here to do so.
+In order to simplify the discussion we explicitly neglect renormalization scale variations for the moment.
+
+The most common way to deal with factorization scale variation is to directly modify the coefficient functions, as in the case for \cref{eq:CbarRpQCD}, and we refer to this choice as \enquote{factorization scale variation scheme C}~\cite{NNPDF:2024dpb}.
+Specifically, we make a similar ansatz and write
+\begin{equation}
+    \sigma(x,Q^2,\mu_F^2) = \qty(\vb C(Q^2,\mu_F^2) \otimes \vb f(\mu_F^2))(x)
+\end{equation}
+where now $\mu_F$ has its intended place and the usual perturbative expansion of the coefficient function still holds, i.e.\
+\begin{equation}
+    \vb C(z,Q^2,\mu_F^2) = \sum_{j=0} \qty(\alpha_s(Q^2))^j \vb C^{(j)}(z,\ln(\mu_F^2/Q^2)) \,. \label{eq:CbarFpQCD}
+\end{equation}
