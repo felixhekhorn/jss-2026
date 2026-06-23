@@ -1,6 +1,5 @@
 % \begin{itemize}
-%     \item scheme A/B/C
-%     \item MHOU
+%     \item scheme A/B
 %     \item covariance matrix
 % \end{itemize}
 We now attempt to address a problem we first see in \cref{sec:resum}: Missing Higher Order Uncertainty (MHOU).
@@ -9,12 +8,14 @@ The naive solution of just computing the next higher correction is not a solutio
 Thus the task is to get an estimate of the missing terms based on current knowledge, which by definition is an ill-posed problem.
 Several possible strategies have been suggested in the literature~\cite{NNPDF:2024dpb,Lim:2024nsk,Tackmann:2024kci,Kassabov:2022orn,Bonvini:2020xeo,Cacciari:2011ze,Duhr:2021mfd,Ghosh:2022lrf}, which are based on resummation of specific variables and/or statistical arguments.
 
-From the practical point of view as a PDF fitter, however, there is one big problem with many of the proposed algorithms: they only work for some specific set of observables and a detailed analysis of the kinematics.
+From the practical point of view as a PDF fitter, however, there is one big problem with many of the proposed algorithms: they only work for some specific set of observables and require a detailed analysis of the kinematics.
 Thus, we review here the most common approach to estimate MHOU, which can be rigorously derived in pQCD and applied to any observable: scale variations.
 On the other side, especially in recent years, scale variations have been challenged as suitable tool, due to the inherent arbitrariness and the lack of statistical interpretation (to which we return in the end).
 For now we focus on their practical implementation in DIS.
 
 \subsection{Renormalization scale}
+\label{sec:rensv}
+
 We start again from the simpler case of the renormalization scale $\mu_R$ associated with the strong coupling $\alpha_s(\mu_R^2)$ via the RGE, \cref{eq:LObeta}.
 As we say above, the renormalization scale captures the ultra-violet divergencies, which arise, e.g., from self-energy diagrams and which are thus associated with the partonic diagram itself.
 Moreover, as we see from \cref{eq:CpQCD}, we expand the partonic coefficient functions in powers of the strong coupling.
@@ -98,6 +99,7 @@ For the sake of correcting \cref{eq:fact3}, we can improve it by writing
 \end{equation}
 
 \subsection{Factorization scale}
+
 As in \cref{sec:DGLAP} the general algorithm repeats for the factorization scale $\mu_F$, which is the intrinsic scale of PDFs, except everything is more complicated.
 However, it is not only more complicated because PDFs are a set of function, but also because the PDF explicitly appears in \cref{eq:fact1}.
 This implies, that the factorization scale dependence may not only be captured by the coefficient function, in contrast to the renormalization scale.
@@ -114,3 +116,22 @@ where now $\mu_F$ has its intended place and the usual perturbative expansion of
 \begin{equation}
     \vb C(z,Q^2,\mu_F^2) = \sum_{j=0} \qty(\alpha_s(Q^2))^j \vb C^{(j)}(z,\ln(\mu_F^2/Q^2)) \,. \label{eq:CbarFpQCD}
 \end{equation}
+
+We can apply the same strategy as before and insert the Taylor expansion of the PDF, \cref{eq:LOPDFexp}, into \cref{eq:fact3} (with the choice $(\mu_F,\mu_{F,0})\to (Q,\mu_F)$) and re-expand in powers of $\alpha_s(Q^2)$ as requested.
+We continue with the order-by-order analysis and, as before, at LO accuracy we find
+\begin{equation}
+    \vb C^{(0)}(z,\ln(\mu_F^2/Q^2)) = \vb C^{(0)}(z),
+\end{equation}
+i.e., also here scale variations do not alter the LO coefficient function.
+However, unlike in the case for renormalization scale variations, factorization scale variations have always an impact starting from LO accuracy, because PDFs are present per-se in the factorization formula, \cref{eq:fact1}.
+Specifically, in any actual calculation with $\mu_F\neq Q$ also $\vb f(\mu_F^2)$ and $\vb f(Q^2)$ are different: they differ by an amount which is beyond our fixed-order framework and if that difference is \enquote{small} depends on the actual values of the PDF of the respective scales.
+However, with that we achieve the main purpose of this game: we generate some higher order terms, which we can use to estimate MHOUs.
+This is an intentional copy from \cref{sec:rensv}.
+
+Starting from NLO the matching becomes non-trivial and, e.g., at this order we find
+\begin{equation}
+    \vb C^{(1)}(z,\ln(\mu_F^2/Q^2)) = \vb C^{(1)}(z) -  \ln(\mu_F^2/Q^2) \qty(\vb C^{(0)} \otimes \vb P^{(0)})(z)\,, \label{eq:CbarFNLO}
+\end{equation}
+where we used the property that convolutions are associative.
+However, recall that for PDF operations, such as acting with the matrix of splitting functions $\vb P(y,\mu_F^2)$, non-commutativity is crucial, i.e., the flavor index dictated by the left-hand-side of \cref{eq:CbarFNLO} is matched by the second term on the right-hand-side by a vector-matrix multiplication (from the left).
+Note that starting from NNLO also explicit coefficients of the beta function start to appear, since the logarithm $\ln(\mu_F^2/Q^2)$ is coming directly from the running of the strong coupling, \cref{eq:LOalphasresum}.
