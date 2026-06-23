@@ -101,9 +101,14 @@ where the Mellin-transformed splitting functions $\gamma$ are often referred to 
 Inserting \cref{eq:Mellinf,eq:Mellinad} into \cref{eq:LODGLAP} yields a \enquote{simple} first order differential equation, which can be solved by a \enquote{simple} exponentiation.
 However, in practice PDFs are mostly needed in momentum fraction space, $\vb f(\xi,\mu_F^2)$, and not in Mellin space, $\vb{\tilde f}(N,\mu_F^2)$, thus if we use the Mellin transform, we must also use its inverse transformation.
 
-While we skip spelling out an explicit solution and refer to the literature instead~\cite{Candido:2022tld}, the important part here is that the exponential again captures a resummation, in this case of $\ln(\mu_F^2/\mu_{F,0}^2)$.
-Again, we can perform a perturbative expansion of the LO resummed solution to see the logarithms explicitly:
+We can write the general solution to \cref{eq:LODGLAP} in terms of an Evolution Kernel Operator (EKO)~\cite{Candido:2022tld} $\vb E$,
+\begin{equation}
+    \vb f (\xi,\mu_F^2) = \qty(\vb E(\mu_F^2 \leftarrow \mu_{F,0}^2) \otimes \vb f(\mu_{F,0}^2))(\xi)\,,
+\end{equation}
+but we skip spelling out an explicit solution here and refer to the literature instead~\cite{Candido:2022tld}.
+The important part for us is that the operator (which is almost an exponential) again captures a resummation, in this case of $\ln(\mu_F^2/\mu_{F,0}^2)$.
+Again, we can perform a perturbative expansion of the LO resummed solution to see the logarithm explicitly,
 \begin{equation}
     \vb f^\text{LO}(\xi,\mu_F^2) = \vb f(\xi,\mu_{F,0}^2) + \alpha_s(\mu_{F,0}^2) \ln(\mu_F^2/\mu_{F,0}^2) \qty(\vb P^{(0)} \otimes \vb f(\mu_{F,0}^2))(\xi) + \ldots \label{eq:LOPDFexp}
 \end{equation}
-Also, starting from NLO accuracy, we face the same issues as for the strong coupling and \cref{box:RGE} applies in the same way.
+and starting from NLO accuracy, we face the same issues as for the strong coupling and \cref{box:RGE} applies in the same way.

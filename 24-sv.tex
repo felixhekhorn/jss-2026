@@ -1,7 +1,3 @@
-% \begin{itemize}
-%     \item scheme A/B
-%     \item covariance matrix
-% \end{itemize}
 We now attempt to address a problem we first see in \cref{sec:resum}: Missing Higher Order Uncertainty (MHOU).
 We repeat again, the truncation of the perturbative series is a fundamental part of our framework and we are bound to it.
 The naive solution of just computing the next higher correction is not a solution, as we would face the problem just again there.
@@ -53,7 +49,7 @@ Expanding \cref{eq:CbarRpQCD} up to the same accuracy we get
     &\hspace{20pt} + \qty(\alpha_s(\mu_R^2))^2 \vb C^{(2)}(z,\ln(\mu_R^2/Q^2)) \label{eq:CbarRNNLO}
 \end{align}
 We are now left with the task to make \cref{eq:CNNLO} and \cref{eq:CbarRNNLO} perturbatively equivalent, and although we are considering NNLO the equivalence must hold at any lower order.
-Thus, we first can consider LO: since there is no dependency on the strong coupling in the first place, the scale varied coefficient function may not depend on the renormalization scale and we find
+Thus, we first can consider LO: since there is no dependency on the strong coupling in the first place, the scale-varied coefficient function may not depend on the renormalization scale and we find
 \begin{equation}
     \vb C^{(0)}(z,\ln(\mu_R^2/Q^2)) = \vb C^{(0)}(z)\,.
 \end{equation}
@@ -62,25 +58,25 @@ Specifically, we have
 \begin{equation}
     \alpha_s(Q^2) = \alpha_s(\mu_R^2) + \order{\qty(\alpha_s(\mu_R^2))^2} \qq{and} \alpha_s(\mu_R^2) = \alpha_s(Q^2) + \order{\qty(\alpha_s(Q^2))^2}
 \end{equation}
-Thus, if \cref{eq:CNNLO} and \cref{eq:CbarRNNLO} are the same up to $\order{\qty(\alpha_s(Q^2))^2}$ we find
+Thus, if \cref{eq:CNNLO} and \cref{eq:CbarRNNLO} have to be the same up to $\order{\qty(\alpha_s(Q^2))^2}$, we find
 \begin{equation}
     \vb C^{(1)}(z,\ln(\mu_R^2/Q^2)) = \vb C^{(1)}(z)\,.
 \end{equation}
 
-Note that with this identification \cref{eq:CNNLO} and \cref{eq:CbarRNNLO} are not the same in practice, they are only perturbative equivalent.
+Note that with this identification \cref{eq:CNNLO} and \cref{eq:CbarRNNLO} (truncated to NLO) are not the same in practice, they are only perturbative equivalent.
 In any actual calculation with $\mu_R\neq Q$ also $\alpha_s(\mu_R^2)$ and $\alpha_s(Q^2)$ are different: they differ by an amount which is beyond our fixed-order framework and if that difference is \enquote{small} depends on the actual values of the strong coupling of the respective scales.
-However, with that we achieve the main purpose of this game: we generate some higher order terms, which we can use to estimate MHOUs.
+However, with that we achieve the main purpose of this game: we generate some higher order terms, which we can then use to estimate MHOUs.
 
 Starting from NNLO we see that the matching becomes non-trivial.
 In the case at hand we can insert \cref{eq:LOalphasexp} into \cref{eq:CNNLO} (with the choice $(\mu_R,\mu_{R,0})\to (Q,\mu_R)$) and re-expand in powers of $\alpha_s(\mu_R^2)$ as requested.
 We find
 \begin{equation}
-    \vb C^{(2)}(z,\ln(\mu_R^2/Q^2)) = \vb C^{(2)}(z) -  \beta_0 \ln(\mu_R^2/Q^2) \vb C^{(1)}(z)\,,
+    \vb C^{(2)}(z,\ln(\mu_R^2/Q^2)) = \vb C^{(2)}(z) + \beta_0 \ln(\mu_R^2/Q^2) \vb C^{(1)}(z)\,,
 \end{equation}
 so the scale-varied coefficient receives a correction from a lower-order coefficient function.
 
 Let's take a step back and review the general features.
-\begin{conclusionbox}{}
+\begin{conclusionbox}[label={box:svren}]{Renormalization scale variation}
     Scale-varied coefficient functions
     \begin{itemize}
         \item can always be computed a posteriori from their non-scale-varied counterparts
@@ -90,7 +86,7 @@ Let's take a step back and review the general features.
 \end{conclusionbox}
 We also know that the dependency on the scale variation $\ln(\mu_R^2/Q^2)$ must be a polynomial dependence since the running of strong coupling is a pure resummation of this logarithm.
 By re-expanding we mean a Taylor expansion of the strong coupling at the default scale, here $\alpha_s(Q)$, in terms of the value at the renormalization scale, $\alpha_s(\mu_R^2)$.
-For computing the strong coupling at any scale $\alpha_s(\mu_R^2)$ we must use required perturbative accuracy, but for deriving the scale varied coefficient functions we only need one order less.
+For computing the strong coupling at any scale $\alpha_s(\mu_R^2)$ we must use required perturbative accuracy, but for deriving the scale-varied coefficient functions we only need one order less.
 In the special case of fully inclusive DIS, which has no dependence on the strong coupling at LO, we even need only two orders lower.
 
 For the sake of correcting \cref{eq:fact3}, we can improve it by writing
@@ -102,7 +98,7 @@ For the sake of correcting \cref{eq:fact3}, we can improve it by writing
 
 As in \cref{sec:DGLAP} the general algorithm repeats for the factorization scale $\mu_F$, which is the intrinsic scale of PDFs, except everything is more complicated.
 However, it is not only more complicated because PDFs are a set of function, but also because the PDF explicitly appears in \cref{eq:fact1}.
-This implies, that the factorization scale dependence may not only be captured by the coefficient function, in contrast to the renormalization scale.
+This implies, that the factorization scale dependence is not only be captured by the coefficient function, in contrast to the renormalization scale.
 In particular, the factorization scale captures collinear divergencies, which arise in diagrams, and re-attributes them to the PDF, thus there is a direct connection between the two.
 Recall our main goal here: we want to estimate MHOU by generating higher order terms and we simply have more freedom here to do so.
 In order to simplify the discussion we explicitly neglect renormalization scale variations for the moment.
@@ -110,7 +106,7 @@ In order to simplify the discussion we explicitly neglect renormalization scale 
 The most common way to deal with factorization scale variation is to directly modify the coefficient functions, as in the case for \cref{eq:CbarRpQCD}, and we refer to this choice as \enquote{factorization scale variation scheme C}~\cite{NNPDF:2024dpb}.
 Specifically, we make a similar ansatz and write
 \begin{equation}
-    \sigma(x,Q^2,\mu_F^2) = \qty(\vb C(Q^2,\mu_F^2) \otimes \vb f(\mu_F^2))(x)
+    \sigma(x,Q^2,\mu_F^2) = \qty(\vb C(Q^2,\mu_F^2) \otimes \vb f(\mu_F^2))(x) \label{eq:sigmaFC}
 \end{equation}
 where now $\mu_F$ has its intended place and the usual perturbative expansion of the coefficient function still holds, i.e.\
 \begin{equation}
@@ -120,12 +116,12 @@ where now $\mu_F$ has its intended place and the usual perturbative expansion of
 We can apply the same strategy as before and insert the Taylor expansion of the PDF, \cref{eq:LOPDFexp}, into \cref{eq:fact3} (with the choice $(\mu_F,\mu_{F,0})\to (Q,\mu_F)$) and re-expand in powers of $\alpha_s(Q^2)$ as requested.
 We continue with the order-by-order analysis and, as before, at LO accuracy we find
 \begin{equation}
-    \vb C^{(0)}(z,\ln(\mu_F^2/Q^2)) = \vb C^{(0)}(z),
+    \vb C^{(0)}(z,\ln(\mu_F^2/Q^2)) = \vb C^{(0)}(z), \label{eq:CbarFLO}
 \end{equation}
 i.e., also here scale variations do not alter the LO coefficient function.
 However, unlike in the case for renormalization scale variations, factorization scale variations have always an impact starting from LO accuracy, because PDFs are present per-se in the factorization formula, \cref{eq:fact1}.
 Specifically, in any actual calculation with $\mu_F\neq Q$ also $\vb f(\mu_F^2)$ and $\vb f(Q^2)$ are different: they differ by an amount which is beyond our fixed-order framework and if that difference is \enquote{small} depends on the actual values of the PDF of the respective scales.
-However, with that we achieve the main purpose of this game: we generate some higher order terms, which we can use to estimate MHOUs.
+However, with that we achieve the main purpose of this game: we generate some higher order terms, which we can then use to estimate MHOUs.
 This is an intentional copy from \cref{sec:rensv}.
 
 Starting from NLO the matching becomes non-trivial and, e.g., at this order we find
@@ -135,3 +131,71 @@ Starting from NLO the matching becomes non-trivial and, e.g., at this order we f
 where we used the property that convolutions are associative.
 However, recall that for PDF operations, such as acting with the matrix of splitting functions $\vb P(y,\mu_F^2)$, non-commutativity is crucial, i.e., the flavor index dictated by the left-hand-side of \cref{eq:CbarFNLO} is matched by the second term on the right-hand-side by a vector-matrix multiplication (from the left).
 Note that starting from NNLO also explicit coefficients of the beta function start to appear, since the logarithm $\ln(\mu_F^2/Q^2)$ is coming directly from the running of the strong coupling, \cref{eq:LOalphasresum}.
+In other words: PDF evolution resums logarithms through the running of the strong coupling.
+
+Since \cref{eq:fact3} is a convolution, we can write \cref{eq:CbarFpQCD} also in a different way,
+\begin{equation}
+    \vb C(z,Q^2,\mu_F^2) = \qty(\vb C(Q^2) \otimes \vb K(Q^2,\ln(\mu_F^2/Q^2)))(z) \label{eq:CbarFB},
+\end{equation}
+where we have defined a new operator $\vb K$, which also admits a perturbative expansion
+\begin{equation}
+    \vb K(y,Q^2,\ln(\mu_F^2/Q^2)) = \sum_{j=0} \qty(\alpha_s(Q^2))^j \vb K^{(j)}(y,\ln(\mu_F^2/Q^2))
+\end{equation}
+and which is given up to NLO accuracy by
+\begin{equation}
+    \vb K(y,Q^2,\ln(\mu_F^2/Q^2)) = \mathbbm{1} + \alpha_s(Q^2) \ln(\mu_F^2/Q^2) \vb P^{(0)}(y) + \ldots \label{eq:NLOK}
+\end{equation}
+Here, $\mathbbm 1$ refers to an identity operation in flavour space and function convolution space as $\vb K$ is acting on both.
+Inserting \cref{eq:NLOK} into \cref{eq:CbarFB} and re-expanding in $\alpha_s(Q^2)$ yields at LO \cref{eq:CbarFLO} and at NLO \cref{eq:CbarFNLO}, thus this is a perturbative equivalent choice.
+However, the two choices, \cref{eq:CbarFpQCD} together with \cref{eq:CbarFLO,eq:CbarFNLO} versus \cref{eq:CbarFB} differ by higher order terms.
+Thus, for the goal of generating some higher order terms to estimate MHOU both ways work equally well.
+
+While in most application practically always scheme C is applied, for PDF fitting the second way has some advantages.
+Specifically, we can do another slight variation and insert \cref{eq:CbarFB} into \cref{eq:sigmaFC} and use a different associative grouping by writing
+\begin{equation}
+    \sigma(x,Q^2,\mu_F^2) = \qty(\vb C(Q^2) \otimes \vb f^{SV}(\mu_F^2,\ln(\mu_F^2/Q^2)))(x) \label{eq:sigmaFB}
+\end{equation}
+with
+\begin{equation}
+    \vb f^{SV}(\xi,\mu_F^2,\ln(\mu_F^2/Q^2)) = \qty(\vb K'(\mu_F^2,\ln(\mu_F^2/Q^2)) \otimes \vb f(\mu_F^2))(\xi)
+\end{equation}
+and $\vb K'$ being a perturbative series in $\alpha_s(\mu_F^2)$.
+We refer to this choice as \enquote{factorization scale variation scheme B}~\cite{NNPDF:2024dpb}.
+Note that \cref{eq:sigmaFB} does not require knowledge about the scale-varied coefficient functions $\vb C^{(j)}(z,\ln(\mu_F^2/Q^2))$, which may contain additional convolutions, e.g., \cref{eq:CbarFNLO}.
+
+In the following we assume scheme C as our default choice, thus \cref{box:svren} holds also for factorization scale variations and we can improve \cref{eq:fact3} with \cref{eq:sigmaFC}.
+The case of scheme B\footnote{scheme A is doing yet something different - see Ref.~\cite{NNPDF:2024dpb}} is slightly more complicated, as explained above, but straightforward to obtain.
+
+\subsection{Combined variation}
+We recall, the renormalization and factorization scales are two independent scales, related to two different kind of physics.
+The former captures ultra-violet and the latter collinear divergencies.
+While we discuss them one at a time above, in practice we have to consider them simultaneously.
+In order to do so, we must first consider factorization scale variation, which yields \cref{eq:sigmaFC},
+\begin{equation}
+    \sigma(x,Q^2,\mu_F^2,\mu_R^2=Q^2) = \qty(\vb C(Q^2,\mu_F^2,\mu_R^2=Q^2) \otimes \vb f(\mu_F^2))(x)
+\end{equation}
+but now we make the renormalization scale dependence explicit and $\vb C(Q^2,\mu_F^2,\mu_R^2=Q^2)$ corresponds to \cref{eq:CbarFB}.
+Then in the second step, we apply the renormalization scale variation onto $\vb C(Q^2,\mu_F^2,\mu_R^2=Q^2)$, which still depend on $\alpha_s(Q^2)$, and get
+\begin{equation}
+    \sigma(x,Q^2,\mu_F^2,\mu_R^2) = \qty(\vb C(Q^2,\mu_F^2,\mu_R^2) \otimes \vb f(\mu_F^2))(x)\,. \label{eq:sigmaFR}
+\end{equation}
+We can make the dependence on the various scales in \cref{eq:sigmaFR} more explicit by rewriting it as
+\begin{equation}
+    \sigma(x,Q^2,\mu_F^2,\mu_R^2) = \qty(\vb C(\alpha_s(\mu_R^2),\ln(\mu_F^2/Q^2),\ln(\mu_R^2/Q^2)) \otimes \vb f(\mu_F^2))(x) \label{eq:sigmaFRln}
+\end{equation}
+where, again, finally $\mu_F$ and $\mu_R$ fulfill their dedicated role.
+Note that in \cref{eq:sigmaFRln} two additional scales, $\mu_{F,0}$ and $\mu_{R,0}$ are left implicit and those eventually guarantee that it is a dimensionless equation.
+
+% covariance matrix?
+% correlations?
+% 7 vs 9 pnt?
+
+\subsection{Discussion}
+\begin{itemize}
+    \item scale choice
+    \item variation size
+    \item new channels
+    \item new kinematic logs
+\end{itemize}
+
+fact scale is evolution not DIS; ren scale is just reshuffling
