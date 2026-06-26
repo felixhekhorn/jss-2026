@@ -82,15 +82,15 @@ The arbitrary scale that is introduced in the regularization procedure, typicall
 
 Eventually, we obtain the RGE of PDFs, often referred to as DGLAP equation named after the researcher who established it~\cite{Altarelli:1977zs,Gribov:1972ri,Dokshitzer:1977sg},
 \begin{equation}
-    \mu_F^2 \dv{\vb f(\xi,\mu_F^2)}{\mu_F^2} = \qty(\vb P (\mu_F^2) \otimes \vb f(\mu_F^2))(\xi) = \sum_{j=0} \qty(\alpha_s(\mu_F^2))^{1+j} \qty(\vb P^{(j)} \otimes \vb f(\mu_F^2))(\xi) \label{eq:LODGLAP}
+    \mu_F^2 \dv{\vb f(\xi,\mu_F^2)}{\mu_F^2} = \qty(\vb P (\mu_F^2) \otimes \vb f(\mu_F^2))(\xi) = \sum_{j=0} \qty(\alpha_s(\mu_F^2))^{1+j} \qty(\vb P^{(j)} \otimes \vb f(\mu_F^2))(\xi) \label{eq:DGLAP}
 \end{equation}
 where $\vb P (y, \mu_F^2)$ is the matrix of Altarelli-Parisi splitting functions.
-Note that the upper limit of the sum in \cref{eq:LODGLAP} must be set to the requested perturbative accuracy, i.e.\ consistent with \cref{eq:LObeta}.
+Note that the upper limit of the sum in \cref{eq:DGLAP} must be set to the requested perturbative accuracy, i.e.\ consistent with \cref{eq:LObeta}.
 
-When attempting to solve \cref{eq:LODGLAP} we must worry about the two complications in PDFs with respect of the strong coupling.
+When attempting to solve \cref{eq:DGLAP} we must worry about the two complications in PDFs with respect of the strong coupling.
 First, since PDFs are a vector and thus the Altarelli-Parisi splitting functions are combined in a matrix $\vb P$, we need to worry about non-commutativity.
 Indeed, while at LO accuracy we only have a single matrix $\vb P^{(0)}$, which trivially commutates with itself, starting from NLO we encounter a second matrix $\vb P^{(1)}$, which does not commutate with the former.
-Second, at any fixed scale PDFs are a function of the momentum fraction $\xi$ and, moreover, the right-hand-side of \cref{eq:LODGLAP} features an integral (with the definition of the convolution $\otimes$ in \cref{eq:fact1,eq:fact2}).
+Second, at any fixed scale PDFs are a function of the momentum fraction $\xi$ and, moreover, the right-hand-side of \cref{eq:DGLAP} features an integral (with the definition of the convolution $\otimes$ in \cref{eq:fact1,eq:fact2}).
 
 To overcome the second problem, one possibility is to apply an integral transformation, the so-called Mellin transformation, defined by
 \begin{align}
@@ -98,10 +98,10 @@ To overcome the second problem, one possibility is to apply an integral transfor
     \gamma(N,\mu_F^2) &= \int\limits_0^1 \dd y\,y^{N-1} \vb P(y,\mu_F^2) \label{eq:Mellinad}
 \end{align}
 where the Mellin-transformed splitting functions $\gamma$ are often referred to as anomalous dimensions.
-Inserting \cref{eq:Mellinf,eq:Mellinad} into \cref{eq:LODGLAP} yields a \enquote{simple} first order differential equation, which can be solved by a \enquote{simple} exponentiation.
+Inserting \cref{eq:Mellinf,eq:Mellinad} into \cref{eq:DGLAP} yields a \enquote{simple} first order differential equation, which can be solved by a \enquote{simple} exponentiation.
 However, in practice PDFs are mostly needed in momentum fraction space, $\vb f(\xi,\mu_F^2)$, and not in Mellin space, $\vb{\tilde f}(N,\mu_F^2)$, thus if we use the Mellin transform, we must also use its inverse transformation.
 
-We can write the general solution to \cref{eq:LODGLAP} in terms of an Evolution Kernel Operator (EKO)~\cite{Candido:2022tld} $\vb E$,
+We can write the general solution to \cref{eq:DGLAP} in terms of an Evolution Kernel Operator (EKO)~\cite{Candido:2022tld} $\vb E$,
 \begin{equation}
     \vb f (\xi,\mu_F^2) = \qty(\vb E(\mu_F^2 \leftarrow \mu_{F,0}^2) \otimes \vb f(\mu_{F,0}^2))(\xi)\,,
 \end{equation}

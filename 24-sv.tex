@@ -186,16 +186,43 @@ We can make the dependence on the various scales in \cref{eq:sigmaFR} more expli
 where, again, finally $\mu_F$ and $\mu_R$ fulfill their dedicated role.
 Note that in \cref{eq:sigmaFRln} two additional scales, $\mu_{F,0}$ and $\mu_{R,0}$ are left implicit and those eventually guarantee that it is a dimensionless equation.
 
-% covariance matrix?
-% correlations?
 % 7 vs 9 pnt?
+% correlations?
+% covariance matrix?
 
 \subsection{Discussion}
-\begin{itemize}
-    \item scale choice
-    \item variation size
-    \item new channels
-    \item new kinematic logs
-\end{itemize}
+The renormalization and factorization scale are remnants of the necessary regularization of UV and collinear divergencies.
+Although, scale variations are a genuine pQCD property they have some features, which questions their usefulness for estimating MHOUs.
 
-fact scale is evolution not DIS; ren scale is just reshuffling
+When introducing the scales, we are required to set them to \enquote{a typical scale of the process}, which makes them inherently arbitrary from the start before doing any variation.
+In fully inclusive DIS there is a single scale available, the virtuality $Q^2$, and thus the common choice is $\mu_F^2 = Q^2 = \mu_R^2$, but any multiplicative there of could work just as well\footnote{For example CT18X~\cite{Hou:2019efy} makes a different choice.}.
+If we want to use scale variations to estimate MHOU, we need to make a further arbitrary choice about which range we want to use for the respective scales and if we want to correlate them.
+As we see in \cref{box:svren} the scale-varied coefficient functions are always a linear combination of the existing ones, i.e.\ they can not introduce new channels (new PDF combinations).
+However, it is often straightforward to show that a new channel should appear although its size is unknown and scale variations are unable to predict this.
+An example for such a scenario in fully inclusive DIS can be seen at NLO: starting from NLO the gluon can participate in the scattering, but the LO only contains quark PDFs.
+In other cases, we know that higher orders must contain certain kinematic logs, e.g. from particles radiating at small and/or large transverse momentum or in the soft limit and in fully inclusive DIS the latter is the case\footnote{More mathematically speaking: soft gluon resummation is a double logarithmic resummation $\tilde c_q^{(j)} \sim \alpha_s^j \ln^{2j}(N)$ for $N\to\infty$ in Mellin space, \cref{eq:Mellinf}.}.
+Also those corrections can (in many cases) not be predicted by scale variations.
+
+Scale variations also provide no statistical interpretation, which is in stark contrast to experimental uncertainties, where we usually assume Gaussian uncertainties and thus the provided error has a clear interpretation.
+However, strictly speaking this only applies to statistical errors but not systematic errors and the question which of the dominates depends very much on the specific measurement.
+
+Despite all these (potential) problems, scale variations have a solid foundation in QFT and can be applied (straightforwardly) to any pQCD process, which makes them an easy tool to use MHOU.
+In order to make a faithful statement, we can then simply say: when we compute this process with this specific choice of scale, we obtain this number; if we vary that scale in this range, we obtain this range of numbers.
+
+\subsection{Implementation}
+Let us return now to more practical consequences.
+First, we observe that renormalization scale variation is essentially a reshuffling of lower order coefficient functions, see \cref{box:svren}.
+Since the complexity typically grows with perturbative orders, this reordering does not introduce any unrelated ingredients or correlations.
+
+Second, although scale-varied coefficient functions can always be computed a posteriori, see \cref{box:svren}, in practice it usually makes sense to tabulate them into interpolation grids as well, see \cref{sec:grids}.
+These additional coefficient functions can be easily accommodated when we generalize our concept of \enquote{order}: it can not only represent the perturbative order per se, but also additional powers of renormalization or factorization logarithms: $\alpha_s^k(\mu_R^2)\ln^m(\mu_R^2/Q^2)\ln^n(\mu_R^2/Q^2)$.
+
+Third, as we see above, factorization scale variations are more complicated and this is also related to their physics.
+The factorization scale variation is directly related to the PDFs themselves and, in particular, eventually, they derive from \cref{eq:DGLAP}.
+However, the splitting functions $\vb P$ are encoding how partons couple among each other, which is mainly through the gluon of course.
+This is in contrast to DIS, where instead the coefficient functions are encoding how partons couple to the electro-weak vector boson, which is completely different.
+
+As usual, at LO accuracy the problem does not appear yet, because there are no scale-varied coefficient functions, see \cref{eq:CbarFLO}.
+At NLO accuracy the problem does not appear yet, because for \cref{eq:CbarFNLO} we need $\vb P^{(0)}$, which states that to LO all quarks couple identically to gluons.
+Thus the fact, that not all quarks participate equally in \cref{eq:LOC} (note the $e_q^2$!) does not matter yet.
+Starting from NNLO accuracy this is becoming a true issue since now many more different coupling structures both in DIS as well as for evolution become possible.
