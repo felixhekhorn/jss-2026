@@ -8,10 +8,10 @@
 \subsection{Motivation and non-goals}
 We aim in this course to make a meaningful comparison between the theoretical predictions and the experimental measurement of a fully inclusive Deeply Inelastic Scattering (DIS) cross section.
 Instead of an abstract, theoretical discussion about DIS, which can be found in a standard lecture on particle physics, we're looking here to make a connection with real-life physics solving current research questions.
-The main focus is be naturally on PDF, for which DIS plays a major role.
-In fact, DIS was, is, and will be a very important constrain in determining Parton Distribution Functions (PDFs) - only recently, e.g.\ starting from NNPDF4.0\cite{NNPDF:2021njg}, LHC data starts to dominate in PDF fits.
+The main focus is on Parton Distribution Functions (PDFs), for which DIS plays a major role.
+In fact, DIS was, is, and will be a very important constrain in determining PDFs - only recently, e.g.\ starting from NNPDF4.0\cite{NNPDF:2021njg}, LHC data starts to dominate in PDF fits.
 Stressing the importance and relevance of PDFs for any kind of perturbative QCD (pQCD) application and to understand the inner structure of hadrons is left to the literature~\cite{Gao:2017yyd,Heinrich:2020ybq,Amoroso:2022eow}.
-In turn, DIS itself can be used to answer unresolved questions about PDFs, e.g.\ whether the proton has an intrinsic charm component~\cite{NNPDF:2023tyk}.
+In turn, DIS itself can be used to answer unresolved questions about PDFs, e.g.\ whether the proton has an intrinsic charm component~\cite{Ball:2022qks,NNPDF:2023tyk}.
 
 In order to obtain a more realistic DIS treatment, we review general pQCD features and exemplify them using DIS.
 In fact, fully inclusive DIS comes in very handy, since here the effects mostly appear in their simplest form and when considering hadronic collisions, e.g.\ at the LHC, the strategies are mostly the same just more involved.
@@ -71,6 +71,7 @@ All other particles explicitly appear in this course and you need to know their 
 \end{conclusionbox}
 
 We also need some basic knowledge from Quantum Field Theory (QFT).
+\fherror{Add QFT requirements}
 
 \subsection{The very basics}
 \label{sec:basics}
@@ -93,7 +94,7 @@ Thus, we can write the same information again with a formula
 \end{conclusionbox}
 \noindent{}where we have assigned the four-momenta $k,P,k'$ to the incoming electron, the incoming proton and the outgoing electron respectively.
 As usual $X$ marks the inclusiveness, i.e.\ we don't observe anything else apart from the electron.
-By requiring a large momentum-transfer between the incoming and the outgoing electron, i.e.\ their difference four-momentum vector has a large magnitude, we probe the proton with highly energetic parton (which we can think of as photon).
+By requiring a large momentum-transfer between the incoming and the outgoing electron, i.e.\ their difference four-momentum vector has a large magnitude, we probe the proton with a highly energetic parton (which we can think of as photon for now).
 
 Next, we need a way to actually compute theory predictions for the cross sections, which you can measure in an experiment.
 We use the factorization theorem~\cite{Collins:1989gx},
@@ -114,10 +115,10 @@ This implies the predictive powers of our framework: if $\vb C$ is fixed and $\v
 
 The other, more practical aspect of \cref{eq:fact1,eq:fact2,eq:fact3} is the short-hand notation we introduce there.
 While \cref{eq:fact1} is the most canonical form of the factorization theorem, which can be found like this in most textbooks, we introduce in \cref{eq:fact2} the multiplicative convolution symbol $\otimes$.
-Note that we have suppressed the variable over which the convolution is performed and recall that convolution is associative, i.e.\ $\qty(g\otimes h)(x) = \qty(h\otimes g)(x)$.
-Finally, in \cref{eq:fact3} we introduce the vector notation, where we denote object, which have a non-trivial dependence on the parton flavor $j$, with bold font.
-\Cref{eq:fact3} looks nice and compact, but it worth recalling that it already hides a lot of details: specifically, $C_j(z,Q^2)$ is an object which depends on three different variables.
+Note that we have suppressed the variable over which the convolution is performed and recall that convolution is associative, i.e.\ $\qty(f\otimes g)\otimes h = f\otimes\qty(g\otimes h)$.
+Finally, in \cref{eq:fact3} we introduce the vector notation, where we denote objects, which have a non-trivial dependence on the parton flavor $j$, with bold font.
 We use vector notation and the index notation interchangeably depending on the context.
+\Cref{eq:fact3} looks nice and compact, but it worth recalling that it already hides a lot of details: specifically, $C_j(z,Q^2)$ is an object which depends on three different variables.
 
 To Leading Order (LO) accuracy, the coefficient functions $\vb C$ greatly simplify and we find
 \begin{equation}

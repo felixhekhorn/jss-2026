@@ -143,9 +143,9 @@ where we have defined a new operator $\vb K$, which also admits a perturbative e
 \end{equation}
 and which is given up to NLO accuracy by
 \begin{equation}
-    \vb K(y,Q^2,\ln(\mu_F^2/Q^2)) = \mathbbm{1} + \alpha_s(Q^2) \ln(\mu_F^2/Q^2) \vb P^{(0)}(y) + \ldots \label{eq:NLOK}
+    \vb K(y,Q^2,\ln(\mu_F^2/Q^2)) = \mathbbm{1}\delta(1-y) + \alpha_s(Q^2) \ln(\mu_F^2/Q^2) \vb P^{(0)}(y) + \ldots \label{eq:NLOK}
 \end{equation}
-Here, $\mathbbm 1$ refers to an identity operation in flavour space and function convolution space as $\vb K$ is acting on both.
+Here, $\mathbbm 1$ refers to an identity operation in flavour space and $\delta(1-y)$ is the identity in the function convolution space as $\vb K$ is acting on both.
 Inserting \cref{eq:NLOK} into \cref{eq:CbarFB} and re-expanding in $\alpha_s(Q^2)$ yields at LO \cref{eq:CbarFLO} and at NLO \cref{eq:CbarFNLO}, thus this is a perturbative equivalent choice.
 However, the two choices, \cref{eq:CbarFpQCD} together with \cref{eq:CbarFLO,eq:CbarFNLO} versus \cref{eq:CbarFB} differ by higher order terms.
 Thus, for the goal of generating some higher order terms to estimate MHOU both ways work equally well.
@@ -222,7 +222,62 @@ The factorization scale variation is directly related to the PDFs themselves and
 However, the splitting functions $\vb P$ are encoding how partons couple among each other, which is mainly through the gluon of course.
 This is in contrast to DIS, where instead the coefficient functions are encoding how partons couple to the electro-weak vector boson, which is completely different.
 
-As usual, at LO accuracy the problem does not appear yet, because there are no scale-varied coefficient functions, see \cref{eq:CbarFLO}.
-At NLO accuracy the problem does not appear yet, because for \cref{eq:CbarFNLO} we need $\vb P^{(0)}$, which states that to LO all quarks couple identically to gluons.
-Thus the fact, that not all quarks participate equally in \cref{eq:LOC} (note the $e_q^2$!) does not matter yet.
-Starting from NNLO accuracy this is becoming a true issue since now many more different coupling structures both in DIS as well as for evolution become possible.
+As usual, at LO accuracy the problem does not appear yet, because there are no scale-varied coefficient functions, see \cref{eq:CbarFLO}, but starting from NLO accuracy we need to worry.
+In particular, we know that the gluon couples the same to all quarks, thus, if we combine them in the following way~\cite{NNPDF:2024djq}\footnote{for the more general case, see Ref.~\cite{NNPDF:2024djq}},
+\begin{align}
+    f_{\Sigma_\Delta}(x,Q^2) &= f_d(x,Q^2) + f_{\bar d}(x,Q^2) + f_s(x,Q^2) + f_{\bar s}(x,Q^2) \nonumber\\
+    & \hspace{10pt} - f_u(x,Q^2) - f_{\bar u}(x,Q^2) - f_c(x,Q^2) - f_{\bar c}(x,Q^2) \label{eq:SigmaDelta}
+\end{align}
+we know that they decouple.
+In order to see more clearly what happens we need to go back to the vector notation from \cref{eq:fact3}.
+We repeat: we denote objects, which have a non-trivial dependence on the parton flavors, with bold font.
+This applies to vectors in flavor space, e.g.\ coefficient functions $C_j \to \vb C$ or PDFs $f_j \to \vb f$, but also to matrices, e.g.\ splitting functions $P_{jk} \to \vb P$ or the factorization scale operator $K_{jl}\to \vb K$.
+By introducing the vector notation we hide any reference to a given basis in the flavor space, which now becomes relevant.
+
+For computing LO and NLO DIS coefficient functions it is convenient to consider each quark individually and we can find easily \cref{eq:LOC}.
+We refer to this choice of basis as flavor basis.
+However, for the discussion in \cref{sec:DGLAP} and in particular for dealing with splitting functions, $\vb P$, a different basis is more comfortable: the evolution basis.
+The two choices are both orthogonal bases, i.e.\ they are simply related by a rotation\footnote{actually, it is a rotation and a scaling, i.e.\ the evolution basis is not orthonormal} in flavor space.
+Specifically, $\vb P$ has a much simpler representation if one of the basis vectors is the singlet
+\begin{equation}
+    f_\Sigma(x,Q^2) = \sum_{q} f_q(x,Q^2) + f_{\bar q}(x,Q^2) \label{eq:Singlet}
+\end{equation}
+and all other basis vectors can be chosen such that they do not couple to the gluon, e.g. \cref{eq:SigmaDelta}.
+
+Let's see this in practice for LO photon DIS: we start from \cref{eq:LOC}, which is written in flavor basis, i.e.\ for each given quark flavor and the gluon.
+Inserting \cref{eq:LOC} into \cref{eq:fact1} yields \cref{eq:LOxs} and if we assume four flavors (see \cref{sec:hq}), we find explicitly
+\begin{align}
+    \sigma(x,Q^2) &= e_d^2\qty(f_d(x,Q^2) + f_{\bar d}(x,Q^2) + f_s(x,Q^2) + f_{\bar s}(x,Q^2)) \nonumber\\
+    & \hspace{10pt} + e_u^2\qty(f_u(x,Q^2) + f_{\bar u}(x,Q^2) + f_c(x,Q^2) + f_{\bar c}(x,Q^2))
+\end{align}
+Using \cref{eq:Singlet,eq:SigmaDelta} we can rewrite this as
+\begin{equation}
+    \sigma(x,Q^2) &= \qty(e_d^2 + e_u^2) f_\Sigma(x,Q^2) + \qty(e_d^2 - e_u^2) f_{\Sigma_\Delta}(x,Q^2)
+\end{equation}
+or equivalently
+\begin{equation}
+    C_\Sigma^{(0)}(z) = (e_d^2 + e_u^2) \delta(1-z),\quad C_{\Sigma_\Delta}^{(0)}(z) = (e_d^2 - e_u^2) \delta(1-z), \quad C_j(z) = 0 \,\forall j\neq\{\Sigma,\Sigma_\Delta\} \label{eq:LOCev}
+\end{equation}
+We stress that \cref{eq:LOC,eq:LOCev} are two equivalent representation of the coefficient function $\vb C$ using two different bases.
+
+Moving to NLO, we have the same structure in the quark sector, \cref{eq:NLOCq}, and we encounter for the first time the gluon channel, \cref{eq:NLOCg}.
+Thus, when we want to execute \cref{eq:CbarFNLO}, we need to consider three directions in flavor space: the gluon, the singlet $f_\Sigma$ and \cref{eq:SigmaDelta}.
+The preferred basis for $\vb P$ is manifest by the following statements,
+\begin{equation}
+    \mathrm P_{\Sigma \Sigma_\Delta}(y) = \mathrm P_{g \Sigma_\Delta}(y) = \mathrm P_{\Sigma_\Delta \Sigma}(y) = \mathrm P_{\Sigma_\Delta g}(y) = 0
+\end{equation}
+which would not occur in flavor basis.
+Eventually, \cref{eq:CbarFNLO} becomes explicitly
+\begin{align}
+    C^{(1)}_{\Sigma_\Delta}(z,\ln(\mu_F^2/Q^2)) &= C^{(1)}_{\Sigma_\Delta}(z) - \ln(\mu_F^2/Q^2) \qty(C^{(0)}_{\Sigma_\Delta} \otimes \mathrm P_{\Sigma_\Delta \Sigma_\Delta}^{(0)})(z)\\
+    C^{(1)}_{\Sigma}(z,\ln(\mu_F^2/Q^2)) &= C^{(1)}_{\Sigma}(z) - \ln(\mu_F^2/Q^2) \qty(C^{(0)}_{\Sigma} \otimes \mathrm P_{\Sigma \Sigma}^{(0)})(z)\\
+    C^{(1)}_{g}(z,\ln(\mu_F^2/Q^2)) &= C^{(1)}_{g}(z) - \ln(\mu_F^2/Q^2) \qty(C^{(0)}_{\Sigma} \otimes \mathrm P_{\Sigma g}^{(0)})(z)
+\end{align}
+where the required splitting functions can be found in literature~\cite{Leader:2011gpt,Leader:1996hm,Peskin:1995ev}.
+
+Actually, also LO splitting functions $\vb P^{(0)}$ obey symmetry relations, in particular all quarks couple identically to the gluon and it is not possible (yet) to change the quark flavor.
+This implies $\mathrm P_{\Sigma_\Delta \Sigma_\Delta}^{(0)}(y) = \mathrm P_{\Sigma \Sigma}^{(0)}(y) = \mathrm P_{qq}^{(0)}(y)$ and thus \cref{eq:CbarFNLO} can also be executed straightforwardly in flavor space.
+However, this symmetry breaks down starting from NLO splitting functions $\vb P^{(1)}$, which would be required for NNLO DIS cross sections.
+
+Let's consider one final cross-correlation: this necessary projection onto a singlet component is particularly tricky for CC DIS.
+Recall that the $W^\pm$ boson only couple to specific PDFs and thus if we want to project the coefficient functions into evolution basis we need the full basis (and not just \cref{eq:SigmaDelta,eq:Singlet}).
