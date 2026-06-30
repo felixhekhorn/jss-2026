@@ -113,8 +113,69 @@ where now $\mu_F$ has its intended place and the usual perturbative expansion of
     \vb C(z,Q^2,\mu_F^2) = \sum_{j=0} \qty(\alpha_s(Q^2))^j \vb C^{(j)}(z,\ln(\mu_F^2/Q^2)) \,. \label{eq:CbarFpQCD}
 \end{equation}
 
-We can apply the same strategy as before and insert the Taylor expansion of the PDF, \cref{eq:LOPDFexp}, into \cref{eq:fact3} (with the choice $(\mu_F,\mu_{F,0})\to (Q,\mu_F)$) and re-expand in powers of $\alpha_s(Q^2)$ as requested.
-We continue with the order-by-order analysis and, as before, at LO accuracy we find
+However, in order to derive an explicit expression for $\vb C(z,Q^2,\mu_F^2)$ it is instructive to start from \enquote{factorization scale variation scheme B}~\cite{NNPDF:2024dpb}.
+In this scheme, we make a different choice and attribute the variation instead to the PDF:
+\begin{equation}
+    \sigma(x,Q^2,\mu_F^2) = \qty(\vb C^T(Q^2) \otimes \vb f^{SV}(\mu_F^2,\ln(\mu_F^2/Q^2)))(x) \label{eq:sigmaFB}
+\end{equation}
+Note that \cref{eq:sigmaFB} only uses the central coefficient functions $\vb C^T(Q^2)$, but requires the use of a special PDF $\vb f^{SV}$.
+In a PDF fit, where full control over the PDF is required any way and partonic matrix elements (coefficient functions) come from a variety of places this scheme can be actually preferable.
+
+In order to define $\vb f^{SV}$ we start by observing, that we can write \cref{eq:LOPDFexp} also as a convolution with a factorization scale operator $\vb K$
+\begin{equation}
+    \vb f(\xi,\mu_F^2) = \qty(\vb K(\mu_F^2 \leftarrow \mu_{F,0}^2) \otimes \vb f(\mu_{F,0}))(\xi)
+\end{equation}
+where $\vb K$ admits a perturbative expansion
+\begin{equation}
+    \vb K(y,\mu_F^2 \leftarrow \mu_{F,0}^2) = \sum_{j=0} \qty(\alpha_s(\mu_{F,0}^2))^j \vb K^{(j)}(y,\ln(\mu_F^2/\mu_{F,0}^2))
+\end{equation}
+and is given up to NLO accuracy by
+\begin{equation}
+    \vb K(y,\mu_F^2 \leftarrow \mu_{F,0}^2) = \mathbbm{1}\delta(1-y) + \alpha_s(\mu_{F,0}^2) \ln(\mu_F^2/\mu_{F,0}^2) \vb P^{(0)}(y) + \ldots \label{eq:NLOK}
+\end{equation}
+Here, $\mathbbm 1$ refers to an identity operation in flavour space and $\delta(1-y)$ is the identity in the function convolution space as $\vb K$ is acting on both.
+
+Note that $\vb K$ is a fixed order equivalent of the EKO $\vb E$, but the two are fundamentally different: the latter is a true solution to DGLAP, which must resum all necessary terms, but the former is only an approximation for a small amount of evolution.
+Specifically, $\vb K$ only is meaningful when we consider scale variations and in particular we use the interplay between $\vb K$ and $\vb E$ to generate the missing higher order terms we are looking for, because we get
+\begin{equation}
+    \vb f(\xi,\mu_1^2) = \qty(\vb K(\mu_1^2 \leftarrow \mu_2^2) \otimes \vb E(\mu_2^2 \leftarrow \mu_1^2) \otimes \vb f(\mu_1^2) )(\xi) + \ldots
+\end{equation}
+where $\ldots$ denotes the missing terms.
+Inserting the equation back into \cref{eq:fact3} with $(\mu_1,\mu_2)\to(Q,\mu_F)$ we obtain the definition of our sought-after special PDF
+\begin{equation}
+    \vb f^{SV}(\xi,\mu_F^2,\ln(\mu_F^2/Q^2)) = \qty(\vb K(Q^2 \leftarrow \mu_F^2)) \otimes \vb f(\mu_F^2))(\xi) = \vb f(\xi,Q^2) + \ldots \label{eq:fSV}
+\end{equation}
+where we apply \cref{eq:EKO} for the PDF.
+
+We can now return to the definition of scheme C: we insert \cref{eq:fSV} into \cref{eq:sigmaFB} and obtain
+\begin{align}
+    \sigma(x,Q^2,\mu_F^2) &= \qty[\vb C^T(Q^2) \otimes \qty(\vb K(Q^2 \leftarrow \mu_F^2) \otimes \vb f^{SV}(\mu_F^2))](x)\\
+     &= \qty[\qty(\vb C^T(Q^2) \otimes \vb K(Q^2 \leftarrow \mu_F^2)) \otimes \vb f^{SV}(\mu_F^2)](x) \label{eq:sigmaFCdef}
+\end{align}
+where we only used the associative property of the convolution.
+However, we can now re-expand terms in a different order.
+First, it is convenient to use the perturbative expansion of the strong coupling to rewrite $\vb K$ in powers of $\alpha_s(Q^2)$ (as opposed to $\alpha_s(\mu_F^2)$, \cref{eq:NLOK}):
+\begin{equation}
+    \vb K'(y,Q^2 \leftarrow \mu_F^2) = \sum_{j=0} \qty(\alpha_s(Q^2))^j \vb {K'}^{(j)}(y,\ln(\mu_F^2/Q^2))
+\end{equation}
+with
+\begin{equation}
+    \vb K'(y,Q^2 \leftarrow \mu_F^2) = \left(\vb K(Q^2 \leftarrow \mu_F^2)\otimes\left[\mathbbm{1} + \order{\alpha_s(Q^2)}\right]\right)(y)
+\end{equation}
+i.e.\ $\vb K'$ and $\vb K$ differ by higher order terms.
+Up to NLO accuracy we find from \cref{eq:NLOK}
+\begin{equation}
+    \vb K'(y,Q^2 \leftarrow \mu_F^2) = \mathbbm{1}\delta(1-y) - \alpha_s(Q^2) \ln(\mu_F^2/Q^2) \vb P^{(0)}(y) + \ldots \label{eq:NLOKp}
+\end{equation}
+
+Second, we use the definition of $\vb C(z,Q^2,\mu_F^2)$
+\begin{equation}
+    \vb C^T(z,Q^2,\mu_F^2) = \qty(\vb C^T(Q^2) \otimes \vb K'(Q^2 \leftarrow \mu_F^2))(z)
+\end{equation}
+which reorganizes the product of sums in \cref{eq:sigmaFCdef} into a single sum, \cref{eq:CbarFpQCD}.
+Let's see this in practice.
+
+As before, we start from LO accuracy and from \cref{eq:NLOKp} we find immediately
 \begin{equation}
     \vb C^{(0)}(z,\ln(\mu_F^2/Q^2)) = \vb C^{(0)}(z), \label{eq:CbarFLO}
 \end{equation}
@@ -126,42 +187,11 @@ This is an intentional copy from \cref{sec:rensv}.
 
 Starting from NLO the matching becomes non-trivial and, e.g., at this order we find
 \begin{equation}
-    \vb C^{(1),T}(z,\ln(\mu_F^2/Q^2)) = \vb C^{(1),T}(z) -  \ln(\mu_F^2/Q^2) \qty(\vb C^{(0),T} \otimes \vb P^{(0)})(z)\,, \label{eq:CbarFNLO}
+    \vb C^{(1),T}(z,\ln(\mu_F^2/Q^2)) = \vb C^{(1),T}(z) -  \ln(\mu_F^2/Q^2) \qty(\vb C^{(0),T} \otimes \vb P^{(0)})(z)\,. \label{eq:CbarFNLO}
 \end{equation}
-where we used the property that convolutions are associative.
-However, recall that for PDF operations, such as acting with the matrix of splitting functions $\vb P(y,\mu_F^2)$, non-commutativity is crucial, i.e., the flavor index dictated by the left-hand-side of \cref{eq:CbarFNLO} is matched by the second term on the right-hand-side by a vector-matrix multiplication (from the left).
+Always remember that for PDF operations, such as acting with the matrix of splitting functions $\vb P(y,\mu_F^2)$, non-commutativity is crucial, i.e., the flavor index dictated by the left-hand-side of \cref{eq:CbarFNLO} is matched by the second term on the right-hand-side by a vector-matrix multiplication (from the left).
 Note that starting from NNLO also explicit coefficients of the beta function start to appear, since the logarithm $\ln(\mu_F^2/Q^2)$ is coming directly from the running of the strong coupling, \cref{eq:LOalphasresum}.
 In other words: PDF evolution resums logarithms through the running of the strong coupling.
-
-Since \cref{eq:fact3} is a convolution, we can write \cref{eq:CbarFpQCD} also in a different way,
-\begin{equation}
-    \vb C^T(z,Q^2,\mu_F^2) = \qty(\vb C^T(Q^2) \otimes \vb K(Q^2,\ln(\mu_F^2/Q^2)))(z) \label{eq:CbarFB},
-\end{equation}
-where we have defined a new operator $\vb K$, which also admits a perturbative expansion
-\begin{equation}
-    \vb K(y,Q^2,\ln(\mu_F^2/Q^2)) = \sum_{j=0} \qty(\alpha_s(Q^2))^j \vb K^{(j)}(y,\ln(\mu_F^2/Q^2))
-\end{equation}
-and which is given up to NLO accuracy by
-\begin{equation}
-    \vb K(y,Q^2,\ln(\mu_F^2/Q^2)) = \mathbbm{1}\delta(1-y) + \alpha_s(Q^2) \ln(\mu_F^2/Q^2) \vb P^{(0)}(y) + \ldots \label{eq:NLOK}
-\end{equation}
-Here, $\mathbbm 1$ refers to an identity operation in flavour space and $\delta(1-y)$ is the identity in the function convolution space as $\vb K$ is acting on both.
-Inserting \cref{eq:NLOK} into \cref{eq:CbarFB} and re-expanding in $\alpha_s(Q^2)$ yields at LO \cref{eq:CbarFLO} and at NLO \cref{eq:CbarFNLO}, thus this is a perturbative equivalent choice.
-However, the two choices, \cref{eq:CbarFpQCD} together with \cref{eq:CbarFLO,eq:CbarFNLO} versus \cref{eq:CbarFB} differ by higher order terms.
-Thus, for the goal of generating some higher order terms to estimate MHOU both ways work equally well.
-
-While in most application practically always scheme C is applied, for PDF fitting the second way has some advantages.
-Specifically, we can do another slight variation and insert \cref{eq:CbarFB} into \cref{eq:sigmaFC} and use a different associative grouping by writing
-\begin{equation}
-    \sigma(x,Q^2,\mu_F^2) = \qty(\vb C^T(Q^2) \otimes \vb f^{SV}(\mu_F^2,\ln(\mu_F^2/Q^2)))(x) \label{eq:sigmaFB}
-\end{equation}
-with
-\begin{equation}
-    \vb f^{SV}(\xi,\mu_F^2,\ln(\mu_F^2/Q^2)) = \qty(\vb K'(\mu_F^2,\ln(\mu_F^2/Q^2)) \otimes \vb f(\mu_F^2))(\xi)
-\end{equation}
-and $\vb K'$ being a perturbative series in $\alpha_s(\mu_F^2)$.
-We refer to this choice as \enquote{factorization scale variation scheme B}~\cite{NNPDF:2024dpb}.
-Note that \cref{eq:sigmaFB} does not require knowledge about the scale-varied coefficient functions $\vb C^{(j)}(z,\ln(\mu_F^2/Q^2))$, which may contain additional convolutions, e.g., \cref{eq:CbarFNLO}.
 
 In the following we assume scheme C as our default choice, thus \cref{box:svren} holds also for factorization scale variations and we can improve \cref{eq:fact3} with \cref{eq:sigmaFC}.
 The case of scheme B\footnote{scheme A is doing yet something different - see Ref.~\cite{NNPDF:2024dpb}} is slightly more complicated, as explained above, but straightforward to obtain.
@@ -258,7 +288,7 @@ or equivalently
 \begin{equation}
     C_\Sigma^{(0)}(z) = (e_d^2 + e_u^2) \delta(1-z),\quad C_{\Sigma_\Delta}^{(0)}(z) = (e_d^2 - e_u^2) \delta(1-z), \quad C_j(z) = 0 \,\forall j\neq\{\Sigma,\Sigma_\Delta\} \label{eq:LOCev}
 \end{equation}
-We stress that \cref{eq:LOC,eq:LOCev} are two equivalent representation of the coefficient function $\vb C$ using two different bases.
+We stress that \cref{eq:LOC,eq:LOCev} are two equivalent representation of the coefficient function $\vb C^{(0)}$ using two different bases.
 
 Moving to NLO, we have the same structure in the quark sector, \cref{eq:NLOCq}, and we encounter for the first time the gluon channel, \cref{eq:NLOCg}.
 Thus, when we want to execute \cref{eq:CbarFNLO}, we need to consider three directions in flavor space: the gluon, the singlet $f_\Sigma$ and \cref{eq:SigmaDelta}.
@@ -273,7 +303,7 @@ Eventually, \cref{eq:CbarFNLO} becomes explicitly
     C^{(1)}_{\Sigma}(z,\ln(\mu_F^2/Q^2)) &= C^{(1)}_{\Sigma}(z) - \ln(\mu_F^2/Q^2) \qty(C^{(0)}_{\Sigma} \otimes \mathrm P_{\Sigma \Sigma}^{(0)})(z)\\
     C^{(1)}_{g}(z,\ln(\mu_F^2/Q^2)) &= C^{(1)}_{g}(z) - \ln(\mu_F^2/Q^2) \qty(C^{(0)}_{\Sigma} \otimes \mathrm P_{\Sigma g}^{(0)})(z)
 \end{align}
-where the required splitting functions can be found in literature~\cite{Leader:2011gpt,Leader:1996hm,Peskin:1995ev}.
+where the required splitting functions can be found in the literature~\cite{Leader:2011gpt,Leader:1996hm,Peskin:1995ev}.
 
 Actually, also LO splitting functions $\vb P^{(0)}$ obey symmetry relations, in particular all quarks couple identically to the gluon and it is not possible (yet) to change the quark flavor.
 This implies $\mathrm P_{\Sigma_\Delta \Sigma_\Delta}^{(0)}(y) = \mathrm P_{\Sigma \Sigma}^{(0)}(y) = \mathrm P_{qq}^{(0)}(y)$ and thus \cref{eq:CbarFNLO} can also be executed straightforwardly in flavor space.
