@@ -91,7 +91,7 @@ In the special case of fully inclusive DIS, which has no dependence on the stron
 
 For the sake of correcting \cref{eq:fact3}, we can improve it by writing
 \begin{equation}
-    \sigma(x,Q^2,\mu_R^2) = \qty(\vb C(Q^2,\mu_R^2) \otimes \vb f(Q^2))(x) \,.
+    \sigma(x,Q^2,\mu_R^2) = \qty(\vb C^T(Q^2,\mu_R^2) \otimes \vb f(Q^2))(x) \,.
 \end{equation}
 
 \subsection{Factorization scale}
@@ -106,7 +106,7 @@ In order to simplify the discussion we explicitly neglect renormalization scale 
 The most common way to deal with factorization scale variation is to directly modify the coefficient functions, as in the case for \cref{eq:CbarRpQCD}, and we refer to this choice as \enquote{factorization scale variation scheme C}~\cite{NNPDF:2024dpb}.
 Specifically, we make a similar ansatz and write
 \begin{equation}
-    \sigma(x,Q^2,\mu_F^2) = \qty(\vb C(Q^2,\mu_F^2) \otimes \vb f(\mu_F^2))(x) \label{eq:sigmaFC}
+    \sigma(x,Q^2,\mu_F^2) = \qty(\vb C^T(Q^2,\mu_F^2) \otimes \vb f(\mu_F^2))(x) \label{eq:sigmaFC}
 \end{equation}
 where now $\mu_F$ has its intended place and the usual perturbative expansion of the coefficient function still holds, i.e.\
 \begin{equation}
@@ -126,7 +126,7 @@ This is an intentional copy from \cref{sec:rensv}.
 
 Starting from NLO the matching becomes non-trivial and, e.g., at this order we find
 \begin{equation}
-    \vb C^{(1)}(z,\ln(\mu_F^2/Q^2)) = \vb C^{(1)}(z) -  \ln(\mu_F^2/Q^2) \qty(\vb C^{(0)} \otimes \vb P^{(0)})(z)\,, \label{eq:CbarFNLO}
+    \vb C^{(1),T}(z,\ln(\mu_F^2/Q^2)) = \vb C^{(1),T}(z) -  \ln(\mu_F^2/Q^2) \qty(\vb C^{(0),T} \otimes \vb P^{(0)})(z)\,, \label{eq:CbarFNLO}
 \end{equation}
 where we used the property that convolutions are associative.
 However, recall that for PDF operations, such as acting with the matrix of splitting functions $\vb P(y,\mu_F^2)$, non-commutativity is crucial, i.e., the flavor index dictated by the left-hand-side of \cref{eq:CbarFNLO} is matched by the second term on the right-hand-side by a vector-matrix multiplication (from the left).
@@ -135,7 +135,7 @@ In other words: PDF evolution resums logarithms through the running of the stron
 
 Since \cref{eq:fact3} is a convolution, we can write \cref{eq:CbarFpQCD} also in a different way,
 \begin{equation}
-    \vb C(z,Q^2,\mu_F^2) = \qty(\vb C(Q^2) \otimes \vb K(Q^2,\ln(\mu_F^2/Q^2)))(z) \label{eq:CbarFB},
+    \vb C^T(z,Q^2,\mu_F^2) = \qty(\vb C^T(Q^2) \otimes \vb K(Q^2,\ln(\mu_F^2/Q^2)))(z) \label{eq:CbarFB},
 \end{equation}
 where we have defined a new operator $\vb K$, which also admits a perturbative expansion
 \begin{equation}
@@ -153,7 +153,7 @@ Thus, for the goal of generating some higher order terms to estimate MHOU both w
 While in most application practically always scheme C is applied, for PDF fitting the second way has some advantages.
 Specifically, we can do another slight variation and insert \cref{eq:CbarFB} into \cref{eq:sigmaFC} and use a different associative grouping by writing
 \begin{equation}
-    \sigma(x,Q^2,\mu_F^2) = \qty(\vb C(Q^2) \otimes \vb f^{SV}(\mu_F^2,\ln(\mu_F^2/Q^2)))(x) \label{eq:sigmaFB}
+    \sigma(x,Q^2,\mu_F^2) = \qty(\vb C^T(Q^2) \otimes \vb f^{SV}(\mu_F^2,\ln(\mu_F^2/Q^2)))(x) \label{eq:sigmaFB}
 \end{equation}
 with
 \begin{equation}
@@ -172,16 +172,16 @@ The former captures ultra-violet and the latter collinear divergencies.
 While we discuss them one at a time above, in practice we have to consider them simultaneously.
 In order to do so, we must first consider factorization scale variation, which yields \cref{eq:sigmaFC},
 \begin{equation}
-    \sigma(x,Q^2,\mu_F^2,\mu_R^2=Q^2) = \qty(\vb C(Q^2,\mu_F^2,\mu_R^2=Q^2) \otimes \vb f(\mu_F^2))(x)
+    \sigma(x,Q^2,\mu_F^2,\mu_R^2=Q^2) = \qty(\vb C^T(Q^2,\mu_F^2,\mu_R^2=Q^2) \otimes \vb f(\mu_F^2))(x)
 \end{equation}
 but now we make the renormalization scale dependence explicit and $\vb C(Q^2,\mu_F^2,\mu_R^2=Q^2)$ corresponds to \cref{eq:CbarFB}.
 Then in the second step, we apply the renormalization scale variation onto $\vb C(Q^2,\mu_F^2,\mu_R^2=Q^2)$, which still depend on $\alpha_s(Q^2)$, and get
 \begin{equation}
-    \sigma(x,Q^2,\mu_F^2,\mu_R^2) = \qty(\vb C(Q^2,\mu_F^2,\mu_R^2) \otimes \vb f(\mu_F^2))(x)\,. \label{eq:sigmaFR}
+    \sigma(x,Q^2,\mu_F^2,\mu_R^2) = \qty(\vb C^T(Q^2,\mu_F^2,\mu_R^2) \otimes \vb f(\mu_F^2))(x)\,. \label{eq:sigmaFR}
 \end{equation}
 We can make the dependence on the various scales in \cref{eq:sigmaFR} more explicit by rewriting it as
 \begin{equation}
-    \sigma(x,Q^2,\mu_F^2,\mu_R^2) = \qty(\vb C(\alpha_s(\mu_R^2),\ln(\mu_F^2/Q^2),\ln(\mu_R^2/Q^2)) \otimes \vb f(\mu_F^2))(x) \label{eq:sigmaFRln}
+    \sigma(x,Q^2,\mu_F^2,\mu_R^2) = \qty(\vb C^T(\alpha_s(\mu_R^2),\ln(\mu_F^2/Q^2),\ln(\mu_R^2/Q^2)) \otimes \vb f(\mu_F^2))(x) \label{eq:sigmaFRln}
 \end{equation}
 where, again, finally $\mu_F$ and $\mu_R$ fulfill their dedicated role.
 Note that in \cref{eq:sigmaFRln} two additional scales, $\mu_{F,0}$ and $\mu_{R,0}$ are left implicit and those eventually guarantee that it is a dimensionless equation.
