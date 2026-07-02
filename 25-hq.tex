@@ -1,0 +1,83 @@
+When we compute LO DIS from \cref{fig:LO} we say it is easy to identify the respective coefficient function, \cref{eq:LObarCq,eq:LOC}.
+However, what exactly do we mean with the \enquote{$\forall q$}?
+Which quarks are we exactly talking about?
+This is directly linked to the flavor space to which we hint when using bold font.
+However, unlike the problem we discuss in \cref{sec:svimpl} about different bases (flavor basis vs.\ evolution basis), here we are more directly concerned what the flavor space is in the first place.
+
+\subsection{Flavor space}
+
+We define the flavor space $\mathcal F$ as the vector space spanned by all quark flavors and the gluon.
+We consider the naive flavor basis as our canonical basis and write
+\begin{equation}
+    \mathcal F = \mathcal F_{fl} = \mathrm{span}(g, u, \bar u, d, \bar d, s, \bar s, c, \bar c, b, \bar b, t, \bar t)\,.
+\end{equation}
+We have a 13 dimensional vector space, $\dim{\mathcal F} = 13$\footnote{one can add the photon and make it 14 dimensional~\cite{NNPDF:2024djq}}, consisting of the gluon, six quarks, and six anti-quarks.
+Our bold vectors are an element in that space, e.g.\ $\vb C \in \mathcal F$, or more plainly,
+\begin{equation}
+    \vb C^T \sim (C_g, C_u, C_{\bar u}, C_d, C_{\bar d}, C_s, C_{\bar s}, C_c, C_{\bar c}, C_b, C_{\bar b}, C_t, C_{\bar t})
+\end{equation}
+and, as said in \cref{sec:svimpl}, any other basis works just as well.
+The same applies also to the PDF $\vb f$, which is the other vector in \cref{eq:fact3}, and any operator, e.g.\ splitting functions $\vb P$, just lives in the product space, $\vb P \in \mathcal F \otimes \mathcal F$.
+
+The question we need to address here is: which quarks exactly can participate in \cref{eq:LOxs,eq:LOC}?
+We refer to this number as the number of active quarks $n_f$.
+This dependency is completely hidden in \cref{eq:fact1}, but, as we demonstrate in the following, is a major concern for both coefficient functions and PDF.
+
+The number of flavors $n_f$ is arbitrary per se and there is no absolutely correct answer, since there is no theory argument, which would fix this choice.
+However, in practice for a given observable $\sigma(x,Q^2)$ we can consider, which options are phenomenologically reasonable and if some option would yield unstable results.
+
+For the sake of the argument, let's consider a fully inclusive DIS cross section $\sigma(x,Q^2=\SI{25}{\GeV^2})$, so we probe the probe the proton at $\mu_F=Q=\SI{5}{\GeV}$.
+We can now consider the different quark masses as a guideline: on the one side the masses of up, down, and strange are significantly below the non-perturbative regime of QCD $m_u,m_d,m_s \ll \LQCD \sim \SI{1}{\GeV}$ and we can safely assume we can find them in the proton.
+On the other side the mass of the top is significantly above the probed scale, $m_t \gg Q$, thus it is very unlikely to find it in the proton and we can neglect it.
+We can shut down such contributions by setting $f_t(\xi, Q^2) = 0 = f_{\bar t}(\xi, Q^2)$ and this way the top quark does not contribute to \cref{eq:fact1}.
+In addition, we can also define $C_t(z, Q^2) = 0 = C_{\bar t}(z, Q^2)$ to explicitly say that we don't let the top contribute.
+
+Now, we consider the two remaining quarks, charm and bottom, for which maybe there is no clear answer.
+First, for the charm quark we have $m_c = \SI{1.5}{\GeV}$ and we can assume reasonably that it can contribute to DIS.
+On the other side, for the bottom quark we have $m_b = \SI{4.5}{\GeV}$ and maybe we can both allow or deny it.
+The specific choice on which quarks we allow to participate and in which way they do so is referred to as flavor number scheme.
+
+\subsection{ZM-VFNS}
+
+One very popular choice is the zero-mass flavor number scheme (ZM-VFNS), which is defined in the following way: whenever the probed scale $Q$ crosses a quark mass that quark becomes active.
+All active quarks are considered massless and all non-active quarks are considered infinite massive.
+The latter ensures $f_H(\xi, Q^2) = 0 = f_{\bar H}(\xi, Q^2)$ and $C_H(z, Q^2) = 0 = C_{\bar H}(z, Q^2)$ for all non-active quarks $H$ and the former ensures that all formulas in \cref{sec:nlo} hold.
+If we denote the new dependency on the number of active flavors $n_f$ by a superscript $(n_f)$ we can define the ZM-VFNS in the following way
+\begin{equation}
+    \sigma^{\text{ZM-VFNS}}(x,Q^2) = \left\{ \begin{array}{ll}
+        \sigma^\mathrm{(3)}(x,Q^2) &\text{if}~ Q^2 < m_c^2\\
+        \sigma^\mathrm{(4)}(x,Q^2) &\text{if}~ m_c^2 \leq Q^2 < m_b^2\\
+        \sigma^\mathrm{(5)}(x,Q^2) &\text{if}~ m_b^2 \leq Q^2 < m_t^2\\
+        \sigma^\mathrm{(6)}(x,Q^2) &\text{if}~ Q^2 \geq m_t^2
+    \end{array} \right. \label{eq:zmvfns}
+\end{equation}
+where
+\begin{equation}
+    \sigma^{(n_f)}(x,Q^2) = \left(\vb C^{T,(n_f)}(Q^2) \otimes \vb f^{(n_f)}(Q^2)\right)(x)
+\end{equation}
+i.e.\ each contribution has its own factorization formula and we have, e.g.,
+\begin{equation}
+    \begin{array}{l}
+        C_H^{(3)}(z, Q^2) = 0 = C_{\bar H}^{(3)}(z, Q^2)\\
+        f_H^{(3)}(\xi, Q^2) = 0 = f_{\bar H}^{(3)}(\xi, Q^2)
+    \end{array}
+    \quad H\in\{c,\bar c, b, \bar b, t, \bar t\}
+\end{equation}
+and similar for the others.
+Specifically, we can improve \cref{eq:LOC} by writing
+\begin{align}
+    C_q^{(0),(3)}(z) &= e_q^2 \delta(1-z) & q\in\{c,\bar c, b, \bar b, t, \bar t\}\\
+    C_H^{(0),(3)}(z) &= 0 & H\in\{c,\bar c, b, \bar b, t, \bar t\}\\
+    C_g^{(0),(3)}(z) &= 0
+\end{align}
+and we finally give full details on the available flavor space $\mathcal F$.
+
+Note that it does not make sense to consider less then three quarks, since $m_u,m_d,m_s \ll \LQCD \sim \SI{1}{\GeV}$ and pQCD only works for $Q > \LQCD$.
+All quarks are considered with their actual mass for the decision if they are in or out, \cref{eq:zmvfns}, but then after that their mass is discarded, in particular when computing $\vb C^{(n_f)}(z,Q^2)$.
+This simplifies their calculation very much as we show in the next part.
+
+\subsection{FFNS}
+
+\subsection{FONLL}
+
+\subsection{Heavy quark structure functions}

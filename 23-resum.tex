@@ -33,7 +33,8 @@ In this specific case we can solve \cref{eq:LObeta} and obtain
     \alpha_s^\text{LO}(\mu_R^2) = \frac{\alpha_s(\mu_{R,0}^2)}{1 + \alpha_s(\mu_{R,0}^2)\beta_0\ln(\mu_R^2/\mu_{R,0}^2)} \label{eq:LOalphas}
 \end{equation}
 for a given boundary condition $\alpha_s(\mu_{R,0}^2)$ at the scale $\mu_{R,0}^2$.
-Recall, that \cref{eq:LOalphas} has not two free parameters, $\mu_{R,0}$ and $\alpha_s(\mu_{R,0})$ as one would naively think, but only one.
+Recall, that \cref{eq:LOalphas} has not two free parameters, $\mu_{R,0}$ and $\alpha_s(\mu_{R,0})$ as one would naively think, but only one $\LQCD$.
+Also remember that $\LQCD$ corresponds to the pole in \cref{eq:LOalphas} and pQCD only makes sense above that scale, $\mu_R > \LQCD$.
 \fherror{excercise: proof lambda in alphas?}
 
 Now, coming back to the title of this section, note that \cref{eq:LOalphas} is a resummation:
@@ -49,7 +50,7 @@ However, in some situations, to be discussed in \cref{sec:sv}, we need \cref{eq:
 While for the special case $\mu_{R,0} = \mu_R$ we need to be consistent of course and we thus find that $\alpha_s^\text{LO}(\mu_R^2)$ is $\alpha_s(\mu_{R,0}^2)$ at the LO truncation, we note that they differ by higher order terms.
 \Cref{eq:LOalphasexp} is the first, simplest case of a perturbative expansion of a resummed expression, \cref{eq:LOalphas}, and can also be obtained by using the Taylor expansion of $\alpha_s(\mu_R^2)$ around $\mu_{R,0}^2$ together with \cref{eq:LObeta}.
 In other words, \cref{eq:LOalphasexp} is a perturbative expansion of \cref{eq:LOalphas} in powers of $\alpha_s(\mu_{R,0}^2)$.
-Note that \cref{eq:LOalphasresum} has a finite radius of convergence (as all geometric series) and that is also reflected in \cref{eq:LOalphas}.
+Note that \cref{eq:LOalphasresum} has a finite radius of convergence (as all geometric series) and that is also reflected in \cref{eq:LOalphas} by the pole $\LQCD$.
 
 Starting from NLO accuracy the RGE, e.g.\ in this specific case given by
 \begin{equation}

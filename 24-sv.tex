@@ -253,15 +253,16 @@ Despite all these (potential) problems, scale variations have a solid foundation
 In order to make a faithful statement, we can then simply say: when we compute this process with this specific choice of scale, we obtain this number; if we vary that scale in this range, we obtain this range of numbers.
 
 \subsection{Implementation}
+\label{sec:svimpl}
 Let us return now to more practical consequences.
 As we see above, renormalization scale variations are just a scalar operation, but factorization scale variations are more complicated and it is worth spelling out their explicit construction to see what is actually happening.
 
 The factorization scale variation is directly related to the PDFs themselves and, in particular, eventually, they derive from \cref{eq:DGLAP}.
 However, the splitting functions $\vb P$ are encoding how partons couple among each other, which is through the gluon\footnote{for quark-photon interaction see Ref.~\cite{NNPDF:2024djq}} of course.
-This is in contrast to DIS, where instead the coefficient functions are encoding how partons couple to the electro-weak vector boson, which is completely different.
+This is in contrast to DIS, where instead the coefficient functions are encoding how partons couple to the electro-weak vector boson, which is completely different, see \cref{box:particles}.
 
 As usual, at LO accuracy the problem does not appear yet, because there are no scale-varied coefficient functions, see \cref{eq:CbarFLO}, but starting from NLO accuracy we need to worry.
-In particular, we know that the gluon couples the same to all quarks, thus, if we combine them in the following way~\cite{NNPDF:2024djq}\footnote{for the more general case see Ref.~\cite{NNPDF:2024djq}},
+In particular, we know that the gluon couples the same to all quarks, thus, if we assume four flavors (see \cref{sec:hq}) for the moment and combine them in the following way~\cite{NNPDF:2024djq}\footnote{for the more general case see Ref.~\cite{NNPDF:2024djq}},
 \begin{align}
     f_{\Sigma_\Delta}(x,Q^2) &= f_u(x,Q^2) + f_{\bar u}(x,Q^2) + f_c(x,Q^2) + f_{\bar c}(x,Q^2)\nonumber\\
     & \hspace{10pt} - f_d(x,Q^2) - f_{\bar d}(x,Q^2) - f_s(x,Q^2) - f_{\bar s}(x,Q^2)  \label{eq:SigmaDelta}
@@ -270,20 +271,21 @@ we know that this combination does not interact with the gluon.
 In order to see more clearly what happens we need to go back to the vector notation from \cref{eq:fact3}.
 We repeat: we denote objects, which have a non-trivial dependence on the parton flavors, with bold font.
 This applies to vectors in flavor space, e.g.\ coefficient functions $C_j \to \vb C$ or PDFs $f_j \to \vb f$, but also to matrices, e.g.\ splitting functions $P_{jk} \to \vb P$ or the factorization scale operator $K_{jl}\to \vb K$.
-By introducing the vector notation we hide any reference to a given basis in the flavor space, which now becomes relevant.
+By introducing the vector notation we hide any reference to a given basis in the flavor space, which now becomes relevant (see also \cref{sec:hq}).
 
-For computing LO and NLO DIS coefficient functions it is convenient to consider each quark individually and we can find easily \cref{eq:LOC}.
+For computing LO and NLO DIS coefficient functions it is convenient to consider each quark individually and we can find easily \cref{eq:LOC,eq:LOxs}.
 We refer to this choice of basis as the flavor basis.
 However, for the discussion in \cref{sec:DGLAP} and in particular for dealing with splitting functions, $\vb P$, a different basis is more convenient: the evolution basis.
-The two choices are both orthogonal bases, i.e.\ they are simply related by a rotation\footnote{actually, it is a rotation and a scaling, i.e.\ the evolution basis is not orthonormal} in flavor space.
+The two choices are both orthogonal bases, i.e.\ they are simply related by a rotation\footnote{actually, it is a rotation and a scaling, i.e.\ the evolution basis is not orthonormal, which may cause some trouble} in flavor space.
 Specifically, $\vb P$ has a much simpler representation if one of the basis vectors is the singlet
-\begin{equation}
-    f_\Sigma(x,Q^2) = \sum_{q} f_q(x,Q^2) + f_{\bar q}(x,Q^2) \label{eq:Singlet}
-\end{equation}
+\begin{align}
+    f_\Sigma(x,Q^2) &= f_u(x,Q^2) + f_{\bar u}(x,Q^2) + f_c(x,Q^2) + f_{\bar c}(x,Q^2)\nonumber\\
+    & \hspace{10pt} - f_d(x,Q^2) - f_{\bar d}(x,Q^2) - f_s(x,Q^2) - f_{\bar s}(x,Q^2) \label{eq:Singlet}
+\end{align}
 and all other basis vectors can be chosen such that they do not couple to the gluon, e.g. \cref{eq:SigmaDelta}.
 
 Let's see this in practice for LO photon DIS: we start from \cref{eq:LOC}, which is written in flavor basis, i.e.\ for each given quark flavor and the gluon.
-Inserting \cref{eq:LOC} into \cref{eq:fact1} yields \cref{eq:LOxs} and if we assume four flavors (see \cref{sec:hq}), we find explicitly
+Inserting \cref{eq:LOC} into \cref{eq:fact1} yields \cref{eq:LOxs} and we find explicitly
 \begin{align}
     \sigma(x,Q^2) &= e_d^2\qty(f_d(x,Q^2) + f_{\bar d}(x,Q^2) + f_s(x,Q^2) + f_{\bar s}(x,Q^2)) \nonumber\\
     & \hspace{10pt} + e_u^2\qty(f_u(x,Q^2) + f_{\bar u}(x,Q^2) + f_c(x,Q^2) + f_{\bar c}(x,Q^2))
