@@ -204,7 +204,7 @@ In order to do so, we must first consider factorization scale variation, which y
 \begin{equation}
     \sigma(x,Q^2,\mu_F^2,\mu_R^2=Q^2) = \qty(\vb C^T(Q^2,\mu_F^2,\mu_R^2=Q^2) \otimes \vb f(\mu_F^2))(x)
 \end{equation}
-but now we make the renormalization scale dependence explicit and $\vb C(Q^2,\mu_F^2,\mu_R^2=Q^2)$ corresponds to \cref{eq:CbarFB}.
+but now we make the renormalization scale dependence explicit and $\vb C(Q^2,\mu_F^2,\mu_R^2=Q^2)$ corresponds to \cref{eq:CbarFpQCD}.
 Then in the second step, we apply the renormalization scale variation onto $\vb C(Q^2,\mu_F^2,\mu_R^2=Q^2)$, which still depend on $\alpha_s(Q^2)$, and get
 \begin{equation}
     \sigma(x,Q^2,\mu_F^2,\mu_R^2) = \qty(\vb C^T(Q^2,\mu_F^2,\mu_R^2) \otimes \vb f(\mu_F^2))(x)\,. \label{eq:sigmaFR}
@@ -215,6 +215,19 @@ We can make the dependence on the various scales in \cref{eq:sigmaFR} more expli
 \end{equation}
 where, again, finally $\mu_F$ and $\mu_R$ fulfill their dedicated role.
 Note that in \cref{eq:sigmaFRln} two additional scales, $\mu_{F,0}$ and $\mu_{R,0}$ are left implicit and those eventually guarantee that it is a dimensionless equation.
+
+Let's see this in practice and remember that in order to see renormalization scale logarithms we need to play at NNLO.
+We find
+\begin{align}
+    &\vb C(z,\alpha_s(\mu_R^2),\ln(\mu_F^2/Q^2),\ln(\mu_R^2/Q^2)) \nonumber\\
+    &= \vb C^{(0)}(z) \nonumber\\
+     &\hspace{10pt} + \alpha_s(\mu_R^2) \left[\vb C^{(1)}(z) + \vb C^{(1),F}(z)\ln(\mu_F^2/Q^2) \right] \nonumber\\
+     &\hspace{10pt} + \left(\alpha_s(\mu_R^2)\right)^2 \left[\vb C^{(2)}(z) + \vb C^{(2),F}(z)\ln(\mu_F^2/Q^2) + \vb C^{(2),R}(z)\ln(\mu_R^2/Q^2) \right.\nonumber\\
+     &\hspace{70pt} \left. \vb C^{(2),FF}(z)\ln^2(\mu_F^2/Q^2) + \vb C^{(2),FR}(z)\ln(\mu_F^2/Q^2)\ln(\mu_R^2/Q^2) \right] + \ldots
+\end{align}
+We see that the number of terms per perturbative order quickly grows as the respective algorithms collect more of the full behavior.
+% mention cross term? C^2F = C^1 P^0 + C^0 P^1
+The appearance of $\vb C^{(2),FR}$ also demonstrate how the two variations become intertwined.
 
 % 7 vs 9 pnt?
 % correlations?
@@ -241,32 +254,27 @@ In order to make a faithful statement, we can then simply say: when we compute t
 
 \subsection{Implementation}
 Let us return now to more practical consequences.
-First, we observe that renormalization scale variation is essentially a reshuffling of lower order coefficient functions, see \cref{box:svren}.
-Since the complexity typically grows with perturbative orders, this reordering does not introduce any unrelated ingredients or correlations.
+As we see above, renormalization scale variations are just a scalar operation, but factorization scale variations are more complicated and it is worth spelling out their explicit construction to see what is actually happening.
 
-Second, although scale-varied coefficient functions can always be computed a posteriori, see \cref{box:svren}, in practice it usually makes sense to tabulate them into interpolation grids as well, see \cref{sec:grids}.
-These additional coefficient functions can be easily accommodated when we generalize our concept of \enquote{order}: it can not only represent the perturbative order per se, but also additional powers of renormalization or factorization logarithms: $\alpha_s^k(\mu_R^2)\ln^m(\mu_R^2/Q^2)\ln^n(\mu_R^2/Q^2)$.
-
-Third, as we see above, factorization scale variations are more complicated and this is also related to their physics.
 The factorization scale variation is directly related to the PDFs themselves and, in particular, eventually, they derive from \cref{eq:DGLAP}.
-However, the splitting functions $\vb P$ are encoding how partons couple among each other, which is mainly through the gluon of course.
+However, the splitting functions $\vb P$ are encoding how partons couple among each other, which is through the gluon\footnote{for quark-photon interaction see Ref.~\cite{NNPDF:2024djq}} of course.
 This is in contrast to DIS, where instead the coefficient functions are encoding how partons couple to the electro-weak vector boson, which is completely different.
 
 As usual, at LO accuracy the problem does not appear yet, because there are no scale-varied coefficient functions, see \cref{eq:CbarFLO}, but starting from NLO accuracy we need to worry.
-In particular, we know that the gluon couples the same to all quarks, thus, if we combine them in the following way~\cite{NNPDF:2024djq}\footnote{for the more general case, see Ref.~\cite{NNPDF:2024djq}},
+In particular, we know that the gluon couples the same to all quarks, thus, if we combine them in the following way~\cite{NNPDF:2024djq}\footnote{for the more general case see Ref.~\cite{NNPDF:2024djq}},
 \begin{align}
-    f_{\Sigma_\Delta}(x,Q^2) &= f_d(x,Q^2) + f_{\bar d}(x,Q^2) + f_s(x,Q^2) + f_{\bar s}(x,Q^2) \nonumber\\
-    & \hspace{10pt} - f_u(x,Q^2) - f_{\bar u}(x,Q^2) - f_c(x,Q^2) - f_{\bar c}(x,Q^2) \label{eq:SigmaDelta}
+    f_{\Sigma_\Delta}(x,Q^2) &= f_u(x,Q^2) + f_{\bar u}(x,Q^2) + f_c(x,Q^2) + f_{\bar c}(x,Q^2)\nonumber\\
+    & \hspace{10pt} - f_d(x,Q^2) - f_{\bar d}(x,Q^2) - f_s(x,Q^2) - f_{\bar s}(x,Q^2)  \label{eq:SigmaDelta}
 \end{align}
-we know that they decouple.
+we know that this combination does not interact with the gluon.
 In order to see more clearly what happens we need to go back to the vector notation from \cref{eq:fact3}.
 We repeat: we denote objects, which have a non-trivial dependence on the parton flavors, with bold font.
 This applies to vectors in flavor space, e.g.\ coefficient functions $C_j \to \vb C$ or PDFs $f_j \to \vb f$, but also to matrices, e.g.\ splitting functions $P_{jk} \to \vb P$ or the factorization scale operator $K_{jl}\to \vb K$.
 By introducing the vector notation we hide any reference to a given basis in the flavor space, which now becomes relevant.
 
 For computing LO and NLO DIS coefficient functions it is convenient to consider each quark individually and we can find easily \cref{eq:LOC}.
-We refer to this choice of basis as flavor basis.
-However, for the discussion in \cref{sec:DGLAP} and in particular for dealing with splitting functions, $\vb P$, a different basis is more comfortable: the evolution basis.
+We refer to this choice of basis as the flavor basis.
+However, for the discussion in \cref{sec:DGLAP} and in particular for dealing with splitting functions, $\vb P$, a different basis is more convenient: the evolution basis.
 The two choices are both orthogonal bases, i.e.\ they are simply related by a rotation\footnote{actually, it is a rotation and a scaling, i.e.\ the evolution basis is not orthonormal} in flavor space.
 Specifically, $\vb P$ has a much simpler representation if one of the basis vectors is the singlet
 \begin{equation}
@@ -282,11 +290,11 @@ Inserting \cref{eq:LOC} into \cref{eq:fact1} yields \cref{eq:LOxs} and if we ass
 \end{align}
 Using \cref{eq:Singlet,eq:SigmaDelta} we can rewrite this as
 \begin{equation}
-    \sigma(x,Q^2) &= \qty(e_d^2 + e_u^2) f_\Sigma(x,Q^2) + \qty(e_d^2 - e_u^2) f_{\Sigma_\Delta}(x,Q^2)
+    \sigma(x,Q^2) &= \qty(e_d^2 + e_u^2) f_\Sigma(x,Q^2) + \qty(e_u^2 - e_d^2) f_{\Sigma_\Delta}(x,Q^2)
 \end{equation}
 or equivalently
 \begin{equation}
-    C_\Sigma^{(0)}(z) = (e_d^2 + e_u^2) \delta(1-z),\quad C_{\Sigma_\Delta}^{(0)}(z) = (e_d^2 - e_u^2) \delta(1-z), \quad C_j(z) = 0 \,\forall j\neq\{\Sigma,\Sigma_\Delta\} \label{eq:LOCev}
+    C_\Sigma^{(0)}(z) = (e_d^2 + e_u^2) \delta(1-z),\quad C_{\Sigma_\Delta}^{(0)}(z) = (e_u^2 - e_d^2) \delta(1-z), \quad C_j(z) = 0 \,\forall j\neq\{\Sigma,\Sigma_\Delta\} \label{eq:LOCev}
 \end{equation}
 We stress that \cref{eq:LOC,eq:LOCev} are two equivalent representation of the coefficient function $\vb C^{(0)}$ using two different bases.
 
@@ -308,7 +316,19 @@ where the required splitting functions can be found in the literature~\cite{Lead
 Actually, also LO splitting functions $\vb P^{(0)}$ obey symmetry relations, in particular all quarks couple identically to the gluon and it is not possible (yet) to change the quark flavor.
 This implies $\mathrm P_{\Sigma_\Delta \Sigma_\Delta}^{(0)}(y) = \mathrm P_{\Sigma \Sigma}^{(0)}(y) = \mathrm P_{qq}^{(0)}(y)$ and thus \cref{eq:CbarFNLO} can also be executed straightforwardly in flavor space.
 However, this symmetry breaks down starting from NLO splitting functions $\vb P^{(1)}$, which would be required for NNLO DIS cross sections.
-\fherror{Note coupling structure is retained.}
 
-Let's consider one final cross-correlation: this necessary projection onto a singlet component is particularly tricky for CC DIS.
-Recall that the $W^\pm$ boson only couple to specific PDFs and thus if we want to project the coefficient functions into evolution basis we need the full basis (and not just \cref{eq:SigmaDelta,eq:Singlet}).
+\subsection{Interplay with previous content}
+
+\begin{itemize}
+    \item Renormalization scale variation is a reshuffling of lower order coefficient functions and factorization scale variation adds convolutions between splitting functions and lower order coefficient functions.
+        This implies that the mathematical complexity remains the same or in other words: we never encounter new mathematical objects in scale variations; see \cref{sec:nlo}.
+    \item Although scale-varied coefficient functions can always be computed a posteriori, see \cref{box:svren}, in practice it usually makes sense to tabulate them into interpolation grids as well, see \cref{sec:grids}.
+        These additional coefficient functions can be easily accommodated when we generalize our concept of \enquote{order}: it can not only represent the perturbative order per se, but also additional powers of renormalization or factorization logarithms: $\alpha_s^k(\mu_R^2)\ln^m(\mu_R^2/Q^2)\ln^n(\mu_R^2/Q^2)$.
+    \item The necessary projection onto a singlet component is particularly tricky for CC DIS, see \cref{sec:diverse}.
+        Recall that the $W^\pm$ boson only couple to specific PDFs and thus if we want to project the coefficient functions into evolution basis we need the full basis (and not just \cref{eq:SigmaDelta,eq:Singlet}).
+    \item Note that the coupling structure is always retained, i.e.\ 
+        \begin{equation}
+            C^{(1)}_{g}(z) \sim e_u^2 + e_d^2 \sim C^{(1)}_{g}(z,\ln(\mu_F^2/Q^2))
+        \end{equation}
+        This implies that a given \enquote{channel} in an interpolation grid (\cref{sec:grids}) has a unique coupling, though recall that some channels only appear at high enough perturbative order.
+\end{itemize}
