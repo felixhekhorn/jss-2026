@@ -39,9 +39,11 @@ The specific choice on which quarks we allow to participate and in which way the
 
 \subsection{ZM-VFNS}
 
-One very popular choice is the zero-mass flavor number scheme (ZM-VFNS), which is defined in the following way: whenever the probed scale $Q$ crosses a quark mass that quark becomes active.
-All active quarks are considered massless and all non-active quarks are considered infinite massive.
-The latter ensures $f_H(\xi, Q^2) = 0 = f_{\bar H}(\xi, Q^2)$ and $C_H(z, Q^2) = 0 = C_{\bar H}(z, Q^2)$ for all non-active quarks $H$ and the former ensures that all formulas in \cref{sec:nlo} hold.
+One very popular choice is the Zero-Mass Variable Flavor Number Scheme (ZM-VFNS), which is a telling name.
+Formally, we can define it in the following way:
+first, whenever the probed scale $Q$ crosses a quark mass that quark becomes active;
+second; in coefficient functions all active quarks are considered massless and all non-active quarks are considered infinite massive.
+The infinite mass ensures $f_H(\xi, Q^2) = 0 = f_{\bar H}(\xi, Q^2)$ and $C_H(z, Q^2) = 0 = C_{\bar H}(z, Q^2)$ for all non-active quarks $H$ and the zero mass ensures that all formulas in \cref{sec:nlo} hold.
 If we denote the new dependency on the number of active flavors $n_f$ by a superscript $(n_f)$ we can define the ZM-VFNS in the following way
 \begin{equation}
     \sigma^{\text{ZM-VFNS}}(x,Q^2) = \left\{ \begin{array}{ll}
@@ -73,10 +75,23 @@ Specifically, we can improve \cref{eq:LOC} by writing
 and we finally give full details on the available flavor space $\mathcal F$.
 
 Note that it does not make sense to consider less then three quarks, since $m_u,m_d,m_s \ll \LQCD \sim \SI{1}{\GeV}$ and pQCD only works for $Q > \LQCD$.
-All quarks are considered with their actual mass for the decision if they are in or out, \cref{eq:zmvfns}, but then after that their mass is discarded, in particular when computing $\vb C^{(n_f)}(z,Q^2)$.
-This simplifies their calculation very much as we show in the next part.
+All quarks are considered with their actual mass for the decision if they are in or out, \cref{eq:zmvfns}, but then after that their mass is discarded when computing $\vb C^{(n_f)}(z,Q^2)$.
+Thus, the VFNS indicates that the number of active quarks $n_f$ depends on the probed scale $Q$, i.e.\ it is variable, and the ZM explains how to compute diagrams.
+However, once we have an actual scale in hand, $n_f$ is also fixed.
 
 \subsection{FFNS}
+
+For the number of active quarks we can make another simple choice: fix $n_f$ once and forever - the Fixed Flavor Number Scheme (FFNS).
+Here, the probed scale $Q$ does not matter, but we will use the same coefficient functions for any scale.
+Actually, saying FFNS is not sufficient, we still have some choices and the most obvious is $n_f$.
+
+However, we can also improve with respect to other parts: while it is significantly easier to compute diagrams with only massless quarks, we can compute them also with massive quarks.
+We recall two important features of the propagator of a massive quark,
+\begin{equation}
+    D_q(p) \sim \frac{p_\mu\gamma^\mu + m\mathbbm{1}}{p^2 - m^2}\,;
+\end{equation}
+first, the mass appears explicitly in the numerator, which makes computing Dirac traces significantly more lengthy, and, second, the mass appears in the denominator, which shields the propagator from a collinear pole.
+When we consider a finite mass we eventually have three different scales in our diagrams: the total energy of the colliding particles $\hat s$, the photon virtuality $Q^2$, and the quark mass $m^2$.
 
 \subsection{FONLL}
 
