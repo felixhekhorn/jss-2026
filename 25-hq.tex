@@ -55,7 +55,7 @@ If we denote the new dependency on the number of active flavors $n_f$ by a super
 \end{equation}
 where
 \begin{equation}
-    \sigma^{(n_f)}(x,Q^2) = \left(\vb C^{T,(n_f)}(Q^2) \otimes \vb f^{(n_f)}(Q^2)\right)(x)
+    \sigma^{(n_f)}(x,Q^2) = \left(\vb C^{T,(n_f)}(Q^2) \otimes \vb f^{(n_f)}(Q^2)\right)(x) \label{eq:factnf}
 \end{equation}
 i.e.\ each contribution has its own factorization formula and we have, e.g.,
 \begin{equation}
@@ -79,6 +79,14 @@ All quarks are considered with their actual mass for the decision if they are in
 Thus, the VFNS indicates that the number of active quarks $n_f$ depends on the probed scale $Q$, i.e.\ it is variable, and the ZM explains how to compute diagrams.
 However, once we have an actual scale in hand, $n_f$ is also fixed.
 
+\begin{conclusionbox}{ZM-VFNS}
+    In the ZM-VFNS
+    \begin{itemize}
+        \item the number of active quarks $n_f$ depends on the probed scale $Q^2$
+        \item contain the diagrams to compute coefficient functions only massless quarks
+    \end{itemize}
+\end{conclusionbox}
+
 \subsection{FFNS}
 
 For the number of active quarks we can make another simple choice: fix $n_f$ once and forever - the Fixed Flavor Number Scheme (FFNS).
@@ -86,9 +94,10 @@ Here, the probed scale $Q$ does not matter, but we use the same coefficient func
 Actually, saying FFNS is not sufficient, we still have some choices and the most obvious is $n_f$.
 
 However, we can also improve with respect to other parts: while it is significantly easier to compute diagrams with only massless quarks, we can compute them also with massive quarks.
+For simplicity we assume in the following exactly one quark to be massive.
 We recall two important features of the propagator of a massive quark,
 \begin{equation}
-    D_q(p) \sim \frac{p_\mu\gamma^\mu + m\mathbbm{1}}{p^2 - m^2}\,;
+    D_q(p) \sim \frac{p_\mu\gamma^\mu + m\mathbbm{1}}{p^2 - m^2}\,; \label{eq:quarkprop}
 \end{equation}
 first, the mass appears explicitly in the numerator, which makes computing Dirac traces significantly more lengthy, and, second, the mass appears in the denominator, which shields the propagator from a collinear pole.
 When we consider a finite mass we eventually have three different scales in our diagrams: the total energy of the colliding partons $\hat s$, the photon virtuality $Q^2$, and the quark mass $m^2$.
@@ -96,7 +105,54 @@ This means that unlike the massless case discussed so far, the coefficient funct
 This in turn implies that the available mathematical function space is much bigger, which makes the computation of these coefficient functions $\vb C(z,\xi_q,Q^2)$ significantly more complex.
 
 However, we focus here on the new dependency on $\xi_q$, which captures the new features.
-First, we consider the case $Q^2 \gg m^2$ or $\xi_q \to \infty$:
+First, we consider the case $Q^2 \gg m^2$ or $\xi_q \to \infty$ where the denominator of \cref{eq:quarkprop} plays the important role.
+Indeed, since it is shielding the propagator from a collinear divergency, we encounter some signals thereof when we put $m^2 \to 0$.
+Specifically, we can rewrite the coefficient functions in this limit,
+\begin{equation}
+    \lim_{Q^2/m^2\to\infty}\vb C^{(n_f),T}(Q^2,m^2) = \vb C^{(n_f+1),T}(Q^2) \vb A^{(n_f+1)}(Q^2,m^2) \label{eq:Cmatching}
+\end{equation}
+i.e.\ we can connect the coefficient functions using two neighboring schemes and a new, universal operator $\vb A$, which admits a perturbative series
+\begin{equation}
+    \vb A^{(n_f+1)}(Q^2,m^2) = \sum_{j=0} \left(\alpha_s(Q^2)\right)^j \vb A^{(j),(n_f+1)}(\ln(Q^2/m^2))\,.
+\end{equation}
+We discuss more details of this new operator in a moment, but the important thing to stress here is the universality.
+This universality derives from the universality of PDFs, which makes the operator closely connected to collinear splitting functions as we expect.
+Moreover, \cref{eq:Cmatching} puts strong constraints on the computation of any coefficient function\footnote{or any partonic matrix elements as a similar equations hold, e.g., in hadron-hadron collisions} once the universal operator $\vb A$ is known at the requested accuracy.
+Note that the coefficient functions in \cref{eq:Cmatching} depend on different sets of variables, since we consider the \enquote{+1} quark massless in the $(n_f+1)$ scheme.
+Thus, as expected, the full mass dependence on the right-hand-side of \cref{eq:Cmatching} is carried by the universal operator $\vb A$ and it is a pure, actual polynomial, dependency on $\ln(Q^2/m^2)$.
+So, the remnant of the collinear divergency for a massive quark is a logarithm $\ln(Q^2/m^2)$ as we may have guessed from the beginning.
+
+Next, we consider the case $Q^2 \sim m^2$ where the nominator of \cref{eq:quarkprop} plays the important role.
+While we conclude above that the FFNS coefficient functions contain logarithms $\ln(Q^2/m^2)$ they also naturally contain terms which are relatively suppressed to them.
+Specifically, if we expand the FFNS coefficient function around $Q^2 \sim m^2$ we obtain
+\begin{equation}
+    \vb C^{(n_f)}(Q^2,m^2) = \vb C_{thr,0}^{(n_f)} + \vb C_{thr,1}^{(n_f)} \left(\frac{Q^2}{m^2}\right) + \vb C_{thr,2}^{(n_f)} \left(\frac{Q^2}{m^2}\right)^2 + \ldots
+\end{equation}
+with some coefficients $\vb C_{thr,k}^{(n_f)}$.
+Note that the equation is to be understood as a Taylor expansion at the requested point as in practice the actual dependency on $\xi_q$ is very intricate\footnote{for example via $\chi_q$}.
+However, it is clear that in the region $Q^2 \sim m^2$ these terms may not be small and thus neglecting such contributions may yield wrong results.
+That is the precisely the advantage of FFNS over ZM-VFNS: while in the latter we explicitly deny any massive quark in the diagrams, the former allows them to be included in the sum over diagrams.
+
+\begin{conclusionbox}{FFNS}
+    In the FFNS
+    \begin{itemize}
+        \item massive quarks are allowed in the computation of diagrams for coefficient functions
+        \item we counter universal logarithms $\ln(Q^2/m^2)$ for $Q^2\to m^2$ due to collinear divergencies
+    \end{itemize}
+\end{conclusionbox}
+
+But if the FFNS calculation is actually better than ZM-VFNS, why don't we always use the former?
+Before answering the question, we need to return to the new operator $\vb A$.
+
+\subsection{Matching schemes}
+The number of active quarks is not only relevant for coefficient functions, but, in fact, for the whole pQCD program and in particular for the strong coupling $\alpha_s$ and PDFs $\vb f$.
+As we see from \cref{eq:factnf} also PDFs depend on the number of flavors, e.g.\ $\vb f^{(3)}(\xi,\mu_F^2)$, and we can improve \cref{eq:CpQCD} with
+\begin{equation}
+    \vb C^{(n_f)}(z,Q^2,m^2) = \sum_{k=0} \left(\alpha_s^{(n_f)}(Q^2)\right)^k \vb C^{(k),(n_f)}(z,\xi_q)
+\end{equation}
+where we now also explicitly denote the flavor dependence of the strong coupling.
+Actually, from \cref{eq:LObeta} we already known that the beta coefficients depend explicitly on $n_f$ and thus $\alpha_s$ must depend on it as well.
+The same applies to PDFs since also splitting functions carry an explicit $n_f$ dependence and all appearances above, indeed, correspond to $\vb P^{(n_f)}$.
 
 \subsection{FONLL}
 
