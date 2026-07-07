@@ -82,7 +82,7 @@ However, once we have an actual scale in hand, $n_f$ is also fixed.
 \subsection{FFNS}
 
 For the number of active quarks we can make another simple choice: fix $n_f$ once and forever - the Fixed Flavor Number Scheme (FFNS).
-Here, the probed scale $Q$ does not matter, but we will use the same coefficient functions for any scale.
+Here, the probed scale $Q$ does not matter, but we use the same coefficient functions for any scale.
 Actually, saying FFNS is not sufficient, we still have some choices and the most obvious is $n_f$.
 
 However, we can also improve with respect to other parts: while it is significantly easier to compute diagrams with only massless quarks, we can compute them also with massive quarks.
@@ -91,7 +91,12 @@ We recall two important features of the propagator of a massive quark,
     D_q(p) \sim \frac{p_\mu\gamma^\mu + m\mathbbm{1}}{p^2 - m^2}\,;
 \end{equation}
 first, the mass appears explicitly in the numerator, which makes computing Dirac traces significantly more lengthy, and, second, the mass appears in the denominator, which shields the propagator from a collinear pole.
-When we consider a finite mass we eventually have three different scales in our diagrams: the total energy of the colliding particles $\hat s$, the photon virtuality $Q^2$, and the quark mass $m^2$.
+When we consider a finite mass we eventually have three different scales in our diagrams: the total energy of the colliding partons $\hat s$, the photon virtuality $Q^2$, and the quark mass $m^2$.
+This means that unlike the massless case discussed so far, the coefficient functions now depend on two scales, for example the partonic momentum fraction $z = Q^2/(\hat s + Q^2)$ and $\xi_q = Q^2 / m^2$ or any other bijective combination\footnote{For example, for NC DIS on can show~\cite{Hekhorn:2019nlf} that $\chi = \frac{1-\sqrt{1-4m^2/s}}{1+\sqrt{1-4m^2/s}}$ and $\chi_q = \frac{\sqrt{1+4m^2/Q^2}-1}{\sqrt{1+4m^2/Q^2}+1}$ are good combinations.}.
+This in turn implies that the available mathematical function space is much bigger, which makes the computation of these coefficient functions $\vb C(z,\xi_q,Q^2)$ significantly more complex.
+
+However, we focus here on the new dependency on $\xi_q$, which captures the new features.
+First, we consider the case $Q^2 \gg m^2$ or $\xi_q \to \infty$:
 
 \subsection{FONLL}
 
