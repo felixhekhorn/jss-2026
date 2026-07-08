@@ -22,6 +22,7 @@ The same applies also to the PDF $\vb f$, which is the other vector in \cref{eq:
 The question we need to address here is: which quarks exactly can participate in \cref{eq:LOxs,eq:LOC}?
 We refer to this number as the number of active quarks $n_f$.
 This dependency is completely hidden in \cref{eq:fact1}, but, as we demonstrate in the following, is a major concern for both coefficient functions and PDF.
+Note that the gluon is always considered active and contributes to all diagrams always.
 
 The number of flavors $n_f$ is arbitrary per se and there is no absolutely correct answer, since there is no theory argument, which would fix this choice.
 However, in practice for a given observable $\sigma(x,Q^2)$ we can consider, which options are phenomenologically reasonable and if some option would yield unstable results.
@@ -33,8 +34,8 @@ We can shut down such contributions by setting $f_t(\xi, Q^2) = 0 = f_{\bar t}(\
 In addition, we can also define $C_t(z, Q^2) = 0 = C_{\bar t}(z, Q^2)$ to explicitly say that we don't let the top contribute.
 
 Now, we consider the two remaining quarks, charm and bottom, for which maybe there is no clear answer.
-First, for the charm quark we have $m_c = \SI{1.5}{\GeV}$ and we can assume reasonably that it can contribute to DIS.
-On the other side, for the bottom quark we have $m_b = \SI{4.5}{\GeV}$ and maybe we can both allow or deny it.
+First, for the charm quark we have $m_c \sim \SI{1.5}{\GeV}$ and we can assume reasonably that it can contribute to DIS.
+On the other side, for the bottom quark we have $m_b \sim \SI{4.5}{\GeV}$ and maybe we can both allow or deny it.
 The specific choice on which quarks we allow to participate and in which way they do so is referred to as flavor number scheme.
 
 \subsection{ZM-VFNS}
@@ -94,7 +95,8 @@ Here, the probed scale $Q$ does not matter, but we use the same coefficient func
 Actually, saying FFNS is not sufficient, we still have some choices and the most obvious is $n_f$.
 
 However, we can also improve with respect to other parts: while it is significantly easier to compute diagrams with only massless quarks, we can compute them also with massive quarks.
-For simplicity we assume in the following exactly one quark to be massive.
+For simplicity we assume in the following we have exactly one\footnote{the case of two massive quarks is e.g.\ discussed in Ref.~\cite{Barontini:2024xgu}} massive quark with mass $m^2$.
+Moreover, while we keep the notation general you can always consider as a concrete example $n_f=3$ and thus $m^2 = m_c^2$.
 We recall two important features of the propagator of a massive quark,
 \begin{equation}
     D_q(p) \sim \frac{p_\mu\gamma^\mu + m\mathbbm{1}}{p^2 - m^2}\,; \label{eq:quarkprop}
@@ -161,7 +163,7 @@ In contrast, the strong coupling $\alpha_s$, PDFs $\vb f$, and coefficient funct
 The concept of having different number of active flavors $n_f$ is a theoretical idea, which we employ to make a consistent approximation in our calculation, but is irrelevant to nature.
 In pQCD we can still derive certain rules for our relevant objects in order to obtain a consistent theory, which we can then use to make predictions.
 
-The relevant physical properties, which we need here is consistency and perturbative equivalence.
+The important physical properties, which we need here is consistency and perturbative equivalence.
 Specifically, we require that the cross section in two different scheme are perturbatively equivalent, i.e.\
 \begin{equation}
     \sigma^{(n_f)}(x,Q^2) = \sigma^{(n_f+1)}(x,Q^2)\left[1 + \order{\alpha_s^{(n_f+1)}(Q^2)}\right]\,, \label{eq:sigmamatching}
@@ -171,7 +173,31 @@ In particular, they use their own coefficient functions, their own strong coupli
 However, since the coefficient functions, the beta coefficients, and the splitting functions are computed from the respective relevant diagrams this makes the condition quite restrictive.
 Moreover, if we recall \cref{sec:resum} we know that both, $\alpha_s$ and $\vb f$, perform a resummation, so \cref{eq:sigmamatching} is to be understood in a logarithmic sense and thus, in practice, it is convenient to consider \cref{eq:sigmamatching} in the limit $Q^2 \to \infty$.
 
+One can show that the connection between two different schemes can be done by a universal matching procedure for the strong coupling and the PDFs.
+Specifically, for the strong coupling we find
+\begin{equation}
+    \alpha_s^{(n_f+1)}(\mu_R^2) = \zeta^{(n_f+1)}(\mu_R^2, m^2)\alpha_s^{(n_f)}(\mu_R^2) \label{eq:alphasmatching}
+\end{equation}
+with a universal matching operator $\zeta$, which admits a perturbative series and has a polynomial dependence on $\ln(\mu_R^2/m^2)$.
+Analogously, for the PDFs we find
+\begin{equation}
+    \vb f^{(n_f+1)}(\xi, \mu_F^2) = \left(\vb A^{(n_f+1)}(\mu_F^2, m^2) \otimes \vb f^{(n_f)}(\mu_F^2)\right)(\xi) \label{eq:pdfmatching}
+\end{equation}
+with a universal matching operator $\vb A$, which is also used in \cref{eq:Cmatching}.
+The scheme change, \cref{eq:alphasmatching} and \cref{eq:pdfmatching}, can be done at any scale, but, following \cref{eq:zmvfns}, is conventionally done at the mass of the heavy quark, $\mu_R^2 = m^2 = \mu_F^2$.
 
-\subsection{FONLL}
+Let's see this in practice: consider a cross section $\sigma(x,Q^2)$ with $Q^2 > m^2$.
+As we say above the number of active quarks is a free choice, we can compute the cross section either in the $n_f$ scheme, \cref{eq:factnf}, or in the $(n_f+1)$ scheme,
+\begin{equation}
+    \sigma^{(n_f+1)}(x,Q^2) = \left(\vb C^{T,(n_f+1)}(Q^2) \otimes \vb f^{(n_f+1)}(Q^2)\right)(x)\,. \label{eq:sigmaup}
+\end{equation}
+Inserting \cref{eq:pdfmatching} into \cref{eq:sigmaup} we obtain
+\begin{equation}
+    \sigma^{(n_f+1)}(x,Q^2) = \left(\vb C^{T,(n_f+1)}(Q^2) \otimes \vb A^{(n_f+1)}(Q^2,m^2) \otimes \vb f^{(n_f)}(Q^2)\right)(x)
+\end{equation}
+and if \cref{eq:Cmatching} holds, the two expressions, \cref{eq:factnf} and \cref{eq:sigmaup}, are actually perturbatively equivalent.
+Recall that \cref{eq:Cmatching} only holds in the $Q^2 \gg m^2$ limit and so in practice for finite $Q^2$ the two expression are only perturbatively equivalent.
+
+\subsection{FONLL as an example of a GM-VFNS}
 
 \subsection{Heavy quark structure functions}
