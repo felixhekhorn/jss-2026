@@ -39,7 +39,7 @@ The specific choice on which quarks we allow to participate and in which way the
 
 \subsection{ZM-VFNS}
 
-One very popular choice is the Zero-Mass Variable Flavor Number Scheme (ZM-VFNS), which is a telling name.
+One very popular choice is the Zero-Mass Variable Flavor Number Scheme (ZM-VFNS), which is a telling name and which we have silently adopted in the previous parts.
 Formally, we can define it in the following way:
 first, whenever the probed scale $Q$ crosses a quark mass that quark becomes active;
 second; in coefficient functions all active quarks are considered massless and all non-active quarks are considered infinite massive.
@@ -153,6 +153,24 @@ As we see from \cref{eq:factnf} also PDFs depend on the number of flavors, e.g.\
 where we now also explicitly denote the flavor dependence of the strong coupling.
 Actually, from \cref{eq:LObeta} we already known that the beta coefficients depend explicitly on $n_f$ and thus $\alpha_s$ must depend on it as well.
 The same applies to PDFs since also splitting functions carry an explicit $n_f$ dependence and all appearances above, indeed, correspond to $\vb P^{(n_f)}$.
+
+The question is: how are those different schemes, e.g.\ $\alpha_s^{(3)}$ and $\alpha_s^{(4)}$, connected with each other?
+For coefficient functions the difference originates from the different diagrams which are included into the calculation of the coefficient functions, $\vb C^{(3)}$ and $\vb C^{(4)}$, but what about the strong coupling $\alpha_s$ and the PDFs $\vb f$?
+In order to answer this question it is important to return to the basic principles: we know that only cross sections $\sigma$ are physical objects for which we can derive physical properties, e.g.\ that they must be positive.
+In contrast, the strong coupling $\alpha_s$, PDFs $\vb f$, and coefficient functions $\vb C$ are not physical objects, which can not be measured directly in an experiment and which only are defined within our framework of pQCD.
+The concept of having different number of active flavors $n_f$ is a theoretical idea, which we employ to make a consistent approximation in our calculation, but is irrelevant to nature.
+In pQCD we can still derive certain rules for our relevant objects in order to obtain a consistent theory, which we can then use to make predictions.
+
+The relevant physical properties, which we need here is consistency and perturbative equivalence.
+Specifically, we require that the cross section in two different scheme are perturbatively equivalent, i.e.\
+\begin{equation}
+    \sigma^{(n_f)}(x,Q^2) = \sigma^{(n_f+1)}(x,Q^2)\left[1 + \order{\alpha_s^{(n_f+1)}(Q^2)}\right]\,, \label{eq:sigmamatching}
+\end{equation}
+where the two cross section are consistently computed in their respective flavor number scheme.
+In particular, they use their own coefficient functions, their own strong coupling, and their own PDFs.
+However, since the coefficient functions, the beta coefficients, and the splitting functions are computed from the respective relevant diagrams this makes the condition quite restrictive.
+Moreover, if we recall \cref{sec:resum} we know that both, $\alpha_s$ and $\vb f$, perform a resummation, so \cref{eq:sigmamatching} is to be understood in a logarithmic sense and thus, in practice, it is convenient to consider \cref{eq:sigmamatching} in the limit $Q^2 \to \infty$.
+
 
 \subsection{FONLL}
 
