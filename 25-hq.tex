@@ -89,6 +89,7 @@ However, once we have an actual scale in hand, $n_f$ is also fixed.
 \end{conclusionbox}
 
 \subsection{FFNS}
+\label{sec:ffns}
 
 For the number of active quarks we can make another simple choice: fix $n_f$ once and forever - the Fixed Flavor Number Scheme (FFNS).
 Here, the probed scale $Q$ does not matter, but we use the same coefficient functions for any scale.
@@ -128,7 +129,7 @@ Next, we consider the case $Q^2 \sim m^2$ where the nominator of \cref{eq:quarkp
 While we conclude above that the FFNS coefficient functions contain logarithms $\ln(Q^2/m^2)$ they also naturally contain terms which are relatively suppressed to them.
 Specifically, if we expand the FFNS coefficient function around $Q^2 \sim m^2$ we obtain
 \begin{equation}
-    \vb C^{(n_f)}(Q^2,m^2) = \vb C_{thr,0}^{(n_f)} + \vb C_{thr,1}^{(n_f)} \left(\frac{Q^2}{m^2}\right) + \vb C_{thr,2}^{(n_f)} \left(\frac{Q^2}{m^2}\right)^2 + \ldots
+    \vb C^{(n_f)}(Q^2,m^2) = \vb C_{thr,0}^{(n_f)} + \vb C_{thr,1}^{(n_f)} \left(\frac{Q^2}{m^2}\right) + \vb C_{thr,2}^{(n_f)} \left(\frac{Q^2}{m^2}\right)^2 + \ldots \label{eq:Cpower}
 \end{equation}
 with some coefficients $\vb C_{thr,k}^{(n_f)}$.
 Note that the equation is to be understood as a Taylor expansion at the requested point as in practice the actual dependency on $\xi_q$ is very intricate\footnote{for example via $\chi_q$}.
@@ -147,6 +148,8 @@ But if the FFNS calculation is actually better than ZM-VFNS, why don't we always
 Before answering the question, we need to return to the new operator $\vb A$.
 
 \subsection{Matching schemes}
+\label{sec:matching}
+
 The number of active quarks is not only relevant for coefficient functions, but, in fact, for the whole pQCD program and in particular for the strong coupling $\alpha_s$ and PDFs $\vb f$.
 As we see from \cref{eq:factnf} also PDFs depend on the number of flavors, e.g.\ $\vb f^{(3)}(\xi,\mu_F^2)$, and we can improve \cref{eq:CpQCD} with
 \begin{equation}
@@ -173,7 +176,7 @@ In particular, they use their own coefficient functions, their own strong coupli
 However, since the coefficient functions, the beta coefficients, and the splitting functions are computed from the respective relevant diagrams this makes the condition quite restrictive.
 Moreover, if we recall \cref{sec:resum} we know that both, $\alpha_s$ and $\vb f$, perform a resummation, so \cref{eq:sigmamatching} is to be understood in a logarithmic sense and thus, in practice, it is convenient to consider \cref{eq:sigmamatching} in the limit $Q^2 \to \infty$.
 
-One can show that the connection between two different schemes can be done by a universal matching procedure for the strong coupling and the PDFs.
+One can show~\cite{Barontini:2024xgu} that the connection between two different schemes can be done by a universal matching procedure for the strong coupling and the PDFs.
 Specifically, for the strong coupling we find
 \begin{equation}
     \alpha_s^{(n_f+1)}(\mu_R^2) = \zeta^{(n_f+1)}(\mu_R^2, m^2)\alpha_s^{(n_f)}(\mu_R^2) \label{eq:alphasmatching}
@@ -193,11 +196,92 @@ As we say above the number of active quarks is a free choice, we can compute the
 \end{equation}
 Inserting \cref{eq:pdfmatching} into \cref{eq:sigmaup} we obtain
 \begin{equation}
-    \sigma^{(n_f+1)}(x,Q^2) = \left(\vb C^{T,(n_f+1)}(Q^2) \otimes \vb A^{(n_f+1)}(Q^2,m^2) \otimes \vb f^{(n_f)}(Q^2)\right)(x)
+    \sigma^{(n_f+1)}(x,Q^2) = \left(\vb C^{T,(n_f+1)}(Q^2) \otimes \vb A^{(n_f+1)}(Q^2,m^2) \otimes \vb f^{(n_f)}(Q^2)\right)(x) \label{eq:sigmaupmatched}
 \end{equation}
 and if \cref{eq:Cmatching} holds, the two expressions, \cref{eq:factnf} and \cref{eq:sigmaup}, are actually perturbatively equivalent.
 Recall that \cref{eq:Cmatching} only holds in the $Q^2 \gg m^2$ limit and so in practice for finite $Q^2$ the two expression are only perturbatively equivalent.
 
 \subsection{FONLL as an example of a GM-VFNS}
 
-\subsection{Heavy quark structure functions}
+Let's return to the question on why we not always consider the FFNS.
+Looking to \cref{eq:sigmaupmatched}, we note that we have matched the PDF at $Q^2$, which is what we have needed there to make the argument of consistency work.
+However, we also say that the usual thing instead is to match at the heavy quark mass $m^2$, so let's see how that plays out.
+Starting from \cref{eq:sigmaup}, we find
+\begin{align}
+    &\sigma^{(n_f+1)}(x,Q^2) \nonumber\\
+    &= \left(\vb C^{T,(n_f+1)}(Q^2) \otimes \vb f^{(n_f+1)}(Q^2)\right)(x)\\
+    &= \left(\vb C^{T,(n_f+1)}(Q^2) \otimes \vb E^{(n_f+1)}(Q^2 \leftarrow m^2) \otimes \vb f^{(n_f+1)}(m^2)\right)(x)\\
+    &= \left(\vb C^{T,(n_f+1)}(Q^2) \otimes \vb E^{(n_f+1)}(Q^2 \leftarrow m^2) \otimes \vb A^{(n_f+1)}(m^2,m^2) \otimes \vb f^{(n_f)}(m^2)\right)(x) \label{eq:sigmaup0}
+\end{align}
+where in the second equation we have inserted the EKO in the $(n_f+1)$ scheme, $\vb E^{(n_f+1)}$, from \cref{eq:EKO} and then in the third equation the matching, \cref{eq:pdfmatching}, which is now in the customary place.
+We can massage \cref{eq:factnf} in a similar way and find
+\begin{align}
+    \sigma^{(n_f)}(x,Q^2) &= \left(\vb C^{T,(n_f)}(Q^2) \otimes \vb f^{(n_f)}(Q^2)\right)(x)\\
+    &= \left(\vb C^{T,(n_f)}(Q^2) \otimes \vb E^{(n_f)}(Q^2 \leftarrow m^2) \otimes \vb f^{(n_f)}(m^2)\right)(x) \label{eq:sigma0}
+\end{align}
+with the EKO now in the $n_f$ scheme, $\vb E^{(n_f)}$.
+
+As we discuss in \cref{sec:resum} the EKO, $\vb E$, is performing a resummation and in this particular case a resummation of the logarithm $\log(Q^2/m^2)$ as can be seen from the arguments in \cref{eq:sigmaup0,eq:sigma0}.
+This is true in either scheme, but the amount of logarithms, meaning the prefactor that is resummed along side, is different.
+The resummation is directly proportional to the splitting functions, \cref{eq:LOPDFexp}, which is different between the two scheme.
+In particular, in the $(n_f)$ scheme we are resumming the collinear logs of $n_f$ light quarks, but in the $(n_f+1)$ scheme we are resumming the collinear logs of $(n_f+1)$ light quarks.
+Thus the latter contains effectively more logarithms.
+
+But then how could we find an equivalence between the two schemes in \cref{sec:matching}?
+Recall that the equivalence is valid for cross sections, where coefficient functions explicitly enter, \cref{eq:factnf}.
+Indeed from \cref{sec:ffns} we know that $\vb C^{(n_f)}(z,Q^2,m^2)$ contains logarithms $\ln(Q^2/m^2)$, which are precisely the ones we are hunting here.
+However, the big difference is that $\vb C^{(n_f)}(z,Q^2,m^2)$ only contains a finite amount of logarithms, where as $\vb E^{(n_f+1)}$ is resumming those logarithms.
+This means that for $Q^2 \gg m^2$ FFNS is indeed a bad choice as the logarithms $\ln(Q^2/m^2)$ are big and better be resummed.
+Instead any power-suppressed terms, \cref{eq:Cpower}, which are important in the region $Q^2 \sim m^2$ and made FFNS preferable over ZM-VFGNS, are irrelevant in this region.
+
+\begin{conclusionbox}[label=box:gmvfns]{GM-VFNS}
+    A General Mass-Variable Flavor Number Scheme (GM-VFNS) must approximate a cross section $\sigma(x,Q^2)$
+    \begin{itemize}
+        \item in the region $Q^2 \sim m^2$ with the FFNS result $\sigma^{(n_f)}(x,Q^2,m^2)$
+        \item in the region $Q^2 \gg m^2$ with the resummed ZM-VFNS result $\sigma^{(n_f+1)}(x,Q^2)$
+    \end{itemize}
+\end{conclusionbox}
+
+\Cref{box:gmvfns} gives no exact prescription on how the approximation has to be done and, indeed, there is some freedom on how to do this.
+Different PDF fitting groups make different choices~\cite{Aivazis:1993pi,Thorne:1997uu,Kramer:2000hn,Tung:2001mv,Nadolsky:2009ge,Forte:2010ta,Guzzi:2011ew,Bonvini:2016fgf,Barontini:2024xgu} and as an exemplary case we consider here FONLL~\cite{Forte:2010ta,Barontini:2024xgu}, which has a simple idea:
+in order to match the two regions, we simply add the two expressions together and subtract any overlap.
+Let's consider the concrete case of charm:
+\begin{equation}
+    \sigma^\text{FONLL}(x,Q^2,m_c^2) = \sigma^{(3)}(x,Q^2,m_c^2) + \sigma^{(4)}(x,Q^2) - \sigma^{(3\cap 4)}(x,Q^2,m_c^2)\,. \label{eq:sigmaFONLL}
+\end{equation}
+Here,
+\begin{itemize}
+    \item $\sigma^{(3)}(x,Q^2,m_c^2)$ represents the massive FFNS result, which contains power-like $Q^2/m_c^2$ terms and a finite amount of $\ln(Q^2/m_c^2)$ associated with the charm
+    \item $\sigma^{(4)}(x,Q^2)$ represents the massless ZM-VFNS result, which resums all logarithms $\ln(Q^2/m_c^2)$, including the ones associated with the charm
+    \item $\sigma^{(3\cap 4)}(x,Q^2,m_c^2)$ collects all terms, which appear in both expressions simultaneously, and for which we have borrowed the notation from set notation
+\end{itemize}
+One can show~\cite{Barontini:2024xgu} that the overlap contribution can be written as
+\begin{equation}
+    \sigma^{(3\cap 4)}(x,Q^2,m_c^2) = \left(\vb C^{(3\cap 4)}(Q^2,m^2)\otimes \vb f^{(3)}(Q^2)\right)(x)
+\end{equation}
+where the corresponding coefficient function is given by
+\begin{equation}
+    \vb C^{(3\cap 4),T}(z,Q^2,m^2) = \left(\vb C^{(4),T}(Q^2)\otimes \vb A^{(4)}(Q^2,m^2)\right)(x)\,,
+\end{equation}
+i.e.\ the right-hand-side of \cref{eq:Cmatching}.
+It is immediately clear that in the limit $Q^2 \gg m^2$ the coefficient functions $\vb C^{(3),T}$ and $\vb C^{(3\cap 4),T}$ become identical and, thus, in \cref{eq:sigmaFONLL} only $\sigma^{(4)}$ contributes as requested by \cref{box:gmvfns}.
+On the other side, since $\sigma^{(3\cap 4)}$ contains exactly the logarithmic terms of $\sigma^{(3)}$ and those are also contained in $\sigma^{(4)}$, which actually only contains logarithms, we also match the $Q^2 \sim m^2$ region.
+The yet additional logarithms in $\sigma^{(4)}$, which are resummed there, are small in this region and a part of the approximation FONLL takes.
+
+\subsection{Interplay with previous content}
+\begin{itemize}
+    \item The relevant parameter in \cref{box:gmvfns} is the scale $Q^2$, which, as we explain in \cref{sec:diverse}, is very different between various experiments.
+        While for NC DIS at HERA heavy quark mass effects are very relevant and can be up to $\SI{20}{\percent}$~\cite{H1:2015ubc,H1:2018flt} in some kinematic regime, for CC DIS at HERA there are practically irrelevant since $Q^2$ is large.
+        However, when we consider CC DIS at small $Q^2$, as is present e.g.\ in neutrino experiments, they are again very relevant~\cite{Gao:2017kkx,Caola:2026kvl}.
+    \item The mathematical structure in massless and massive diagrams is very different, e.g.\ the former yields collinear divergencies, see \cref{sec:rsl,sec:nlo}, but the latter regulates them with explicit logarithms $\ln(Q^2/m^2)$, which makes them very different for interpolation grids, \cref{sec:grids}.
+        Moreover, the massive diagrams contain far more special functions, which already makes the NLO diagrams no longer analytically solvable but only numerically tractable~\cite{Hekhorn:2019nlf}.
+    \item Since the number of active flavors $n_f$ is a direct dependency of the strong coupling $\alpha_s^{(n_f)}$ and PDFs $\vb f^{(n_f)}$ it appears explicitly in scale variations, \cref{sec:sv}.
+        While for the renormalization scale variation it reduces to choosing the correct $\beta_0^{(n_f)}$ in \cref{eq:CbarRimpl}, for the factorization scale variations it is more complicated as usual.
+        First, it requires choosing the correct $\vb P^{(n_f)}$ in \cref{eq:CbarFNLO}, but second it also requires the correct definition of the evolution basis.
+        For example, now we can identify \cref{eq:Singlet} as the four flavor singlet $f_\Sigma^{(4)}$, where as in three flavor we would get
+        \begin{equation}
+            f_\Sigma^{(3)}(x,Q^2) &= f_d(x,Q^2) + f_{\bar d}(x,Q^2) + f_u(x,Q^2) + f_{\bar u}(x,Q^2) + f_s(x,Q^2) + f_{\bar s}(x,Q^2)
+        \end{equation}
+        since, e.g., the charm is not an active quark and does not participate in \cref{eq:DGLAP}.
+\end{itemize}
+% F2c?
