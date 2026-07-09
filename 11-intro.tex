@@ -36,7 +36,7 @@ Since DIS is a very wide field, it is worth spelling out explicitly some non-goa
     \item We only consider pQCD in the collinear framework here.
         However, because DIS is such a powerful experiment, which offers a clean access to the inner structure of the protons it can be studied using other frameworks as well, such as Color Glass Condensates~\cite{Bertilsson:2026vtu,Casuga:2026xxt} \textrightarrow{} ask H.~Mäntysaari or T.~Lappi
     \item We only consider fully inclusive cross sections here (to be defined in \cref{sec:xs} and with a tiny exception to be discussed in \cref{sec:hq}).
-        In particular, we do not consider any more complicated final states, such as, e.g., single jet or di-jet production~\cite{H1:2014cbm}.
+        In particular, we do not consider any more complicated final states, such as, e.g., single jet or di-jet production~\cite{H1:2014cbm,Helenius:2026odp}.
     \item We only consider pQCD in the collinear framework here.
         While, Monte Carlo Event generators, such as, e.g., Pythia~\cite{Bierlich:2022pfr}, are rooted in collinear pQCD they eventually go much beyond and we do not consider their details here~\cite{Helenius:2026odp} \textrightarrow{} ask I.~Helenius.
     \item We only consider DIS here.
@@ -71,7 +71,15 @@ All other particles explicitly appear in this course and you need to know their 
 \end{conclusionbox}
 
 We also need some basic knowledge from Quantum Field Theory (QFT).
-\fherror{Add QFT requirements}
+We need a Lagrangian and while we focus mostly on $\mathcal L_\text{QCD}$ we need also the interaction with the electro-weak bosons, so, strictly speaking, we need the full standard model $\mathcal L_\text{SM}$.
+Based on that we can generate a set of Feynman rules and from that point onwards we are only talking in diagrams.
+As a first step we perform the renormalization of all couplings and fields.
+\begin{conclusionbox}{pQCD}
+    \begin{itemize}
+        \item To compute any perturbative object, we sum over all relevant diagrams and then multiply them with their complex conjugated counterpart.
+        \item For measurable cross sections we need to integrate over all internal and external particles.
+    \end{itemize}
+\end{conclusionbox}
 
 \subsection{The very basics}
 \label{sec:basics}
@@ -111,7 +119,7 @@ We define each and every variable and function in \cref{sec:xs}, so we can focus
 
 The crucial, physical aspect about \cref{eq:fact1} is universality: for any cross section $\sigma$ measured at any $x$ and $Q^2$ there is exactly one PDF $\vb f(\xi,Q^2)$.
 Instead, the coefficient functions $\vb C(z,Q^2)$ may depend on the definition of the cross section, but they are computable from first principles.
-This implies the predictive powers of our framework: if $\vb C$ is fixed and $\vb f$ is universal, we can measure $\sigma$ in one set of experiments and then predict the outcome of another set of measurements $\sigma'$.
+This implies the predictive power of our framework: if $\vb C$ is fixed and $\vb f$ is universal, we can measure $\sigma$ in one set of experiments and then predict the outcome of another set of measurements $\sigma'$.
 
 The other, more practical aspect of \cref{eq:fact1,eq:fact2,eq:fact3} is the short-hand notation we introduce there.
 While \cref{eq:fact1} is the most canonical form of the factorization theorem, which can be found like this in most textbooks, we introduce in \cref{eq:fact2} the multiplicative convolution symbol $\otimes$.
@@ -127,7 +135,7 @@ To Leading Order (LO) accuracy, the coefficient functions $\vb C$ greatly simpli
 i.e.\ the cross section is given by the sum of the quark PDFs weighted by their electrical charges squared.
 Note that here the variables, which are used for the experimentally measured cross section on the left-hand-side, are also used as arguments of the PDFs on the right-hand-side.
 This is a pure coincidence only valid in the simplest case at LO and two historical comments can be made here.
-First, when studying older literature this equivalence can lead to confusion as, e.g., PDFs have been also called \enquote{structure functions} at the time, or what exactly we mean when talking about a general variable \enquote{$x$}.
+First, when studying (older) literature this equivalence can lead to confusion as, e.g., PDFs have been also called \enquote{structure functions} at the time, or what exactly we mean when talking about a general variable \enquote{$x$}.
 Second, in the so-called \enquote{parton model}, which was popular before QCD was invented, the index $j$ just referred to a \enquote{parton} with some properties.
 Instead, within QCD we now know exactly, what the object in question is: a quark, which has a strict definition in QFT with well-defined properties and quantum numbers.
 For simplicity, we still call an object, which can be either a quark or a gluon \enquote{parton}.

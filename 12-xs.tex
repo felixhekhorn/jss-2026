@@ -18,15 +18,16 @@ and from there the set of four common variables:
     x &= \frac{Q^2}{2 q\cdot P}\\
     y &= \frac{q\cdot P}{k \cdot P}
 \end{align}
-We refer to $Q^2$ as virtuality (of the exchanged boson), to $x$ as Bjorken-$x$ (named after James Bjorken), and to $y$ as inelasticity.
+We refer to $Q^2$ as virtuality (of the exchanged boson), to $x$ as Bjorken-$x$ (named after James Bjorken and often named $x_\text{Bj}$), and to $y$ as inelasticity.
 Note that \cref{eq:defshad} gives an explicit relation among these, thus we have only three independent and one dependent variable.
 In practice, the invariant mass of the electron-proton system $s_l$ is fixed by the experimental setup, i.e.\ by the energy of the colliding particles.
 Also the measurable range of $y$ is in practice limited by the experimental geometry.
 DIS cross sections are typically provided as double-differential cross sections in $x$ and $y$.
 Finally, it is convenient to define the mass squared of the system X recoiling against the scatter electron,
 \begin{equation}
-    W^2 = (P + q)^2 = Q^2\left(\frac 1 x - 1\right)
+    W^2 = (P + q)^2 = Q^2\left(\frac 1 x - 1\right) = s_h\,,
 \end{equation}
+which also corresponds to the invariant mass of the photon-proton system $s_h$.
 \begin{conclusionbox}[label={box:DISreq}]{DIS requirements}
     We require $Q^2 \gg \LQCD^2$ (deep) and $W^2 \gg \LQCD^2$ (inelastic) to call a lepton-hadron scattering DIS.
 \end{conclusionbox}
@@ -53,7 +54,7 @@ Let us continue to collect the remaining ingredient for \cref{eq:fact1}:
 \begin{itemize}
     \item The sum over partons $j$ includes quarks and gluons and we refine in \cref{sec:hq} how large the sum actually is.
     \item The parton momentum fraction $\xi = x/z$ is the fraction of the four momentum the parton carries with respect to its parent proton.
-    \item The probability of such a configuration to occur is given by the PDF, i.e.\ $f_j(\xi,Q^2)\dd \xi$ is the probability to find a parton $j$ with momentum $\xi P$ inside a proton with momentum $P$ at an experiment performed at the scale $Q^2$.
+    \item The probability of such a configuration to occur is given by the PDF, i.e.\ $f_j(\xi,Q^2)\dd \xi$ is the probability to find a parton $j$ with momentum $\xi P$ inside a proton with momentum $P$ in an experiment performed at the scale $Q^2$.
     \item The integration over $z$ sums all configuration to generate the final state configuration.
 \end{itemize}
 Finally, the coefficient functions $\vb C(z,Q^2)$ are computable order-by-order in pQCD and thus can be decomposed as
