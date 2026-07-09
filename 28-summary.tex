@@ -1,0 +1,14 @@
+Fully inclusive DIS cross sections depend on
+\begin{itemize}
+    \item the experimentally measured kinematic variables, \cref{sec:xs}, $x$, $y$, $Q^2$.
+        They are not independent from each other, but linked through the invariant mass of the electron-proton system, \cref{eq:defslep}, given by the experiment.
+    \item the properties of the electro-weak bosons, \cref{sec:diverse}.
+        This includes basically all properties, such as the couplings to both leptons and quarks, specifically the electric charges and the electro-weak charges, or their respective masses.
+    \item the discretization of interpolation grids, \cref{sec:grids}.
+    \item the specific solution method for the RGE of the strong coupling and the PDFs, \cref{sec:resum}.
+    \item the specific choice of renormalization and factorization scale as well as the applied factorization scale variation scheme, \cref{sec:sv}
+    \item the heavy quark masses and the adopted FNS, \cref{sec:hq}.
+    \item the target mass and the adopted approximation (if any), \cref{sec:TMC}.
+\end{itemize}
+
+When performing a real-life PDF extraction all these dependencies must be taken into account and \texttt{yadism}~\cite{Candido:2024rkr,barontini_2026_18758473} provides one specific implementation thereof.
