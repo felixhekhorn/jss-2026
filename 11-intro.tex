@@ -5,9 +5,10 @@
 %     \item Ich + paper + yad
 % \end{itemize}
 
-\subsection{Motivation and non-goals}
 We aim in this course to make a meaningful comparison between the theoretical predictions and the experimental measurement of a fully inclusive Deeply Inelastic Scattering (DIS) cross section.
-Instead of an abstract, theoretical discussion about DIS, which can be found in a standard lecture on particle physics, we're looking here to make a connection with real-life physics solving current research questions.
+Instead of an abstract, theoretical discussion about DIS, which can be found in a standard lecture on particle physics, we're looking here to make a connection with real-life physics.
+
+\subsection{Motivation and non-goals}
 The main focus is on Parton Distribution Functions (PDFs), for which DIS plays a major role.
 In fact, DIS was, is, and will be a very important constrain in determining PDFs - only recently, e.g.\ starting from NNPDF4.0\cite{NNPDF:2021njg}, LHC data starts to dominate in PDF fits.
 Stressing the importance and relevance of PDFs for any kind of perturbative QCD (pQCD) application and to understand the inner structure of hadrons is left to the literature~\cite{Gao:2017yyd,Heinrich:2020ybq,Amoroso:2022eow}.
@@ -21,7 +22,7 @@ Instead, we consider different features as given and focus on their practical im
 However, a major complication in this course is the interconnection between almost all features and while we discuss them here in turn, we highlight also how they are intertwined with each other.
 
 In recent years (and much more so hopefully in the coming years), DIS has become a major research topic again thanks to the advent of the Electron Ion Collider (EIC)~\cite{Accardi:2012qut}.
-While the planned physics program of the EIC goes far beyond standard fully inclusive DIS, this simplest case can serve as an introduction into more complicated topics.
+While the planned physics program of the EIC goes far beyond standard fully inclusive DIS, the simplest case discussed in this work can serve as an introduction into more complicated topics.
 
 The structure of this course follows in large parts the implementation of Yadism (Yet Another DIS module)~\cite{Candido:2024rkr,barontini_2026_18758473}, which is developed and used by the NNPDF collaboration in their PDF determinations.
 The online documentation, which is available at
@@ -58,7 +59,7 @@ We discuss in this course each and everyone of these particles, with the excepti
 the heavies quark, the top, the heaviest lepton, the tau, and the heaviest boson, the Higgs.
 They work, in principle, mostly like their lighter brothers and sisters, but in practice are basically always neglected.
 We give a more thorough justification to discard them when we get to the actual numbers.
-All other particles explicitly appear in this course and you need to know their charges - see also \cref{fig:SM}.
+All other particles explicitly appear in this course and you need to know their properties.
 
 \begin{conclusionbox}[label={box:particles}]{{Summary forces, particles, and charges}}
     \begin{itemize}
@@ -71,8 +72,8 @@ All other particles explicitly appear in this course and you need to know their 
 \end{conclusionbox}
 
 We also need some basic knowledge from Quantum Field Theory (QFT).
-We need a Lagrangian and while we focus mostly on $\mathcal L_\text{QCD}$ we need also the interaction with the electro-weak bosons, so, strictly speaking, we need the full standard model $\mathcal L_\text{SM}$.
-Based on that we can generate a set of Feynman rules and from that point onwards we are only talking in diagrams.
+To start the program we require a Lagrangian and while we focus mostly on $\mathcal L_\text{QCD}$ we need also the interaction with the electro-weak bosons, so, strictly speaking, we need the full standard model $\mathcal L_\text{SM}$.
+Based on that we generate a set of Feynman rules and from that point onwards we are only talking in the language of diagrams.
 As a first step we perform the renormalization of all couplings and fields.
 \begin{conclusionbox}{pQCD}
     \begin{itemize}
@@ -81,7 +82,7 @@ As a first step we perform the renormalization of all couplings and fields.
     \end{itemize}
 \end{conclusionbox}
 
-\subsection{The very basics}
+\subsection{The very basics of DIS}
 \label{sec:basics}
 Let's start from the top:
 \begin{conclusionbox}{DIS in words}
