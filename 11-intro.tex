@@ -114,15 +114,17 @@ We use the factorization theorem~\cite{Collins:1989gx},
 \end{conclusionbox}
 \noindent{}which states how to compute a cross section $\sigma(x,Q^2)$ from coefficient function $\vb C(z,Q^2)$, computable in pQCD, and a universal PDF $\vb f(\xi,Q^2)$.
 In the remaining part of the course we discuss, enhance and correct this formula in many different ways and basically challenge every aspect.
-We define each and every variable and function in \cref{sec:xs}, so we can focus for the moment on two other important aspects: universality and notation.
+We define each and every variable and function in \cref{sec:xs}, so we can focus for the moment on three other important aspects: universality, measurability, and notation.
 
-The crucial, physical aspect about \cref{eq:fact1} is universality: for any cross section $\sigma$ measured at any $x$ and $Q^2$ there is exactly one PDF $\vb f(\xi,Q^2)$.
+First, the crucial, physical aspect about \cref{eq:fact1} is universality: for any cross section $\sigma$ measured at any $x$ and $Q^2$ there is exactly one PDF $\vb f(\xi,Q^2)$.
 Instead, the coefficient functions $\vb C(z,Q^2)$ may depend on the definition of the cross section, but they are computable from first principles.
 This implies the predictive power of our framework: if $\vb C$ is fixed and $\vb f$ is universal, we can measure $\sigma$ in one set of experiments and then predict the outcome of another set of measurements $\sigma'$.
 
-\fherror{Explain measurability}
+Second, it is important to keep in mind that \cref{eq:fact1} contains only a single measurable quantity: the cross section.
+Instead, coefficient functions $\vb C$, PDFs $\vb f$ and also the strong coupling $\alpha_s$ are not directly measurable in a real experiment but have to be constructed consistently within the given framework of pQCD.
+For example, while cross sections have to be positive by definition, this is less trivial for PDFs~\cite{Candido:2020yat,Collins:2021vke,Candido:2023ujx}.
 
-The other, more practical aspect of \cref{eq:fact1,eq:fact2,eq:fact3} is the short-hand notation we introduce there.
+Third, a more practical aspect of \cref{eq:fact1,eq:fact2,eq:fact3} is the short-hand notation we introduce there.
 While \cref{eq:fact1} is the most canonical form of the factorization theorem, which can be found like this in most textbooks, we introduce in \cref{eq:fact2} the multiplicative convolution symbol $\otimes$.
 Note that we have suppressed the variable over which the convolution is performed and recall that convolution is associative, i.e.\ $\qty(f\otimes g)\otimes h = f\otimes\qty(g\otimes h)$.
 Finally, in \cref{eq:fact3} we introduce the vector notation, where we denote objects, which have a non-trivial dependence on the parton flavor $j$, with bold font.
