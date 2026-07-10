@@ -1,9 +1,6 @@
-\section{Next-to-leading order}
-\label{sec:nlo}
-
 At LO accuracy, DIS is trivial \fherror{add LO diagram} and we find
 \begin{equation}
-    C_q^{(0)}(z) = C_{\bar q}^{(0)}(z) = e_q^2 \bar C_q^{(0)}(z) ~\forall q\,, C_g^{(0)}(z) = 0 \label{eq:LOC}
+    C_q^{(0)}(z) = C_{\bar q}^{(0)}(z) = e_q^2 \delta(1 - z) ~\forall q\,, \quad C_g^{(0)}(z) = 0 \label{eq:LOC}
 \end{equation}
 where $q$ represents any quark and $g$ represent the gluon.
 Inserting \cref{eq:LOC} into \cref{eq:fact1} yields \cref{eq:LOxs}.
@@ -14,23 +11,29 @@ Inserting \cref{eq:LOC} into \cref{eq:fact1} yields \cref{eq:LOxs}.
 \end{figure}
 
 Starting from next-to-leading order (NLO), the diagrams become more complicated and we encounter new features.
-
 \begin{itemize}
-    \item NLOq
-    \item NLOg
+    \item We have to perform renormalization at the requested order to remove all UV divergencies.
+    \item We encounter loop corrections, which introduce infra-red (IR) divergencies.
+    \item We can radiate additional particles, which introduce soft and/or collinear divergencies.
+    \item The initial parton can also be a gluon now.
 \end{itemize}
+Since we only consider the fully inclusive case here, we can apply the Kinoshita-Lee-Nauenberg theorem~\cite{Bloch:1937pw,Kinoshita:1962ur,Lee:1964is} straightforwardly and cancel all soft and IR divergencies.
+Finally, we apply collinear factorization and subtract the remaining collinear divergencies from the coefficient functions and reabsorb them into the PDF definition, \cref{eq:fact1}.
 
-Eventually, we get
-\begin{equation}
-    C_q^{(1)}(z) = C_{\bar q}^{(1)}(z) = e_q^2 \bar C_q^{(1)}(z) ~\forall q \label{eq:NLOCq}
-\end{equation}
+Eventually, after all contributing diagrams have been summed and all divergencies have been dealt with, we get
+\begin{align}
+    C_q^{(1)}(z) &= e_q^2 C_F \left[ 4 \qty(\frac{\ln(1-z)}{1-z})_+ - 3 \qty(\frac{1}{1-z})_+ - \qty(9+4\zeta_2)\delta(1-z)\right. \nonumber\\
+    & \hspace{40pt} \left. - 2(1+z)\ln\left(\frac{1-z}{z}\right) - 4 \frac{\ln(z)}{1-z} + 6 + 4z\right] \label{eq:NLOCq}\\
+     &= C_{\bar q}^{(1)}(z)
+\end{align}
 and
 \begin{align}
-    C_g^{(1)}(z) &=  \label{eq:NLOCg}
+    C_g^{(1)}(z) &= \left(\sum_q e_q^2\right) \left[ \qty(2 - 4 z (1 - z)) \ln\left(\frac{1 - z} z\right)  - 2 + 16 z (1 - z)  \right] \label{eq:NLOCg}
 \end{align}
+where $C_F$ is the second Casimir operator of the fundamental representation, $C_F = (N_C^2 - 1)/(2 N_C)$, with $N_C=3$ the number of colors.
 
-\fherror{explain we encounter a certain set of special functions}
-We need the Riemann Zeta function $\zeta(n)$ below, which is defined at integer values $n$ by
+At a given perturbative order we explore a certain space of mathematical (special) functions and, e.g., at NLO we encounter for the first time the Riemann Zeta function $\zeta(n)$, which is defined at integer values $n$ by
 \begin{equation}
-    \zeta_n = \zeta(n) = \sum\limits_{j=1}^\infty \frac 1 {j^n}
+    \zeta_n = \zeta(n) = \sum\limits_{j=1}^\infty \frac 1 {j^n}\,.
 \end{equation}
+The definition of the usual +-distribution is given in \cref{eq:PlusDistr} and discussed further in \cref{sec:rsl}.

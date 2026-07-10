@@ -1,5 +1,3 @@
-\section{Introduction}
-
 % \subsection{Personal introduction}
 % \begin{itemize}
 %     \item Ich + paper + yad
@@ -74,7 +72,7 @@ All other particles explicitly appear in this course and you need to know their 
 We also need some basic knowledge from Quantum Field Theory (QFT).
 To start the program we require a Lagrangian and while we focus mostly on $\mathcal L_\text{QCD}$ we need also the interaction with the electro-weak bosons, so, strictly speaking, we need the full standard model $\mathcal L_\text{SM}$.
 Based on that we generate a set of Feynman rules and from that point onwards we are only talking in the language of diagrams.
-As a first step we perform the renormalization of all couplings and fields.
+As a first step we perform the renormalization of all couplings and fields to remove any ultra-violet (UV) divergencies.
 \begin{conclusionbox}{pQCD}
     \begin{itemize}
         \item To compute any perturbative object, we sum over all relevant diagrams and then multiply them with their complex conjugated counterpart.
@@ -121,6 +119,8 @@ We define each and every variable and function in \cref{sec:xs}, so we can focus
 The crucial, physical aspect about \cref{eq:fact1} is universality: for any cross section $\sigma$ measured at any $x$ and $Q^2$ there is exactly one PDF $\vb f(\xi,Q^2)$.
 Instead, the coefficient functions $\vb C(z,Q^2)$ may depend on the definition of the cross section, but they are computable from first principles.
 This implies the predictive power of our framework: if $\vb C$ is fixed and $\vb f$ is universal, we can measure $\sigma$ in one set of experiments and then predict the outcome of another set of measurements $\sigma'$.
+
+\fherror{Explain measurability}
 
 The other, more practical aspect of \cref{eq:fact1,eq:fact2,eq:fact3} is the short-hand notation we introduce there.
 While \cref{eq:fact1} is the most canonical form of the factorization theorem, which can be found like this in most textbooks, we introduce in \cref{eq:fact2} the multiplicative convolution symbol $\otimes$.

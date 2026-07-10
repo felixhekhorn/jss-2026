@@ -29,7 +29,7 @@ The first three major dimensions are:
     \item[order] This is the list of perturbative orders, i.e.\ we store each $\vb C^{(k)}(z)$, \cref{eq:CpQCD}, separately.
         Having this list available allows to use a given grid also at lower orders and thus study, e.g., perturbative stability.
         In practice, the actual list is given by the requested accuracy of the user (provided we can actual fulfill that request).
-        Recall that LO, \cref{eq:LObarCq}, and NLO, e.g.\ \cref{eq:NLObarCq}, are quite different and this generates correlations with the momentum fraction dimension (see below).
+        Recall that LO, \cref{eq:LObarCq}, and NLO, e.g.\ \cref{eq:NLOCq}, are quite different and this generates correlations with the momentum fraction dimension (see below).
     \item[channel] This is the list of PDF flavor combinations, i.e.\ the sum over $j$ in \cref{eq:fact1}.
         Having this list available allows to study the impact of different PDF combination and, e.g., determine which PDF the observable can potentially constrain most.
         In DIS it is given by the coupling structure of the exchanged boson, i.e.\ $\gamma/Z$ vs.\ $W^\pm$.
@@ -47,5 +47,31 @@ These three dimensions are present in any interpolation grid and in DIS there ar
 \end{description}
 
 For fully inclusive DIS we end up with five dimensional tensors, where each inner dimension may depend on the outer.
+
+\subsection{Distributions}
+\label{sec:rsl}
+
+Coefficient functions may contain distributions, for example the quark coefficient function at LO is just a Dirac delta distribution:
+\begin{equation}
+    \bar C_q^{(0)}(z) = \delta(1-z) \,. \label{eq:LObarCq}
+\end{equation}
+To better compare with our next step, let's repeat the definition of the Dirac delta distribution:
+\begin{equation}
+    \int\limits_0^1 \! \dd z\, \delta(1-z) f(z) = f(1). \label{eq:DiracDelta}
+\end{equation}
+However, this is only the simplest case, which appears at LO, and at higher order we get more complicated distributions.
+For example the quark coefficient function at NLO, \cref{eq:NLOCq}, contains many more distributions
+\begin{align}
+    C_q^{(1)}(z) &\supset 4 \qty(\frac{\ln(1-z)}{1-z})_+ - 3 \qty(\frac{1}{1-z})_+ - \qty(9+4\zeta_2)\delta(1-z) \,.
+\end{align}
+where the usual +-distributions are defined via
+\begin{equation}
+    \int\limits_0^1 \! \dd z\, a(z)_+ f(z) = \int\limits_0^1 \! \dd z\, a(z) \left(f(z) - f(1)\right) \,. \label{eq:PlusDistr}
+\end{equation}
+We review in \cref{sec:nlo} briefly how these distributions appear, but here we turn to more practical matters.
+The problem is: distributions are (complicate) math objects, defined only via integral relations, \cref{eq:DiracDelta,eq:PlusDistr}, which are unsuitable for numeric evaluation.
+
+\fherror{Introduce RSL}
+
 
 \fherror{explain interpolation?}
