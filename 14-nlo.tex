@@ -1,32 +1,59 @@
-At LO accuracy, DIS is trivial \fherror{add LO diagram} and we find
+\begin{figure}
+    \centering
+    \begin{subcaptionblock}{.2\textwidth}
+        \includegraphics[width=\textwidth]{figures/lo-q.pdf}
+        \caption{}
+        \label{fig:LO}
+    \end{subcaptionblock}%
+    \begin{subcaptionblock}{.2\textwidth}
+        \includegraphics[width=\textwidth]{figures/nlo-q-v.pdf}
+        \caption{}
+        \label{fig:NLOqv}
+    \end{subcaptionblock}%
+    \begin{subcaptionblock}{.2\textwidth}
+        \includegraphics[width=\textwidth]{figures/nlo-q-rt.pdf}
+        \caption{}
+        \label{fig:NLOqrt}
+    \end{subcaptionblock}%
+    \begin{subcaptionblock}{.2\textwidth}
+        \includegraphics[width=\textwidth]{figures/nlo-g.pdf}
+        \caption{}
+        \label{fig:NLOg}
+    \end{subcaptionblock}
+    \captionsetup{subrefformat=parens}
+    \caption{Representative LO and NLO DIS Feynman diagrams.
+        While at LO there is a single diagram \subref{fig:LO}, starting from NLO there are several type of diagrams: virtual corrections \subref{fig:NLOqv}, radiative corrections \subref{fig:NLOqrt}, and the gluon as initial state parton \subref{fig:NLOg}.
+        Note that the list is not exhaustive.
+    }
+    \label{fig:Feynman}
+\end{figure}
+
+
+At LO accuracy, DIS is trivial, \cref{fig:LO}, and we find
 \begin{equation}
     C_q^{(0)}(z) = C_{\bar q}^{(0)}(z) = e_q^2 \delta(1 - z) ~\forall q\,, \quad C_g^{(0)}(z) = 0 \label{eq:LOC}
 \end{equation}
 where $q$ represents any quark and $g$ represent the gluon.
 Inserting \cref{eq:LOC} into \cref{eq:fact1} yields \cref{eq:LOxs}.
 
-\begin{figure}
-    \caption{LO DIS Feynman diagram}
-    \label{fig:LO}
-\end{figure}
-
-Starting from next-to-leading order (NLO), the diagrams become more complicated and we encounter new features.
+Starting from next-to-leading order (NLO), the diagrams become more complicated and we encounter new features:
 \begin{itemize}
     \item We have to perform renormalization at the requested order to remove all UV divergencies.
-    \item We encounter loop corrections, which introduce infra-red (IR) divergencies.
-    \item We can radiate additional particles, which introduce soft and/or collinear divergencies.
-    \item The initial parton can also be a gluon now.
+    \item We encounter loop corrections, which introduce infra-red (IR) divergencies, \cref{fig:NLOqv}.
+    \item We can radiate additional particles, which introduce soft and/or collinear divergencies, e.g.\ \cref{fig:NLOqrt}.
+    \item The initial parton can also be a gluon now, e.g.\ \cref{fig:NLOg}.
 \end{itemize}
-Since we only consider the fully inclusive case here, we can apply the Kinoshita-Lee-Nauenberg theorem~\cite{Bloch:1937pw,Kinoshita:1962ur,Lee:1964is} straightforwardly and cancel all soft and IR divergencies.
+As requested in \cref{box:pQCD} we have to sum over all possible diagrams and since we only consider the fully inclusive case here, we can apply the Kinoshita-Lee-Nauenberg theorem~\cite{Bloch:1937pw,Kinoshita:1962ur,Lee:1964is} straightforwardly and cancel all soft and IR divergencies.
 Finally, we apply collinear factorization and subtract the remaining collinear divergencies from the coefficient functions and reabsorb them into the PDF definition, \cref{eq:fact1}.
+Any divergency which we remove introduces a distribution, such as the Dirac delta distribution or the usual +-distribution, into the coefficient functions, i.e.\ there is a direct mapping.
 
-Eventually, after all contributing diagrams have been summed and all divergencies have been dealt with, we get
+Eventually, we get for all quarks $q$
 \begin{align}
     C_q^{(1)}(z) &= e_q^2 C_F \left[ 4 \qty(\frac{\ln(1-z)}{1-z})_+ - 3 \qty(\frac{1}{1-z})_+ - \qty(9+4\zeta_2)\delta(1-z)\right. \nonumber\\
     & \hspace{40pt} \left. - 2(1+z)\ln\left(\frac{1-z}{z}\right) - 4 \frac{\ln(z)}{1-z} + 6 + 4z\right] \label{eq:NLOCq}\\
      &= C_{\bar q}^{(1)}(z)
 \end{align}
-and
+and for the gluon
 \begin{align}
     C_g^{(1)}(z) &= \left(\sum_q e_q^2\right) \left[ \qty(2 - 4 z (1 - z)) \ln\left(\frac{1 - z} z\right)  - 2 + 16 z (1 - z)  \right] \label{eq:NLOCg}
 \end{align}

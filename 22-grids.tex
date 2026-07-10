@@ -29,7 +29,7 @@ The first three major dimensions are:
     \item[order] This is the list of perturbative orders, i.e.\ we store each $\vb C^{(k)}(z)$, \cref{eq:CpQCD}, separately.
         Having this list available allows to use a given grid also at lower orders and thus study, e.g., perturbative stability.
         In practice, the actual list is given by the requested accuracy of the user (provided we can actual fulfill that request).
-        Recall that LO, \cref{eq:LObarCq}, and NLO, e.g.\ \cref{eq:NLOCq}, are quite different and this generates correlations with the momentum fraction dimension (see below).
+        Recall that LO, \cref{eq:LOC}, and NLO, e.g.\ \cref{eq:NLOCq}, are quite different and this generates correlations with the momentum fraction dimension (see below).
     \item[channel] This is the list of PDF flavor combinations, i.e.\ the sum over $j$ in \cref{eq:fact1}.
         Having this list available allows to study the impact of different PDF combination and, e.g., determine which PDF the observable can potentially constrain most.
         In DIS it is given by the coupling structure of the exchanged boson, i.e.\ $\gamma/Z$ vs.\ $W^\pm$.
@@ -53,7 +53,7 @@ For fully inclusive DIS we end up with five dimensional tensors, where each inne
 
 Coefficient functions may contain distributions, for example the quark coefficient function at LO is just a Dirac delta distribution:
 \begin{equation}
-    \bar C_q^{(0)}(z) = \delta(1-z) \,. \label{eq:LObarCq}
+    \bar C_q^{(0)}(z) = \delta(1-z) \,.
 \end{equation}
 To better compare with our next step, let's repeat the definition of the Dirac delta distribution:
 \begin{equation}
