@@ -1,5 +1,5 @@
 In preparation to \cref{sec:sv,sec:hq} we need to review two main ingredients into pQCD: the strong coupling $\alpha_s(Q^2)$, \cref{eq:CpQCD}, and the PDFs $\vb f(\xi,Q^2)$, \cref{eq:fact1}.
-Specifically, we need to remind ourselves on their scale dependency (also referred to as evolution) if we want to vary them in \cref{sec:sv}.
+Specifically, we need to remind ourselves on their scale dependency also referred to as evolution.
 While the two objects obey very similar equations, the strong coupling $\alpha_s(Q^2)$ is conceptually simpler and we start with that.
 
 \subsection{The strong coupling}
@@ -20,7 +20,7 @@ Eventually, we obtain the renormalization group equation (RGE) of the strong cou
 \begin{equation}
     \mu_R^2 \dv{\alpha_s(\mu_R^2)}{\mu_R^2} = \beta(\alpha_s) = - \sum_{j=0}\beta_j\qty(\alpha_s(\mu_R^2))^{2+j} \label{eq:beta}
 \end{equation}
-which is also the definition\footnote{Note that in the literature many conventions for the left- and/or right-hand-side exist.} of the beta function $\beta(\alpha_s)$.
+which is also the definition of the beta function $\beta(\alpha_s)$.
 The upper limit of the sum in \cref{eq:beta} defines the perturbative accuracy, to which all other objects in pQCD refer to.
 
 At LO accuracy we find
@@ -35,6 +35,7 @@ In this specific case we can solve \cref{eq:LObeta} and obtain
 for a given boundary condition $\alpha_s(\mu_{R,0}^2)$ at the scale $\mu_{R,0}^2$.
 Recall, that \cref{eq:LOalphas} has not two free parameters, $\mu_{R,0}$ and $\alpha_s(\mu_{R,0})$ as one would naively think, but only one $\LQCD$.
 Also remember that $\LQCD$ corresponds to the pole in \cref{eq:LOalphas} and pQCD only makes sense above that scale, $\mu_R > \LQCD$.
+Moreover, in practice it is often convenient to rewrite \cref{eq:beta} in terms of $t_R = \ln(\mu_R^2/\mu_{R,0}^2)$.
 \fherror{excercise: proof lambda in alphas?}
 
 Now, coming back to the title of this section, note that \cref{eq:LOalphas} is a resummation:
