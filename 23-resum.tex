@@ -57,10 +57,10 @@ Starting from NLO accuracy the RGE, e.g.\ in this specific case given by
     \mu_R^2 \dv{\alpha_s(\mu_R^2)}{\mu_R^2} = - \beta_0 \qty(\alpha_s(\mu_R^2))^2 - \beta_1 \qty(\alpha_s(\mu_R^2))^3\,, \label{eq:NLObeta}
 \end{equation}
 can no longer be solved exactly with elementary functions.
-However, it is still possible to find an analytic solution which solves \cref{eq:NLObeta} at the requested accuracy, i.e.\ in this case NLO.
-\fherror{exercise: proof NLO alphas?}
-This solution still performs a resummation, as we have to, but it only collects the so-called leading logarithms.
-\fherror{show exp alphas is LL}
+However, it is still possible to find an analytic solution which solves \cref{eq:NLObeta} at the requested accuracy, i.e.\ in this case NLO (see \cref{box:NLOalphas}).
+This solution still performs a resummation, as we have to, but it only collects the so-called next-to-leading logarithms (NLL) (see \cref{box:NLOalphasLL}).
+Note that the RGE has a given perturbative accuracy, e.g.\ NLO, but the solution has a given logarithmic accuracy, e.g.\ NLL, however, in the common language one often just uses only the former.
+
 A completely different way to solve \cref{eq:NLObeta} is using numerical tools instead.
 We refer to the literature on how to implement a specific solution in practice and remain here just with the fact that it is a complicated problem on its own, which has no unique solution and for which approximations are mandatory.
 \begin{conclusionbox}[label={box:RGE}]{Solution of RGE}

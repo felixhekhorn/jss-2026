@@ -6,32 +6,7 @@
 
 \section{RSL}
 \label{app:RSL}
-
-\begin{exercisebox}{RSL representation}
-    Proof
-    \begin{equation}
-        C(z) = \left(\frac{\ln(1-z)}{1-z}\right)_+ \,\leftrightarrow\, C^R(z) = 0, C^S(z) = \frac{\ln(1-z)}{1-z}, C^L(x) = \frac{\ln(1-x)^2}{2}
-    \end{equation}
-\end{exercisebox}
-
-\begin{exercisebox}{Product of functions 1}
-    Give the RSL representation of the product a regular function $r(z)$ and a +-distribution $\qty(p(z))_+$, $C(z) = r(z)\qty(p(z))_+$
-\end{exercisebox}
-
-\begin{exercisebox}{Product of functions 2}
-    Proof
-    \begin{equation}
-        \left[r(z)p(z)\right]_+ = r(z) \left[p(z)\right]_+ - \delta(1-z) \int\limits_0^1 dy~ r(y) \left[p(y)\right]_+
-    \end{equation}
-    where again $r(z)$ is a regular function and $\qty(p(z))_+$ is a +-distribution.
-\end{exercisebox}
+\input{A2-rsl.tex}
 
 \section{Resummation}
-
-\begin{exercisebox}[label={box:LOalphas}]{LO $\alpha_s$ evolution}
-    Proof \cref{eq:LOalphas} can be written as
-    \begin{equation}
-        \alpha_s(\mu_R^2) = \frac 1 {\beta_0 \ln(\mu_R^2/\LQCD^2)}
-    \end{equation}
-    and given an explicit expression for $\LQCD$.
-\end{exercisebox}
+\input{A3-resum.tex}
