@@ -33,10 +33,9 @@ In this specific case we can solve \cref{eq:LObeta} and obtain
     \alpha_s^\text{LO}(\mu_R^2) = \frac{\alpha_s(\mu_{R,0}^2)}{1 + \alpha_s(\mu_{R,0}^2)\beta_0\ln(\mu_R^2/\mu_{R,0}^2)} \label{eq:LOalphas}
 \end{equation}
 for a given boundary condition $\alpha_s(\mu_{R,0}^2)$ at the scale $\mu_{R,0}^2$.
-Recall, that \cref{eq:LOalphas} has not two free parameters, $\mu_{R,0}$ and $\alpha_s(\mu_{R,0})$ as one would naively think, but only one $\LQCD$.
+Recall, that \cref{eq:LOalphas} has not two free parameters, $\mu_{R,0}$ and $\alpha_s(\mu_{R,0})$ as one would naively think, but only one $\LQCD$ (see \cref{box:LOalphas}).
 Also remember that $\LQCD$ corresponds to the pole in \cref{eq:LOalphas} and pQCD only makes sense above that scale, $\mu_R > \LQCD$.
 Moreover, in practice it is often convenient to rewrite \cref{eq:beta} in terms of $t_R = \ln(\mu_R^2/\mu_{R,0}^2)$.
-\fherror{excercise: proof lambda in alphas?}
 
 Now, coming back to the title of this section, note that \cref{eq:LOalphas} is a resummation:
 \begin{equation}
@@ -60,7 +59,7 @@ Starting from NLO accuracy the RGE, e.g.\ in this specific case given by
 can no longer be solved exactly with elementary functions.
 However, it is still possible to find an analytic solution which solves \cref{eq:NLObeta} at the requested accuracy, i.e.\ in this case NLO.
 \fherror{exercise: proof NLO alphas?}
-This solution still performs a resummation, as we have to, but it only collects the so-called leading logarithms
+This solution still performs a resummation, as we have to, but it only collects the so-called leading logarithms.
 \fherror{show exp alphas is LL}
 A completely different way to solve \cref{eq:NLObeta} is using numerical tools instead.
 We refer to the literature on how to implement a specific solution in practice and remain here just with the fact that it is a complicated problem on its own, which has no unique solution and for which approximations are mandatory.
