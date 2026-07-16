@@ -1,11 +1,41 @@
 \chapter{More advanced topics}
 \fherror{Complete chap 3}
+As an outlook we briefly discuss some more advanced topics, which are related to DIS.
+The list is not exhaustive and the order is arbitrary.
+
 \section{$\gamma_5$}
 \label{sec:g5}
-\begin{itemize}
-    \item helicity
-    \item HVBM + Larin
-\end{itemize}
+When introducing the Dirac matrices $\gamma_\mu$ in QFT, one often also introduces the additional matrix $\gamma_5$ along side, since together they can form a basis of the four-dimensional Dirac space, which is needed for the Dirac equation.
+In the naive picture $\gamma_5$ anti-commutes with the normal matrices $\gamma_\mu$, i.e.\
+\begin{equation}
+    \{\gamma_5,\gamma_\mu\} = \gamma_5 \gamma_\mu - \gamma_\mu \gamma_5 = 0 \label{eq:g5ac}
+\end{equation}
+it obeys
+\begin{equation}
+    \tr(\gamma_\mu\gamma_\nu\gamma_\rho\gamma_\sigma\gamma_5) = \varepsilon^{\mu\nu\rho\sigma} \label{eq:g5def}
+\end{equation}
+and, in addition, when computing traces we often use explicitly the cyclicity of traces, i.e.\
+\begin{equation}
+    \tr(\gamma_\mu \gamma_\nu \ldots \gamma_\rho) = \tr(\gamma_\nu \ldots \gamma_\rho \gamma_\mu) \label{eq:g5tr}
+\end{equation}
+However, in dimensional regularization, which is the most common regularization scheme applied in pQCD, those three properties, \cref{eq:g5ac,eq:g5def,eq:g5tr}, can no longer be satisfied at the same time.
+This implies a specific prescription needs to be imposed, when dealing with $\gamma_5$ and not only are there several algorithms available, but also they all require special care~\cite{Gnendiger:2017pys}.
+Note that the Levi-Civita tensor $\varepsilon^{\mu\nu\rho\sigma}$ is directly related to $\gamma_5$, \cref{eq:g5def}, and thus needs also special attention.
+Unfortunately, $\gamma_5$ is explicitly present when considering the NC or CC DIS in the couplings of the weak bosons, $Z$ and $W$.
+Moreover, also the introduction of massive quarks explicitly breaks certain symmetries which are present in the massless case~\cite{Hekhorn:2019nlf}.
+Since \cref{app:LO} only considers LO, we do not need to worry about these problems.
+
+On the other side, by considering $\gamma_5$ we gain explicitly access to the helicity of a parton, which opens a whole new world: polarized DIS.
+In fact we can rerun the arguments of this work completely in parallel to the discussion so far.
+\begin{enumerate}
+    \item \cref{chap:intro}: polarized DIS gives access to polarized PDFs~\cite{Cruz-Martinez:2025ahf}, which give a different view on hadrons.
+    \item \cref{sec:diverse}: various DIS experiments have been run, are run, and will be run. They have various structure functions and both, NC and CC, variants.
+    \item \cref{sec:interpolation}: except that all coefficient functions are different, the mathematical structure is of course identical.
+    \item \cref{sec:resum}: while $\alpha_s$ is of course universal, polarized PDF obey their own RGE.
+    \item \cref{sec:sv}: once we account for the different splitting functions, scale variations remain the same.
+    \item \cref{sec:hq}: the ambiguity about the number of light flavors is universal, but the FNS can also here be applied in the same way, e.g.\ FONLL~\cite{Hekhorn:2024tqm}.
+    \item \cref{sec:TMC}: the actual TMC kernels need to be re-derived, but the structure remains the same.
+\end{enumerate}
 
 \section{Higher orders}
 \begin{itemize}
