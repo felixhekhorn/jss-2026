@@ -3,7 +3,7 @@
 As an outlook we briefly discuss some more advanced topics, which are related to DIS.
 The list is not exhaustive and the order is arbitrary.
 
-\section{$\gamma_5$}
+\section[gamma\_5]{$\gamma_5$}
 \label{sec:g5}
 When introducing the Dirac matrices $\gamma_\mu$ in QFT, one often also introduces the additional matrix $\gamma_5$ along side, since together they can form a basis of the four-dimensional Dirac space, which is needed for the Dirac equation.
 In the naive picture $\gamma_5$ anti-commutes with the normal matrices $\gamma_\mu$, i.e.\
@@ -42,14 +42,21 @@ When computing higher order coefficient functions, the number of required diagra
 This often implies the use of dedicated mathematical and numerical tools.
 The currently highest available perturbative order is N$^3$LO, which is indeed the backbone of current approximate N$^3$LO PDF extractions~\cite{NNPDF:2024nan,McGowan:2022nag}.
 However, for the massive coefficient functions currently only approximate expressions exist~\cite{Barontini:2026drp}, which implies in a PDF fit we also need to consider Incomplete Higher Order Uncertainties (IHOU) reflecting the uncertainty of this approximation.
-Eventually, the experimental precision of the available and future DIS data requires the use of N$^3$LO perturbation theory.
-
-% channels?
+Eventually, the experimental precision of the available and future DIS data requires the use of N$^3$LO perturbation theory or, turning the argument around, if we aim for PDFs with percent Uncertainties~\cite{NNPDF:2024dpb} we need N$^3$LO perturbation theory.
+Actually, massless DIS is often the first QCD process becoming available at the next perturbative order~\cite{Basdew-Sharma:2021jhx}.
+While all possible partonic channels are already available starting from NNLO, N$^3$LO still brings new coupling combinations into the calculations.
 
 \section{Electroweak corrections}
-\begin{itemize}
-    \item Qiu et al. \cite{Liu:2020rvc,Liu:2021jfp,Qiu:2026fed}
-\end{itemize}
+While increasing the perturbative order in QCD, which is all what we discussed so far, we might also wonder about electroweak corrections.
+Allowing the Z boson to be exchanged in parallel or instead of the photon is considered a trivial electroweak correction and, indeed, required to match the experimental data.
+Instead, here we are asking about additional electroweak bosons to take part in the underlying diagrams.
+
+However, it turns out the traditional DIS theory setup, which starts by defining structure functions, \cref{sec:xs}, can not deal with these corrections as can be seen from \cref{fig:DIS}.
+If we allow for additional electroweak boson, they may also be exchanged between the leptonic part of the diagram and the hadronic part of the diagram, which implies that we can no longer associate $q$, \cref{eq:defq}, with the momentum of a single vector boson.
+Thus we can no longer define neither a leptonic tensor $L_{\mu\nu}$ or a hadronic tensor $W_{\mu\nu}$ and thus no structure functions.
+
+However, it is of course still possible to compute these diagrams and thus to compute the cross section $\sigma$.
+The price we have to pay is, we need to give up on our master equation, \cref{eq:fact1}, and use a more complex factorization formula~\cite{Liu:2020rvc,Liu:2021jfp,Qiu:2026fed}, which now involves not only a non-perturbative distribution function for the hadron, but also for the lepton.
 
 \section{Valo}
 \begin{itemize}
