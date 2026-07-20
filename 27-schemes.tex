@@ -1,1 +1,51 @@
-\fherror{write about schemes?}
+Finally, we consider a (mostly) theoretical issue.
+If we look to our master formula, \cref{eq:fact1}, we recall it is a (functional) product between two unphysical objects: the coefficient function, $\vb C$, and the PDF, $\vb f$.
+Since only the product, the cross section, $\sigma$, is a physical object, there is some freedom in the definition of $\vb C$ and $\vb f$.
+We discuss this freedom in \cref{sec:sv} for factorization scale variation schemes, but here we take a more fundamental point of view: how do we define PDFs in the first place?
+
+This freedom is referred to as PDF schemes and DIS is playing a key role here.
+We find \cref{eq:LOC} at LO accuracy and \cref{eq:NLOCq,eq:NLOCg} at NLO in the $\overline{\mathrm{MS}}$ scheme, which is the most common PDF scheme.
+In the DIS scheme~\cite{Diemoz:1987xu} we define for the coefficient functions of the structure function $F_2$
+\begin{equation}
+    C_q^{\mathrm{DIS}}(z,Q^2) = C_{\bar q}^{\mathrm{DIS}}(z,Q^2) = e_q^2 \delta(1-z)\,\forall q \qq{and} C_g^{\mathrm{DIS}}(z,Q^2) = 0 \label{eq:CDIS}
+\end{equation}
+which holds to all perturbative orders.
+Since the structure function has to remain invariant of course, i.e.\
+\begin{equation}
+    F_2(x,Q^2) = \left(\vb C^{T,\overline{\mathrm{MS}}}(Q^2) \otimes \vb f^{\overline{\mathrm{MS}}}(Q^2) \right)(x)
+        = \left(\vb C^{T,\mathrm{DIS}} \otimes \vb f^{\mathrm{DIS}}(Q^2) \right)(x)\,, \label{eq:F2DIS}
+\end{equation}
+this implies, first, that also the PDFs are different and, second, as this must be true at any $Q^2$ also the PDF evolutions are different.
+In other words: the PDF scheme defines what we call a quark or a gluon.
+In practice all modern PDFs are determined in the $\overline{\mathrm{MS}}$ scheme and thus not of any practical relevance, but it can provide some practical advice based on theoretical considerations.
+
+Before making explicit use of the DIS scheme, we review the interplay with the previous content.
+\begin{itemize}
+    \item First, we need all possible DIS combinations (NC vs.\ CC) to define all quark combinations, see \cref{sec:diverse}.
+        Second, this only defines quarks, but not the gluon, which is explicitly defined to be not contributing.
+        Instead, one needs an additional definition of the gluon distribution, for which various options exist~\cite{Diemoz:1987xu,Soar:2009yh,Altarelli:1998gn,Candido:2023ujx}.
+    \item Splitting functions $\vb P$ depend on the PDF scheme and thus (almost) all complications discussed in this work just appear there, see \cref{sec:resum}.
+    \item \Cref{eq:F2DIS} explicitly defines $F_2$ and thus any observable other then $F_2$, e.g.\ $F_L$ from \cref{sec:xs}, becomes more complicated, since, e.g.\ in this case the sum has to be invariant.
+        Of course this also applies to massive coefficient functions from \cref{sec:hq} and while the general construction, e.g.\ for FONLL, is the same, the ingredient become more complicated.
+    \item TMC, see \cref{sec:TMC} are universal kinematic corrections which apply to any leading-twist expression and are thus independent of the PDF scheme.
+        Thus, the naive simplicity of \cref{eq:CDIS} is destroyed when considering TMC, as we must for any real-life DIS comparison.
+\end{itemize}
+
+Considering PDF schemes other then the default $\overline{\mathrm{MS}}$ scheme can sometimes be advantages~\cite{Delorme:2026vln}, even if just for theoretical arguments as we illustrate next.
+The difference between \cref{eq:CpQCD} (implicitly in $\overline{\mathrm{MS}}$ scheme) and \cref{eq:CDIS} is, by construction, a perturbative object and thus the scheme transformation between these two schemes.
+In particular, we write
+\begin{equation}
+    \vb f^{\mathrm{DIS}}(\xi,Q^2) = \left(\vb S^{\mathrm{DIS}\leftarrow\overline{\mathrm{MS}}}(Q^2) \otimes \vb f^{\overline{\mathrm{MS}}}(Q^2)\right)(\xi)
+\end{equation}
+with a perturbative operator $\vb S^{\mathrm{DIS}\leftarrow\overline{\mathrm{MS}}}(Q^2)$.
+In this specific case we simply have
+\begin{equation}
+    \vb S^{\mathrm{DIS}\leftarrow\overline{\mathrm{MS}}}(Q^2) = \left(\vb C^{T,\mathrm{DIS}}(Q^2)\right)^{-1} \vb C^{T,\overline{\mathrm{MS}}}(Q^2) \label{eq:DIStrafo}
+\end{equation}
+where the inversion is to be understood in a functional sense.
+
+Now, since \cref{eq:F2DIS} defines an observable\footnote{or one can generalize it such that it actually does~\cite{Candido:2023ujx}} and \cref{eq:CDIS} only contains positive numbers, this implies that $\vb f^{\mathrm{DIS}}(Q^2)$ must also be positive.
+Recall that cross section are physical objects and thus positive by definition, PDFs are not physical objects and their positivity in non-trivial in general.
+In the DIS scheme, the two objects (quasi) coincide and thus the positivity of DIS PDFs follows.
+However, together with the perturbativity property of $\vb S(Q^2)$ also the positivity of $\vb f^{\overline{\mathrm{MS}}}$ follows as long as $\vb S(Q^2)$ is actually perturbative~\cite{Candido:2023ujx}.
+Checking \cref{eq:DIStrafo} explicitly yields the condition that $\overline{\mathrm{MS}}$ PDFs should be positive above $Q^2 \gtrsim \SI{5}{\GeV^2}$, which has practical consequences for PDF fitting.
