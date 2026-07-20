@@ -10,10 +10,10 @@ Instead of an abstract, theoretical discussion about DIS, which can be found in 
 The main focus is on Parton Distribution Functions (PDFs), for which DIS plays a major role.
 In fact, DIS was, is, and will be a very important constrain in determining PDFs - only recently, e.g.\ starting from NNPDF4.0\cite{NNPDF:2021njg}, LHC data starts to dominate in PDF fits.
 Stressing the importance and relevance of PDFs for any kind of perturbative QCD (pQCD) application and to understand the inner structure of hadrons is left to the literature~\cite{Gao:2017yyd,Heinrich:2020ybq,Amoroso:2022eow}.
-In turn, DIS itself can be used to answer unresolved questions about PDFs, e.g.\ whether the proton has an intrinsic charm component~\cite{Ball:2022qks,NNPDF:2023tyk}.
+Moreover, DIS can be used to answer unresolved questions about PDFs, e.g.\ whether the proton has an intrinsic charm component~\cite{Ball:2022qks,NNPDF:2023tyk}.
 
 In order to obtain a more realistic DIS treatment, we review general pQCD features and exemplify them using DIS.
-In fact, fully inclusive DIS comes in very handy, since here the effects mostly appear in their simplest form and when considering hadronic collisions, e.g.\ at the LHC, the strategies are mostly the same just more involved.
+In fact, fully inclusive DIS is very handy for such problems, since here the effects mostly appear in their simplest form and when considering hadronic collisions, e.g.\ at the LHC, the strategies are mostly the same just more involved.
 We keep a phenomenological point of view with a specific focus on the numerical implementation as, eventually, we want to compare to the experimental measurements.
 We refrain from giving detailed proofs in this course and point to the standard textbooks~\cite{Leader:2011gpt,Leader:1996hm,Peskin:1995ev,Halzen:1984mc,Kronfeld:2010bx} for that.
 Instead, we consider different features as given and focus on their practical implications.
@@ -33,8 +33,8 @@ Note that Yadism is an open-source project to which everybody can contribute\foo
 Since DIS is a very wide field, it is worth spelling out explicitly some non-goals:
 \begin{itemize}
     \item We only consider pQCD in the collinear framework here.
-        However, because DIS is such a powerful experiment, which offers a clean access to the inner structure of the protons it can be studied using other frameworks as well, such as Color Glass Condensates~\cite{Bertilsson:2026vtu,Casuga:2026xxt} \textrightarrow{} ask H.~Mäntysaari or T.~Lappi
-    \item We only consider fully inclusive cross sections here (to be defined in \cref{sec:xs} and with a tiny exception to be discussed in \cref{sec:hq}).
+        However, because DIS is such a powerful experiment, which offers a clean access to the inner structure of the protons, it can be studied using other frameworks as well, such as Color Glass Condensates~\cite{Bertilsson:2026vtu,Casuga:2026xxt} \textrightarrow{} ask H.~Mäntysaari or T.~Lappi
+    \item We only consider fully inclusive cross sections here. % (to be defined in \cref{sec:xs} and with a tiny exception to be discussed in \cref{sec:hq})
         In particular, we do not consider any more complicated final states, such as, e.g., single jet or di-jet production~\cite{H1:2014cbm,Helenius:2026odp}.
     \item We only consider pQCD in the collinear framework here.
         While, Monte Carlo Event generators, such as, e.g., Pythia~\cite{Bierlich:2022pfr}, are rooted in collinear pQCD they eventually go much beyond and we do not consider their details here~\cite{Helenius:2026odp} \textrightarrow{} ask I.~Helenius.
