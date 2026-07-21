@@ -34,7 +34,7 @@ In \cref{tab:HERA} we given an overview of the most important fully-inclusive DI
     \end{tabular}
 \end{table}
 
-We start by looking at the projectile column and immediately we realize that HERA was most of the time not colliding electrons, but positrons.
+We start by looking at the projectile column and immediately we realize that HERA was most of the time not accelerating electrons, but positrons.
 This is to remind us that DIS is lepton-hadron scattering and, indeed, we have to consider all leptons.
 We expand our selection further below in \cref{sec:nuclearneutrino}, but remain for the moment with the electron and the positron, which are exact copies of each other, but with opposite charge.
 
@@ -56,18 +56,18 @@ the reduced neutral current (NC) cross section $\sigma_r^\text{NC}$ and the redu
 The \enquote{current} here refers to the current between the leptonic part and the hadronic part, in particular the exchanged boson.
 The \enquote{reduced} cross section refers to a slight rescaling of the double differential cross section, \cref{eq:dsigmadxdy},
 \begin{equation}
-    \sigma_r = \frac{xy Q^2}{2\pi \aem^2} \frac 1 {\left(2 - 2y + y^2\right)}\frac{\dd[2] \sigma}{\dd x \dd y} \approx F_2
+    \sigma_r(x,Q^2) = \frac{xy Q^2}{2\pi \aem^2} \frac 1 {\left(2 - 2y + y^2\right)}\frac{\dd[2] \sigma}{\dd x \dd y} \approx F_2(x,Q^2)
 \end{equation}
-such that it refers to a specific PDF combination at LO accuracy.
+such that it refers to a specific PDF combination at LO accuracy, i.e.\ \cref{eq:LOxs} is actually the reduced cross section.
 
 Next, we examine the CC case by recalling two important facts from \cref{box:particles}:
 first, charged leptons, and thus also electrons and positrons, have weak charges and, second, $W$ bosons have an electric charge.
 Thus, by CC we consider the lepton interacts with the hadron via the exchange of a $W$ boson, which behaves quite different then a photon.
 First and foremost, due to the electric charge conservation the $W$ boson can only interact with specific leptons and quarks.
-On the leptonic side this implies that, first, e.g., the positron always emits a $W^+$ boson, and, second, the recoiling lepton is a neutrino, which in practice is impossible to track.
-Specifically, it is impossible to measure it's momentum four-vector $k'$, \cref{eq:DISreaction}, and thus measure the $W$ boson momentum $q$, \cref{eq:defq}, or any other derived variable ($x,Q^2,y$).
+On the leptonic side this implies that, first, e.g., the positron always emits a $W^+$ boson, and, second, the recoiling lepton is a neutrino, which, in practice, is impossible to track.
+Specifically, it is impossible to measure it's momentum four-vector $k'$, \cref{eq:DISreaction}, and thus measure the $W$ boson momentum $q$, \cref{eq:defq}, or any other derived variable ($x,Q^2,y$), from that.
 Instead, the full reconstruction of the hadronic final state also allows to extract the relevant kinematic variables, which is used instead~\cite{H1:2015ubc}.
-Although the production of CC events is suppressed by the propagator of the $W$ boson, $\sim (Q^2 + m_W^2)^{-1}$, it is a LO effect and thus no further suppression.
+Although the production of CC events is suppressed by the propagator of the $W$ boson, $\sim (Q^2 + m_W^2)^{-1}$, it is a LO effect.
 Moreover, since the $W$ are maximally parity violating this allows a third, independent structure function (typically referred to as $F_3$) to appear in the decomposition of the cross section, \cref{eq:dsigmadxdy}.
 We review the problems introduced by $\gamma_5$, which causes the parity violation, further in \cref{sec:g5}.
 
@@ -78,7 +78,7 @@ More specifically, we get three contributions to our final cross section: a pure
 \begin{equation}
     \sigma^\text{NC} = \sigma^\gamma + \sigma^{\gamma Z} + \sigma^{Z}\,.
 \end{equation}
-While at low virtualities $Q^2 \ll m_Z^2$ the $Z$ contributions can be neglected, this does not apply to the largest HERA measurements.
+While at low virtualities $Q^2 \ll m_Z^2$ the $Z$ contributions can be neglected, this does not apply to the HERA measurements with largest $Q^2$.
 Similar to $W$ boson, also $Z$ bosons have an axial-vectorial coupling to fermions, $\sim \gamma^\mu\gamma^5$, which introduces a contribution from $F_3$ to \cref{eq:dsigmadxdy}.
 The interference contribution, $F_{1,2}^{\gamma Z}$, yields an electric charge (from the photon) and a vectorial coupling (from the $Z$ boson) both on the leptonic and the hadronic side, whereas the pure $Z$ contribution, $F_{1,2}^Z$, yields squares of both vectorial and axial-vectorial couplings.
 On the other side, as $F_3$ is per-se a parity-violating observable, there the interference contribution $F_3^{\gamma Z}$ yields an electric charge (from the photon) and an axial-vectorial coupling (from the $Z$) and the pure $Z$ contribution, $F_3^Z$ yields a product of the vectorial and axial-vectorial couplings.
@@ -87,10 +87,10 @@ The fact that NC and CC couple completely different to fermions, i.e.\ quarks an
 We discuss more technical details in \cref{app:LO}.
 
 Let us return to the key point of this section here.
-Based on the discussion above, we can now better justify why we don't consider all particles in \cref{fig:SM}.
+We need to consider all leptons and all gauge bosons for DIS, i.e.\ all particles in \cref{fig:SM}, but based on the discussion above, we can now better justify why we actually exclude some.
 According on our definition of DIS, \cref{box:DISformula}, in theory also the Higgs boson would contribute to NC cross section, but since its coupling is proportional to the mass of the particle and we always\footnote{almost always~\cite{Spezzano:2025rfy} - but even so Higgs would only contribute a very large $Q^2$} consider massless leptons it does in practice not contribute.
-As the tau has a very short lifetime they are in practice impossible to accelerate in a collider and thus not suitable for DIS collider experiments.
-Instead, while muons are also difficult to accelerate concrete experiments for muon-proton scattering have been proposed~\cite{Akturk:2025ubm}.
+As the tau has a very short lifetime, they are in practice impossible to accelerate in a collider and thus not suitable for DIS collider experiments.
+Instead, while muons are also difficult to accelerate, concrete experiments for muon-proton scattering have been proposed~\cite{Akturk:2025ubm}.
 
 
 \subsection{Nuclear and Neutrino DIS}
@@ -98,8 +98,8 @@ Instead, while muons are also difficult to accelerate concrete experiments for m
 
 After having considered all available bosons and a few more leptons, we now need to consider more hadrons.
 While we focus here on the proton PDF point-of-view, DIS is equally important for nuclear PDFs~\cite{Eskola:2021nhw,AbdulKhalek:2022fyi,Klasen:2025ekj,Helenius:2021tof}, which describe the internal structure of nuclei.
-Moreover, the two are typically directly intertwined: proton PDF extractions often contain measurements on nuclear target~\cite{NNPDF:2021njg}, while nuclear PDF extraction often require a proton baseline.
-While the main focus on the EIC~\cite{AbdulKhalek:2022fyi} is far beyond the fully inclusive case, the first years of the early physics program scheduled currently in less then ten years from now contain some dedicated runs of nuclear DIS~\cite{Arleo:2026tpb}.
+Moreover, the two are typically directly intertwined: proton PDF extractions often contain measurements on nuclear targets~\cite{NNPDF:2021njg}, while nuclear PDF extraction often require a proton baseline.
+While the main focus on the EIC~\cite{AbdulKhalek:2022fyi} is far beyond the fully inclusive case, the first years of the early physics program, scheduled currently in less then ten years from now, contain some dedicated runs of nuclear DIS~\cite{Arleo:2026tpb}.
 
 At the same time, using nuclear targets also allows for a new set of leptons as projectile: neutrinos.
 Since neutrinos only interact weakly (literally and metaphorically), but nuclear targets have a large cross section the two effects yield measurable cross sections.
