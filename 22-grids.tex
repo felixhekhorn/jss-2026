@@ -4,7 +4,7 @@ Specifically, we need to find a representation of our results, which is suitable
 \subsection{Distributions}
 \label{sec:rsl}
 
-Coefficient functions may contain distributions, for example the quark coefficient function at LO is just a Dirac delta distribution:
+Coefficient functions may contain distributions, for example the quark $F_2$ coefficient function at LO is just a Dirac delta distribution:
 \begin{equation}
     C_q^{(0)}(z) = e_q^2 \delta(1-z) \,.
 \end{equation}
@@ -13,7 +13,7 @@ To better compare with our next step, let's repeat the definition of the Dirac d
     \int\limits_0^1 \! \dd z\, \delta(1-z) f(z) = f(1). \label{eq:DiracDelta}
 \end{equation}
 However, this is only the simplest case, which appears at LO, and at higher order we get more complicated distributions.
-For example the quark coefficient function at NLO, \cref{eq:NLOCq}, contains many more distributions
+For example the quark $F_2$ coefficient function at NLO, \cref{eq:NLOCq}, contains many more distributions
 \begin{align}
     C_q^{(1)}(z) &\supset 4 \qty(\frac{\ln(1-z)}{1-z})_+ - 3 \qty(\frac{1}{1-z})_+ - \qty(9+4\zeta_2)\delta(1-z)
 \end{align}
@@ -23,9 +23,11 @@ where the usual +-distributions are defined via
 \end{equation}
 We review in \cref{sec:nlo} briefly how these distributions appear, but here we turn to more practical matters.
 The problem is: distributions are (complicated) math objects, defined only via integral relations, \cref{eq:DiracDelta,eq:PlusDistr}, which are unsuitable for numeric evaluation.
-Moreover, \cref{eq:PlusDistr} is defined via an integral spanning the whole domain of $z$, i.e.\ in particular, the lower integration bound is 0, but \cref{eq:fact1} requires a convolution, where instead the lower integration bound depends on the measured kinematics $x$.
+Moreover, \cref{eq:DiracDelta,eq:PlusDistr} are defined via an integral spanning the whole domain of $z$, i.e.\ in particular, the lower integration bound is 0, but \cref{eq:fact1} requires a convolution, where instead the lower integration bound depends on the measured kinematics $x$.
+Note that the distributional content of $\vb C(z)$ is the main motivation to spell \cref{eq:fact1} as an integral in $z$ rather than $\xi$.
+In the following paragraphs we drop the parton index as the strategy simply applies to everything.
 
-Thus, it is convenient to introduce a different representation for coefficient functions, the Regular-Singular-Local (RSL) representation.
+It is convenient to introduce a different representation for coefficient functions: the Regular-Singular-Local (RSL) representation\footnote{This is not an official name and other names and conventions exist in literature.}.
 In the RSL representation any coefficient function $C(z)$ is mapped onto three functions,
 \begin{equation}
     C(z) \leftrightarrow (C^R(z), C^S(z), C^L(x))
@@ -35,9 +37,9 @@ The three functions are defined via their action under the convolution integral,
 \begin{equation}
     \qty(C\otimes f)(x) =  \int\limits_x^1 \! \frac{dz}{z} \, f(x/z) C^R(z) + \int\limits_x^1 \! dz \, \left(\frac{f(x/z)}{z} - f(x)\right) C^S(z) + f(x) C^L(x) \label{eq:RSL}
 \end{equation}
-for any sufficiently smooth test function $f$.
-Note that \cref{eq:RSL} only contains integrals with the lower integration bound $x$ and that all terms are finite if all RSL functions are finite.
-Also note that while the argument of $C^S$ and $C^L$ is intentionally called $z$, referring to the partonic momentum fraction over which we integrate, the argument of $C^L$ is denoted by $x$, which refers to the argument of the convolution on the right-hand-side.
+for any sufficiently smooth test function $f$ (such as PDFs in their usual place).
+Note that \cref{eq:RSL} only contains integrals with the lower integration bound $x$ and that all terms are finite.
+Also note that while the argument of $C^S$ and $C^L$ are intentionally called $z$, referring to the partonic momentum fraction over which we integrate, the argument of $C^L$ is denoted by $x$, which refers to the argument of the convolution on the right-hand-side.
 
 Let us consider some simple examples.
 \begin{itemize}
@@ -56,22 +58,22 @@ Let us consider some simple examples.
 \end{itemize}
 More examples can be found in \cref{app:RSL}.
 Eventually, we also face the problem that +-distributions can absorb regular functions.
-For example \cref{eq:NLOCq} can also be written as
+For example, \cref{eq:NLOCq} can also be written as
 \begin{align}
     C_q^{(1)}(z) &= \frac{e_q^2 C_F}{4\pi} \left[ 4 \frac{\ln(1-z)}{1-z} - 3 \frac{1}{1-z} - 2(1+z)\ln\left(\frac{1-z}{z}\right) - 4 \frac{\ln(z)}{1-z} + 6 + 4z\right]_+
 \end{align}
 where we have absorbed all functional dependence under the distribution.
-Thus before changing the representation we also need to fix the actual form and one possible choice is to only allow the minimal functional dependence under the distribution sign, e.g.\ as in \cref{eq:NLOCq}.
+Thus before changing the representation we also need to fix the actual form and one possible choice is to only allow the minimal functional dependence under the distribution sign with a numeric prefactor, e.g.\ as in \cref{eq:NLOCq}.
 
 \subsection{Interpolation}
 The RSL representation together with a suitable implementation of \cref{eq:RSL} provides already a practical way to implement arbitrary convolutions.
 However, we can make an additional step by applying a further discretization, which is desirable for computers.
-In the following we only consider the dependence on either the Bjorken-$x$ or its the momentum fraction counterparts, $z$ or $\xi$, and drop any scale dependence $Q^2$ for the remainder of the section.
+In the following we only consider the dependence on either the Bjorken-$x$ or its momentum fraction counterparts, $z$ or $\xi$, and drop any scale dependence $Q^2$ for the remainder of the section.
 
-We assume that there is a minimum momentum fraction $x_\text{grid,min}$ for which we need to compute observables, which implies that we also only need coefficient functions $\vb C(z)$ and PDFs $\vb f(z)$ above this limit, \cref{eq:fact1}.
+We assume that there is a minimum Bjorken-$x$ $x_\text{grid,min}$ for which we need to compute observables, which implies that we also only need coefficient functions $\vb C(z)$ and PDFs $\vb f(z)$ above this limit, \cref{eq:fact1}.
 Next, we choose a set of $N_\text{grid}$ grid points,
 \begin{equation}
-    \mathbbm G = \{ x_k : x_\text{grid,min} < x_k <= 1, \quad k = 0,\ldots, N_\text{grid} \} \label{eq:grid}
+    \mathbbm G = \{ x_k : x_\text{grid,min} < x_k <= 1, \quad k = 0,\ldots, N_\text{grid} - 1 \} \label{eq:grid}
 \end{equation}
 which we then use to interpolate the PDF
 \begin{equation}
@@ -92,6 +94,7 @@ where we defined
 Choosing our grid $\mathbbm G$ fixes immediately the interpolation polynomials and thus we can tabulate $\hat \sigma_{jk}(x)$ without having knowledge about the actual PDF $f_j(\xi)$.
 Note that the interpolation in momentum fraction space is independent from the flavor index $j$ and for simplicity we can choose the same grid for all flavors.
 This makes both $f_j(x_k)$ and $\hat \sigma_{jk}(x)$ two two-dimensional tensors in \cref{eq:sigmainterpolation}, which get multiplied in such a way that they yield a plain number.
+Note that interpolation is also independent from the RSL representation and in practice \cref{eq:RSL} is executed on $p_k(\xi)$.
 
 \subsection{Grids}
 \label{sec:grids}
@@ -106,15 +109,15 @@ Instead, PDFs are obtained from a fitting procedure, which can be summarized as 
     Repeat the above steps until the procedure converges, i.e.\ the comparison is \enquote{good enough}.
 \end{conclusionbox}
 The specific details on how to guess a candidate PDF, how to exactly compute the theory predictions, which experimental data to use, and what \enquote{good enough} exactly means is a choice.
-This is the reason why competing PDF fitting groups exist and why they do not necessarily obtain the same PDF, although we all assume the latter to be universal.
+This is the reason why competing PDF fitting groups exist~\cite{NNPDF:2021njg,Hou:2019efy,Bailey:2020ooq,PDF4LHCWorkingGroup:2022cjn,Accardi:2026hdv} and why they do not necessarily obtain the same PDF, although we all assume the latter to be universal.
 
 The main point for us here is that we need to compute theory predictions very many times for slightly different candidate PDFs.
 This is a serious problem for complicated hadronic observables, such as, e.g., jet cross sections~\cite{NNLOJET:2025rno}, where the computation can take many hours.
-The solution is to compute fast interpolation grids, using, e.g., PineAPPL~\cite{Carrazza:2020gss,christopher_schwan_2025_15635174}, APPLgrid~\cite{Carli:2010rw}, or fastNLO~\cite{Wobisch:2011ij}, which store the partonic matrix elements in an efficient way, such that any subsequent convolution with an arbitrary PDF is fast.
+The solution is to compute fast interpolation grids, using, e.g., PineAPPL~\cite{Carrazza:2020gss,christopher_schwan_2025_15635174}, APPLgrid~\cite{Carli:2010rw}, or fastNLO~\cite{Wobisch:2011ij}, which store the partonic matrix elements in an efficient way, such that any subsequent convolution with an arbitrary PDF is fast, as in \cref{eq:sigmainterpolation}.
 Having all observables in a PDF fit sharing the same technology simplifies their consistent treatment and inside the NNPDF collaboration this is realized in the pineline framework~\cite{Barontini:2023vmr}.
-In practice we organize discretization of the coefficient functions in a slightly different way.
+In practice we organize the discretization of the coefficient functions in a slightly different way then above.
 
-Specifically, interpolation grids are higher dimensional tensors which we can recombine in a suitable way a posteriori by performing fast linear algebra operations.
+Interpolation grids are higher dimensional tensors which we can recombine in a suitable way a posteriori by performing fast linear algebra operations.
 The first three major dimensions are:
 \begin{description}
     \item[bin] This is the list of cross section that we need to compute simultaneously.
@@ -122,11 +125,11 @@ The first three major dimensions are:
         Thus, in practice the actual list is given by the experimental measurement.
     \item[order] This is the list of perturbative orders, i.e.\ we store each $\vb C^{(k)}(z)$, \cref{eq:CpQCD}, separately.
         Having the full list available allows to use a given grid also at lower orders and thus study, e.g., perturbative stability.
-        In practice, the actual list is given by the requested accuracy of the user (provided we can actual fulfill that request).
+        In practice, the actual list is given by the requested accuracy of the user (provided we can actually fulfill that request).
     \item[channel] This is the list of PDF flavor combinations, i.e.\ the sum over $j$ in \cref{eq:fact1}.
         Having the full list available allows to study the impact of different PDF combination and, e.g., determine which PDF the observable can potentially constrain most.
         In DIS it is given by the coupling structure of the exchanged boson, i.e.\ $\gamma/Z$ vs.\ $W^\pm$.
-        In practice, the actual list is the easiest given directly in terms of individual parton flavors as the available combinations are too complex (see \cref{sec:sv} for additional complications).
+        In practice, the actual list is the easiest given directly in terms of individual parton flavors as the available combinations turn out to be too complex.
 \end{description}
 
 These three dimensions are present in any interpolation grid and in DIS there are two additional dimensions:
@@ -136,7 +139,8 @@ These three dimensions are present in any interpolation grid and in DIS there ar
         In practice, the actual list is given by the $Q^2$ specified in the bin configuration.
     \item[momentum fraction] This is the list of momentum fractions, \cref{eq:grid}, over which the coefficient functions are convolved with the PDF.
         Recall that LO, \cref{eq:LOC}, and NLO, e.g.\ \cref{eq:NLOCq}, are quite different and thus they use different ranges of momentum fractions.
-        In practice, the actual list is given by a convolution with a suitable set of interpolation functions, which form a basis for PDFs.
+        In practice, the actual list is given by a convolution with a suitable set of interpolation functions $p_k(\xi)$, which form a basis in function space for PDFs.
 \end{description}
 
-For fully inclusive DIS we end up with a five dimensional tensors, where each inner dimension may depend on the outer.
+For fully inclusive DIS we end up with a five dimensional tensor, where each inner dimension may depend on the outer.
+A typical example is the fact that the gluon only contributes starting from NLO, \cref{eq:LOC,eq:NLOCg}.
