@@ -1,9 +1,13 @@
+We keep the discussion in the rest of the work mostly general and do not focus on any particular observable.
+However, here, for illustrative purposes we give the coefficient functions for the $F_2$ structure function to highlight some generic features.
+
 At LO accuracy, DIS is trivial, \cref{fig:LO}, and we find
 \begin{equation}
     C_q^{(0)}(z) = C_{\bar q}^{(0)}(z) = e_q^2 \delta(1 - z) ~\forall q\,, \quad C_g^{(0)}(z) = 0 \label{eq:LOC}
 \end{equation}
 where $q$ represents any quark and $g$ represent the gluon.
 Inserting \cref{eq:LOC} into \cref{eq:fact1} yields \cref{eq:LOxs}.
+In \cref{app:LO} we cover more details on LO DIS.
 
 \begin{figure}[ht]
     \centering
@@ -46,7 +50,7 @@ As requested in \cref{box:pQCD} we have to sum over all possible diagrams and si
 Finally, we apply collinear factorization and subtract the remaining collinear divergencies from the coefficient functions and reabsorb them into the PDF definition, \cref{eq:fact1}.
 Any divergency which we remove introduces a distribution, such as the Dirac delta distribution or the usual +-distribution, into the coefficient functions, i.e.\ there is a direct mapping.
 
-Eventually, we get for all quarks $q$
+Eventually, we get~\cite{Vermaseren:2005qc} for all quarks $q$
 \begin{align}
     C_q^{(1)}(z) &= \frac{e_q^2 C_F}{4\pi} \left[ 4 \qty(\frac{\ln(1-z)}{1-z})_+ - 3 \qty(\frac{1}{1-z})_+ - \qty(9+4\zeta_2)\delta(1-z)\right. \nonumber\\
     & \hspace{40pt} \left. - 2(1+z)\ln\left(\frac{1-z}{z}\right) - 4 \frac{\ln(z)}{1-z} + 6 + 4z\right] \label{eq:NLOCq}\\
