@@ -74,11 +74,11 @@ We find
 \begin{equation}
     \vb C^{(2)}(z,\ln(\mu_R^2/Q^2)) = \vb C^{(2)}(z) + \beta_0 \ln(\mu_R^2/Q^2) \vb C^{(1)}(z)\,, \label{eq:CbarRimpl}
 \end{equation}
-so the scale-varied coefficient receives a correction from a lower-order coefficient function.
+so the scale-varied coefficient function receives a correction from a lower-order coefficient function.
 
 Let's take a step back and review the general features.
 \begin{conclusionbox}[label={box:svren}]{Renormalization scale variation}
-    Scale-varied coefficient functions
+    Renormalization scale-varied coefficient functions
     \begin{itemize}
         \item can always be computed a posteriori from their non-scale-varied counterparts
         \item are a linear combination of their lower order non-scale-varied counterparts
@@ -87,8 +87,8 @@ Let's take a step back and review the general features.
 \end{conclusionbox}
 We also know that the dependency on the scale variation $\ln(\mu_R^2/Q^2)$ must be a polynomial dependence since the running of strong coupling is a pure resummation of this logarithm.
 By re-expanding we mean a Taylor expansion of the strong coupling at the default scale, here $\alpha_s(Q)$, in terms of the value at the renormalization scale, $\alpha_s(\mu_R^2)$.
-For computing the strong coupling at any scale $\alpha_s(\mu_R^2)$ we must use required perturbative accuracy, but for deriving the scale-varied coefficient functions we only need one order less.
-In the special case of fully inclusive DIS, which has no dependence on the strong coupling at LO, we even need only two orders lower.
+For computing the strong coupling at any scale $\alpha_s(\mu_R^2)$ we must use the required perturbative accuracy, but for deriving the scale-varied coefficient functions we only need one order less.
+In the special case of fully inclusive DIS, which has no dependence on the strong coupling at LO, we even need only two orders lower then the coefficient functions.
 
 For the sake of correcting \cref{eq:fact3}, we can improve it by writing
 \begin{equation}
@@ -119,8 +119,8 @@ In this scheme, we make a different choice and attribute the variation instead t
 \begin{equation}
     \sigma(x,Q^2,\mu_F^2) = \qty(\vb C^T(Q^2) \otimes \vb f^{SV}(\mu_F^2,\ln(\mu_F^2/Q^2)))(x) \label{eq:sigmaFB}
 \end{equation}
-Note that \cref{eq:sigmaFB} only uses the central coefficient functions $\vb C^T(Q^2)$, but requires the use of a special PDF $\vb f^{SV}$.
-In a PDF fit, where full control over the PDF is required any way and partonic matrix elements (coefficient functions) come from a variety of places this scheme can be actually preferable.
+Note that \cref{eq:sigmaFB} only uses the central coefficient functions $\vb C(Q^2)$, but requires the use of a special PDF $\vb f^{SV}$.
+In a PDF fit, where full control over the PDF is required any way and partonic matrix elements (coefficient functions) come from a variety of places, this scheme can be actually preferable.
 
 In order to define $\vb f^{SV}$ we start by observing, that we can write \cref{eq:LOPDFexp} also as a convolution with a factorization scale operator $\vb K$
 \begin{equation}
@@ -141,19 +141,20 @@ Specifically, $\vb K$ only is meaningful when we consider scale variations and i
 \begin{equation}
     \vb f(\xi,\mu_1^2) = \qty(\vb K(\mu_1^2 \leftarrow \mu_2^2) \otimes \vb E(\mu_2^2 \leftarrow \mu_1^2) \otimes \vb f(\mu_1^2) )(\xi) + \ldots
 \end{equation}
-where $\ldots$ denotes the missing terms.
+where $\ldots$ denotes the missing higher order terms.
 Inserting the equation back into \cref{eq:fact3} with $(\mu_1,\mu_2)\to(Q,\mu_F)$ we obtain the definition of our sought-after special PDF
 \begin{equation}
-    \vb f^{SV}(\xi,\mu_F^2,\ln(\mu_F^2/Q^2)) = \qty(\vb K(Q^2 \leftarrow \mu_F^2)) \otimes \vb f(\mu_F^2))(\xi) = \vb f(\xi,Q^2) + \ldots \label{eq:fSV}
+    \vb f^{SV}(\xi,\mu_F^2,\ln(\mu_F^2/Q^2)) = \qty(\vb K(Q^2 \leftarrow \mu_F^2)) \otimes \vb f(\mu_F^2))(\xi) \label{eq:fSV}
 \end{equation}
 where we apply \cref{eq:EKO} for the PDF.
+We find $\vb f^{SV}(\xi,\mu_F^2,\ln(\mu_F^2/Q^2)) = \vb f(\xi,Q^2) + \ldots$ as we want to, because then \cref{eq:fact3} and \cref{eq:sigmaFB} differ by higher order terms.
 
 We can now return to the definition of scheme C: we insert \cref{eq:fSV} into \cref{eq:sigmaFB} and obtain
 \begin{align}
     \sigma(x,Q^2,\mu_F^2) &= \qty[\vb C^T(Q^2) \otimes \qty(\vb K(Q^2 \leftarrow \mu_F^2) \otimes \vb f^{SV}(\mu_F^2))](x)\\
      &= \qty[\qty(\vb C^T(Q^2) \otimes \vb K(Q^2 \leftarrow \mu_F^2)) \otimes \vb f^{SV}(\mu_F^2)](x) \label{eq:sigmaFCdef}
 \end{align}
-where we only used the associative property of the convolution.
+where we use the associative property of the convolution.
 However, we can now re-expand terms in a different order.
 First, it is convenient to use the perturbative expansion of the strong coupling to rewrite $\vb K$ in powers of $\alpha_s(Q^2)$ (as opposed to $\alpha_s(\mu_F^2)$, \cref{eq:NLOK}):
 \begin{equation}
@@ -169,11 +170,11 @@ Up to NLO accuracy we find from \cref{eq:NLOK}
     \vb K'(y,Q^2 \leftarrow \mu_F^2) = \mathbbm{1}\delta(1-y) - \alpha_s(Q^2) \ln(\mu_F^2/Q^2) \vb P^{(0)}(y) + \ldots \label{eq:NLOKp}
 \end{equation}
 
-Second, we use the definition of $\vb C(z,Q^2,\mu_F^2)$
+Second, we identify $\vb C(z,Q^2,\mu_F^2)$ from \cref{eq:sigmaFC} as
 \begin{equation}
     \vb C^T(z,Q^2,\mu_F^2) = \qty(\vb C^T(Q^2) \otimes \vb K'(Q^2 \leftarrow \mu_F^2))(z)
 \end{equation}
-which reorganizes the product of sums in \cref{eq:sigmaFCdef} into a single sum, \cref{eq:CbarFpQCD}.
+but which is yet another reorganization of the perturbative orders since it turns the product of sums in \cref{eq:sigmaFCdef} into a single sum, \cref{eq:CbarFpQCD}.
 Let's see this in practice.
 
 As before, we start from LO accuracy and from \cref{eq:NLOKp} we find immediately
@@ -226,6 +227,7 @@ We find
      &\hspace{10pt} + \left(\alpha_s(\mu_R^2)\right)^2 \left[\vb C^{(2)}(z) + \vb C^{(2),F}(z)\ln(\mu_F^2/Q^2) + \vb C^{(2),R}(z)\ln(\mu_R^2/Q^2) \right.\nonumber\\
      &\hspace{70pt} \left. \vb C^{(2),FF}(z)\ln^2(\mu_F^2/Q^2) + \vb C^{(2),FR}(z)\ln(\mu_F^2/Q^2)\ln(\mu_R^2/Q^2) \right] + \ldots
 \end{align}
+An explicit expression for $\vb C^{(1),F}$ is given in \cref{eq:CbarFNLO} and for $\vb C^{(2),R}$ in \cref{eq:CbarRimpl}.
 We see that the number of terms per perturbative order quickly grows as the respective algorithms collect more of the full behavior.
 % mention cross term? C^2F = C^1 P^0 + C^0 P^1
 The appearance of $\vb C^{(2),FR}$ also demonstrate how the two variations become intertwined.
@@ -245,18 +247,18 @@ If we want to use scale variations to estimate MHOU, we need to make a further a
 As we see in \cref{box:svren} the scale-varied coefficient functions are always a linear combination of the existing ones, i.e.\ they can not introduce new channels (new PDF combinations).
 However, it is often straightforward to show that a new channel should appear although its size is unknown and scale variations are unable to predict this.
 An example for such a scenario in fully inclusive DIS can be seen at NLO: starting from NLO the gluon can participate in the scattering, but the LO only contains quark PDFs.
-In other cases, we know that higher orders must contain certain kinematic logs, e.g. from particles radiating at small and/or large transverse momentum or in the soft limit and in fully inclusive DIS the latter is the case\footnote{More mathematically speaking: soft gluon resummation is a double logarithmic resummation $\tilde c_q^{(j)} \sim \alpha_s^j \ln^{2j}(N)$ for $N\to\infty$ in Mellin space, \cref{eq:Mellinf}.}.
+In other cases, we know that higher orders must contain certain kinematic logs, e.g. from particles radiating at small and/or large transverse momentum or in the soft limit and in fully inclusive DIS the latter is the case\footnote{More mathematically speaking: soft gluon resummation is a double logarithmic resummation $\tilde c_q^{(j)} \sim \alpha_s^j \ln^{2j}(N)$ for $N\to\infty$ in Mellin space, \cref{eq:Mellinf}. Double logarithmic structures can not be predicted by scale variations.}.
 Also those corrections can (in many cases) not be predicted by scale variations.
 
 Scale variations also provide no statistical interpretation, which is in stark contrast to experimental uncertainties, where we usually assume Gaussian uncertainties and thus the provided error has a clear interpretation.
-However, strictly speaking this only applies to statistical errors but not systematic errors and the question which of the dominates depends very much on the specific measurement.
+However, strictly speaking even there this only applies to statistical errors but not to systematic errors and the question which of the two dominates depends very much on the specific measurement.
 
 Despite all these (potential) problems, scale variations have a solid foundation in QFT and can be applied (straightforwardly) to any pQCD process, which makes them an easy tool to use MHOU.
 In order to make a faithful statement, we can then simply say: when we compute this process with this specific choice of scale, we obtain this number; if we vary that scale in this range, we obtain this range of numbers.
 
-\subsection{Implementation}
+\subsection{Implementation and flavor space}
 \label{sec:svimpl}
-Let us return now to more practical consequences.
+Let us return to more practical consequences.
 As we see above, renormalization scale variations are just a scalar operation, but factorization scale variations are more complicated and it is worth spelling out their explicit construction to see what is actually happening.
 
 The factorization scale variation is directly related to the PDFs themselves and, in particular, eventually, they derive from \cref{eq:DGLAP}.
@@ -264,7 +266,7 @@ However, the splitting functions $\vb P$ are encoding how partons couple among e
 This is in contrast to DIS, where instead the coefficient functions are encoding how partons couple to the electro-weak vector boson, which is completely different, see \cref{box:particles}.
 
 As usual, at LO accuracy the problem does not appear yet, because there are no scale-varied coefficient functions, see \cref{eq:CbarFLO}, but starting from NLO accuracy we need to worry.
-In particular, we know that the gluon couples the same to all quarks, thus, if we assume four flavors (see \cref{sec:hq}) for the moment and combine them in the following way~\cite{NNPDF:2024djq}\footnote{for the more general case see Ref.~\cite{NNPDF:2024djq}},
+In particular, we know that the gluon couples the same to all quarks, thus, if we assume four flavors for the moment (see \cref{sec:hq}) and combine them in the following way~\cite{NNPDF:2024djq}\footnote{for the more general case see Ref.~\cite{NNPDF:2024djq}},
 \begin{align}
     f_{\Sigma_\Delta}(x,Q^2) &= f_u(x,Q^2) + f_{\bar u}(x,Q^2) + f_c(x,Q^2) + f_{\bar c}(x,Q^2)\nonumber\\
     & \hspace{10pt} - f_d(x,Q^2) - f_{\bar d}(x,Q^2) - f_s(x,Q^2) - f_{\bar s}(x,Q^2)  \label{eq:SigmaDelta}
@@ -275,11 +277,24 @@ We repeat: we denote objects, which have a non-trivial dependence on the parton 
 This applies to vectors in flavor space, e.g.\ coefficient functions $C_j \to \vb C$ or PDFs $f_j \to \vb f$, but also to matrices, e.g.\ splitting functions $P_{jk} \to \vb P$ or the factorization scale operator $K_{jl}\to \vb K$.
 By introducing the vector notation we hide any reference to a given basis in the flavor space, which now becomes relevant (see also \cref{sec:hq}).
 
-For computing LO and NLO DIS coefficient functions it is convenient to consider each quark individually and we can find easily \cref{eq:LOC,eq:LOxs}.
-We refer to this choice of basis as the flavor basis.
-However, for the discussion in \cref{sec:DGLAP} and in particular for dealing with splitting functions, $\vb P$, a different basis is more convenient: the evolution basis.
+Let us be more formal.
+We define the flavor space $\mathcal F$ as the vector space spanned by all quark flavors and the gluon.
+We consider the naive flavor basis as our canonical basis and write
+\begin{equation}
+    \mathcal F = \mathrm{span}(g, u, \bar u, d, \bar d, s, \bar s, c, \bar c, b, \bar b, t, \bar t)\,.
+\end{equation}
+We have a 13 dimensional vector space, $\dim{\mathcal F} = 13$\footnote{one can add the photon and make it 14 dimensional~\cite{NNPDF:2024djq}}, consisting of the gluon, six quarks, and six anti-quarks.
+Our bold vectors are an element in that space, e.g.\ $\vb C \in \mathcal F$, or more plainly,
+\begin{equation}
+    \vb C^T \sim (C_g, C_u, C_{\bar u}, C_d, C_{\bar d}, C_s, C_{\bar s}, C_c, C_{\bar c}, C_b, C_{\bar b}, C_t, C_{\bar t})
+\end{equation}
+and, of course, any other basis works just as well.
+The same applies also to the PDF $\vb f$, which is the other vector in \cref{eq:fact3}, and any operator, e.g.\ splitting functions $\vb P$, just lives in the product space, $\vb P \in \mathcal F \otimes \mathcal F$.
+The flavor basis is handy for computing LO and NLO DIS coefficient functions, i.e.\ we consider each quark individually and we can find easily \cref{eq:LOC,eq:LOxs}.
+
+For the discussion in \cref{sec:DGLAP} and in particular for dealing with splitting functions, $\vb P$, a different basis is more convenient: the evolution basis.
 The two choices are both orthogonal bases, i.e.\ they are simply related by a rotation\footnote{actually, it is a rotation and a scaling, i.e.\ the evolution basis is not orthonormal, which may cause some trouble} in flavor space.
-Specifically, $\vb P$ has a much simpler representation if one of the basis vectors is the singlet
+Specifically, $\vb P$ has a much simpler representation if one of the basis vectors is the flavor singlet
 \begin{align}
     f_\Sigma(x,Q^2) &= f_u(x,Q^2) + f_{\bar u}(x,Q^2) + f_c(x,Q^2) + f_{\bar c}(x,Q^2)\nonumber\\
     & \hspace{10pt} + f_d(x,Q^2) + f_{\bar d}(x,Q^2) + f_s(x,Q^2) + f_{\bar s}(x,Q^2) \label{eq:Singlet}
@@ -289,31 +304,32 @@ and all other basis vectors can be chosen such that they do not couple to the gl
 Let's see this in practice for LO photon DIS: we start from \cref{eq:LOC}, which is written in flavor basis, i.e.\ for each given quark flavor and the gluon.
 Inserting \cref{eq:LOC} into \cref{eq:fact1} yields \cref{eq:LOxs} and we find explicitly
 \begin{align}
-    \sigma(x,Q^2) &= e_d^2\qty(f_d(x,Q^2) + f_{\bar d}(x,Q^2) + f_s(x,Q^2) + f_{\bar s}(x,Q^2)) \nonumber\\
-    & \hspace{10pt} + e_u^2\qty(f_u(x,Q^2) + f_{\bar u}(x,Q^2) + f_c(x,Q^2) + f_{\bar c}(x,Q^2))
+    \sigma(x,Q^2) &= e_u^2\qty(f_u(x,Q^2) + f_{\bar u}(x,Q^2) + f_c(x,Q^2) + f_{\bar c}(x,Q^2)) \nonumber\\
+    & \hspace{10pt} + e_d^2\qty(f_d(x,Q^2) + f_{\bar d}(x,Q^2) + f_s(x,Q^2) + f_{\bar s}(x,Q^2))
 \end{align}
-Using \cref{eq:Singlet,eq:SigmaDelta} we can rewrite this as
+Using \cref{eq:Singlet,eq:SigmaDelta} we can rewrite this in evolution basis
 \begin{equation}
-    \sigma(x,Q^2) &= \qty(e_d^2 + e_u^2) f_\Sigma(x,Q^2) + \qty(e_u^2 - e_d^2) f_{\Sigma_\Delta}(x,Q^2)
+    \sigma(x,Q^2) &= \frac{e_u^2 + e_d^2} 2 f_\Sigma(x,Q^2) + \frac{e_u^2 - e_d^2} 2 f_{\Sigma_\Delta}(x,Q^2)
 \end{equation}
 or equivalently
 \begin{equation}
-    C_\Sigma^{(0)}(z) = (e_d^2 + e_u^2) \delta(1-z),\quad C_{\Sigma_\Delta}^{(0)}(z) = (e_u^2 - e_d^2) \delta(1-z), \quad C_j(z) = 0 \,\forall j\neq\{\Sigma,\Sigma_\Delta\} \label{eq:LOCev}
+    C_\Sigma^{(0)}(z) = \frac{e_u^2 + e_d^2} 2 \delta(1-z),\quad C_{\Sigma_\Delta}^{(0)}(z) = \frac{e_u^2 - e_d^2} 2 \delta(1-z), \quad C_j(z) = 0 \,\forall j\neq\{\Sigma,\Sigma_\Delta\} \label{eq:LOCev}
 \end{equation}
+where the parton index $j$ in \cref{eq:fact1} now also runs over the evolution basis.
 We stress that \cref{eq:LOC,eq:LOCev} are two equivalent representation of the coefficient function $\vb C^{(0)}$ using two different bases.
 
 Moving to NLO, we have the same structure in the quark sector, \cref{eq:NLOCq}, and we encounter for the first time the gluon channel, \cref{eq:NLOCg}.
-Thus, when we want to execute \cref{eq:CbarFNLO}, we need to consider three directions in flavor space: the gluon, the singlet $f_\Sigma$ and \cref{eq:SigmaDelta}.
+Thus, when we want to execute \cref{eq:CbarFNLO}, we need to consider three directions in flavor space: the gluon, the singlet $f_\Sigma$ and $f_{\Sigma_\Delta}$, \cref{eq:SigmaDelta}.
 The preferred basis for $\vb P$ is manifest by the following statements,
 \begin{equation}
     \mathrm P_{\Sigma \Sigma_\Delta}(y) = \mathrm P_{g \Sigma_\Delta}(y) = \mathrm P_{\Sigma_\Delta \Sigma}(y) = \mathrm P_{\Sigma_\Delta g}(y) = 0
 \end{equation}
-which would not occur in flavor basis.
+which do not occur in flavor basis.
 Eventually, \cref{eq:CbarFNLO} becomes explicitly
 \begin{align}
     C^{(1)}_{\Sigma_\Delta}(z,\ln(\mu_F^2/Q^2)) &= C^{(1)}_{\Sigma_\Delta}(z) - \ln(\mu_F^2/Q^2) \qty(C^{(0)}_{\Sigma_\Delta} \otimes \mathrm P_{\Sigma_\Delta \Sigma_\Delta}^{(0)})(z)\\
     C^{(1)}_{\Sigma}(z,\ln(\mu_F^2/Q^2)) &= C^{(1)}_{\Sigma}(z) - \ln(\mu_F^2/Q^2) \qty(C^{(0)}_{\Sigma} \otimes \mathrm P_{\Sigma \Sigma}^{(0)})(z)\\
-    C^{(1)}_{g}(z,\ln(\mu_F^2/Q^2)) &= C^{(1)}_{g}(z) - \ln(\mu_F^2/Q^2) \qty(C^{(0)}_{\Sigma} \otimes \mathrm P_{\Sigma g}^{(0)})(z)
+    C^{(1)}_{g}(z,\ln(\mu_F^2/Q^2)) &= C^{(1)}_{g}(z) - \ln(\mu_F^2/Q^2) \qty(C^{(0)}_{\Sigma} \otimes \mathrm P_{\Sigma g}^{(0)})(z) \label{eq:NLOCbarFg}
 \end{align}
 where the required splitting functions can be found in the literature~\cite{Leader:2011gpt,Leader:1996hm,Peskin:1995ev}.
 
@@ -330,9 +346,9 @@ However, this symmetry breaks down starting from NLO splitting functions $\vb P^
         These additional coefficient functions can be easily accommodated when we generalize our concept of \enquote{order}: it can not only represent the perturbative order per se, but also additional powers of renormalization or factorization logarithms: $\alpha_s^k(\mu_R^2)\ln^m(\mu_R^2/Q^2)\ln^n(\mu_R^2/Q^2)$.
     \item The necessary projection onto a singlet component is particularly tricky for CC DIS, see \cref{sec:diverse}.
         Recall that the $W^\pm$ boson only couple to specific PDFs and thus if we want to project the coefficient functions into evolution basis we need the full basis (and not just \cref{eq:SigmaDelta,eq:Singlet}).
-    \item Note that the coupling structure is always retained, i.e.\ 
+    \item Note that the coupling structure is always retained, i.e.\ e.g.\ in \cref{eq:NLOCbarFg}
         \begin{equation}
-            C^{(1)}_{g}(z) \sim e_u^2 + e_d^2 \sim C^{(1)}_{g}(z,\ln(\mu_F^2/Q^2))
+            C^{(1)}_{g}(z) \sim e_u^2 + e_d^2 \sim C^{(1)}_{g}(z,\ln(\mu_F^2/Q^2))\,.
         \end{equation}
         This implies that a given \enquote{channel} in an interpolation grid (\cref{sec:grids}) has a unique coupling, though recall that some channels only appear at high enough perturbative order.
 \end{itemize}

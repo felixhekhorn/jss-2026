@@ -4,21 +4,6 @@ Which quarks are we exactly talking about?
 This is directly linked to the flavor space to which we hint when using bold font.
 However, unlike the problem we discuss in \cref{sec:svimpl} about different bases (flavor basis vs.\ evolution basis), here we are more directly concerned what the flavor space is in the first place.
 
-\subsection{Flavor space}
-
-We define the flavor space $\mathcal F$ as the vector space spanned by all quark flavors and the gluon.
-We consider the naive flavor basis as our canonical basis and write
-\begin{equation}
-    \mathcal F = \mathcal F_{fl} = \mathrm{span}(g, u, \bar u, d, \bar d, s, \bar s, c, \bar c, b, \bar b, t, \bar t)\,.
-\end{equation}
-We have a 13 dimensional vector space, $\dim{\mathcal F} = 13$\footnote{one can add the photon and make it 14 dimensional~\cite{NNPDF:2024djq}}, consisting of the gluon, six quarks, and six anti-quarks.
-Our bold vectors are an element in that space, e.g.\ $\vb C \in \mathcal F$, or more plainly,
-\begin{equation}
-    \vb C^T \sim (C_g, C_u, C_{\bar u}, C_d, C_{\bar d}, C_s, C_{\bar s}, C_c, C_{\bar c}, C_b, C_{\bar b}, C_t, C_{\bar t})
-\end{equation}
-and, as said in \cref{sec:svimpl}, any other basis works just as well.
-The same applies also to the PDF $\vb f$, which is the other vector in \cref{eq:fact3}, and any operator, e.g.\ splitting functions $\vb P$, just lives in the product space, $\vb P \in \mathcal F \otimes \mathcal F$.
-
 The question we need to address here is: which quarks exactly can participate in \cref{eq:LOxs,eq:LOC}?
 We refer to this number as the number of active quarks $n_f$.
 This dependency is completely hidden in \cref{eq:fact1}, but, as we demonstrate in the following, is a major concern for both coefficient functions and PDF.
@@ -34,9 +19,9 @@ We can shut down such contributions by setting $f_t(\xi, Q^2) = 0 = f_{\bar t}(\
 In addition, we can also define $C_t(z, Q^2) = 0 = C_{\bar t}(z, Q^2)$ to explicitly say that we don't let the top contribute.
 
 Now, we consider the two remaining quarks, charm and bottom, for which maybe there is no clear answer.
-First, for the charm quark we have $m_c \sim \SI{1.5}{\GeV}$ and we can assume reasonably that it can contribute to DIS.
+First, for the charm quark we have $m_c \sim \SI{1.5}{\GeV}$ and we can assume reasonably that it can contribute to this cross section.
 On the other side, for the bottom quark we have $m_b \sim \SI{4.5}{\GeV}$ and maybe we can both allow or deny it.
-The specific choice on which quarks we allow to participate and in which way they do so is referred to as flavor number scheme.
+The specific choice on which quarks we allow to participate and in which way they do so is referred to as flavor number scheme (FNS).
 
 \subsection{ZM-VFNS}
 
