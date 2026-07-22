@@ -1,12 +1,12 @@
 We now attempt to address a problem we first see in \cref{sec:resum}: Missing Higher Order Uncertainty (MHOU).
-We repeat again, the truncation of the perturbative series is a fundamental part of our framework and we are bound to it.
+We repeat: the truncation of the perturbative series is a fundamental part of our framework and we are bound to it.
 The naive solution of just computing the next higher correction is not a solution, as we would face the problem just again there.
 Thus the task is to get an estimate of the missing terms based on current knowledge, which by definition is an ill-posed problem.
 Several possible strategies have been suggested in the literature~\cite{NNPDF:2024dpb,Lim:2024nsk,Tackmann:2024kci,Kassabov:2022orn,Bonvini:2020xeo,Cacciari:2011ze,Duhr:2021mfd,Ghosh:2022lrf}, which are based on resummation of specific variables and/or statistical arguments.
 
 From the practical point of view as a PDF fitter, however, there is one big problem with many of the proposed algorithms: they only work for some specific set of observables and require a detailed analysis of the kinematics.
 Thus, we review here the most common approach to estimate MHOU, which can be rigorously derived in pQCD and applied to any observable: scale variations.
-On the other side, especially in recent years, scale variations have been challenged as suitable tool, due to the inherent arbitrariness and the lack of statistical interpretation (to which we return in the end).
+On the other side, especially in recent years, scale variations have been challenged as suitable tool, due to the inherent arbitrariness and the lack of statistical interpretation (see \cref{sec:svdiscussion}).
 For now we focus on their practical implementation in DIS.
 
 \subsection{Renormalization scale}
@@ -31,14 +31,14 @@ with
 \end{equation}
 Before we continue with deriving explicit expressions for $\vb C^{(j)}(z,\ln(\mu_R^2/Q^2))$ some comments are in order:
 \begin{itemize}
-    \item $\vb C(z,Q^2)$ in \cref{eq:fact1} is an abbreviation of $\vb C(z,Q^2,\mu_R^2=Q^2)$ and $\vb C^{(j)}(z)$ of $\vb C^{(j)}(z,0)$
+    \item $\vb C(z,Q^2)$ in \cref{eq:fact1} is an abbreviation of $\vb C(z,Q^2,\mu_R^2=Q^2)$ and $\vb C^{(j)}(z)$ of $\vb C^{(j)}(z,\ln(\mu_R^2/Q^2)=0)$
     \item in \cref{eq:CbarRpQCD} $\mu_R$ has its intended meaning: it is the scale of the strong coupling
     \item from \cref{sec:as} we know $\alpha_s(\mu_R^2)$ is a pure resummation of logarithms, thus $\vb C^{(j)}$ may only depend on $\ln(\mu_R^2/Q^2)$
     \item $\vb C^{(j)}(z,0)$ can be computed from diagrams by assuming explicitly $\mu_R = Q$ there
 \end{itemize}
 
 We now derive the explicit next-to-next-to-leading order (NNLO) expression for fully inclusive DIS.
-In particular, we recall that LO is given by $\vb C^{(0)}(z)$, i.e.\ proportional to $\qty(\alpha_s(Q^2))^0$ in \cref{eq:CpQCD}, NLO is given by $\vb C^{(1)}(z)$ proportional to $\qty(\alpha_s(Q^2))^1$, and NNLO by $\vb C^{(1)}(z)$ proportional to $\qty(\alpha_s(Q^2))^2$.
+In particular, we recall that LO is given by $\vb C^{(0)}(z)$, i.e.\ proportional to $\qty(\alpha_s(Q^2))^0$ in \cref{eq:CpQCD}, NLO is given by $\vb C^{(1)}(z)$ proportional to $\qty(\alpha_s(Q^2))^1$, and NNLO by $\vb C^{(2)}(z)$ proportional to $\qty(\alpha_s(Q^2))^2$.
 Moreover, we assume that the coefficient functions at the central scale $\mu_R=Q$ are known and we can write \cref{eq:CpQCD} up to NNLO
 \begin{equation}
     \vb C(z,Q^2) = \vb C^{(0)}(z) + \alpha_s(Q^2) \vb C^{(1)}(z) + \qty(\alpha_s(Q^2))^2 \vb C^{(2)}(z) \label{eq:CNNLO}
@@ -49,7 +49,7 @@ Expanding \cref{eq:CbarRpQCD} up to the same accuracy we get
     &\hspace{20pt} + \qty(\alpha_s(\mu_R^2))^2 \vb C^{(2)}(z,\ln(\mu_R^2/Q^2)) \label{eq:CbarRNNLO}
 \end{align}
 We are now left with the task to make \cref{eq:CNNLO} and \cref{eq:CbarRNNLO} perturbatively equivalent, and although we are considering NNLO the equivalence must hold at any lower order.
-Thus, we first can consider LO: since there is no dependency on the strong coupling in the first place, the scale-varied coefficient function may not depend on the renormalization scale and we find
+Thus, we can first consider LO $\vb C^{(0)}$: since there is no dependency on the strong coupling in the first place, the scale-varied coefficient function may not depend on the renormalization scale and we find
 \begin{equation}
     \vb C^{(0)}(z,\ln(\mu_R^2/Q^2)) = \vb C^{(0)}(z)\,.
 \end{equation}
@@ -62,6 +62,7 @@ Thus, if \cref{eq:CNNLO} and \cref{eq:CbarRNNLO} have to be the same up to $\ord
 \begin{equation}
     \vb C^{(1)}(z,\ln(\mu_R^2/Q^2)) = \vb C^{(1)}(z)\,.
 \end{equation}
+Since we are here interested in the perturbative equivalence, we must use the perturbative expansion of the evolution.
 
 Note that with this identification \cref{eq:CNNLO} and \cref{eq:CbarRNNLO} (truncated to NLO) are not the same in practice, they are only perturbative equivalent.
 In any actual calculation with $\mu_R\neq Q$ also $\alpha_s(\mu_R^2)$ and $\alpha_s(Q^2)$ are different: they differ by an amount which is beyond our fixed-order framework and if that difference is \enquote{small} depends on the actual values of the strong coupling of the respective scales.
@@ -234,6 +235,7 @@ The appearance of $\vb C^{(2),FR}$ also demonstrate how the two variations becom
 % covariance matrix?
 
 \subsection{Discussion}
+\label{sec:svdiscussion}
 The renormalization and factorization scale are remnants of the necessary regularization of UV and collinear divergencies.
 Although, scale variations are a genuine pQCD property they have some features, which questions their usefulness for estimating MHOUs.
 
