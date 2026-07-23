@@ -9,12 +9,12 @@ We refer to this number as the number of active quarks $n_f$.
 This dependency is completely hidden in \cref{eq:fact1}, but, as we demonstrate in the following, is a major concern for both coefficient functions and PDF.
 Note that the gluon is always considered active and contributes to all diagrams always.
 
-The number of flavors $n_f$ is arbitrary per se and there is no absolutely correct answer, since there is no theory argument, which would fix this choice.
+The number of flavors $n_f$ is per se arbitrary and there is no absolutely correct answer, since there is no theory argument, which would fix this choice.
 However, in practice for a given observable $\sigma(x,Q^2)$ we can consider, which options are phenomenologically reasonable and if some option would yield unstable results.
 
-For the sake of the argument, let's consider a fully inclusive DIS cross section $\sigma(x,Q^2=\SI{25}{\GeV^2})$, so we probe the probe the proton at $\mu_F=Q=\SI{5}{\GeV}$.
+For the sake of the argument, letus consider a fully inclusive DIS cross section $\sigma(x,Q^2=\SI{25}{\GeV^2})$, so we probe the probe the proton at $\mu_F=Q=\SI{5}{\GeV}$.
 We can now consider the different quark masses as a guideline: on the one side the masses of up, down, and strange are significantly below the non-perturbative regime of QCD $m_u,m_d,m_s \ll \LQCD \sim \SI{1}{\GeV}$ and we can safely assume we can find them in the proton.
-On the other side the mass of the top is significantly above the probed scale, $m_t \gg Q$, thus it is very unlikely to find it in the proton and we can neglect it.
+On the other side the mass of the top is significantly above the probed scale, $m_t \gg Q$, thus it is very unlikely to find it in the proton and we can safely neglect it.
 We can shut down such contributions by setting $f_t(\xi, Q^2) = 0 = f_{\bar t}(\xi, Q^2)$ and this way the top quark does not contribute to \cref{eq:fact1}.
 In addition, we can also define $C_t(z, Q^2) = 0 = C_{\bar t}(z, Q^2)$ to explicitly say that we don't let the top contribute.
 
@@ -54,11 +54,11 @@ i.e.\ each contribution has its own factorization formula and we have, e.g.,
 and similar for the others.
 Specifically, we can improve \cref{eq:LOC} by writing
 \begin{align}
-    C_q^{(0),(3)}(z) &= e_q^2 \delta(1-z) & q\in\{c,\bar c, b, \bar b, t, \bar t\}\\
+    C_q^{(0),(3)}(z) &= e_q^2 \delta(1-z) & q\in\{d,\bar d, u, \bar u, s, \bar s\}\\
     C_H^{(0),(3)}(z) &= 0 & H\in\{c,\bar c, b, \bar b, t, \bar t\}\\
     C_g^{(0),(3)}(z) &= 0
 \end{align}
-and we finally give full details on the available flavor space $\mathcal F$.
+where we still use the full flavor space $\mathcal F$, \cref{eq:flspace}, but finally spell all elements explicitly.
 
 Note that it does not make sense to consider less then three quarks, since $m_u,m_d,m_s \ll \LQCD \sim \SI{1}{\GeV}$ and pQCD only works for $Q > \LQCD$.
 All quarks are considered with their actual mass for the decision if they are in or out, \cref{eq:zmvfns}, but then after that their mass is discarded when computing $\vb C^{(n_f)}(z,Q^2)$.
@@ -69,7 +69,7 @@ However, once we have an actual scale in hand, $n_f$ is also fixed.
     In the ZM-VFNS
     \begin{itemize}
         \item the number of active quarks $n_f$ depends on the probed scale $Q^2$
-        \item contain the diagrams to compute coefficient functions only massless quarks
+        \item contain only massless quarks in the diagrams for the coefficient functions
     \end{itemize}
 \end{conclusionbox}
 
@@ -81,16 +81,16 @@ Here, the probed scale $Q$ does not matter, but we use the same coefficient func
 Actually, saying FFNS is not sufficient, we still have some choices and the most obvious is $n_f$.
 
 However, we can also improve with respect to other parts: while it is significantly easier to compute diagrams with only massless quarks, we can compute them also with massive quarks.
-For simplicity we assume in the following we have exactly one\footnote{the case of two massive quarks is e.g.\ discussed in Ref.~\cite{Barontini:2024xgu}} massive quark with mass $m^2$.
-Moreover, while we keep the notation general you can always consider as a concrete example $n_f=3$ and thus $m^2 = m_c^2$.
+For simplicity we assume in the following we have $n_f$ massless quarks plus exactly one\footnote{the case of two massive quarks is e.g.\ discussed in Ref.~\cite{Barontini:2024xgu}} massive quark with mass $m^2$.
+While we keep the notation general you can always consider as a concrete example $n_f=3$ (up, down, strange) and thus the massive quark as the charm with $m^2 = m_c^2$.
 We recall two important features of the propagator of a massive quark,
 \begin{equation}
-    D_q(p) \sim \frac{p_\mu\gamma^\mu + m\mathbbm{1}}{p^2 - m^2}\,; \label{eq:quarkprop}
+    D_q(p) \sim \frac{\slashed{p} + m\mathbbm{1}}{p^2 - m^2}\,. \label{eq:quarkprop}
 \end{equation}
-first, the mass appears explicitly in the numerator, which makes computing Dirac traces significantly more lengthy, and, second, the mass appears in the denominator, which shields the propagator from a collinear pole.
+First, the mass appears explicitly in the numerator, which makes computing Dirac traces significantly more lengthy, and, second, the mass appears in the denominator, which shields the propagator from a collinear pole.
 When we consider a finite mass we eventually have three different scales in our diagrams: the total energy of the colliding partons $\hat s$, the photon virtuality $Q^2$, and the quark mass $m^2$.
 This means that unlike the massless case discussed so far, the coefficient functions now depend on two scales, for example the partonic momentum fraction $z = Q^2/(\hat s + Q^2)$ and $\xi_q = Q^2 / m^2$ or any other bijective combination\footnote{For example, for NC DIS on can show~\cite{Hekhorn:2019nlf} that $\chi = \frac{1-\sqrt{1-4m^2/s}}{1+\sqrt{1-4m^2/s}}$ and $\chi_q = \frac{\sqrt{1+4m^2/Q^2}-1}{\sqrt{1+4m^2/Q^2}+1}$ are good combinations.}.
-This in turn implies that the available mathematical function space is much bigger, which makes the computation of these coefficient functions $\vb C(z,\xi_q,Q^2)$ significantly more complex.
+This in turn implies that the available mathematical function space is much bigger, which makes the computation of these coefficient functions $\vb C(z,Q^2,m^2)$ significantly more complex.
 
 However, we focus here on the new dependency on $\xi_q$, which captures the new features.
 First, we consider the case $Q^2 \gg m^2$ or $\xi_q \to \infty$ where the denominator of \cref{eq:quarkprop} plays the important role.
@@ -101,7 +101,7 @@ Specifically, we can rewrite the coefficient functions in this limit,
 \end{equation}
 i.e.\ we can connect the coefficient functions using two neighboring schemes and a new, universal operator $\vb A$, which admits a perturbative series
 \begin{equation}
-    \vb A^{(n_f+1)}(Q^2,m^2) = \sum_{j=0} \left(\alpha_s(Q^2)\right)^j \vb A^{(j),(n_f+1)}(\ln(Q^2/m^2))\,.
+    \vb A^{(n_f+1)}(Q^2,m^2) = \sum_{j=0} \left(\alpha_s^{(n_f+1)}(Q^2)\right)^j \vb A^{(j),(n_f+1)}(\ln(Q^2/m^2))\,.
 \end{equation}
 We discuss more details of this new operator in a moment, but the important thing to stress here is the universality.
 This universality derives from the universality of PDFs, which makes the operator closely connected to collinear splitting functions as we expect.
@@ -110,22 +110,23 @@ Note that the coefficient functions in \cref{eq:Cmatching} depend on different s
 Thus, as expected, the full mass dependence on the right-hand-side of \cref{eq:Cmatching} is carried by the universal operator $\vb A$ and it is a pure, actual polynomial, dependency on $\ln(Q^2/m^2)$.
 So, the remnant of the collinear divergency for a massive quark is a logarithm $\ln(Q^2/m^2)$ as we may have guessed from the beginning.
 
-Next, we consider the case $Q^2 \sim m^2$ where the nominator of \cref{eq:quarkprop} plays the important role.
-While we conclude above that the FFNS coefficient functions contain logarithms $\ln(Q^2/m^2)$ they also naturally contain terms which are relatively suppressed to them.
+Next, we consider the case $Q^2 \sim m^2$ where the numerator of \cref{eq:quarkprop} plays the important role.
+While we conclude above that the FFNS coefficient functions contain logarithms $\ln(Q^2/m^2)$ they also naturally contain more terms.
 Specifically, if we expand the FFNS coefficient function around $Q^2 \sim m^2$ we obtain
 \begin{equation}
     \vb C^{(n_f)}(Q^2,m^2) = \vb C_{thr,0}^{(n_f)} + \vb C_{thr,1}^{(n_f)} \left(\frac{Q^2}{m^2}\right) + \vb C_{thr,2}^{(n_f)} \left(\frac{Q^2}{m^2}\right)^2 + \ldots \label{eq:Cpower}
 \end{equation}
 with some coefficients $\vb C_{thr,k}^{(n_f)}$.
 Note that the equation is to be understood as a Taylor expansion at the requested point as in practice the actual dependency on $\xi_q$ is very intricate\footnote{for example via $\chi_q$}.
-However, it is clear that in the region $Q^2 \sim m^2$ these terms may not be small and thus neglecting such contributions may yield wrong results.
+It is clear that in the region $Q^2 \gg m^2$ these terms can be neglected, but in the region $Q^2 \sim m^2$ these terms may not be small and thus neglecting such contributions may yield wrong results.
 That is the precisely the advantage of FFNS over ZM-VFNS: while in the latter we explicitly deny any massive quark in the diagrams, the former allows them to be included in the sum over diagrams.
 
 \begin{conclusionbox}{FFNS}
     In the FFNS
     \begin{itemize}
-        \item massive quarks are allowed in the computation of diagrams for coefficient functions
-        \item we counter universal logarithms $\ln(Q^2/m^2)$ for $Q^2\to m^2$ due to collinear divergencies
+        \item we need to fix the number of massless and massive quarks
+        \item massive quarks are then allowed in the diagrams for the coefficient functions
+        \item we encounter universal logarithms $\ln(Q^2/m^2)$ for $Q^2\to m^2$ due to shielded collinear divergencies
     \end{itemize}
 \end{conclusionbox}
 
@@ -146,9 +147,9 @@ The same applies to PDFs since also splitting functions carry an explicit $n_f$ 
 
 The question is: how are those different schemes, e.g.\ $\alpha_s^{(3)}$ and $\alpha_s^{(4)}$, connected with each other?
 For coefficient functions the difference originates from the different diagrams which are included into the calculation of the coefficient functions, $\vb C^{(3)}$ and $\vb C^{(4)}$, but what about the strong coupling $\alpha_s$ and the PDFs $\vb f$?
-In order to answer this question it is important to return to the basic principles: we know that only cross sections $\sigma$ are physical objects for which we can derive physical properties, e.g.\ that they must be positive.
+In order to answer this question it is important to return to the basic principles of \cref{sec:basics}: we know that only cross sections $\sigma$ are physical objects for which we can derive physical properties, e.g.\ that they must be positive.
 In contrast, the strong coupling $\alpha_s$, PDFs $\vb f$, and coefficient functions $\vb C$ are not physical objects, which can not be measured directly in an experiment and which only are defined within our framework of pQCD.
-The concept of having different number of active flavors $n_f$ is a theoretical idea, which we employ to make a consistent approximation in our calculation, but is irrelevant to nature.
+The concept of having different number of active flavors $n_f$ is a theoretical idea, which we employ to make a consistent approximation in our calculation, but it is irrelevant to nature.
 In pQCD we can still derive certain rules for our relevant objects in order to obtain a consistent theory, which we can then use to make predictions.
 
 The important physical properties, which we need here is consistency and perturbative equivalence.
@@ -174,7 +175,7 @@ Analogously, for the PDFs we find
 with a universal matching operator $\vb A$, which is also used in \cref{eq:Cmatching}.
 The scheme change, \cref{eq:alphasmatching} and \cref{eq:pdfmatching}, can be done at any scale, but, following \cref{eq:zmvfns}, is conventionally done at the mass of the heavy quark, $\mu_R^2 = m^2 = \mu_F^2$.
 
-Let's see this in practice: consider a cross section $\sigma(x,Q^2)$ with $Q^2 > m^2$.
+Let us see this in practice: consider a cross section $\sigma(x,Q^2)$ with $Q^2 > m^2$.
 As we say above the number of active quarks is a free choice, we can compute the cross section either in the $n_f$ scheme, \cref{eq:factnf}, or in the $(n_f+1)$ scheme,
 \begin{equation}
     \sigma^{(n_f+1)}(x,Q^2) = \left(\vb C^{T,(n_f+1)}(Q^2) \otimes \vb f^{(n_f+1)}(Q^2)\right)(x)\,. \label{eq:sigmaup}
@@ -193,9 +194,9 @@ This maps directly to the statement from \cref{sec:basics} that the cross sectio
 
 \subsection{FONLL as an example of a GM-VFNS}
 
-Let's return to the question on why we not always consider the FFNS.
+Let us return to the question on why we not always consider the FFNS.
 Looking to \cref{eq:sigmaupmatched}, we note that we have matched the PDF at $Q^2$, which is what we have needed there to make the argument of consistency work.
-However, we also say that the usual thing instead is to match at the heavy quark mass $m^2$, so let's see how that plays out.
+However, we also say that the usual thing instead is to match at the heavy quark mass $m^2$, so let us see how that plays out.
 Starting from \cref{eq:sigmaup}, we find
 \begin{align}
     &\sigma^{(n_f+1)}(x,Q^2) \nonumber\\
@@ -235,7 +236,7 @@ Instead any power-suppressed terms, \cref{eq:Cpower}, which are important in the
 \Cref{box:gmvfns} gives no exact prescription on how the approximation has to be done and, indeed, there is some freedom on how to do this.
 Different PDF fitting groups make different choices~\cite{Aivazis:1993pi,Thorne:1997uu,Kramer:2000hn,Tung:2001mv,Nadolsky:2009ge,Forte:2010ta,Guzzi:2011ew,Bonvini:2016fgf,Barontini:2024xgu} and as an exemplary case we consider here FONLL~\cite{Forte:2010ta,Barontini:2024xgu}, which has a simple idea:
 in order to match the two regions, we simply add the two expressions together and subtract any overlap.
-Let's consider the concrete case of charm:
+Let us consider the concrete case of charm:
 \begin{equation}
     \sigma^\text{FONLL}(x,Q^2,m_c^2) = \sigma^{(3)}(x,Q^2,m_c^2) + \sigma^{(4)}(x,Q^2) - \sigma^{(3\cap 4)}(x,Q^2,m_c^2)\,. \label{eq:sigmaFONLL}
 \end{equation}
