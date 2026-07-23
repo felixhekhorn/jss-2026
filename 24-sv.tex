@@ -253,7 +253,7 @@ Also those corrections can (in many cases) not be predicted by scale variations.
 Scale variations also provide no statistical interpretation, which is in stark contrast to experimental uncertainties, where we usually assume Gaussian uncertainties and thus the provided error has a clear interpretation.
 However, strictly speaking even there this only applies to statistical errors but not to systematic errors and the question which of the two dominates depends very much on the specific measurement.
 
-Despite all these (potential) problems, scale variations have a solid foundation in QFT and can be applied (straightforwardly) to any pQCD process, which makes them an easy tool to use MHOU.
+Despite all these (potential) problems, scale variations have a solid foundation in QFT and can be applied (straightforwardly) to any pQCD process, which makes them an easy tool to estiate MHOU.
 In order to make a faithful statement, we can then simply say: when we compute this process with this specific choice of scale, we obtain this number; if we vary that scale in this range, we obtain this range of numbers.
 
 \subsection{Implementation and flavor space}
@@ -265,7 +265,7 @@ The factorization scale variation is directly related to the PDFs themselves and
 However, the splitting functions $\vb P$ are encoding how partons couple among each other, which is through the gluon\footnote{for quark-photon interaction see Ref.~\cite{NNPDF:2024djq}} of course.
 This is in contrast to DIS, where instead the coefficient functions are encoding how partons couple to the electro-weak vector boson, which is completely different, see \cref{box:particles}.
 
-As usual, at LO accuracy the problem does not appear yet, because there are no scale-varied coefficient functions, see \cref{eq:CbarFLO}, but starting from NLO accuracy we need to worry.
+At LO accuracy the problem does not appear yet, because there are no scale-varied coefficient functions, see \cref{eq:CbarFLO}, but starting from NLO accuracy we need to worry.
 In particular, we know that the gluon couples the same to all quarks, thus, if we assume four flavors for the moment (see \cref{sec:hq}) and combine them in the following way~\cite{NNPDF:2024djq}\footnote{for the more general case see Ref.~\cite{NNPDF:2024djq}},
 \begin{align}
     f_{\Sigma_\Delta}(x,Q^2) &= f_u(x,Q^2) + f_{\bar u}(x,Q^2) + f_c(x,Q^2) + f_{\bar c}(x,Q^2)\nonumber\\
@@ -278,7 +278,7 @@ This applies to vectors in flavor space, e.g.\ coefficient functions $C_j \to \v
 By introducing the vector notation we hide any reference to a given basis in the flavor space, which now becomes relevant (see also \cref{sec:hq}).
 
 Let us be more formal.
-We define the flavor space $\mathcal F$ as the vector space spanned by all quark flavors and the gluon.
+We define the flavor space $\mathcal F$ as the vector space spanned by the gluon and all quark flavors.
 We consider the naive flavor basis as our canonical basis and write
 \begin{equation}
     \mathcal F = \mathrm{span}(g, u, \bar u, d, \bar d, s, \bar s, c, \bar c, b, \bar b, t, \bar t)\,.
@@ -305,7 +305,7 @@ Let's see this in practice for LO photon DIS: we start from \cref{eq:LOC}, which
 Inserting \cref{eq:LOC} into \cref{eq:fact1} yields \cref{eq:LOxs} and we find explicitly
 \begin{align}
     \sigma(x,Q^2) &= e_u^2\qty(f_u(x,Q^2) + f_{\bar u}(x,Q^2) + f_c(x,Q^2) + f_{\bar c}(x,Q^2)) \nonumber\\
-    & \hspace{10pt} + e_d^2\qty(f_d(x,Q^2) + f_{\bar d}(x,Q^2) + f_s(x,Q^2) + f_{\bar s}(x,Q^2))
+    & \hspace{10pt} + e_d^2\qty(f_d(x,Q^2) + f_{\bar d}(x,Q^2) + f_s(x,Q^2) + f_{\bar s}(x,Q^2))\,.
 \end{align}
 Using \cref{eq:Singlet,eq:SigmaDelta} we can rewrite this in evolution basis
 \begin{equation}
