@@ -186,10 +186,11 @@ Inserting \cref{eq:pdfmatching} into \cref{eq:sigmaup} we obtain
 \end{equation}
 and if \cref{eq:Cmatching} holds, the two expressions, \cref{eq:factnf} and \cref{eq:sigmaup}, are actually perturbatively equivalent.
 Recall that \cref{eq:Cmatching} only holds in the $Q^2 \gg m^2$ limit and so in practice for finite $Q^2$ the two expression are only perturbatively equivalent.
+Note that here we matched the two schemes at $Q^2$ in contrast to the usual procedure.
 
 \Cref{eq:alphasmatching,eq:pdfmatching} imply that the two quantities are not continuous across the matching, but they differ by the application of the matching operator.
 Actually, at low enough perturbative order the matching operator, $\zeta$ and $\vb A$, are trivial (e.g.\ $\zeta(\mu_R^2,m^2) = 1+\order{\alpha_s(\mu_R^2)}$) and the discontinuity is a higher-order effect.
-The strong coupling, the PDFs, and the coefficient function, who are on their own all discontinuous, conspire together in such a way that the cross section is continuous at the requested accuracy, \cref{eq:sigmamatching}.
+The strong coupling, the PDFs, and the coefficient function, who are all discontinuous on their own, conspire together in such a way that the cross section is continuous at the requested accuracy, \cref{eq:sigmamatching}.
 This maps directly to the statement from \cref{sec:basics} that the cross section is a measurable object, which obviously must be continuous, but the others not.
 
 \subsection{FONLL as an example of a GM-VFNS}
@@ -211,6 +212,7 @@ We can massage \cref{eq:factnf} in a similar way and find
     &= \left(\vb C^{T,(n_f)}(Q^2) \otimes \vb E^{(n_f)}(Q^2 \leftarrow m^2) \otimes \vb f^{(n_f)}(m^2)\right)(x) \label{eq:sigma0}
 \end{align}
 with the EKO now in the $n_f$ scheme, $\vb E^{(n_f)}$.
+Note that \cref{eq:sigmaup0,eq:sigma0} now contain the same PDF $\vb f^{(n_f)}(m^2)$.
 
 As we discuss in \cref{sec:resum} the EKO, $\vb E$, is performing a resummation and in this particular case a resummation of the logarithm $\log(Q^2/m^2)$ as can be seen from the arguments in \cref{eq:sigmaup0,eq:sigma0}.
 This is true in either scheme, but the amount of logarithms, meaning the prefactor that is resummed along side, is different.
@@ -222,8 +224,8 @@ But then how could we find an equivalence between the two schemes in \cref{sec:m
 Recall that the equivalence is valid for cross sections, where coefficient functions explicitly enter, \cref{eq:factnf}.
 Indeed from \cref{sec:ffns} we know that $\vb C^{(n_f)}(z,Q^2,m^2)$ contains logarithms $\ln(Q^2/m^2)$, which are precisely the ones we are hunting here.
 However, the big difference is that $\vb C^{(n_f)}(z,Q^2,m^2)$ only contains a finite amount of logarithms, where as $\vb E^{(n_f+1)}$ is resumming those logarithms.
-This means that for $Q^2 \gg m^2$ FFNS is indeed a bad choice as the logarithms $\ln(Q^2/m^2)$ are big and better be resummed.
-Instead any power-suppressed terms, \cref{eq:Cpower}, which are important in the region $Q^2 \sim m^2$ and made FFNS preferable over ZM-VFGNS, are irrelevant in this region.
+This means that for $Q^2 \gg m^2$ FFNS is indeed a bad choice as the logarithms $\ln(Q^2/m^2)$ are big and should better be resummed.
+Instead, any power-suppressed terms, \cref{eq:Cpower}, which are important in the region $Q^2 \sim m^2$ and made FFNS preferable over ZM-VFNS, are irrelevant in this region.
 
 \begin{conclusionbox}[label=box:gmvfns]{GM-VFNS}
     A General Mass-Variable Flavor Number Scheme (GM-VFNS) must approximate a cross section $\sigma(x,Q^2)$
@@ -242,9 +244,9 @@ Let us consider the concrete case of charm:
 \end{equation}
 Here,
 \begin{itemize}
-    \item $\sigma^{(3)}(x,Q^2,m_c^2)$ represents the massive FFNS result, which contains power-like $Q^2/m_c^2$ terms and a finite amount of $\ln(Q^2/m_c^2)$ associated with the charm
+    \item $\sigma^{(3)}(x,Q^2,m_c^2)$ represents the massive FFNS result, which contains power-like $Q^2/m_c^2$ terms and a finite amount of $\ln(Q^2/m_c^2)$ associated with the charm in the coefficient function
     \item $\sigma^{(4)}(x,Q^2)$ represents the massless ZM-VFNS result, which resums all logarithms $\ln(Q^2/m_c^2)$, including the ones associated with the charm
-    \item $\sigma^{(3\cap 4)}(x,Q^2,m_c^2)$ collects all terms, which appear in both expressions simultaneously, and for which we have borrowed the notation from set notation
+    \item $\sigma^{(3\cap 4)}(x,Q^2,m_c^2)$ collects all terms, which appear in both expressions simultaneously, and for which we have borrowed the notation from set theory
 \end{itemize}
 One can show~\cite{Barontini:2024xgu} that the overlap contribution can be written as
 \begin{equation}
@@ -254,8 +256,8 @@ where the corresponding coefficient function is given by
 \begin{equation}
     \vb C^{(3\cap 4),T}(z,Q^2,m^2) = \left(\vb C^{(4),T}(Q^2)\otimes \vb A^{(4)}(Q^2,m^2)\right)(x)\,,
 \end{equation}
-i.e.\ the right-hand-side of \cref{eq:Cmatching}.
-It is immediately clear that in the limit $Q^2 \gg m^2$ the coefficient functions $\vb C^{(3),T}$ and $\vb C^{(3\cap 4),T}$ become identical and, thus, in \cref{eq:sigmaFONLL} only $\sigma^{(4)}$ contributes as requested by \cref{box:gmvfns}.
+i.e.\ the right-hand-side of \cref{eq:Cmatching} (without any limit).
+It is immediately clear that in the limit $Q^2 \gg m^2$ the coefficient functions $\vb C^{(3)}$ and $\vb C^{(3\cap 4)}$ become identical and, thus, in \cref{eq:sigmaFONLL} only $\sigma^{(4)}$ contributes as requested by \cref{box:gmvfns}.
 On the other side, since $\sigma^{(3\cap 4)}$ contains exactly the logarithmic terms of $\sigma^{(3)}$ and those are also contained in $\sigma^{(4)}$, which actually only contains logarithms, we also match the $Q^2 \sim m^2$ region.
 The yet additional logarithms in $\sigma^{(4)}$, which are resummed there, are small in this region and a part of the approximation FONLL takes.
 
