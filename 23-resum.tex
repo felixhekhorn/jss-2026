@@ -1,4 +1,4 @@
-In preparation to \cref{sec:sv,sec:hq} we need to review two main ingredients into pQCD: the strong coupling $\alpha_s(Q^2)$, \cref{eq:CpQCD}, and the PDFs $\vb f(\xi,Q^2)$, \cref{eq:fact1}.
+In preparation to \cref{sec:sv,sec:hq} we need to review two main ingredients for pQCD: the strong coupling $\alpha_s(Q^2)$, \cref{eq:CpQCD}, and the PDFs $\vb f(\xi,Q^2)$, \cref{eq:fact1}.
 Specifically, we need to remind ourselves on their scale dependency also referred to as evolution.
 While the two objects obey very similar equations, the strong coupling $\alpha_s(Q^2)$ is conceptually simpler and, thus, we start with that.
 
@@ -7,7 +7,7 @@ While the two objects obey very similar equations, the strong coupling $\alpha_s
 
 The strong coupling $\alpha_s$ is directly linked to the coupling of the gluons to quarks,
 \begin{equation}
-    \mathcal L_\text{QCD} \supset g T_a \bar{\psi} \gamma^\mu A^a_\mu \psi, \qquad \alpha_s = \frac{g^2}{4\pi}
+    \mathcal L_\text{QCD} \supset g T_a \bar{\psi}_q \gamma^\mu A^a_\mu \psi_q, \qquad \alpha_s = \frac{g^2}{4\pi}
 \end{equation}
 and is the central object in pQCD around which we organize our perturbative series.
 If one considers higher order corrections to the gluon-quark couplings, one encounters quickly divergencies of ultra-violet origin, i.e.\ for large loop momenta.
@@ -20,8 +20,8 @@ Eventually, we obtain the renormalization group equation (RGE) of the strong cou
 \begin{equation}
     \mu_R^2 \dv{\alpha_s(\mu_R^2)}{\mu_R^2} = \beta(\alpha_s) = - \sum_{j=0}\beta_j\qty(\alpha_s(\mu_R^2))^{2+j} \label{eq:beta}
 \end{equation}
-which is also the definition of the beta function $\beta(\alpha_s)$.
-The upper limit of the sum in \cref{eq:beta} defines the perturbative accuracy, to which all other objects in pQCD refer to which is left implicit here and in the rest of this work.
+which is also the definition of the (perturbative) beta function $\beta(\alpha_s)$.
+The upper limit of the sum in \cref{eq:beta} defines the perturbative accuracy, to which all other objects in pQCD refer to, which is left implicit here and in the rest of this work.
 
 At LO accuracy we find
 \begin{equation}
@@ -33,7 +33,7 @@ In this specific case we can solve \cref{eq:LObeta} and obtain
     \alpha_s^\text{LO}(\mu_R^2) = \frac{\alpha_s(\mu_{R,0}^2)}{1 + \alpha_s(\mu_{R,0}^2)\beta_0\ln(\mu_R^2/\mu_{R,0}^2)} \label{eq:LOalphas}
 \end{equation}
 for a given boundary condition $\alpha_s(\mu_{R,0}^2)$ at the scale $\mu_{R,0}^2$.
-Recall, that \cref{eq:LOalphas} has not two free parameters, $\mu_{R,0}$ and $\alpha_s(\mu_{R,0})$ as one would naively think, but only one $\LQCD$ (see \cref{box:LOalphas}).
+Recall, that \cref{eq:LOalphas} has not two free parameters, $\mu_{R,0}$ and $\alpha_s(\mu_{R,0}^2)$ as one would naively think, but only one $\LQCD$ (see \cref{box:LOalphas}).
 Also remember that $\LQCD$ corresponds to the pole in \cref{eq:LOalphas} and pQCD only makes sense above that scale, $\mu_R > \LQCD$.
 Moreover, in practice it is often convenient to rewrite \cref{eq:beta} in terms of $t_R = \ln(\mu_R^2/\mu_{R,0}^2)$.
 
@@ -52,7 +52,7 @@ While for the special case $\mu_{R,0} = \mu_R$ we need to be consistent of cours
 In other words, \cref{eq:LOalphasexp} is a perturbative expansion of \cref{eq:LOalphas} in powers of $\alpha_s(\mu_{R,0}^2)$.
 Note that \cref{eq:LOalphasresum} has a finite radius of convergence (as all geometric series) and that is also reflected in \cref{eq:LOalphas} by the pole $\LQCD$.
 
-Starting from NLO accuracy the RGE, e.g.\ in this specific case given by
+Starting from NLO accuracy the RGE, e.g.\ in this specific case is given by
 \begin{equation}
     \mu_R^2 \dv{\alpha_s(\mu_R^2)}{\mu_R^2} = - \beta_0 \qty(\alpha_s(\mu_R^2))^2 - \beta_1 \qty(\alpha_s(\mu_R^2))^3\,, \label{eq:NLObeta}
 \end{equation}
