@@ -25,20 +25,20 @@ We review in \cref{sec:nlo} briefly how these distributions appear, but here we 
 The problem is: distributions are (complicated) math objects, defined only via integral relations, \cref{eq:DiracDelta,eq:PlusDistr}, which are unsuitable for numeric evaluation.
 Moreover, \cref{eq:DiracDelta,eq:PlusDistr} are defined via an integral spanning the whole domain of $z$, i.e.\ in particular, the lower integration bound is 0, but \cref{eq:fact1} requires a convolution, where instead the lower integration bound depends on the measured kinematics $x$.
 Note that the distributional content of $\vb C(z)$ is the main motivation to spell \cref{eq:fact1} as an integral in $z$ rather than $\xi$.
-In the following paragraphs we drop the parton index as the strategy simply applies to everything.
+In the following paragraphs we drop the dependence on the parton index $j$ and the virtuality $Q^2$ as the strategy simply applies to everything.
 
 It is convenient to introduce a different representation for coefficient functions: the Regular-Singular-Local (RSL) representation\footnote{This is not an official name and other names and conventions exist in literature.}.
 In the RSL representation any coefficient function $C(z)$ is mapped onto three functions,
 \begin{equation}
     C(z) \leftrightarrow (C^R(z), C^S(z), C^L(x))
 \end{equation}
-where $C(z)$ may contain distributions, but neither of $C^R(z)$, $C^S(z)$, or $C^L(x)$.
+where $C(z)$ may contain distributions, but neither $C^R(z)$, $C^S(z)$, or $C^L(x)$.
 The three functions are defined via their action under the convolution integral,
 \begin{equation}
     \qty(C\otimes f)(x) =  \int\limits_x^1 \! \frac{dz}{z} \, f(x/z) C^R(z) + \int\limits_x^1 \! dz \, \left(\frac{f(x/z)}{z} - f(x)\right) C^S(z) + f(x) C^L(x) \label{eq:RSL}
 \end{equation}
 for any sufficiently smooth test function $f$ (such as PDFs in their usual place).
-Note that \cref{eq:RSL} only contains integrals with the lower integration bound $x$ and that all terms are finite.
+Note that \cref{eq:RSL} only contains integrals with the lower integration bound $x$.
 Also note that while the argument of $C^S$ and $C^L$ are intentionally called $z$, referring to the partonic momentum fraction over which we integrate, the argument of $C^L$ is denoted by $x$, which refers to the argument of the convolution on the right-hand-side.
 
 Let us consider some simple examples.
@@ -68,9 +68,9 @@ Thus before changing the representation we also need to fix the actual form and 
 \subsection{Interpolation}
 The RSL representation together with a suitable implementation of \cref{eq:RSL} provides already a practical way to implement arbitrary convolutions.
 However, we can make an additional step by applying a further discretization, which is desirable for computers.
-In the following we only consider the dependence on either the Bjorken-$x$ or its momentum fraction counterparts, $z$ or $\xi$, and drop any scale dependence $Q^2$ for the remainder of the section.
+In the following we continue to consider only the dependence on either the Bjorken-$x$ or its momentum fraction counterparts, $z$ or $\xi$.
 
-We assume that there is a minimum Bjorken-$x$ $x_\text{grid,min}$ for which we need to compute observables, which implies that we also only need coefficient functions $\vb C(z)$ and PDFs $\vb f(z)$ above this limit, \cref{eq:fact1}.
+We assume that there is a minimum Bjorken-$x$ $x_\text{grid,min}$ for which we need to compute observables, which implies that we also only need coefficient functions $\vb C(z)$ and PDFs $\vb f(\xi)$ above this limit, \cref{eq:fact1}.
 Next, we choose a set of $N_\text{grid}$ grid points,
 \begin{equation}
     \mathbbm G = \{ x_k : x_\text{grid,min} < x_k <= 1, \quad k = 0,\ldots, N_\text{grid} - 1 \} \label{eq:grid}
@@ -98,7 +98,7 @@ Note that interpolation is also independent from the RSL representation and in p
 
 \subsection{Grids}
 \label{sec:grids}
-Being able to compute $\hat \sigma_{jk}(x)$ without knowledge about the actual PDF is advantages since, we recall, PDFs are non-perturbative objects, encoding low-scale physics, which are not computable from first principles inside pQCD.
+Being able to compute $\hat \sigma_{jk}(x)$ without knowledge about the actual PDF is advantageous since, we recall, PDFs are non-perturbative objects, encoding low-scale physics, which are not computable from first principles inside pQCD.
 Instead, PDFs are obtained from a fitting procedure, which can be summarized as follows:
 \begin{conclusionbox}{PDF fitting}
     \begin{enumerate}
@@ -113,7 +113,7 @@ This is the reason why competing PDF fitting groups exist~\cite{NNPDF:2021njg,Ho
 
 The main point for us here is that we need to compute theory predictions very many times for slightly different candidate PDFs.
 This is a serious problem for complicated hadronic observables, such as, e.g., jet cross sections~\cite{NNLOJET:2025rno}, where the computation can take many hours.
-The solution is to compute fast interpolation grids, using, e.g., PineAPPL~\cite{Carrazza:2020gss,christopher_schwan_2025_15635174}, APPLgrid~\cite{Carli:2010rw}, or fastNLO~\cite{Wobisch:2011ij}, which store the partonic matrix elements in an efficient way, such that any subsequent convolution with an arbitrary PDF is fast, as in \cref{eq:sigmainterpolation}.
+The solution is to compute fast interpolation grids, using, e.g., PineAPPL~\cite{Carrazza:2020gss,Jezo:2026adf,christopher_schwan_2025_15635174}, APPLgrid~\cite{Carli:2010rw}, or fastNLO~\cite{Wobisch:2011ij}, which store the partonic matrix elements in an efficient way, such that any subsequent convolution with an arbitrary PDF is fast, as in \cref{eq:sigmainterpolation}.
 Having all observables in a PDF fit sharing the same technology simplifies their consistent treatment and inside the NNPDF collaboration this is realized in the pineline framework~\cite{Barontini:2023vmr}.
 In practice we organize the discretization of the coefficient functions in a slightly different way then above.
 
