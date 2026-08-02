@@ -37,7 +37,7 @@ Since DIS is a very wide field, it is worth spelling out explicitly some non-goa
     \item We only consider fully inclusive cross sections here. % (to be defined in \cref{sec:xs} and with a tiny exception to be discussed in \cref{sec:hq})
         In particular, we do not consider any more complicated final states, such as, e.g., single jet or di-jet production~\cite{H1:2014cbm,Helenius:2026odp}.
     \item We only consider pQCD in the collinear framework here.
-        While, Monte Carlo Event generators, such as, e.g., Pythia~\cite{Bierlich:2022pfr}, are rooted in collinear pQCD they eventually go much beyond and we do not consider their details here~\cite{Helenius:2026odp} \textrightarrow{} ask I.~Helenius.
+        While, Monte Carlo Event generators, such as, e.g., Pythia~\cite{Bierlich:2022pfr}, are rooted in collinear pQCD they eventually go much beyond and we do not consider their details here~\cite{Helenius:2026odp} \textrightarrow{} ask O.~Fedkevych or I.~Helenius.
     \item We only consider DIS here.
         In particular, we do not consider photo-production or elastic or diffractive cross sections.
         We define the necessary kinematics for the distinction below in \cref{sec:basics}.
@@ -76,7 +76,7 @@ As a first step we perform the renormalization of all couplings and fields to re
 \begin{conclusionbox}[label={box:pQCD}]{pQCD}
     \begin{itemize}
         \item To compute any perturbative object, we sum over all relevant diagrams and then multiply them with their complex conjugated counterpart.
-        \item For measurable cross sections we need to integrate over all internal and external particles.
+        \item For measurable cross sections we need to integrate over all internal and external particles and average over initial particles.
     \end{itemize}
 \end{conclusionbox}
 
@@ -106,7 +106,7 @@ Next, we need a way to actually compute theory predictions for the cross section
 We use the factorization theorem~\cite{Collins:1989gx},
 \begin{conclusionbox}{Factorization Theorem}
     \begin{align}
-        \sigma(x,Q^2) &= \sum_{j} \int\limits_x^1 \frac{\dd z}{z} C_j(z,Q^2) f_j(x/z,Q^2) + \order{\frac{\LQCD^2}{Q^2}} \label{eq:fact1} \\
+        \sigma(x,Q^2) &= \sum_{j} \int\limits_x^1 \frac{\dd z}{z} C_j(z,Q^2) f_j(\xi = x/z,Q^2) + \order{\frac{\LQCD^2}{Q^2}} \label{eq:fact1} \\
          &= \sum_{j} \qty(C_j(Q^2)\otimes f_j(Q^2))(x) + \order{\frac{\LQCD^2}{Q^2}} \label{eq:fact2} \\
          &= \qty(\vb C^T(Q^2) \otimes \vb f(Q^2))(x) + \order{\frac{\LQCD^2}{Q^2}}\,, \label{eq:fact3}
     \end{align}
