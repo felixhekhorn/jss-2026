@@ -68,37 +68,37 @@ Thus before changing the representation we also need to fix the actual form and 
 \subsection{Interpolation}
 The RSL representation together with a suitable implementation of \cref{eq:RSL} provides already a practical way to implement arbitrary convolutions.
 However, we can make an additional step by applying a further discretization, which is desirable for computers.
-In the following we continue to consider only the dependence on either the Bjorken-$x$ or its momentum fraction counterparts, $z$ or $\xi$.
+%In the following we continue to consider only the dependence on either the Bjorken-$x$ or its momentum fraction counterparts, $z$ or $\xi$.
 
-We assume that there is a minimum Bjorken-$x$ $x_\text{grid,min}$ for which we need to compute observables, which implies that we also only need coefficient functions $\vb C(z)$ and PDFs $\vb f(\xi)$ above this limit, \cref{eq:fact1}.
+We assume there is a minimum Bjorken-$x$ $x_\text{grid,min}$ for which we need to compute observables, which implies that we also only need coefficient functions $\vb C(z,Q^2)$ and PDFs $\vb f(\xi,Q^2)$ above this limit, \cref{eq:fact1}.
 Next, we choose a set of $N_\text{grid}$ grid points,
 \begin{equation}
     \mathbbm G = \{ x_k : x_\text{grid,min} < x_k <= 1, \quad k = 0,\ldots, N_\text{grid} - 1 \} \label{eq:grid}
 \end{equation}
 which we then use to interpolate the PDF
 \begin{equation}
-    f_j(\xi) \sim \sum\limits_{k=0}^{N_{grid} - 1 } f_j(x_k) p_k(\xi) \label{eq:interpolation}
+    f_j(\xi,Q^2) \sim \sum\limits_{k=0}^{N_{grid} - 1 } f_j(x_k,Q^2) p_k(\xi) \label{eq:interpolation}
 \end{equation}
 with a suitable set of interpolation polynomials $p_k(\xi)$.
 In practice, piecewise Lagrange interpolation polynomials are a good choice~\cite{Candido:2022tld,Carrazza:2020gss}.
 
 Inserting \cref{eq:interpolation} into \cref{eq:fact1} yields
 \begin{align}
-    \sigma(x) &= \sum_{j} \int\limits_x^1 \frac{\dd z}{z} C_j(z) \left( \sum\limits_{k=0}^{N_{grid} - 1 } f_j(x_k) p_k(x/z) \right)\\
-     &=\sum_{j} \sum\limits_{k=0}^{N_{grid} - 1 } f_j(x_k) \hat \sigma_{jk}(x) \label{eq:sigmainterpolation}
+    \sigma(x,Q^2) &= \sum_{j} \int\limits_x^1 \frac{\dd z}{z} C_j(z,Q^2) \left( \sum\limits_{k=0}^{N_{grid} - 1 } f_j(x_k,Q^2) p_k(x/z) \right)\\
+     &=\sum_{j} \sum\limits_{k=0}^{N_{grid} - 1 } f_j(x_k,Q^2) \hat \sigma_{jk}(x,Q^2) \label{eq:sigmainterpolation}
 \end{align}
 where we defined
 \begin{equation}
-    \hat \sigma_{jk}(x) = \qty(C_j \otimes p_k)(x)\,.
+    \hat \sigma_{jk}(x,Q^2) = \qty(C_j(Q^2) \otimes p_k)(x)\,.
 \end{equation}
-Choosing our grid $\mathbbm G$ fixes immediately the interpolation polynomials and thus we can tabulate $\hat \sigma_{jk}(x)$ without having knowledge about the actual PDF $f_j(\xi)$.
+Choosing our grid $\mathbbm G$ fixes immediately the interpolation polynomials, $p_k(\xi)$, and thus we can tabulate $\hat \sigma_{jk}(x,Q^2)$ without having knowledge about the actual PDF $f_j(\xi,Q^2)$.
 Note that the interpolation in momentum fraction space is independent from the flavor index $j$ and for simplicity we can choose the same grid for all flavors.
-This makes both $f_j(x_k)$ and $\hat \sigma_{jk}(x)$ two two-dimensional tensors in \cref{eq:sigmainterpolation}, which get multiplied in such a way that they yield a plain number.
+This makes both $f_j(x_k,Q^2)$ and $\hat \sigma_{jk}(x,Q^2)$ two two-dimensional tensors in \cref{eq:sigmainterpolation}, which get multiplied in such a way that they yield a plain number.
 Note that interpolation is also independent from the RSL representation and in practice \cref{eq:RSL} is executed on $p_k(\xi)$.
 
 \subsection{Grids}
 \label{sec:grids}
-Being able to compute $\hat \sigma_{jk}(x)$ without knowledge about the actual PDF is advantageous since, we recall, PDFs are non-perturbative objects, encoding low-scale physics, which are not computable from first principles inside pQCD.
+Being able to compute $\hat \sigma_{jk}(x,Q^2)$ without knowledge about the actual PDF is advantageous since, we recall, PDFs are non-perturbative objects, encoding low-scale physics, which are not computable from first principles inside pQCD.
 Instead, PDFs are obtained from a fitting procedure, which can be summarized as follows:
 \begin{conclusionbox}{PDF fitting}
     \begin{enumerate}
@@ -139,7 +139,7 @@ These three dimensions are present in any interpolation grid and in DIS there ar
         In practice, the actual list is given by the $Q^2$ specified in the bin configuration.
     \item[momentum fraction] This is the list of momentum fractions, \cref{eq:grid}, over which the coefficient functions are convolved with the PDF.
         Recall that LO, \cref{eq:LOC}, and NLO, e.g.\ \cref{eq:NLOCq}, are quite different and thus they use different ranges of momentum fractions.
-        In practice, the actual list is given by a convolution with a suitable set of interpolation functions $p_k(\xi)$, which form a basis in function space for PDFs.
+        In practice, the actual list is given by a suitable choice of $\mathbbm G$, \cref{eq:grid}.
 \end{description}
 
 For fully inclusive DIS we end up with a five dimensional tensor, where each inner dimension may depend on the outer.
