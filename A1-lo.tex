@@ -50,7 +50,7 @@ and
 \end{equation}
 
 We start by assuming $\Gamma_\mu = \gamma_\mu$ and averaging over fermion spins $s$ upon which the spinors collapse to just, e.g., $\slashed{k}$.
-\begin{exercisebox}[label=box:exAT1]{Step 1}
+\begin{exercisebox}[label=box:exLOT1]{Step 1}
     Proof
     \begin{align}
         T^1_{\mu\nu} &= \frac 1 2 \sum_{s} \bar u^{(s)}(k')\gamma_\mu u^{(s)}(k) \left(\bar u^{(s)}(k')\gamma_\nu u^{(s)}(k)\right)^*\\
@@ -64,7 +64,7 @@ For spinors with a given helicity $\lambda = \pm 1$ we find
 \begin{equation}
     u(k,\lambda) \bar u(k,\lambda) = \frac 1 2 \slashed k (1 - \lambda \gamma_5) \,.
 \end{equation}
-\begin{exercisebox}[label=box:exAT2]{Step 2}
+\begin{exercisebox}[label=box:exLOT2]{Step 2}
     Proof
     \begin{align}
         T^2_{\mu\nu} &= \bar u(k',\lambda)\gamma_\mu u(k,\lambda) \left(\bar u(k',\lambda)\gamma_\nu u(k,\lambda)\right)^*\\
@@ -80,7 +80,7 @@ Next, we want to use a more realistic boson-fermion coupling $\Gamma_\mu$, since
 where $g_V^{\gamma f}$ is the coupling strength between the photon and the fermion $f$ and $g_V^{Z f}$ and $g_A^{Z f}$ are the vectorial and axial-vectorial coupling strength between the Z boson and the fermion $f$.
 By convention we exclude an explicit factor of the elementary electric charge from the definition of $g_{V,A}^{B f}$.
 $T^2_{\mu\nu}$ obtains a trivial factor of $(g_V^{\gamma f})^2$ when using $\Gamma^{ph}_\mu$.
-\begin{exercisebox}[label=box:exAT3]{Step 3}
+\begin{exercisebox}[label=box:exLOT3]{Step 3}
     Proof
     \begin{align}
         T^3_{\mu\nu} &= \bar u(k',\lambda)\Gamma^Z_\mu u(k,\lambda) \left(\bar u(k',\lambda)\Gamma^{ph}_\nu u(k,\lambda)\right)^*\\
@@ -90,7 +90,7 @@ $T^2_{\mu\nu}$ obtains a trivial factor of $(g_V^{\gamma f})^2$ when using $\Gam
 \noindent $T^3_{\mu\nu}$ becomes the leptonic tensor $L_{\mu\nu}^{\gamma Z}$ for the photon-Z interference when choosing the lepton kinematics and couplings.
 
 Finally, we need the pure Z boson contributions.
-\begin{exercisebox}[label=box:exAT4]{Step 4}
+\begin{exercisebox}[label=box:exLOT4]{Step 4}
     Proof
     \begin{align}
         T^4_{\mu\nu} &= \bar u(k',\lambda)\Gamma^Z_\mu u(k,\lambda) \left(\bar u(k',\lambda)\Gamma^{Z}_\nu u(k,\lambda)\right)^*\\
@@ -102,14 +102,14 @@ Finally, we need the pure Z boson contributions.
 The leptonic tensor $L_{\mu\nu}^{W}$ for the W bosons follows from the Z boson case by choosing appropriate couplings $g_{V}^{W f}=g_{A}^{W f}$.
 
 The lepton kinematics are obtained by choosing the incoming momentum $k$ and the the outgoing momentum $k' = k - q$, \cref{fig:LODIS}.
-\begin{exercisebox}[label=box:exAWard]{Step 5: Ward identity}
+\begin{exercisebox}[label=box:exLOWard]{Step 5: Ward identity}
     Proof
     \begin{equation}
         L^b_{\mu\nu} q^\mu = 0 = L^b_{\mu\nu} q^\nu \quad b \in\{\gamma, \gamma Z, Z, W\}
     \end{equation}
 \end{exercisebox}
 
-\begin{exercisebox}{Step 6}
+\begin{exercisebox}[label=box:exLOg]{Step 6}
     Proof
     \begin{equation}
         L^\gamma_{\mu\nu} g^{\mu\nu} = -2 Q^2
@@ -118,19 +118,19 @@ The lepton kinematics are obtained by choosing the incoming momentum $k$ and the
 
 We now turn our attention to the hadronic side, which is essentially identical except the fermion is now the quark and we have to choose different incoming and outgoing momenta.
 We define $p = \xi P$ and $T^2_{\mu\nu}$ becomes the photon-quark tensor $\hat W^{\gamma q}_{\mu\nu}$ by choosing the incoming momentum $p$ and the outgoing momentum $p'=p+q$, \cref{fig:LODIS}.
-\begin{exercisebox}{Step 7}
+\begin{exercisebox}[label=box:exLOPP]{Step 7}
     Proof
     \begin{equation}
         L^\gamma_{\mu\nu} P^{\mu} P^{\nu} = \frac{Q^4}{x^2 y^2}(1-y)
     \end{equation}
 \end{exercisebox}
-\begin{exercisebox}{Step 8}
+\begin{exercisebox}[label=box:exLOLW]{Step 8}
     Proof
     \begin{equation}
-        L^\gamma_{\mu\nu} \hat W^{\mu\nu}_{\gamma q} = 2\qty(g_{V}^{\gamma q})^2\frac{Q^4}{z^2 y^2}\left(2-2y + y^2\right) \label{eq:LOsigma}
+        L^\gamma_{\mu\nu} \hat W^{\mu\nu}_{\gamma q} = 2\qty(g_{V}^{\gamma q})^2\frac{Q^4}{z^2 y^2}\left(2-2y + z y^2\right) \label{eq:LOsigma}
     \end{equation}
     if we average over helicities.
 \end{exercisebox}
-Note that this factor exactly matches the prefactor of $F_2$ in \cref{eq:dsigmadxdy}.
-All remaining factors to obtain the full expression for the (double differential) cross sections are given by considering the actual phase space (which we neglect here) and other global prefactors, e.g.\ the flux.
-At LO it is the overall momentum conservation delta function in the phase space which survives and eventually the LO coefficient function for $F_2$ is given by \cref{eq:LOC}, i.e.\ only the factors $\qty(g_{V}^{\gamma q})^2 = e_q^2$ in \cref{eq:LOsigma} are accounted for there (and not elsewhere).
+% Note that this factor exactly matches the prefactor of $F_2$ in \cref{eq:dsigmadxdy}.
+% All remaining factors to obtain the full expression for the (double differential) cross sections are given by considering the actual phase space (which we neglect here) and other global prefactors, e.g.\ the flux.
+% At LO it is the overall momentum conservation delta function in the phase space which survives and eventually the LO coefficient function for $F_2$ is given by \cref{eq:LOC}, i.e.\ only the factors $\qty(g_{V}^{\gamma q})^2 = e_q^2$ in \cref{eq:LOsigma} are accounted for there (and not elsewhere).

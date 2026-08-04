@@ -1,4 +1,4 @@
-\paragraph{Solution for \cref{box:exAT1}}
+\paragraph{Solution for \cref{box:exLOT1}}
 \begin{align}
     T^1_{\mu\nu} &= \frac 1 2 \sum_{s} \bar u^{(s)}(k')\gamma_\mu u^{(s)}(k) \left(\bar u^{(s)}(k')\gamma_\nu u^{(s)}(k)\right)^*\\
         &= \frac 1 2 \tr(\gamma_\mu \slashed{k} \gamma_\nu \slashed{k'})\\
@@ -6,7 +6,7 @@
 \end{align}
 where we use \cref{eq:trDirac4} in the second step.
 
-\paragraph{Solution for \cref{box:exAT2}}
+\paragraph{Solution for \cref{box:exLOT2}}
 \begin{align}
     T^2_{\mu\nu} &= \bar u(k',\lambda)\gamma_\mu u(k,\lambda) \left(\bar u(k',\lambda)\gamma_\nu u(k,\lambda)\right)^*\\
         &=\frac 1 {2^2} \tr(\gamma_\mu \slashed{k}(1-\lambda \gamma_5) \gamma_\nu \slashed{k'} (1-\lambda \gamma_5))\\
@@ -22,7 +22,7 @@ where
     \item in the last line we use \cref{eq:trDirac5}
 \end{itemize}
 
-\paragraph{Solution for \cref{box:exAT3}}
+\paragraph{Solution for \cref{box:exLOT3}}
 \begin{align}
     T^3_{\mu\nu} &= \bar u(k',\lambda)\Gamma^Z_\mu u(k,\lambda) \left(\bar u(k',\lambda)\Gamma^{ph}_\nu u(k,\lambda)\right)^*\\
         &=\frac 1 {2^2} \tr(\gamma_\mu(g_V^{Z f}- g_A^{Z f}\gamma_5) \slashed{k}(1-\lambda \gamma_5) g_V^{\gamma f}\gamma_\nu \slashed{k'} (1-\lambda \gamma_5))\\
@@ -39,7 +39,7 @@ where
     \item in \cref{eq:solT3sq} we use the fact that $\lambda^2$ is unity
 \end{itemize}
 
-\paragraph{Solution for \cref{box:exAT4}}
+\paragraph{Solution for \cref{box:exLOT4}}
 \begin{align}
     T^4_{\mu\nu} &= \bar u(k',\lambda)\Gamma^Z_\mu u(k,\lambda) \left(\bar u(k',\lambda)\Gamma^{Z}_\nu u(k,\lambda)\right)^*\\
         &=\frac 1 {2^2} \tr(\gamma_\mu(g_V^{Z f}- g_A^{Z f}\gamma_5) \slashed{k}(1-\lambda \gamma_5)\gamma_\nu (g_V^{Z f}- g_A^{Z f}\gamma_5) \slashed{k'} (1-\lambda \gamma_5))\\
@@ -54,17 +54,60 @@ where
     \item in \cref{eq:solT4sq} we use the fact that $\lambda^2$ is unity
 \end{itemize}
 
-\paragraph{Solution for \cref{box:exAWard}}
+\paragraph{Solution for \cref{box:exLOWard}}
+If the contraction vanishes, we can neglect all prefactors and just focus on the Lorentz structure.
 First, we consider the anti-symmetric component, i.e.\ $T^2_{\mu\nu} - T^1_{\mu\nu}$: since the Levi-Civita tensor is already contracted with both $k$ and $k'$ any further contraction with any linear combination of those, such as $q = k - k'$, must vanish identically
 Second, for the remaining symmetric part, $T^1_{\mu\nu}$, we only need to prove one equality since the other is implied.
 We need
 \begin{equation}
-    q = k - k' \Rightarrow q^2 = -2k\cdot k' \Rightarrow 2k\cdot q = 2k \cdot (k-k') = q^2 \land 2k'\cdot q = 2k'\cdot(k-k') = -q^2
+    q = k - k' \Rightarrow q^2 = -2k\cdot k' \Rightarrow 2k\cdot q = 2k \cdot (k-k') = q^2 \land 2k'\cdot q = 2k'\cdot(k-k') = -q^2 \label{eq:solqprod}
 \end{equation}
 and so
 \begin{align}
-    T^1_{\mu\nu}q^\mu &= 2\left(k_\mu k'_\nu + k_\nu k'_\mu - k \cdot k' g_{\mu\nu}\right) q^\mu\\
+    T^1_{\mu\nu}q^\mu &= 2\left(k_\mu k'_\nu + k_\nu k'_\mu - (k \cdot k') g_{\mu\nu}\right) q^\mu\\
     &= 2\left((k\cdot q) k'_\nu + k_\nu (k' \cdot q)  - (k \cdot k') q_{\nu}\right)\\
     &= q^2 \left(k'_\nu - k_\nu + q_\nu \right)\\
     &= 0
 \end{align}
+
+\paragraph{Solution for \cref{box:exLOg}}
+The couplings are trivial $g_{V}^{\gamma l} = 1$, since we removed the global electric charge from their definition.
+We do not need to consider the Levi-Civita tensor since we are contracting with a symmetric tensor.
+Using \cref{eq:solqprod} we find
+\begin{align}
+    L^\gamma_{\mu\nu} g^{\mu\nu} &=2\left(k_\mu k'_\nu + k_\nu k'_\mu - (k \cdot k') g_{\mu\nu}\right) g^{\mu\nu}\\
+    &=2(k\cdot k')(1 + 1 -4)\\
+    &= -2 Q^2
+\end{align}
+
+\paragraph{Solution for \cref{box:exLOPP}}
+Again, we do not need to consider the Levi-Civita tensor since we are contracting with a symmetric tensor.
+We find
+\begin{align}
+    L^\gamma_{\mu\nu} P^{\mu} P^{\nu} &= 2\left(k_\mu k'_\nu + k_\nu k'_\mu - (k \cdot k') g_{\mu\nu}\right) P^{\mu} P^{\nu}\\
+    &= 2 \cdot 2 (k\cdot P) (k' \cdot P)\\
+    &= 4 (k\cdot P)^2 - 4 (k \cdot P)(q \cdot P)\\
+    &= (2 q \cdot P)^2 \left(\frac 1 {y^2} - \frac 1 y\right)\\
+    &= \frac{Q^4}{x^2 y^2}(1-y)
+\end{align}
+using $k' = k-q$ and \cref{eq:defy,eq:defx}.
+
+\paragraph{Solution for \cref{box:exLOLW}}
+For the (spin-averaged) partonic tensor we have
+\begin{align}
+    \hat W_{\gamma q}^{\mu\nu} &= 2 g_V^{\gamma q}\left(p^\mu p'^\nu + p^\nu p'^\mu - (p \cdot p') g^{\mu\nu}\right)\\
+     &= 2g_V^{\gamma q}\left(2 p^\mu p^\nu + p^\mu q^\nu + p^\nu q^\mu - (p\cdot q) g^{\mu\nu} \right)
+\end{align}
+where we just use $p' = p + q$.
+Eventually, we get
+\begin{align}
+    L^\gamma_{\mu\nu} \hat W^{\mu\nu}_{\gamma q} &= 2g_V^{\gamma q} L^\gamma_{\mu\nu} \left(2 p^\mu p^\nu + p^\mu q^\nu + p^\nu q^\mu - (p\cdot q) g^{\mu\nu} \right)\\
+    &= 2g_V^{\gamma q} L^\gamma_{\mu\nu} \left(2\xi^2 P^\mu P^\nu - \xi\frac{Q^2}{2x} g^{\mu\nu}\right) \label{eq:solLWp}\\
+    &= 2g_V^{\gamma q} \left(2\frac{Q^4}{z^2 y^2}(1-y) + \frac{Q^2}{2z} 2 Q^2 \right) \label{eq:solLWz}\\
+    &= 2\qty(g_{V}^{\gamma q})^2\frac{Q^4}{z^2 y^2}\left(2-2y + z y^2\right)
+\end{align}
+where
+\begin{itemize}
+    \item in \cref{eq:solLWp} we use $p=\xi P$, \cref{eq:defx}, and \cref{box:exLOWard}
+    \item in \cref{eq:solLWz} we use $\xi = x/z$
+\end{itemize}
