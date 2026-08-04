@@ -5,7 +5,7 @@ We are recomputing the LO DIS cross section depicted in \cref{fig:LODIS} in full
     \label{fig:LODIS}
 \end{figure}
 As we say in \cref{sec:xs} we can decompose the full cross section into a leptonic tensor $L_{\mu\nu}$ and a hadronic tensor $W_{\mu\nu}$ where the red line indicates the split.
-In the collinear framework it is sufficient to compute the partonic (sub-)diagram $l + q \to l' + q' + X$.
+In the collinear framework it is sufficient to compute the partonic (sub-)diagram $l + q \to l' + q'$.
 The parton-in-hadron amplitude $\phi_q$ combines upon taking the modulus square of the whole amplitude together with the inclusiveness $X$ into the PDF $f_q(\xi)$.
 This leaves us essentially with twice \cref{fig:LO}, once for the leptonic side and once for the quark side.
 Since the fermion lines are distinct we can compute them one at a time and if we keep them general enough we only need to do it once.
@@ -99,13 +99,13 @@ Finally, we need the pure Z boson contributions.
 \end{exercisebox}
 \noindent $T^4_{\mu\nu}$ becomes the leptonic tensor $L_{\mu\nu}^{Z}$ for the Z bosons when choosing the lepton kinematics and couplings.
 
-The leptonic tensor $L_{\mu\nu}^{W}$ for the W bosons follows from the Z boson case by choosing appropriate couplings $g_{V,A}^{W f}$.
+The leptonic tensor $L_{\mu\nu}^{W}$ for the W bosons follows from the Z boson case by choosing appropriate couplings $g_{V}^{W f}=g_{A}^{W f}$.
 
 The lepton kinematics are obtained by choosing the incoming momentum $k$ and the the outgoing momentum $k' = k - q$, \cref{fig:LODIS}.
 \begin{exercisebox}[label=box:exAWard]{Step 5: Ward identity}
     Proof
     \begin{equation}
-        L^j_{\mu\nu} q^\mu = 0 = L^j_{\mu\nu} q^\nu \quad j \in\{\gamma, \gamma Z, Z, W\}
+        L^b_{\mu\nu} q^\mu = 0 = L^b_{\mu\nu} q^\nu \quad b \in\{\gamma, \gamma Z, Z, W\}
     \end{equation}
 \end{exercisebox}
 
@@ -127,7 +127,10 @@ We define $p = \xi P$ and $T^2_{\mu\nu}$ becomes the photon-quark tensor $\hat W
 \begin{exercisebox}{Step 8}
     Proof
     \begin{equation}
-        L^\gamma_{\mu\nu} \hat W^{\mu\nu}_{\gamma q} = 2\qty(g_{V}^{\gamma q})^2\frac{Q^4}{z^2 y^2}\left(2-2y + y^2\right)
+        L^\gamma_{\mu\nu} \hat W^{\mu\nu}_{\gamma q} = 2\qty(g_{V}^{\gamma q})^2\frac{Q^4}{z^2 y^2}\left(2-2y + y^2\right) \label{eq:LOsigma}
     \end{equation}
     if we average over helicities.
 \end{exercisebox}
+Note that this factor exactly matches the prefactor of $F_2$ in \cref{eq:dsigmadxdy}.
+All remaining factors to obtain the full expression for the (double differential) cross sections are given by considering the actual phase space (which we neglect here) and other global prefactors, e.g.\ the flux.
+At LO it is the overall momentum conservation delta function in the phase space which survives and eventually the LO coefficient function for $F_2$ is given by \cref{eq:LOC}, i.e.\ only the factors $\qty(g_{V}^{\gamma q})^2 = e_q^2$ in \cref{eq:LOsigma} are accounted for there (and not elsewhere).

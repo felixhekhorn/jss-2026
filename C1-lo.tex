@@ -1,0 +1,70 @@
+\paragraph{Solution for \cref{box:exAT1}}
+\begin{align}
+    T^1_{\mu\nu} &= \frac 1 2 \sum_{s} \bar u^{(s)}(k')\gamma_\mu u^{(s)}(k) \left(\bar u^{(s)}(k')\gamma_\nu u^{(s)}(k)\right)^*\\
+        &= \frac 1 2 \tr(\gamma_\mu \slashed{k} \gamma_\nu \slashed{k'})\\
+        &= 2\left(k_\mu k'_\nu + k_\nu k'_\mu - k \cdot k' g_{\mu\nu}\right)
+\end{align}
+where we use \cref{eq:trDirac4} in the second step.
+
+\paragraph{Solution for \cref{box:exAT2}}
+\begin{align}
+    T^2_{\mu\nu} &= \bar u(k',\lambda)\gamma_\mu u(k,\lambda) \left(\bar u(k',\lambda)\gamma_\nu u(k,\lambda)\right)^*\\
+        &=\frac 1 {2^2} \tr(\gamma_\mu \slashed{k}(1-\lambda \gamma_5) \gamma_\nu \slashed{k'} (1-\lambda \gamma_5))\\
+        &=\frac 1 {2^2} \left(\tr(\gamma_\mu \slashed{k}\gamma_\nu \slashed{k'}) - \lambda\tr(\gamma_\mu \slashed{k}\gamma_5 \gamma_\nu \slashed{k'} + \gamma_\mu \slashed{k}\gamma_\nu \slashed{k'} \gamma_5) + \lambda^2\tr(\gamma_\mu \slashed{k}\gamma_5 \gamma_\nu \slashed{k'} \gamma_5)\right)\\
+        &=\frac 1 {2^2} \left(\tr(\gamma_\mu \slashed{k}\gamma_\nu \slashed{k'}) - \lambda\tr(\gamma_\mu \slashed{k}\gamma_\nu \slashed{k'}\gamma_5  + \gamma_\mu \slashed{k}\gamma_\nu \slashed{k'} \gamma_5) + \lambda^2\tr(\gamma_\mu \slashed{k}\gamma_\nu \slashed{k'} \gamma_5 \gamma_5)\right) \label{eq:solT2ac} \\
+        &=\frac 1 {2} \left(\tr(\gamma_\mu \slashed{k}\gamma_\nu \slashed{k'}) - \lambda\tr(\gamma_\mu \slashed{k}\gamma_\nu \slashed{k'}\gamma_5 )\right) \label{eq:solT2sq}\\
+        &= T^1_{\mu\nu} + 2 i \lambda \varepsilon_{\mu\nu\rho\sigma} k^\rho k'^\sigma
+\end{align}
+where
+\begin{itemize}
+    \item in \cref{eq:solT2ac} we use the anti-commutativity of $\gamma_5$
+    \item in \cref{eq:solT2sq} we use the fact that $\lambda^2$ and $(\gamma_5)^2$ are unity (in their appropriate space)
+    \item in the last line we use \cref{eq:trDirac5}
+\end{itemize}
+
+\paragraph{Solution for \cref{box:exAT3}}
+\begin{align}
+    T^3_{\mu\nu} &= \bar u(k',\lambda)\Gamma^Z_\mu u(k,\lambda) \left(\bar u(k',\lambda)\Gamma^{ph}_\nu u(k,\lambda)\right)^*\\
+        &=\frac 1 {2^2} \tr(\gamma_\mu(g_V^{Z f}- g_A^{Z f}\gamma_5) \slashed{k}(1-\lambda \gamma_5) g_V^{\gamma f}\gamma_\nu \slashed{k'} (1-\lambda \gamma_5))\\
+        &=\frac 1 {2} g_V^{\gamma f}\tr(\gamma_\mu(g_V^{Z f}- g_A^{Z f}\gamma_5) \slashed{k} \gamma_\nu \slashed{k'} (1-\lambda \gamma_5)) \label{eq:solT3T2}\\
+        &= g_V^{\gamma f}\left(g_V^{Z f}T^2_{\mu\nu} - g_A^{Z f}\tr(\gamma_\mu\gamma_5\slashed{k}\gamma_\nu \slashed{k'} (1-\lambda \gamma_5))\right)\\
+        &= g_V^{\gamma f}\left(g_V^{Z f}T^2_{\mu\nu} - g_A^{Z f}\tr(\gamma_\mu\slashed{k}\gamma_\nu \slashed{k'} (\lambda - \gamma_5))\right) \label{eq:solT3ac}\\
+        &= g_V^{\gamma f}\left(g_V^{Z f}T^2_{\mu\nu} - \lambda g_A^{Z f}\tr(\gamma_\mu\slashed{k}\gamma_\nu \slashed{k'} (1-\lambda\gamma_5))\right) \label{eq:solT3sq}\\
+        &= g_V^{\gamma f}(g_V^{Z f} - \lambda g_A^{Z f})T^2_{\mu\nu}
+\end{align}
+where
+\begin{itemize}
+    \item in \cref{eq:solT3T2} we use \cref{eq:solT2sq}. Note that the manipulations work for any Dirac matrix $\Gamma_\mu$ there
+    \item in \cref{eq:solT3ac} we use the anti-commutativity of $\gamma_5$
+    \item in \cref{eq:solT3sq} we use the fact that $\lambda^2$ is unity
+\end{itemize}
+
+\paragraph{Solution for \cref{box:exAT4}}
+\begin{align}
+    T^4_{\mu\nu} &= \bar u(k',\lambda)\Gamma^Z_\mu u(k,\lambda) \left(\bar u(k',\lambda)\Gamma^{Z}_\nu u(k,\lambda)\right)^*\\
+        &=\frac 1 {2^2} \tr(\gamma_\mu(g_V^{Z f}- g_A^{Z f}\gamma_5) \slashed{k}(1-\lambda \gamma_5)\gamma_\nu (g_V^{Z f}- g_A^{Z f}\gamma_5) \slashed{k'} (1-\lambda \gamma_5))\\
+        &= g_V^{Z f}/g_V^{\gamma f} T^3_{\mu\nu} - g_A^{Z f}\tr(\gamma_\mu(g_V^{Z f}- g_A^{Z f}\gamma_5) \slashed{k}(1-\lambda \gamma_5)\gamma_\nu \gamma_5 \slashed{k'} (1-\lambda \gamma_5))\\
+        &= g_V^{Z f}/g_V^{\gamma f} T^3_{\mu\nu} - g_A^{Z f}\tr(\gamma_\mu(g_V^{Z f}- g_A^{Z f}\gamma_5) \slashed{k}(1-\lambda \gamma_5)\gamma_\nu \slashed{k'} (\lambda - \gamma_5))\label{eq:solT4ac}\\
+        &= g_V^{Z f}/g_V^{\gamma f} T^3_{\mu\nu} - \lambda g_A^{Z f}\tr(\gamma_\mu(g_V^{Z f}- \lambda g_A^{Z f}\gamma_5) \slashed{k}(1-\lambda \gamma_5)\gamma_\nu \slashed{k'} (1 - \lambda\gamma_5))\label{eq:solT4sq}\\
+        &= (g_V^{Z f} - \lambda g_A^{Z f})^2 T^2_{\mu\nu}
+\end{align}
+where
+\begin{itemize}
+    \item in \cref{eq:solT4ac} we use the anti-commutativity of $\gamma_5$
+    \item in \cref{eq:solT4sq} we use the fact that $\lambda^2$ is unity
+\end{itemize}
+
+\paragraph{Solution for \cref{box:exAWard}}
+First, we consider the anti-symmetric component, i.e.\ $T^2_{\mu\nu} - T^1_{\mu\nu}$: since the Levi-Civita tensor is already contracted with both $k$ and $k'$ any further contraction with any linear combination of those, such as $q = k - k'$, must vanish identically
+Second, for the remaining symmetric part, $T^1_{\mu\nu}$, we only need to prove one equality since the other is implied.
+We need
+\begin{equation}
+    q = k - k' \Rightarrow q^2 = -2k\cdot k' \Rightarrow 2k\cdot q = 2k \cdot (k-k') = q^2 \land 2k'\cdot q = 2k'\cdot(k-k') = -q^2
+\end{equation}
+and so
+\begin{align}
+    T^1_{\mu\nu}q^\mu &= 2\left(k_\mu k'_\nu + k_\nu k'_\mu - k \cdot k' g_{\mu\nu}\right) q^\mu\\
+    &= 2\left((k\cdot q) k'_\nu + k_\nu (k' \cdot q)  - (k \cdot k') q_{\nu}\right)\\
+    &= q^2 \left(k'_\nu - k_\nu + q_\nu \right)\\
+    &= 0
+\end{align}
