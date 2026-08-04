@@ -1,5 +1,8 @@
 # Deeply Inelastic Scattering Revisited
 
+
+[URL to current PDF](https://raw.githubusercontent.com/felixhekhorn/jss-2026/main/main.pdf)
+
 Course code: PH3
 
 Room: [FYS2](https://navi.jyu.fi/space/m3993123)
