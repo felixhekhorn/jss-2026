@@ -34,7 +34,7 @@ We recall some relevant Dirac traces:
     \tr(\gamma_\mu) &= 0 \\
     \tr(\gamma_\mu\gamma_\nu) &= 4g_{\mu\nu} \\
     \tr(\gamma_\mu\gamma_\nu\gamma_\rho) &= 0 \\
-    \tr(\gamma_\mu\gamma_\nu\gamma_\rho\gamma_\sigma) &= 4(g_{\mu\nu}g_{\rho\sigma} - g_{\mu\rho}g_{\nu\sigma} + g_{\mu\sigma}g_{\nu\rho})
+    \tr(\gamma_\mu\gamma_\nu\gamma_\rho\gamma_\sigma) &= 4(g_{\mu\nu}g_{\rho\sigma} - g_{\mu\rho}g_{\nu\sigma} + g_{\mu\sigma}g_{\nu\rho}) \label{eq:trDirac4}
 \end{align}
 We also need the simple anti-commutating $\gamma_5$, with properties
 \begin{equation}
@@ -46,11 +46,11 @@ and the corresponding Dirac traces
 \end{equation}
 and
 \begin{equation}
-    \tr(\gamma_\mu\gamma_\nu\gamma_\rho\gamma_\sigma\gamma_5) = 4i\varepsilon_{\mu\nu\rho\sigma}\,.
+    \tr(\gamma_\mu\gamma_\nu\gamma_\rho\gamma_\sigma\gamma_5) = 4i\varepsilon_{\mu\nu\rho\sigma}\,. \label{eq:trDirac5}
 \end{equation}
 
 We start by assuming $\Gamma_\mu = \gamma_\mu$ and averaging over fermion spins $s$ upon which the spinors collapse to just, e.g., $\slashed{k}$.
-\begin{exercisebox}{Step 1}
+\begin{exercisebox}[label=box:exAT1]{Step 1}
     Proof
     \begin{align}
         T^1_{\mu\nu} &= \frac 1 2 \sum_{s} \bar u^{(s)}(k')\gamma_\mu u^{(s)}(k) \left(\bar u^{(s)}(k')\gamma_\nu u^{(s)}(k)\right)^*\\
@@ -64,7 +64,7 @@ For spinors with a given helicity $\lambda = \pm 1$ we find
 \begin{equation}
     u(k,\lambda) \bar u(k,\lambda) = \frac 1 2 \slashed k (1 - \lambda \gamma_5) \,.
 \end{equation}
-\begin{exercisebox}{Step 2}
+\begin{exercisebox}[label=box:exAT2]{Step 2}
     Proof
     \begin{align}
         T^2_{\mu\nu} &= \bar u(k',\lambda)\gamma_\mu u(k,\lambda) \left(\bar u(k',\lambda)\gamma_\nu u(k,\lambda)\right)^*\\
@@ -80,7 +80,7 @@ Next, we want to use a more realistic boson-fermion coupling $\Gamma_\mu$, since
 where $g_V^{\gamma f}$ is the coupling strength between the photon and the fermion $f$ and $g_V^{Z f}$ and $g_A^{Z f}$ are the vectorial and axial-vectorial coupling strength between the Z boson and the fermion $f$.
 By convention we exclude an explicit factor of the elementary electric charge from the definition of $g_{V,A}^{B f}$.
 $T^2_{\mu\nu}$ obtains a trivial factor of $(g_V^{\gamma f})^2$ when using $\Gamma^{ph}_\mu$.
-\begin{exercisebox}{Step 3}
+\begin{exercisebox}[label=box:exAT3]{Step 3}
     Proof
     \begin{align}
         T^3_{\mu\nu} &= \bar u(k',\lambda)\Gamma^Z_\mu u(k,\lambda) \left(\bar u(k',\lambda)\Gamma^{ph}_\nu u(k,\lambda)\right)^*\\
@@ -90,7 +90,7 @@ $T^2_{\mu\nu}$ obtains a trivial factor of $(g_V^{\gamma f})^2$ when using $\Gam
 \noindent $T^3_{\mu\nu}$ becomes the leptonic tensor $L_{\mu\nu}^{\gamma Z}$ for the photon-Z interference when choosing the lepton kinematics and couplings.
 
 Finally, we need the pure Z boson contributions.
-\begin{exercisebox}{Step 4}
+\begin{exercisebox}[label=box:exAT4]{Step 4}
     Proof
     \begin{align}
         T^4_{\mu\nu} &= \bar u(k',\lambda)\Gamma^Z_\mu u(k,\lambda) \left(\bar u(k',\lambda)\Gamma^{Z}_\nu u(k,\lambda)\right)^*\\
@@ -102,7 +102,7 @@ Finally, we need the pure Z boson contributions.
 The leptonic tensor $L_{\mu\nu}^{W}$ for the W bosons follows from the Z boson case by choosing appropriate couplings $g_{V,A}^{W f}$.
 
 The lepton kinematics are obtained by choosing the incoming momentum $k$ and the the outgoing momentum $k' = k - q$, \cref{fig:LODIS}.
-\begin{exercisebox}{Step 5: Ward identity}
+\begin{exercisebox}[label=box:exAWard]{Step 5: Ward identity}
     Proof
     \begin{equation}
         L^j_{\mu\nu} q^\mu = 0 = L^j_{\mu\nu} q^\nu \quad j \in\{\gamma, \gamma Z, Z, W\}
@@ -127,7 +127,7 @@ We define $p = \xi P$ and $T^2_{\mu\nu}$ becomes the photon-quark tensor $\hat W
 \begin{exercisebox}{Step 8}
     Proof
     \begin{equation}
-        L^\gamma_{\mu\nu} \hat W^{\mu\nu}_{\gamma q} = 2\frac{Q^4}{z^2 y^2}\left(2-2y + y^2\right)
+        L^\gamma_{\mu\nu} \hat W^{\mu\nu}_{\gamma q} = 2\qty(g_{V}^{\gamma q})^2\frac{Q^4}{z^2 y^2}\left(2-2y + y^2\right)
     \end{equation}
     if we average over helicities.
 \end{exercisebox}
