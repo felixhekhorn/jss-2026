@@ -1,8 +1,8 @@
 When we compute LO DIS from \cref{fig:LO} we say it is easy to identify the respective coefficient function, \cref{eq:LOC}.
 However, what exactly do we mean with the \enquote{$\forall q$}?
 Which quarks are we exactly talking about?
-This is directly linked to the flavor space to which we hint when using bold font.
-However, unlike the problem we discuss in \cref{sec:svimpl} about different bases (flavor basis vs.\ evolution basis), here we are more directly concerned what the flavor space is in the first place.
+This is directly linked to the flavor space $\mathcal F$.
+However, unlike the problem we discuss in \cref{sec:svimpl} about different bases (flavor basis vs.\ evolution basis), here we are more directly concerned what which elements are active in the first place, or if there are trivial directions in $\mathcal F$.
 
 The question we need to address here is: which quarks exactly can participate in \cref{eq:LOxs,eq:LOC}?
 We refer to this number as the number of active quarks $n_f$.
@@ -12,13 +12,13 @@ Note that the gluon is always considered active and contributes to all diagrams 
 The number of flavors $n_f$ is per se arbitrary and there is no absolutely correct answer, since there is no theory argument, which would fix this choice.
 However, in practice for a given observable $\sigma(x,Q^2)$ we can consider, which options are phenomenologically reasonable and if some option would yield unstable results.
 
-For the sake of the argument, letus consider a fully inclusive DIS cross section $\sigma(x,Q^2=\SI{25}{\GeV^2})$, so we probe the probe the proton at $\mu_F=Q=\SI{5}{\GeV}$.
-We can now consider the different quark masses as a guideline: on the one side the masses of up, down, and strange are significantly below the non-perturbative regime of QCD $m_u,m_d,m_s \ll \LQCD \sim \SI{1}{\GeV}$ and we can safely assume we can find them in the proton.
+For the sake of the argument, let us consider a fully inclusive DIS cross section $\sigma(x,Q^2=\SI{25}{\GeV^2})$, so we probe the probe the proton at $\mu_F=Q=\SI{5}{\GeV}$.
+We can now consider the different quark masses as a guideline: on the one side the masses of up, down, and strange are significantly below the non-perturbative regime of QCD $m_u,m_d,m_s \ll \LQCD \sim \SI{1}{\GeV}$ and we must assume we can find them in the proton.
 On the other side the mass of the top is significantly above the probed scale, $m_t \gg Q$, thus it is very unlikely to find it in the proton and we can safely neglect it.
 We can shut down such contributions by setting $f_t(\xi, Q^2) = 0 = f_{\bar t}(\xi, Q^2)$ and this way the top quark does not contribute to \cref{eq:fact1}.
-In addition, we can also define $C_t(z, Q^2) = 0 = C_{\bar t}(z, Q^2)$ to explicitly say that we don't let the top contribute.
+In addition, we can also define $C_t(z, Q^2) = 0 = C_{\bar t}(z, Q^2)$ to explicitly say that we don't let the top contribute, e.g.\ if we consider the PDF an external ingredient.
 
-Now, we consider the two remaining quarks, charm and bottom, for which maybe there is no clear answer.
+Finally, we consider the two remaining quarks, charm and bottom, for which maybe there is no clear answer.
 First, for the charm quark we have $m_c \sim \SI{1.5}{\GeV}$ and we can assume reasonably that it can contribute to this cross section.
 On the other side, for the bottom quark we have $m_b \sim \SI{4.5}{\GeV}$ and maybe we can both allow or deny it.
 The specific choice on which quarks we allow to participate and in which way they do so is referred to as flavor number scheme (FNS).
@@ -28,7 +28,7 @@ The specific choice on which quarks we allow to participate and in which way the
 One very popular choice is the Zero-Mass Variable Flavor Number Scheme (ZM-VFNS), which is a telling name and which we have silently adopted in the previous parts.
 Formally, we can define it in the following way:
 first, whenever the probed scale $Q$ crosses a quark mass that quark becomes active;
-second; in coefficient functions all active quarks are considered massless and all non-active quarks are considered infinite massive.
+second; in coefficient functions all active quarks are considered massless and all non-active quarks are considered infinitely massive.
 The infinite mass ensures $f_H(\xi, Q^2) = 0 = f_{\bar H}(\xi, Q^2)$ and $C_H(z, Q^2) = 0 = C_{\bar H}(z, Q^2)$ for all non-active quarks $H$ and the zero mass ensures that all formulas in \cref{sec:nlo} hold.
 If we denote the new dependency on the number of active flavors $n_f$ by a superscript $(n_f)$ we can define the ZM-VFNS in the following way
 \begin{equation}
@@ -63,7 +63,7 @@ where we still use the full flavor space $\mathcal F$, \cref{eq:flspace}, but fi
 Note that it does not make sense to consider less then three quarks, since $m_u,m_d,m_s \ll \LQCD \sim \SI{1}{\GeV}$ and pQCD only works for $Q > \LQCD$.
 All quarks are considered with their actual mass for the decision if they are in or out, \cref{eq:zmvfns}, but then after that their mass is discarded when computing $\vb C^{(n_f)}(z,Q^2)$.
 Thus, the VFNS indicates that the number of active quarks $n_f$ depends on the probed scale $Q$, i.e.\ it is variable, and the ZM explains how to compute diagrams.
-However, once we have an actual scale in hand, $n_f$ is also fixed.
+However, once we have an actual scale at hand, $n_f$ is also fixed.
 
 \begin{conclusionbox}{ZM-VFNS}
     In the ZM-VFNS
@@ -77,22 +77,22 @@ However, once we have an actual scale in hand, $n_f$ is also fixed.
 \label{sec:ffns}
 
 For the number of active quarks we can make another simple choice: fix $n_f$ once and forever - the Fixed Flavor Number Scheme (FFNS).
-Here, the probed scale $Q$ does not matter, but we use the same coefficient functions for any scale.
+Here, the probed scale $Q$ does not matter, but we use the same coefficient functions and PDFs for any scale.
 Actually, saying FFNS is not sufficient, we still have some choices and the most obvious is $n_f$.
 
 However, we can also improve with respect to other parts: while it is significantly easier to compute diagrams with only massless quarks, we can compute them also with massive quarks.
 For simplicity we assume in the following we have $n_f$ massless quarks plus exactly one\footnote{the case of two massive quarks is e.g.\ discussed in Ref.~\cite{Barontini:2024xgu}} massive quark with mass $m^2$.
-While we keep the notation general you can always consider as a concrete example $n_f=3$ (up, down, strange) and thus the massive quark as the charm with $m^2 = m_c^2$.
+While we keep the notation general we can always consider as a concrete example $n_f=3$ (up, down, strange) and thus the massive quark as the charm with $m^2 = m_c^2$.
 We recall two important features of the propagator of a massive quark,
 \begin{equation}
     D_q(p) \sim \frac{\slashed{p} + m\mathbbm{1}}{p^2 - m^2}\,. \label{eq:quarkprop}
 \end{equation}
 First, the mass appears explicitly in the numerator, which makes computing Dirac traces significantly more lengthy, and, second, the mass appears in the denominator, which shields the propagator from a collinear pole.
-When we consider a finite mass we eventually have three different scales in our diagrams: the total energy of the colliding partons $\hat s$, the photon virtuality $Q^2$, and the quark mass $m^2$.
-This means that unlike the massless case discussed so far, the coefficient functions now depend on two scales, for example the partonic momentum fraction $z = Q^2/(\hat s + Q^2)$ and $\xi_q = Q^2 / m^2$ or any other bijective combination\footnote{For example, for NC DIS on can show~\cite{Hekhorn:2019nlf} that $\chi = \frac{1-\sqrt{1-4m^2/s}}{1+\sqrt{1-4m^2/s}}$ and $\chi_q = \frac{\sqrt{1+4m^2/Q^2}-1}{\sqrt{1+4m^2/Q^2}+1}$ are good combinations.}.
+When we consider a finite mass we eventually have three different scales in our diagrams: the total energy of the colliding partons $\hat s=(\xi P + q)^2$, the photon virtuality $Q^2$, and the quark mass $m^2$.
+This means that unlike the massless case discussed so far, the coefficient functions now depend on two scales, for example the partonic momentum fraction $z = x / \xi = Q^2/(\hat s + Q^2)$ and $\xi_q = Q^2 / m^2$ or any other bijective combination thereof\footnote{For example, for NC DIS on can show~\cite{Hekhorn:2019nlf} that $\chi = \frac{1-\sqrt{1-4m^2/\hat s}}{1+\sqrt{1-4m^2/\hat s}}$ and $\chi_q = \frac{\sqrt{1+4m^2/Q^2}-1}{\sqrt{1+4m^2/Q^2}+1}$ are good combinations.}.
 This in turn implies that the available mathematical function space is much bigger, which makes the computation of these coefficient functions $\vb C(z,Q^2,m^2)$ significantly more complex.
 
-However, we focus here on the new dependency on $\xi_q$, which captures the new features.
+We focus here on the new dependency on $\xi_q$, which captures the new features.
 First, we consider the case $Q^2 \gg m^2$ or $\xi_q \to \infty$ where the denominator of \cref{eq:quarkprop} plays the important role.
 Indeed, since it is shielding the propagator from a collinear divergency, we encounter some signals thereof when we put $m^2 \to 0$.
 Specifically, we can rewrite the coefficient functions in this limit,
@@ -222,7 +222,7 @@ Thus the latter contains effectively more logarithms.
 
 But then how could we find an equivalence between the two schemes in \cref{sec:matching}?
 Recall that the equivalence is valid for cross sections, where coefficient functions explicitly enter, \cref{eq:factnf}.
-Indeed from \cref{sec:ffns} we know that $\vb C^{(n_f)}(z,Q^2,m^2)$ contains logarithms $\ln(Q^2/m^2)$, which are precisely the ones we are hunting here.
+Indeed, from \cref{sec:ffns} we know that $\vb C^{(n_f)}(z,Q^2,m^2)$ contains logarithms $\ln(Q^2/m^2)$, which are precisely the ones we are hunting here.
 However, the big difference is that $\vb C^{(n_f)}(z,Q^2,m^2)$ only contains a finite amount of logarithms, where as $\vb E^{(n_f+1)}$ is resumming those logarithms.
 This means that for $Q^2 \gg m^2$ FFNS is indeed a bad choice as the logarithms $\ln(Q^2/m^2)$ are big and should better be resummed.
 Instead, any power-suppressed terms, \cref{eq:Cpower}, which are important in the region $Q^2 \sim m^2$ and made FFNS preferable over ZM-VFNS, are irrelevant in this region.
@@ -244,7 +244,7 @@ Let us consider the concrete case of charm:
 \end{equation}
 Here,
 \begin{itemize}
-    \item $\sigma^{(3)}(x,Q^2,m_c^2)$ represents the massive FFNS result, which contains power-like $Q^2/m_c^2$ terms and a finite amount of $\ln(Q^2/m_c^2)$ associated with the charm in the coefficient function
+    \item $\sigma^{(3)}(x,Q^2,m_c^2)$ represents the massive FFNS result, which contains power-like $Q^2/m_c^2$ terms and a finite amount of $\ln(Q^2/m_c^2)$ associated with the charm in the coefficient function $\vb C^{(3)}(z,Q^2,m^2)$
     \item $\sigma^{(4)}(x,Q^2)$ represents the massless ZM-VFNS result, which resums all logarithms $\ln(Q^2/m_c^2)$, including the ones associated with the charm
     \item $\sigma^{(3\cap 4)}(x,Q^2,m_c^2)$ collects all terms, which appear in both expressions simultaneously, and for which we have borrowed the notation from set theory
 \end{itemize}
@@ -266,7 +266,7 @@ The yet additional logarithms in $\sigma^{(4)}$, which are resummed there, are s
     \item The relevant parameter in \cref{box:gmvfns} is the scale $Q^2$, which, as we explain in \cref{sec:diverse}, is very different between various experiments.
         While for NC DIS at HERA heavy quark mass effects are very relevant and can be up to $\SI{20}{\percent}$~\cite{H1:2015ubc,H1:2018flt} in some kinematic regime, for CC DIS at HERA there are practically irrelevant since $Q^2$ is large, see \cref{tab:HERA}.
         However, when we consider CC DIS at small $Q^2$, as is present e.g.\ in neutrino experiments, they are again very relevant~\cite{Gao:2017kkx,Helenius:2026uuz,Caola:2026kvl}.
-    \item At this point we can justify to neglect the top quark, since typical virtualities are below the top quark threshold, see \cref{eq:zmvfns}.
+    \item At this point we can properly justify to neglect the top quark, since typical virtualities are below the top quark threshold, see \cref{eq:zmvfns}.
     \item The mathematical structure in massless and massive diagrams is very different, e.g.\ the former yields collinear divergencies, see \cref{sec:rsl,sec:nlo}, but the latter regulates them with explicit logarithms $\ln(Q^2/m^2)$, which makes them very different for interpolation grids, \cref{sec:grids}.
         Moreover, the massive diagrams contain far more special functions, which already makes the NLO diagrams no longer analytically solvable but only numerically tractable~\cite{Hekhorn:2019nlf}.
     \item Since the number of active flavors $n_f$ is a direct dependency of the strong coupling $\alpha_s^{(n_f)}$ and PDFs $\vb f^{(n_f)}$ it appears explicitly in scale variations, \cref{sec:sv}.
