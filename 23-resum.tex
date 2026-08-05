@@ -52,14 +52,14 @@ However, in some situations, to be discussed in \cref{sec:sv}, we need \cref{eq:
 While for the special case $\mu_{R,0} = \mu_R$ we need to be consistent of course and we thus find that $\alpha_s^\text{LO}(\mu_R^2)$ is $\alpha_s(\mu_{R,0}^2)$ at the LO truncation, we note that they differ by higher order terms.
 \Cref{eq:LOalphasexp} is the first, simplest case of a perturbative expansion of a resummed expression, \cref{eq:LOalphas}, and can also be obtained by using the Taylor expansion of $\alpha_s(\mu_R^2)$ around $\mu_{R,0}^2$ together with \cref{eq:LObeta}.
 In other words, \cref{eq:LOalphasexp} is a perturbative expansion of \cref{eq:LOalphas} in powers of $\alpha_s(\mu_{R,0}^2)$.
-Note that \cref{eq:LOalphasresum} has a finite radius of convergence (as all geometric series) and that is also reflected in \cref{eq:LOalphas} by the pole $\LQCD$.
+%Note that \cref{eq:LOalphasresum} has a finite radius of convergence (as all geometric series) and that is also reflected in \cref{eq:LOalphas} by the pole $\LQCD$.
 
-Starting from NLO accuracy the RGE, e.g.\ in this specific case is given by
+Starting from NLO accuracy the RGE, e.g.\ in this specific case given by
 \begin{equation}
     \mu_R^2 \dv{\alpha_s(\mu_R^2)}{\mu_R^2} = - \beta_0 \qty(\alpha_s(\mu_R^2))^2 - \beta_1 \qty(\alpha_s(\mu_R^2))^3\,, \label{eq:NLObeta}
 \end{equation}
 can no longer be solved exactly with elementary functions.
-However, it is still possible to find an analytic solution which solves \cref{eq:NLObeta} at the requested accuracy, i.e.\ in this case NLO (see \cref{box:NLOalphas}).
+However, it is still possible to find an analytic solution which solves \cref{eq:NLObeta} at the requested accuracy, i.e.\ in this case at NLO accuracy (see \cref{box:NLOalphas}).
 This solution still performs a resummation, as we have to, but it only collects the so-called next-to-leading logarithms (NLL) (see \cref{box:NLOalphasLL}).
 Note that the RGE has a given perturbative accuracy, e.g.\ NLO, but the solution has a given logarithmic accuracy, e.g.\ NLL, however, in the common language one often just uses only the former.
 
@@ -90,8 +90,8 @@ Eventually, we obtain the RGE of PDFs, often referred to as DGLAP equation named
 where $\vb P (y, \mu_F^2)$ is the matrix of Altarelli-Parisi splitting functions.
 Note that the upper limit of the sum in \cref{eq:DGLAP} must be set to the requested perturbative accuracy, i.e.\ consistent with \cref{eq:LObeta}.
 
-When attempting to solve \cref{eq:DGLAP} we must worry about the two complications in PDFs with respect of the strong coupling.
-First, since PDFs are a vector and thus the Altarelli-Parisi splitting functions are combined in a matrix $\vb P$, we need to worry about non-commutativity.
+When attempting to solve \cref{eq:DGLAP} we must worry about the two complications in PDFs with respect to the strong coupling.
+First, since PDFs are a vector and, thus, the Altarelli-Parisi splitting functions are a matrix $\vb P$, we need to worry about non-commutativity.
 Indeed, while at LO accuracy we only have a single matrix $\vb P^{(0)}$, which trivially commutates with itself, starting from NLO we encounter a second matrix $\vb P^{(1)}$, which does not commutate with the former.
 Second, at any fixed scale PDFs are a function of the momentum fraction $\xi$ and, moreover, the right-hand-side of \cref{eq:DGLAP} features an integral (with the definition of the convolution $\otimes$ in \cref{eq:fact1,eq:fact2}).
 
