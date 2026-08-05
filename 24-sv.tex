@@ -31,10 +31,10 @@ with
 \end{equation}
 Before we continue with deriving explicit expressions for $\vb C^{(j)}(z,\ln(\mu_R^2/Q^2))$ some comments are in order:
 \begin{itemize}
-    \item $\vb C(z,Q^2)$ in \cref{eq:fact1} is an abbreviation of $\vb C(z,Q^2,\mu_R^2=Q^2)$ and $\vb C^{(j)}(z)$ of $\vb C^{(j)}(z,\ln(\mu_R^2/Q^2)=0)$
+    \item $\vb C(z,Q^2)$ in \cref{eq:fact1} is an abbreviation of $\vb C(z,Q^2,\mu_R^2=Q^2)$ and $\vb C^{(j)}(z)$ in \cref{eq:CpQCD} of $\vb C^{(j)}(z,\ln(\mu_R^2/Q^2)=0)$
     \item in \cref{eq:CbarRpQCD} $\mu_R$ has its intended meaning: it is the scale of the strong coupling
     \item from \cref{sec:as} we know $\alpha_s(\mu_R^2)$ is a pure resummation of logarithms, thus $\vb C^{(j)}$ may only depend on $\ln(\mu_R^2/Q^2)$
-    \item $\vb C^{(j)}(z,0)$ can be computed from diagrams by assuming explicitly $\mu_R = Q$ there
+    \item $\vb C^{(j)}(z,\ln(\mu_R^2/Q^2)=0)$ can be computed from diagrams by assuming explicitly $\mu_R = Q$ there
 \end{itemize}
 
 We now derive the explicit next-to-next-to-leading order (NNLO) expression for fully inclusive DIS.
@@ -64,8 +64,9 @@ Thus, if \cref{eq:CNNLO} and \cref{eq:CbarRNNLO} have to be the same up to $\ord
 \end{equation}
 Since we are here interested in the perturbative equivalence, we must use the perturbative expansion of the evolution.
 
-Note that with this identification \cref{eq:CNNLO} and \cref{eq:CbarRNNLO} (truncated to NLO) are not the same in practice, they are only perturbative equivalent.
-In any actual calculation with $\mu_R\neq Q$ also $\alpha_s(\mu_R^2)$ and $\alpha_s(Q^2)$ are different: they differ by an amount which is beyond our fixed-order framework and if that difference is \enquote{small} depends on the actual values of the strong coupling of the respective scales.
+Note that with this identification \cref{eq:CNNLO} and \cref{eq:CbarRNNLO} (truncated to NLO) are not the same in practice, they are only perturbatively equivalent.
+In any actual calculation with $\mu_R\neq Q$ also $\alpha_s(\mu_R^2)$ and $\alpha_s(Q^2)$ are different, since we must resum for both of them.
+They differ by an amount which is beyond our fixed-order framework and if that difference is \enquote{small} depends on the actual values of the strong coupling of the respective scales.
 However, with that we achieve the main purpose of this game: we generate some higher order terms, which we can then use to estimate MHOUs.
 
 Starting from NNLO we see that the matching becomes non-trivial.
@@ -87,7 +88,7 @@ Let us take a step back and review the general features.
 \end{conclusionbox}
 We also know that the dependency on the scale variation $\ln(\mu_R^2/Q^2)$ must be a polynomial dependence since the running of strong coupling is a pure resummation of this logarithm.
 By re-expanding we mean a Taylor expansion of the strong coupling at the default scale, here $\alpha_s(Q)$, in terms of the value at the renormalization scale, $\alpha_s(\mu_R^2)$.
-For computing the strong coupling at any scale $\alpha_s(\mu_R^2)$ we must use the required perturbative accuracy, but for deriving the scale-varied coefficient functions we only need one order less.
+For computing the strong coupling at any scale $\alpha_s(\mu_R^2)$ we must use the beta function at the required perturbative accuracy, but for deriving the scale-varied coefficient functions we only need one order less.
 In the special case of fully inclusive DIS, which has no dependence on the strong coupling at LO, we even need only two orders lower then the coefficient functions.
 
 For the sake of correcting \cref{eq:fact3}, we can improve it by writing
