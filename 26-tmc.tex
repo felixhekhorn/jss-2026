@@ -1,17 +1,17 @@
 In all our discussion so far we have implicitly assumed that the target, which often is the proton, see \cref{sec:diverse}, is a massless particle.
-However, we can relax that condition and consider a target with finite mass $M$, which yields \enquote{Target Mass Corrections} (TMC).
+However, we can relax that condition and consider a target with finite mass $M$, which yields \enquote{Target Mass Corrections} (TMCs).
 We refer to Refs.~\cite{Schienbein:2007gr,Ruiz:2023ozv} for a detailed review on the topic and instead focus here on the practical consequences.
 
 Our master formula, \cref{eq:fact1}, gives the so-called leading twist expression, which is dominant with respect to higher twist contributions, which are summarized as $\order{\LQCD^2/Q^2}$.
-While these higher twist terms are in principle not accessible in pQCD as PDFs are by definition leading order objects, they have recently gained renewed interest by PDF fitting groups~\cite{Cerutti:2025yji,Ball:2025xtj,Harland-Lang:2025wvm}.
+While these higher twist terms are in principle not accessible in pQCD as PDFs are by definition leading twist objects, they have recently gained renewed interest by PDF fitting groups~\cite{Cerutti:2025yji,Ball:2025xtj,Harland-Lang:2025wvm}.
 TMCs are formally a part of these higher twist contributions, but since they can be computed systematically and consistently they are typically included in modern PDF extractions.
 
-In practice, TMC amount to a shift in kinematics and a reweighting.
+In practice, TMCs amount to a shift in kinematics and a reweighting.
 We define
 \begin{equation}
     r = \sqrt{1 + \frac{4x^2 M^2}{Q^2}} \label{eq:TMCr}
 \end{equation}
-with which we define the so-called Nachtmann variable~\cite{Nachtmann:1973mr}
+and the so-called Nachtmann variable~\cite{Nachtmann:1973mr}
 \begin{equation}
     \xi_N = \frac{2x}{1 + r}\,. \label{eq:Nachtmann}
 \end{equation}
@@ -25,7 +25,7 @@ where $F_2^\text{noTMC}$ refers to the setup we have discussed so far and
     g_2(\xi_N,Q^2) &= \left(\tilde g_2 \otimes F_2^\text{noTMC}(Q^2)\right)(\xi_N) &\text{with}\quad \tilde g_2(z) &= 1 - z\,. \label{eq:TMCg2}
 \end{align}
 For the other structure functions $F_1$, $F_L$, and $F_3$ one can find similar equations~\cite{Schienbein:2007gr}.
-TMC are relevant for large $x$ and/or small $Q^2$ as follows from \cref{eq:TMCr,eq:Nachtmann}.
+TMCs are relevant for large $x$ and/or small $Q^2$ as follows from \cref{eq:TMCr,eq:Nachtmann}.
 Examining \cref{eq:TMC} we note that the structure function at the experimentally measured Bjorken-$x$ corresponds to first approximation to a structure function computed at the Nachtmann variable $\xi_N$.
 This is a simple consequence from the reduced phase space, which is available for massive particles.
 
@@ -36,7 +36,7 @@ Thus one often applies the following approximation~\cite{Schienbein:2007gr}
 \end{equation}
 which only requires a single evaluation.
 
-TMC introduce an explicit dependence on the target mass $M$ into \cref{eq:fact1} and capture a consistent part of the higher twist contributions $\order{\LQCD^2/Q^2}$.
+TMCs introduce an explicit dependence on the target mass $M$ into \cref{eq:fact1} and capture a consistent part of the higher twist contributions $\order{\LQCD^2/Q^2}$.
 TMCs are independent from the requested perturbative accuracy or the exchanged boson since they refer to a kinematic correction and thus apply to every calculation.
 While they don't interfere directly with our previous content they must be applied separately on top of everything as a final operation after all other corrections have been taken into account.
 Note that \cref{box:DISreq} should read more precisely
