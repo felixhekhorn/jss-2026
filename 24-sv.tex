@@ -331,7 +331,7 @@ The preferred basis for $\vb P$ is manifest by the following statements,
 which do not occur in flavor basis.
 Eventually, \cref{eq:CbarFNLO} becomes explicitly
 \begin{align}
-    C^{(1)}_{\Sigma_\Delta}(z,\ln(\mu_F^2/Q^2)) &= C^{(1)}_{\Sigma_\Delta}(z) - \ln(\mu_F^2/Q^2) \qty(C^{(0)}_{\Sigma_\Delta} \otimes \mathrm P_{\Sigma_\Delta \Sigma_\Delta}^{(0)})(z)\\
+    C^{(1)}_{\Sigma_\Delta}(z,\ln(\mu_F^2/Q^2)) &= C^{(1)}_{\Sigma_\Delta}(z) - \ln(\mu_F^2/Q^2) \qty(C^{(0)}_{\Sigma_\Delta} \otimes \mathrm P_{\Sigma_\Delta \Sigma_\Delta}^{(0)})(z) \label{eq:NLOCbarFNS}\\
     C^{(1)}_{\Sigma}(z,\ln(\mu_F^2/Q^2)) &= C^{(1)}_{\Sigma}(z) - \ln(\mu_F^2/Q^2) \qty(C^{(0)}_{\Sigma} \otimes \mathrm P_{\Sigma \Sigma}^{(0)})(z)\\
     C^{(1)}_{g}(z,\ln(\mu_F^2/Q^2)) &= C^{(1)}_{g}(z) - \ln(\mu_F^2/Q^2) \qty(C^{(0)}_{\Sigma} \otimes \mathrm P_{\Sigma g}^{(0)})(z) \label{eq:NLOCbarFg}
 \end{align}
@@ -346,6 +346,7 @@ However, this symmetry breaks down starting from NLO splitting functions $\vb P^
 \begin{itemize}
     \item Renormalization scale variation is a reshuffling of lower order coefficient functions and factorization scale variation adds convolutions between splitting functions and lower order coefficient functions.
         This implies that the mathematical complexity remains the same or in other words: we never encounter new mathematical objects in scale variations; see \cref{sec:nlo}.
+        However, note that this holds in a distributional sense, i.e.\ e.g.\ in \cref{eq:NLOCbarFNS} both $C^{(0)}_{\Sigma_\Delta}(z)$ and $\mathrm P_{\Sigma_\Delta \Sigma_\Delta}^{(0)}(y)$ contain distributions and thus does their convolution.
     \item Although scale-varied coefficient functions can always be computed a posteriori, see \cref{box:svren}, in practice it usually makes sense to tabulate them into interpolation grids as well, see \cref{sec:grids}.
         These additional coefficient functions can be easily accommodated when we generalize our concept of \enquote{order}: it can not only represent the perturbative order per se, but also additional powers of renormalization or factorization logarithms: $\alpha_s^k(\mu_R^2)\ln^m(\mu_R^2/Q^2)\ln^n(\mu_R^2/Q^2)$.
     \item The necessary projection onto a singlet component is particularly tricky for CC DIS, see \cref{sec:diverse}.
