@@ -8,7 +8,7 @@ The list is not exhaustive and the order is arbitrary.
 When introducing the Dirac matrices $\gamma_\mu$ in QFT, one often also introduces the additional matrix $\gamma_5$ along side, since together they can form a basis of the four-dimensional Dirac space, which is needed for the Dirac equation.
 In the naive picture $\gamma_5$ anti-commutes with the normal matrices $\gamma_\mu$, i.e.\
 \begin{equation}
-    \{\gamma_5,\gamma_\mu\} = \gamma_5 \gamma_\mu - \gamma_\mu \gamma_5 = 0 \label{eq:g5ac}
+    \{\gamma_5,\gamma_\mu\} = \gamma_5 \gamma_\mu + \gamma_\mu \gamma_5 = 0 \label{eq:g5ac}
 \end{equation}
 it obeys
 \begin{equation}
@@ -28,7 +28,7 @@ Since \cref{app:LO} only considers LO, we do not need to worry about these probl
 On the other side, by considering $\gamma_5$ we gain explicitly access to the helicity of a parton, which opens a whole new world: polarized DIS.
 In fact we can rerun the arguments of this work completely in parallel to the discussion so far.
 \begin{enumerate}
-    \item \cref{chap:intro}: polarized DIS gives access to polarized PDFs~\cite{Cruz-Martinez:2025ahf}, which give a different view on hadrons.
+    \item \cref{chap:intro}: polarized DIS gives access to polarized PDFs~\cite{Cruz-Martinez:2025ahf,Nocera:2026est}, which give a different view on hadrons.
     \item \cref{sec:diverse}: various DIS experiments have been run, are run, and will be run. They have various structure functions and both, NC and CC, variants.
     \item \cref{sec:interpolation}: except that all coefficient functions are different, the mathematical structure is of course identical.
     \item \cref{sec:resum}: while $\alpha_s$ is of course universal, polarized PDF obey their own RGE.
@@ -42,25 +42,27 @@ When computing higher order coefficient functions, the number of required diagra
 This often implies the use of dedicated mathematical and numerical tools.
 The currently highest available perturbative order is N$^3$LO, which is indeed the backbone of current approximate N$^3$LO PDF extractions~\cite{NNPDF:2024nan,McGowan:2022nag}.
 However, for the massive coefficient functions currently only approximate expressions exist~\cite{Barontini:2026drp}, which implies in a PDF fit we also need to consider Incomplete Higher Order Uncertainties (IHOU) reflecting the uncertainty of this approximation.
-Eventually, the experimental precision of the available and future DIS data requires the use of N$^3$LO perturbation theory or, turning the argument around, if we aim for PDFs with percent Uncertainties~\cite{NNPDF:2024dpb} we need N$^3$LO perturbation theory.
+Eventually, the experimental precision of the available and future DIS data requires the use of N$^3$LO perturbation theory or, turning the argument around, if we aim for PDFs with percent Uncertainties~\cite{NNPDF:2021njg} we need N$^3$LO perturbation theory.
 Actually, massless DIS is often the first QCD process becoming available at the next perturbative order~\cite{Basdew-Sharma:2021jhx}.
 While all possible partonic channels are already available starting from NNLO, N$^3$LO still brings new coupling combinations into the calculations.
 
 \section{Electroweak corrections}
 While increasing the perturbative order in QCD, which is all what we discussed so far, we might also wonder about electroweak corrections.
 Allowing the Z boson to be exchanged in parallel or instead of the photon is considered a trivial electroweak correction and, indeed, required to match the experimental data.
-Instead, here we are asking about additional electroweak bosons to take part in the underlying diagrams.
+Rather, here we are asking about additional electroweak bosons to take part in the underlying diagrams.
 
-However, it turns out the traditional DIS theory setup, which starts by defining structure functions, \cref{sec:xs}, can not deal with these corrections as can be seen from \cref{fig:DIS}.
+However, it turns out that the traditional DIS theory setup, which starts by defining structure functions, \cref{sec:xs}, can not deal with these corrections as can be seen from \cref{fig:DIS}.
 If we allow for additional electroweak boson, they may also be exchanged between the leptonic part of the diagram and the hadronic part of the diagram, which implies that we can no longer associate $q$, \cref{eq:defq}, with the momentum of a single vector boson.
 Thus we can no longer define neither a leptonic tensor $L_{\mu\nu}$ or a hadronic tensor $W_{\mu\nu}$ and thus no structure functions.
 
 However, it is of course still possible to compute these diagrams and thus to compute the cross section $\sigma$.
-The price we have to pay is, we need to give up on our master equation, \cref{eq:fact1}, and use a more complex factorization formula~\cite{Liu:2020rvc,Liu:2021jfp,Qiu:2026fed}, which now involves not only a non-perturbative distribution function for the hadron, but also for the lepton.
+The price we have to pay is, we need to give up on our master equation, \cref{eq:fact1}, and use a more complex factorization formula~\cite{Liu:2020rvc,Liu:2021jfp,Qiu:2026fed}, which now involves not only a non-perturbative distribution function for the hadron (the PDF $\vb f$), but also for the lepton.
 
 \section{Photon DIS}
 We can add one more particle to our list of targets: the photon.
-Quasi-real photons, i.e.\ photons with a small virtuality, contain a non-perturbative hadronic components, e.g.\ quarks in real photons, which can be described by a Photon PDF and which can be determined in Photon DIS~\cite{Chithirasreemadam:2026mqp}.
+Quasi-real photons, i.e.\ photons with a small virtuality, contain a non-perturbative hadronic component, e.g.\ quarks in real photons, which can be described by a Photon PDF and which can be determined in Photon DIS~\cite{Chithirasreemadam:2026mqp}.
 In this setup a highly virtual photon, \cref{box:DISreqM}, probes a quasi-real photon.
 These experiments are typically performed at electron-positron colliders, where each lepton provides one of the photons.
 Otherwise we can choose a particular factorization scheme for the Photon PDF, such that the remaining discussion in this work can be directly applied, but we have to account for the modified evolution of Photon PDFs compared to normal hadrons.
+
+~
