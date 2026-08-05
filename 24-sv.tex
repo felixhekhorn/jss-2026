@@ -102,11 +102,11 @@ As in \cref{sec:DGLAP} the general algorithm repeats for the factorization scale
 However, it is not only more complicated because PDFs are a set of function, but also because the PDF explicitly appears in \cref{eq:fact1}.
 This implies, that the factorization scale dependence is not only be captured by the coefficient function, in contrast to the renormalization scale.
 In particular, the factorization scale captures collinear divergencies, which arise in diagrams, and re-attributes them to the PDF, thus there is a direct connection between the two.
-Recall our main goal here: we want to estimate MHOU by generating higher order terms and we simply have more freedom here to do so.
-In order to simplify the discussion we explicitly neglect renormalization scale variations for the moment.
+Recall our main goal here: we want to estimate MHOU by generating higher order terms to the measurable observable and we simply have more freedom here to do so.
+In order to simplify the discussion we explicitly neglect renormalization scale variations for the moment (and delay the combination to \cref{sec:svcomb}).
 
 The most common way to deal with factorization scale variation is to directly modify the coefficient functions, as in the case for \cref{eq:CbarRpQCD}, and we refer to this choice as \enquote{factorization scale variation scheme C}~\cite{NNPDF:2024dpb}.
-Specifically, we make a similar ansatz and write
+Specifically, we make a similar ansatz as for the renormalization scale variation and write
 \begin{equation}
     \sigma(x,Q^2,\mu_F^2) = \qty(\vb C^T(Q^2,\mu_F^2) \otimes \vb f(\mu_F^2))(x) \label{eq:sigmaFC}
 \end{equation}
@@ -138,7 +138,7 @@ and is given up to NLO accuracy by
 Here, $\mathbbm 1$ refers to an identity operation in flavour space and $\delta(1-y)$ is the identity in the function convolution space as $\vb K$ is acting on both.
 
 Note that $\vb K$ is a fixed order equivalent of the EKO $\vb E$, but the two are fundamentally different: the latter is a true solution to DGLAP, which must resum all necessary terms, but the former is only an approximation for a small amount of evolution.
-Specifically, $\vb K$ only is meaningful when we consider scale variations and in particular we use the interplay between $\vb K$ and $\vb E$ to generate the missing higher order terms we are looking for, because we get
+Specifically, $\vb K$ only is meaningful when we consider scale variations and, in particular, we use the interplay between $\vb K$ and $\vb E$ to generate the missing higher order terms we are looking for, because we get
 \begin{equation}
     \vb f(\xi,\mu_1^2) = \qty(\vb K(\mu_1^2 \leftarrow \mu_2^2) \otimes \vb E(\mu_2^2 \leftarrow \mu_1^2) \otimes \vb f(\mu_1^2) )(\xi) + \ldots
 \end{equation}
@@ -152,8 +152,8 @@ We find $\vb f^{SV}(\xi,\mu_F^2,\ln(\mu_F^2/Q^2)) = \vb f(\xi,Q^2) + \ldots$ as 
 
 We can now return to the definition of scheme C: we insert \cref{eq:fSV} into \cref{eq:sigmaFB} and obtain
 \begin{align}
-    \sigma(x,Q^2,\mu_F^2) &= \qty[\vb C^T(Q^2) \otimes \qty(\vb K(Q^2 \leftarrow \mu_F^2) \otimes \vb f^{SV}(\mu_F^2))](x)\\
-     &= \qty[\qty(\vb C^T(Q^2) \otimes \vb K(Q^2 \leftarrow \mu_F^2)) \otimes \vb f^{SV}(\mu_F^2)](x) \label{eq:sigmaFCdef}
+    \sigma(x,Q^2,\mu_F^2) &= \qty[\vb C^T(Q^2) \otimes \qty(\vb K(Q^2 \leftarrow \mu_F^2) \otimes \vb f(\mu_F^2))](x)\\
+     &= \qty[\qty(\vb C^T(Q^2) \otimes \vb K(Q^2 \leftarrow \mu_F^2)) \otimes \vb f(\mu_F^2)](x) \label{eq:sigmaFCdef}
 \end{align}
 where we use the associative property of the convolution.
 However, we can now re-expand terms in a different order.
@@ -166,6 +166,7 @@ with
     \vb K'(y,Q^2 \leftarrow \mu_F^2) = \left(\vb K(Q^2 \leftarrow \mu_F^2)\otimes\left[\mathbbm{1} + \order{\alpha_s(Q^2)}\right]\right)(y)
 \end{equation}
 i.e.\ $\vb K'$ and $\vb K$ differ by higher order terms.
+Effectively, this is performing the algorithm of \cref{sec:rensv} for $\vb K$.
 Up to NLO accuracy we find from \cref{eq:NLOK}
 \begin{equation}
     \vb K'(y,Q^2 \leftarrow \mu_F^2) = \mathbbm{1}\delta(1-y) - \alpha_s(Q^2) \ln(\mu_F^2/Q^2) \vb P^{(0)}(y) + \ldots \label{eq:NLOKp}
@@ -184,7 +185,8 @@ As before, we start from LO accuracy and from \cref{eq:NLOKp} we find immediatel
 \end{equation}
 i.e., also here scale variations do not alter the LO coefficient function.
 However, unlike in the case for renormalization scale variations, factorization scale variations have always an impact starting from LO accuracy, because PDFs are present per-se in the factorization formula, \cref{eq:fact1}.
-Specifically, in any actual calculation with $\mu_F\neq Q$ also $\vb f(\mu_F^2)$ and $\vb f(Q^2)$ are different: they differ by an amount which is beyond our fixed-order framework and if that difference is \enquote{small} depends on the actual values of the PDF of the respective scales.
+Specifically, in any actual calculation with $\mu_F\neq Q$ also $\vb f(\mu_F^2)$ and $\vb f(Q^2)$ are different, since we must resum for both of them.
+They differ by an amount which is beyond our fixed-order framework and if that difference is \enquote{small} depends on the actual values of the PDF of the respective scales.
 However, with that we achieve the main purpose of this game: we generate some higher order terms, which we can then use to estimate MHOUs.
 This is an intentional copy from \cref{sec:rensv}.
 
@@ -194,12 +196,13 @@ Starting from NLO the matching becomes non-trivial and, e.g., at this order we f
 \end{equation}
 Always remember that for PDF operations, such as acting with the matrix of splitting functions $\vb P(y,\mu_F^2)$, non-commutativity is crucial, i.e., the flavor index dictated by the left-hand-side of \cref{eq:CbarFNLO} is matched by the second term on the right-hand-side by a vector-matrix multiplication (from the left).
 Note that starting from NNLO also explicit coefficients of the beta function start to appear, since the logarithm $\ln(\mu_F^2/Q^2)$ is coming directly from the running of the strong coupling, \cref{eq:LOalphasresum}.
-In other words: PDF evolution resums logarithms through the running of the strong coupling.
+In other words: PDF evolution resums logarithms through the running of the strong coupling as the scale dependence of $\vb P(y,\mu_F^2)$ is entirely captured by the strong coupling, \cref{eq:DGLAP}.
 
 In the following we assume scheme C as our default choice, thus \cref{box:svren} holds also for factorization scale variations and we can improve \cref{eq:fact3} with \cref{eq:sigmaFC}.
 The case of scheme B\footnote{scheme A is doing yet something different - see Ref.~\cite{NNPDF:2024dpb}} is slightly more complicated, as explained above, but straightforward to obtain.
 
 \subsection{Combined variation}
+\label{sec:svcomb}
 We recall, the renormalization and factorization scales are two independent scales, related to two different kind of physics.
 The former captures ultra-violet and the latter collinear divergencies.
 While we discuss them one at a time above, in practice we have to consider them simultaneously.
