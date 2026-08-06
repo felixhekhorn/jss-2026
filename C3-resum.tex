@@ -1,5 +1,35 @@
 \paragraph{Solution for \cref{box:LOalphas}}
 \begin{align}
-    \alpha_s(\mu_R^2) &= \\
+    \alpha_s(\mu_R^2) &= \frac{\alpha_s(\mu_{R,0}^2)}{1 + \alpha_s(\mu_{R,0}^2)\beta_0\ln(\mu_R^2/\mu_{R,0}^2)}\\
+    &= \frac 1 {\beta_0} \frac{1}{1/(\alpha_s(\mu_{R,0}^2)\beta_0) + \ln(\mu_R^2/\mu_{R,0}^2)}\\
+    &= \frac 1 {\beta_0} \left\{\ln\left[\mu_R^2/\mu_{R,0}^2\exp(1/(\alpha_s(\mu_{R,0}^2)\beta_0))\right]\right\}^{-1}\\
     &= \frac 1 {\beta_0 \ln(\mu_R^2/\LQCD^2)}
+\end{align}
+with
+\begin{equation}
+    \LQCD^2 = \mu_{R,0}^2\exp(-1/(\alpha_s(\mu_{R,0}^2)\beta_0))
+\end{equation}
+
+\paragraph{Solution for \cref{box:LOalphassol}}
+\begin{align}
+    \dv {\alpha_s^\text{LO}(t_R)}{t_R} &= \dv {t_R}  \frac{\alpha_s(0)}{1 + \alpha_s(0) \beta_0 t_R}\\
+     &= \frac{\alpha_s(0)}{(1 + \alpha_s(0) \beta_0 t_R)^2} \cdot (-1) \cdot \alpha_s(0) \beta_0\\
+     &= -\beta_0 \left(\alpha_s^\text{LO}(t_R)\right)^2
+\end{align}
+
+\paragraph{Solution for \cref{box:NLOalphas}} LHS:
+\begin{align}
+    \dv {\alpha_s^\text{NLO}(t_R)}{t_R} &= \dv {t_R} \left(\alpha_s^\text{LO}(t_R) - \frac{\beta_1}{\beta_0} \left(\alpha_s^\text{LO}(t_R)\right)^2 \ln(\alpha_s(0) / \alpha_s^\text{LO}(t_R)) \right)\\
+     &= \dv {\alpha_s^\text{LO}(t_R)}{t_R} - \frac{\beta_1}{\beta_0} \left[ 2 \alpha_s^\text{LO}(t_R) \dv {\alpha_s^\text{LO}(t_R)}{t_R} \ln(\alpha_s(0) / \alpha_s^\text{LO}(t_R)) \right. \nonumber\\
+     &\hspace{120pt} \left. - \left(\alpha_s^\text{LO}(t_R)\right)^2 \dv{\ln(\alpha_s^\text{LO}(t_R))}{t_R}  \right]\\
+     &= -\beta_0 \left(\alpha_s^\text{LO}(t_R)\right)^2 - \beta_1\left[  -2\left(\alpha_s^\text{LO}(t_R)\right)^3\ln(\alpha_s(0) / \alpha_s^\text{LO}(t_R)) + \left(\alpha_s^\text{LO}(t_R)\right)^3 \right]\\
+     &= -\beta_0 \left(\alpha_s^\text{LO}(t_R)\right)^2 - \beta_1\left(\alpha_s^\text{LO}(t_R)\right)^3\left[1  -2\ln(\alpha_s(0) / \alpha_s^\text{LO}(t_R))\right]
+\end{align}
+
+RHS:
+\begin{align}
+    &-\beta_0 \left(\alpha_s^\text{NLO}(t_R)\right)^2 -\beta_1 \left(\alpha_s^\text{NLO}(t_R)\right)^3 \nonumber\\
+    &=-\beta_0 \left[\left(\alpha_s^\text{LO}(t_R)\right)^2 - 2 \frac{\beta_1}{\beta_0} \left(\alpha_s^\text{LO}(t_R)\right)^3 \ln(\alpha_s(0) / \alpha_s^\text{LO}(t_R)) \right] \nonumber\\
+    &\hspace{20pt} - \beta_1 \left(\alpha_s^\text{LO}(t_R)\right)^3 + \order{(\alpha_s^\text{LO}(t_R))^4}\\
+    &= -\beta_0 \left(\alpha_s^\text{LO}(t_R)\right)^2 - \beta_1\left(\alpha_s^\text{LO}(t_R)\right)^3\left[1  -2\ln(\alpha_s(0) / \alpha_s^\text{LO}(t_R))\right]  + \order{(\alpha_s^\text{LO}(t_R))^4}
 \end{align}
