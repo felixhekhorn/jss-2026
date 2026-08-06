@@ -17,7 +17,8 @@ with
      &= -\beta_0 \left(\alpha_s^\text{LO}(t_R)\right)^2
 \end{align}
 
-\paragraph{Solution for \cref{box:NLOalphas}} LHS:
+\paragraph{Solution for \cref{box:NLOalphas}}
+Step 1: compute LHS.
 \begin{align}
     \dv {\alpha_s^\text{NLO}(t_R)}{t_R} &= \dv {t_R} \left(\alpha_s^\text{LO}(t_R) - \frac{\beta_1}{\beta_0} \left(\alpha_s^\text{LO}(t_R)\right)^2 \ln(\alpha_s(0) / \alpha_s^\text{LO}(t_R)) \right)\\
      &= \dv {\alpha_s^\text{LO}(t_R)}{t_R} - \frac{\beta_1}{\beta_0} \left[ 2 \alpha_s^\text{LO}(t_R) \dv {\alpha_s^\text{LO}(t_R)}{t_R} \ln(\alpha_s(0) / \alpha_s^\text{LO}(t_R)) \right. \nonumber\\
@@ -26,10 +27,64 @@ with
      &= -\beta_0 \left(\alpha_s^\text{LO}(t_R)\right)^2 - \beta_1\left(\alpha_s^\text{LO}(t_R)\right)^3\left[1  -2\ln(\alpha_s(0) / \alpha_s^\text{LO}(t_R))\right]
 \end{align}
 
-RHS:
+Step 2: compute RHS.
 \begin{align}
     &-\beta_0 \left(\alpha_s^\text{NLO}(t_R)\right)^2 -\beta_1 \left(\alpha_s^\text{NLO}(t_R)\right)^3 \nonumber\\
     &=-\beta_0 \left[\left(\alpha_s^\text{LO}(t_R)\right)^2 - 2 \frac{\beta_1}{\beta_0} \left(\alpha_s^\text{LO}(t_R)\right)^3 \ln(\alpha_s(0) / \alpha_s^\text{LO}(t_R)) \right] \nonumber\\
     &\hspace{20pt} - \beta_1 \left(\alpha_s^\text{LO}(t_R)\right)^3 + \order{(\alpha_s^\text{LO}(t_R))^4}\\
     &= -\beta_0 \left(\alpha_s^\text{LO}(t_R)\right)^2 - \beta_1\left(\alpha_s^\text{LO}(t_R)\right)^3\left[1  -2\ln(\alpha_s(0) / \alpha_s^\text{LO}(t_R))\right]  + \order{(\alpha_s^\text{LO}(t_R))^4}
 \end{align}
+where we immediately neglect all term $\order{(\alpha_s^\text{LO}(t_R))^4}$.
+
+\paragraph{Solution for \cref{box:NLOalphasLL}}
+Step 1: expand $\alpha_s^\text{LO}(t_R)$.
+\begin{equation}
+    \alpha_s^\text{LO}(t_R) = \alpha_s(0)\left[1 - \alpha_s(0)\beta_0 t_R + (\alpha_s(0)\beta_0)^2 t_R^2 \right] + \order{t_R^3}
+\end{equation}
+
+Step 2: expand $\alpha_s^\text{NLO}(t_R)$.
+Note that for the hint we use
+\begin{equation}
+    \ln(\alpha_s(0)/\alpha_s^\text{LO}(t_R)) = \ln(1 + \alpha_s(0)\beta_0 t_R) = \alpha_s(0) \beta_0 t_R - \frac 1 2 (\alpha_s(0)\beta_0)^2 t_R^2  + \order{t_R^3}
+\end{equation}
+by using \cref{eq:LOalphast}.
+Together with step 1 we find
+\begin{align}
+    \alpha_s^\text{NLO}(t_R) &= \alpha_s(0)\left[1 - \alpha_s(0)\beta_0 t_R + (\alpha_s(0)\beta_0)^2 t_R^2 \right] \nonumber\\
+    &\hspace{20pt} - \frac{\beta_1}{\beta_0} \alpha_s^2(0) \left[1 - 2\alpha_s(0)\beta_0 t_R + 3(\alpha_s(0)\beta_0)^2 t_R^2 \right]\nonumber\\
+    &\hspace{70pt} \cdot \left[\alpha_s(0) \beta_0 t_R - \frac 1 2 (\alpha_s(0)\beta_0)^2 t_R^2 \right] + \order{t_R^3}\\
+    &= \alpha_s(0)\left[1 + \left(-\beta_0\alpha_s(0) - \beta_1\alpha_s^2(0) \right) t_R\right. \nonumber\\
+    &\hspace{50pt}\left. +\left(\beta_0^2 \alpha_s^2(0) + \frac 5 2 \beta_1 \beta_0 \alpha_s^3(0) \right)t_R^2 \right]  + \order{t_R^3} \label{eq:solresumNLLexp}
+\end{align}
+where the term $~\sim \alpha_s^3(0) t_R^2$ receives contributions from two summands.
+Note that this is the full list of terms which appear up to $t_R^2$.
+
+Step 3: Taylor-expand $\alpha_s^\text{NLO}(t_R)$.
+First, we compute the second derivative:
+\begin{align}
+    \dv[2]{\alpha_s^\text{NLO}(t_R)}{t_R} &= \dv {t_R} \left( -\beta_0 \left(\alpha_s^\text{NLO}(t_R)\right)^2 -\beta_1 \left(\alpha_s^\text{NLO}(t_R)\right)^3 \right)\\
+    &= -2\beta_0 \left(\alpha_s^\text{NLO}(t_R)\right) \dv{\alpha_s^\text{NLO}(t_R)}{t_R} -3\beta_1 \left(\alpha_s^\text{NLO}(t_R)\right)^2 \dv{\alpha_s^\text{NLO}(t_R)}{t_R}\\
+    &= \left(-2\beta_0 \alpha_s^\text{NLO}(t_R) - 3\beta_1 \left(\alpha_s^\text{NLO}(t_R)\right)^2\right)\nonumber\\
+    &\hspace{50pt} \cdot\left( -\beta_0 \left(\alpha_s^\text{NLO}(t_R)\right)^2 -\beta_1 \left(\alpha_s^\text{NLO}(t_R)\right)^3\right)\\
+    &= 2\beta_0^2 \left(\alpha_s^\text{NLO}(t_R)\right)^3 + 5\beta_0\beta_1 \left(\alpha_s^\text{NLO}(t_R)\right)^4 + 3\beta_1^2 \left(\alpha_s^\text{NLO}(t_R)\right)^5
+\end{align}
+Now, we perform the Taylor-expansion:
+\begin{align}
+    \alpha_s^\text{NLO}(t_R) &= \alpha_s(0) + \frac 1 {1!}\left.\dv{\alpha_s^\text{NLO}(t_R)}{t_R}\right|_{t_R=0} t_R + \frac 1 {2!}\left.\dv[2]{\alpha_s^\text{NLO}(t_R)}{t_R}\right|_{t_R=0} t_R^2 + \order{t_R^3}\\
+    &= \alpha_s(0)\left[1 + \left(-\beta_0\alpha_s(0) - \beta_1\alpha_s^2(0) \right) t_R\right. \nonumber\\
+    &\hspace{50pt}\left. +\left(\beta_0^2 \alpha_s^2(0) + \frac 5 2 \beta_1 \beta_0 \alpha_s^3(0) + \frac 3 2 \beta_1^2 \left(\alpha_s^\text{NLO}(t_R)\right)^5 \right)t_R^2 \right]  + \order{t_R^3} \label{eq:solresumNLLTaylor}
+\end{align}
+
+Step 4: \cref{eq:solresumNLLexp} and \cref{eq:solresumNLLTaylor} agree at LL, $\alpha_s^k(0) t_R^{k}$ for $k=0,1,2$, and all terms are non-zero.
+
+Step 5: \cref{eq:solresumNLLexp} and \cref{eq:solresumNLLTaylor} agree at NLL, $\alpha_s^k(0) t_R^{k-1}$ for $k=1,2,3$.
+Note that the term $\alpha_s^1(0) t_R^{0}$ is trivially 0 in both expressions and thus typically not considered a part of the NLL resummation.
+
+Step 6: \cref{eq:solresumNLLexp} and \cref{eq:solresumNLLTaylor} do not agree at NNLL, $\alpha_s^k(0) t_R^{k-2}$ for $k=2,3,4$.
+Note that the terms $\alpha_s^2(0) t_R^{0}$ and $\alpha_s^3(0) t_R^{1}$ are both trivially 0 in both expressions and thus typically not considered a part of the NNLL resummation.
+The first non-trivial term $\alpha_s^4(0) t_R^{2}$ appears in the Taylor-expansion \cref{eq:solresumNLLTaylor}, but not in the expansion of \cref{eq:solresumNLLexp}.
+This implies that \cref{eq:NLOalphast} is not the true solution to \cref{eq:NLObetat}, as we say above.
+However, \cref{eq:NLOalphast} does solve the beta function at the requested accuracy, \cref{box:NLOalphas}, and it does perform the requested NLL resummation.
+
+Note that we merely prove here that the first few terms are available and not the full NLL accuracy, which requires that all terms $\alpha_s^k(0) t_R^{k-1}$ for $k=1,\cdots,\infty$ are present.
+%The prove can be done using \cref{eq:LOalphasresum} and the series representation of the logarithm.
