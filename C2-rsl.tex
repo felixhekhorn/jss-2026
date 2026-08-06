@@ -1,0 +1,39 @@
+\paragraph{Solution to \cref{box:RSLD1}}
+Using \cref{eq:RSLD} we find
+\begin{align}
+    C_R(z) &= 0\\
+    C_S(z) &= \frac{\ln(1-z)}{1-z}\\
+    C_L(x) &= -\int\limits_0^x\! \dd z ~ \frac{\ln(1-z)}{1-z} = \int\limits_0^x\! \dd z \ln(1-z) \dv {\ln(1-z)} {z} = \frac 1 2 \ln^2(1-x)
+\end{align}
+
+\paragraph{Solution to \cref{box:rslprod1}}
+Let $f(\xi)$ be a sufficiently smooth test function. We find
+\begin{align}
+    &(C\otimes f)(x)\nonumber\\
+    &= \int\limits_x^1 \frac{\dd z}{z} f(x/z) r(z) \cdot \left[ p(z) \right]_+\\
+    &= \int\limits_0^1 \frac{\dd z}{z} f(x/z) r(z) \cdot \left[ p(z) \right]_+ - \int\limits_0^x \frac{\dd z}{z} f(x/z) r(z) \cdot \left[ p(z) \right]_+\\
+    &= \int\limits_0^1\! \dd z \left(\frac{f(x/z)r(z)}{z} - f(x)r(1)\right) \cdot p(z) - \int\limits_0^x\!\dd z\, \frac{ f(x/z) r(z)}{z} \cdot p(z)\\
+    &= \int\limits_x^1\! \dd z \left(\frac{f(x/z)r(z)}{z} - f(x)r(1)\right) \cdot p(z) - f(x) r(1) \int\limits_0^x\dd z~ p(z)\\
+    &= \int\limits_x^1\! \dd z \left(\frac{f(x/z)(r(z)+r(1)-r(1))}{z} - f(x)r(1)\right) \cdot p(z) - f(x) r(1) \int\limits_0^x\dd z~ p(z)\\
+    &= \int\limits_x^1\! \dd z \left(\frac{f(x/z)}{z} - f(x)\right) r(1)\cdot p(z) + \int\limits_x^1\! \dd z \frac{f(x/z)(r(z)-r(1)))}{z} p(z) \nonumber\\
+    &\hspace{20pt}  - f(x) r(1) \int\limits_0^x\!\dd z~ p(z)\\
+    &= \int\limits_x^1 \frac{\dd z}{ z} f(x/z)  r(1)\cdot \left[p(z)\right]_+ + \int\limits_x^1\! \dd z \frac{f(x/z)(r(z)-r(1)))}{z} p(z) - f(x) r(1) \int\limits_0^x\!\dd z~ p(z)
+\end{align}
+\begin{equation}
+    \Rightarrow C^R(z) = (r(z)-r(1))p(z)\,,~  C^S(z) = r(1)p(z)\,,~ C^L(x) = -r(1)\int\limits_0^x\!\dd z\, p(z)
+\end{equation}
+
+\paragraph{Solution to \cref{box:rslprod2}}
+\begin{align}
+    \int\limits_0^1 \!\dd z~ f(z) \left[r(z)p(z)\right]_+ &= \int\limits_0^1 \dd z \left(f(z) - f(1)\right)r(z)p(z)\\
+      &= \int\limits_0^1 \left(f(z)r(z) - f(1)r(1)\right)p(z)~\dd z - f(1)\int\limits_0^1\! \dd z(r(z)-r(1))p(z)\\
+      &= \int\limits_0^1\! \dd z~ f(z)\left(r(z) \left[p(z)\right]_+\right) - f(z)\left(\delta(1-z)\int\limits_0^1\! dy~ r(y) \left[g(y)\right]_+\right)
+\end{align}
+
+Moreover, we have
+\begin{align}
+    P_{qq}^{(0)}(y) &= C_F\left( \frac{1+y^2}{1-y}\right)_+ \\
+     &=C_F\left( \frac{1+y^2}{(1-y)_+} - \delta(1-y)\int\limits_0^1 \!\dd z~ \frac{1+z^2 -2}{1-z}\right)\\
+     &=C_F\left( \frac{1+y^2}{(1-y)_+} + \delta(1-y)\int\limits_0^1 \!\dd z~ 1+z\right)\\
+     &=C_F\left( \frac{1+y^2}{(1-y)_+} + \frac 3 2\delta(1-y)\right)
+\end{align}

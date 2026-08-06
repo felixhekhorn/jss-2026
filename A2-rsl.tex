@@ -1,4 +1,4 @@
-\begin{exercisebox}{RSL representation}
+\begin{exercisebox}[label=box:RSLD1]{RSL representation}
     Proof
     \begin{equation}
         C(z) = \left(\frac{\ln(1-z)}{1-z}\right)_+ \,\leftrightarrow\, C^R(z) = 0, C^S(z) = \frac{\ln(1-z)}{1-z}, C^L(x) = \frac{\ln(1-x)^2}{2}
@@ -6,8 +6,8 @@
 \end{exercisebox}
 \noindent{} Hint: read \cref{sec:rsl}.
 
-\begin{exercisebox}{Product of functions 1}
-    Give the RSL representation of the product a regular function $r(z)$ and a +-distribution $\qty(p(z))_+$, $C(z) = r(z)\qty(p(z))_+$
+\begin{exercisebox}[label=box:rslprod1]{Product of functions 1}
+    Give the RSL representation of the product a regular function $r(z)$ and a +-distribution $\qty(p(z))_+$, $C(z) = r(z)\qty[p(z)]_+$
 \end{exercisebox}
 \noindent{} A popular example found in many text books is
 \begin{equation}
@@ -15,15 +15,15 @@
 \end{equation}
 where the first term has the requested structure, i.e.\ the +-distribution is only intended for the denominator.
 
-\begin{exercisebox}{Product of functions 2}
+\begin{exercisebox}[label=box:rslprod2]{Product of functions 2}
     Proof
     \begin{equation}
-        \left[r(z)p(z)\right]_+ = r(z) \left[p(z)\right]_+ - \delta(1-z) \int\limits_0^1 dy~ r(y) \left[p(y)\right]_+
+        \left[r(z)p(z)\right]_+ = r(z) \left[p(z)\right]_+ - \delta(1-z) \int\limits_0^1 \! \dd y ~ r(y) \left[p(y)\right]_+
     \end{equation}
-    where again $r(z)$ is a regular function and $\qty(p(z))_+$ is a +-distribution.
+    where again $r(z)$ is a regular function and $\qty[p(z)]_+$ is a +-distribution.
 \end{exercisebox}
 \noindent{} Check that \cref{eq:Pqq} can be also written as
 \begin{equation}
-    P_{qq}^{(0)}(y) = C_F\left( \frac{1+y^2}{1-y}\right)_+ \,\forall q\,.
+    P_{qq}^{(0)}(y) = C_F\left( \frac{1+y^2}{1-y}\right)_+ \,.
 \end{equation}
 Another (lengthy) example is \cref{eq:NLOCq} vs.\ \cref{eq:NLOCqp}.
