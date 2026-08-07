@@ -97,7 +97,7 @@ First, we consider the case $Q^2 \gg m^2$ or $\xi_q \to \infty$ where the denomi
 Indeed, since it is shielding the propagator from a collinear divergency, we encounter some signals thereof when we put $m^2 \to 0$.
 Specifically, we can rewrite the coefficient functions in this limit,
 \begin{equation}
-    \lim_{Q^2/m^2\to\infty}\vb C^{(n_f),T}(Q^2,m^2) = \vb C^{(n_f+1),T}(Q^2) \vb A^{(n_f+1)}(Q^2,m^2) \label{eq:Cmatching}
+    \lim_{Q^2/m^2\to\infty}\vb C^{(n_f),T}(z,Q^2,m^2) = \qty(\vb C^{(n_f+1),T}(Q^2) \otimes \vb A^{(n_f+1)}(Q^2,m^2))(z) \label{eq:Cmatching}
 \end{equation}
 i.e.\ we can connect the coefficient functions using two neighboring schemes and a new, universal operator $\vb A$, which admits a perturbative series
 \begin{equation}
@@ -114,10 +114,10 @@ Next, we consider the case $Q^2 \sim m^2$ where the numerator of \cref{eq:quarkp
 While we conclude above that the FFNS coefficient functions contain logarithms $\ln(Q^2/m^2)$ they also naturally contain more terms.
 Specifically, if we expand the FFNS coefficient function around $Q^2 \sim m^2$ we obtain
 \begin{equation}
-    \vb C^{(n_f)}(Q^2,m^2) = \vb C_{thr,0}^{(n_f)} + \vb C_{thr,1}^{(n_f)} \left(\frac{Q^2}{m^2}\right) + \vb C_{thr,2}^{(n_f)} \left(\frac{Q^2}{m^2}\right)^2 + \ldots \label{eq:Cpower}
+    \vb C^{(n_f)}(z,Q^2,m^2) = \vb C_{thr,0}^{(n_f)}(z) + \vb C_{thr,1}^{(n_f)}(z) \left(\frac{Q^2}{m^2}\right) + \vb C_{thr,2}^{(n_f)}(z) \left(\frac{Q^2}{m^2}\right)^2 + \ldots \label{eq:Cpower}
 \end{equation}
-with some coefficients $\vb C_{thr,k}^{(n_f)}$.
-Note that the equation is to be understood as a Taylor expansion at the requested point as in practice the actual dependency on $\xi_q$ is very intricate\footnote{for example via $\chi_q$}.
+with some coefficients $\vb C_{thr,k}^{(n_f)}(z)$.
+Note that the equation is to be understood as a series expansion at the requested point as in practice the actual dependency on $\xi_q$ is very intricate\footnote{for example via $\chi_q$}.
 It is clear that in the region $Q^2 \gg m^2$ these terms can be neglected, but in the region $Q^2 \sim m^2$ these terms may not be small and thus neglecting such contributions may yield wrong results.
 That is the precisely the advantage of FFNS over ZM-VFNS: while in the latter we explicitly deny any massive quark in the diagrams, the former allows them to be included in the sum over diagrams.
 
@@ -126,7 +126,7 @@ That is the precisely the advantage of FFNS over ZM-VFNS: while in the latter we
     \begin{itemize}
         \item we need to fix the number of massless and massive quarks
         \item massive quarks are then allowed in the diagrams for the coefficient functions
-        \item we encounter universal logarithms $\ln(Q^2/m^2)$ for $Q^2\to m^2$ due to shielded collinear divergencies
+        \item we encounter universal logarithms $\ln(Q^2/m^2)$ for $Q^2\to m^2$ due in the coefficient functions to shielded collinear divergencies
     \end{itemize}
 \end{conclusionbox}
 
@@ -208,20 +208,21 @@ Starting from \cref{eq:sigmaup}, we find
 where in the second equation we have inserted the EKO in the $(n_f+1)$ scheme, $\vb E^{(n_f+1)}$, from \cref{eq:EKO} and then in the third equation the matching, \cref{eq:pdfmatching}, which is now in the customary place.
 We can massage \cref{eq:factnf} in a similar way and find
 \begin{align}
-    \sigma^{(n_f)}(x,Q^2) &= \left(\vb C^{T,(n_f)}(Q^2,m^2) \otimes \vb f^{(n_f)}(Q^2)\right)(x)\\
+    \sigma^{(n_f)}(x,Q^2,m^2) &= \left(\vb C^{T,(n_f)}(Q^2,m^2) \otimes \vb f^{(n_f)}(Q^2)\right)(x)\\
     &= \left(\vb C^{T,(n_f)}(Q^2,m^2) \otimes \vb E^{(n_f)}(Q^2 \leftarrow m^2) \otimes \vb f^{(n_f)}(m^2)\right)(x) \label{eq:sigma0}
 \end{align}
 with the EKO now in the $n_f$ scheme, $\vb E^{(n_f)}$.
 Note that \cref{eq:sigmaup0,eq:sigma0} now contain the same PDF $\vb f^{(n_f)}(m^2)$.
 
-As we discuss in \cref{sec:resum} the EKO, $\vb E$, is performing a resummation and in this particular case a resummation of the logarithm $\log(Q^2/m^2)$ as can be seen from the arguments in \cref{eq:sigmaup0,eq:sigma0}.
+As we discuss in \cref{sec:resum}, the EKO, $\vb E$, is performing a resummation and in this particular case a resummation of the logarithm $\log(Q^2/m^2)$ as can be seen from the arguments in \cref{eq:sigmaup0,eq:sigma0}.
 This is true in either scheme, but the amount of logarithms, meaning the prefactor that is resummed along side, is different.
 The resummation is directly proportional to the splitting functions, \cref{eq:LOPDFexp}, which is different between the two scheme.
 In particular, in the $(n_f)$ scheme we are resumming the collinear logs of $n_f$ light quarks, but in the $(n_f+1)$ scheme we are resumming the collinear logs of $(n_f+1)$ light quarks.
 Thus the latter contains effectively more logarithms.
+Recall that only massless quarks can develop a collinear pole and can thus participate in (collinear) evolution.
 
 But then how could we find an equivalence between the two schemes in \cref{sec:matching}?
-Recall that the equivalence is valid for cross sections, where coefficient functions explicitly enter, \cref{eq:factnf}.
+Examining \cref{eq:factnf}, we see the equivalence is valid for cross sections, where coefficient functions explicitly enter.
 Indeed, from \cref{sec:ffns} we know that $\vb C^{(n_f)}(z,Q^2,m^2)$ contains logarithms $\ln(Q^2/m^2)$, which are precisely the ones we are hunting here.
 However, the big difference is that $\vb C^{(n_f)}(z,Q^2,m^2)$ only contains a finite amount of logarithms, where as $\vb E^{(n_f+1)}$ is resumming those logarithms.
 This means that for $Q^2 \gg m^2$ FFNS is indeed a bad choice as the logarithms $\ln(Q^2/m^2)$ are big and should better be resummed.
@@ -246,21 +247,21 @@ Let us consider the concrete case of charm:
 \end{equation}
 Here,
 \begin{itemize}
-    \item $\sigma^{(3)}(x,Q^2,m_c^2)$ represents the massive FFNS result, which contains power-like $Q^2/m_c^2$ terms and a finite amount of $\ln(Q^2/m_c^2)$ associated with the charm in the coefficient function $\vb C^{(3)}(z,Q^2,m^2)$
+    \item $\sigma^{(3)}(x,Q^2,m_c^2)$ represents the massive FFNS result, which contains power-like $Q^2/m_c^2$ terms and a finite amount of $\ln(Q^2/m_c^2)$ associated with the charm in the coefficient function $\vb C^{(3)}(z,Q^2,m_c^2)$
     \item $\sigma^{(4)}(x,Q^2)$ represents the massless ZM-VFNS result, which resums all logarithms $\ln(Q^2/m_c^2)$, including the ones associated with the charm
     \item $\sigma^{(3\cap 4)}(x,Q^2,m_c^2)$ collects all terms, which appear in both expressions simultaneously, and for which we have borrowed the notation from set theory
 \end{itemize}
 One can show~\cite{Barontini:2024xgu} that the overlap contribution can be written as
 \begin{equation}
-    \sigma^{(3\cap 4)}(x,Q^2,m_c^2) = \left(\vb C^{(3\cap 4)}(Q^2,m^2)\otimes \vb f^{(3)}(Q^2)\right)(x)
+    \sigma^{(3\cap 4)}(x,Q^2,m_c^2) = \left(\vb C^{(3\cap 4)}(Q^2,m_c^2)\otimes \vb f^{(3)}(Q^2)\right)(x)
 \end{equation}
 where the corresponding coefficient function is given by
 \begin{equation}
-    \vb C^{(3\cap 4),T}(z,Q^2,m^2) = \left(\vb C^{(4),T}(Q^2)\otimes \vb A^{(4)}(Q^2,m^2)\right)(x)\,,
+    \vb C^{(3\cap 4),T}(z,Q^2,m_c^2) = \left(\vb C^{(4),T}(Q^2)\otimes \vb A^{(4)}(Q^2,m_c^2)\right)(z)\,,
 \end{equation}
 i.e.\ the right-hand-side of \cref{eq:Cmatching} (without any limit).
-It is immediately clear that in the limit $Q^2 \gg m^2$ the coefficient functions $\vb C^{(3)}$ and $\vb C^{(3\cap 4)}$ become identical and, thus, in \cref{eq:sigmaFONLL} only $\sigma^{(4)}$ contributes as requested by \cref{box:gmvfns}.
-On the other side, since $\sigma^{(3\cap 4)}$ contains exactly the logarithmic terms of $\sigma^{(3)}$ and those are also contained in $\sigma^{(4)}$, which actually only contains logarithms, we also match the $Q^2 \sim m^2$ region.
+It is immediately clear that in the limit $Q^2 \gg m_c^2$ the coefficient functions $\vb C^{(3)}$ and $\vb C^{(3\cap 4)}$ become identical and, thus, in \cref{eq:sigmaFONLL} only $\sigma^{(4)}$ contributes as requested by \cref{box:gmvfns}.
+On the other side, since $\sigma^{(3\cap 4)}$ contains exactly the logarithmic terms of $\sigma^{(3)}$ and those are also contained in $\sigma^{(4)}$, which actually only contains logarithms, we also match the $Q^2 \sim m_c^2$ region.
 The yet additional logarithms in $\sigma^{(4)}$, which are resummed there, are small in this region and a part of the approximation FONLL takes.
 
 \subsection{Interplay with previous content}
