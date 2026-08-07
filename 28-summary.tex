@@ -1,26 +1,47 @@
 Fully inclusive DIS cross sections depend on
 \begin{itemize}
     \item the experimentally measured kinematic variables, \cref{sec:xs}, $x$, $y$, $Q^2$.
-        They are not independent from each other, but linked through the invariant mass of the electron-proton system, \cref{eq:defslep}, given by the experiment.
+        They are not independent from each other, but linked through the invariant mass of the electron-proton system $s_l$, \cref{eq:defslep}, given by the experiment.
     \item the properties of the electro-weak bosons, \cref{sec:diverse}.
         This includes basically all properties, such as the couplings to both leptons and quarks, specifically the electric charges and the electro-weak charges, or their respective masses.
     \item the discretization of interpolation grids, \cref{sec:interpolation}.
+        In practice it is important to ensure the introduced error is negligible with respect to all other sources.
     \item the specific solution method for the RGE of the strong coupling and the PDFs, \cref{sec:resum}.
+        Although all solutions must be perturbatively equivalent, in practice they are not numerically identical.
     \item the specific choice of renormalization and factorization scale as well as the applied factorization scale variation scheme, \cref{sec:sv}.
+        Although cross section do not depend perturbatively on any of the unphysical scales, they still do so in practice or in other words: they depend on the chosen amount of higher order terms.
     \item the heavy quark masses and the adopted FNS, \cref{sec:hq}.
     \item the target mass and the adopted approximation (if any), \cref{sec:TMC}.
+    \item the PDF scheme, \cref{sec:schemes}.
+        Although cross section do not depend perturbatively on the PDF scheme, they still do so numerically.
+        In practice, we only use the $\msbar$ scheme.
 \end{itemize}
 
 This means in turn coefficient functions depend on
 \begin{itemize}
     \item the partonic momentum fraction $z$.
     \item the structure function $F_2$, $F_L$, or $F_3$, \cref{sec:xs}.
-    \item the exchanged boson, i.e.\ NC vs.\ CC, \cref{sec:diverse}.
     \item the perturbative order, \cref{sec:xs}.
+    \item the exchanged boson, i.e.\ NC vs.\ CC, \cref{sec:diverse}.
     \item the unique combination of partonic channel, e.g.\ up, down, gluon, etc., and quark-boson coupling, e.g.\ $\qty(g_V^{\gamma q})^2=e_q^2$, $g_V^{\gamma q}g_V^{Z q}$, etc., \cref{sec:nlo}.
     \item the RSL representation, \cref{sec:interpolation}.
     \item the adopted FNS and so potentially on the ratio $Q^2/m^2$, \cref{sec:hq}.
 \end{itemize}
-Since interpolation, \cref{sec:interpolation}, scale variations, \cref{sec:sv}, and TMC, \cref{sec:TMC}, eventually can be applied a posteriori and on a global level, we can disentangle them from the coefficient functions.
+Since interpolation (\cref{sec:interpolation}), scale variations (\cref{sec:sv}), and TMC (\cref{sec:TMC}), eventually can be applied a posteriori and on a global level, we can disentangle them from the coefficient functions.
+
 
 When performing a real-life PDF extraction all these dependencies must be taken into account and \texttt{Yadism}~\cite{Candido:2024rkr,barontini_2026_18758473} provides one specific implementation thereof.
+
+Finally, we can consider the generalizations of the various features:
+\begin{itemize}
+    \item \cref{sec:diverse} is a reminder that we need to consider all particles or all diagrams in pQCD, see \cref{box:pQCD}.
+        The distinction between NC and CC repeats also for the Drell-Yan process at hadron colliders: $h_1 + h_2 \to l + l' + X$.
+    \item The RSL representation from \cref{sec:rsl} are a general math property of distributions.
+    \item While interpolation grids from \cref{sec:grids} are usually a bonus for fully inclusive DIS, they are a must for practically all other pQCD processes as, typically, they are much more challenging.
+    \item The evolution equations from \cref{sec:resum} are general pQCD results and, in particular, the strong coupling $\alpha_s$ and PDFs $\vb f$ are a fundamental part of any pQCD calculation and even beyond.
+    \item Scale variation from \cref{sec:sv} are a general pQCD feature, which can and must be applied to any calculation using either the strong coupling $\alpha_s$ or PDFs $\vb f$.
+    \item FNSs from \cref{sec:hq} are a general pQCD feature, which must be addressed before computing any diagram.
+        The phenomenological impact of choosing a \enquote{good} FNS depends on the considered observable and, in particular, on the relevant scale $\mu^2$.
+        Many measurements at the LHC are performed at $\mu = m_Z$ and we can safely assume $n_f=5$ massless quarks.
+        However, if a small scale is present, such as e.g.\ in B-meson production~\cite{Cacciari:2012ny,Helenius:2023wkn}, the question becomes non-trivial again.
+\end{itemize}
